@@ -54,9 +54,9 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             $scope.catalog.contentFile = $files[0];
         },
 
-//        createCatalogStep: 1,
+        workTypeCatalogFieldSpecs: client.shared.workTypeCatalogFieldSpecs,
 
-        workTypeCatalogFieldInfo: client.shared.workTypeCatalogFieldInfo,
+        catalogFieldSpecs: client.shared.catalogFieldSpecs,
 
         contentFormatOptions: client.shared.definitions.contentFormats.options,
 
@@ -84,8 +84,22 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
          * This method displays the catalog fields for the selected type of work.
          */
         workTypeSelected: function () {
+
+            // Reset and display catalog fields
             $scope.catalog.resetCatalogMetadata();
             $('#catalogFields').css('display', 'inline');
+            $('#controls').css('display', 'inline');
+
+            // Upload file widget
+            var wt = $scope.catalog.postData.metadata.workType;
+            var haveFileUpload = $scope.catalog.catalogFieldSpecs.workType.specs[wt].source === 'file';
+            var div = $('#fileUploadOption');
+            if (haveFileUpload) {
+                $scope.catalog.postData.metadata.contentFormat = contentFormats.dflMarkdown; // default
+                div.css('display', 'inline');
+            } else {
+                div.css('display', 'none');
+            }
         },
 
         /**
@@ -95,7 +109,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             var wt = $scope.catalog.postData.metadata.workType;
             $scope.catalog.postData.metadata = new client.shared.makeClientCatalog(wt);
             $scope.catalog.postData.metadata.workType = wt;
-            $scope.catalog.postData.metadata.contentFormat = contentFormats.dflMarkdown; // default
+            $scope.catalog.editable = false;
         },
 
         /**
@@ -169,18 +183,21 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
 
         /* saveMetadata: creates or updates a catalog item's metadata using a form */
         saveMetadata: function () {
-            if ($scope.catalog.metatadaValid) { // save button disabled
+
+            setMetadataFieldControls(true); // disable all
+            $scope.catalog.editable = false;
+
+            if ($scope.catalog.metatadaValid) {
 
                 var postData = $scope.catalog.postData;
 
                 if (typeof $scope.catalog.contentFile === 'undefined') {
 
-                    $http.post('/catalog/submit/metadata', postData)
+                    $http.post('/catalog/submit', postData)
                         .success(function (res, status, headers, config) {
                             if (status === 200) {
                                 horaceApp.debug(res);
                                 $scope.catalog.metatadaValid = false;
-                                setMetadataFieldDisable(true);
                             } else {
                                 $scope.catalog.errorMsg = 'Error: Try again. (' + res.error + ')';
                                 $scope.catalog.error = true;
@@ -196,7 +213,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
 
                 } else {
                     $scope.upload = $upload.upload({
-                        url: '/catalog/submit/metadata',
+                        url: '/catalog/submit',
                         data: postData, // TODO add a flag if metadata shouldn't be updated
                         file: $scope.catalog.contentFile
                     }).progress(function (evt) {
@@ -261,43 +278,24 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                     $scope.catalog.error = true;
                 });
         }
-
-        /** submitContent: creates or overwrites content for a catalog item */ // TODO
-//        submitContent: function () {
-//            var formData = new FormData($('form')[0]);
-//            $.ajax({
-//                url: 'catalog/submit/content',
-//                type: 'POST',
-//
-//                //Ajax events
-//                success: function (x) {
-//                    console.log('Metadata received by server: ' + JSON.stringify(x));
-//                },
-//                error: function (err) { // TODO should be either 400 or 500 page
-//                    console.trace('Metadata save error: ' + err);
-//                },
-//                // Form data
-//                data: formData,
-//
-//                //Options to tell jQuery not to process data or worry about content-type.
-//                cache: false,
-//                contentType: false,
-//                processData: false
-//            });
-//        }
     };
 
-    function setMetadataFieldDisable(disabled) {
+    /**
+     * setMetadataFieldControls: enables/disables catalog metadata
+     * fields, the file upload input box, and the resizing state of text areas of catalog metadata fields.
+     * @param disabled  If true, the fields must be disabled and the state must be not editable
+     */
+    function setMetadataFieldControls(disabled) {
         $('#catalogMetadata input, #catalogMetadata select, #catalogMetadata textarea').attr('disabled', disabled);
         $('#fileInput').attr('disabled', disabled);
-        $scope.editable = !disabled;
+        $('.textAreaCatalogField').css('resize', disabled?'none':'vertical');
+//        $scope.editable = !disabled;
     }
 
     // TODO not called when catalog.editable model is changed within scope methods!
     $scope.$watch('catalog.editable', function (oldVal, editable) {
-//        alert('old=' + oldVal + ' new=' + editable);
         if (oldVal !== editable) {
-            setMetadataFieldDisable(editable);
+            setMetadataFieldControls(editable);
         }
     });
 

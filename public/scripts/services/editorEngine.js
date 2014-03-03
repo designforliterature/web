@@ -71,8 +71,8 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
             /* A poem */
             Poem: function (work) {
                 var content = $('content')[0];
-                content.innerHTML = work.content;
-                if (work.type === client.shared.definitions.workType.Poem && EditorSettings.lineNumberingOn) {
+                content.innerHTML = work.content; // TODO not so straightforward: parts of the content might not be verses
+                if (EditorSettings.lineNumberingOn) {
                     // TODO care must be taken that this works even if content lines are broken up!
                     //      ELSE: make sure that content lines are NEVER broken up.
                     // TODO how will this work with prose sentence and/or paragraph numbering when text is flowed automatically?

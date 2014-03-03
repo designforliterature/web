@@ -41,6 +41,15 @@ horaceApp.directive('dflSetFocus', function () {
 // A catalog search result item
 horaceApp.directive('dflCatSearchResult', function () {
 
+    function insertSort(obj, rankPropName) { // TODO move to utils
+        for (var i = 0, j, other; i < obj.length; ++i) {
+            other = obj[i];
+            for (j = i - 1; j >= 0 && obj[j][rankPropName] > other[rankPropName]; --j)
+                obj[j + 1] = obj[j];
+            obj[j + 1] = other;
+        }
+    }
+
     function makeSpan(name, value, delim, font) {
         var span = '<span>';
         if (font) {
@@ -61,15 +70,31 @@ horaceApp.directive('dflCatSearchResult', function () {
         link: function (scope, element, attrs) {
             var specs = client.shared.catalogFieldSpecs;
             var subSpecs = client.shared.catalogFieldSubSpecs;
-            var obj = scope.result.obj;
+            var obj1 = scope.result.obj;
+            var sorted = [];
+            for (var kkey in obj1) {
+                var vval = obj1[kkey];
+                var spec = specs[kkey];
+                if (spec) {
+                    var s = {id: kkey, val: vval};
+                    sorted.push({rank: spec.rank, data: s});
+                }
+            }
+            insertSort(sorted, 'rank')
+            var obj = [];
+            for (var kkey in sorted) {
+                obj.push(sorted[kkey].data);
+            }
             var html = '<div style="margin-top: .5em">';
             var len = obj.len - 1; // minus _id
             var count = 0;
             for (var i in obj) {
-                if (i !== '_id' && i !== 'content') { // TODO remove 'content' when content is moved to the works collection
-                    var val = obj[i];
+                var o = obj[i];
+                var id = o.id;
+                var val = o.val;
+                if (id !== '_id' && id !== 'content') { // TODO remove 'content' when content is moved to the works collection
                     if ($.isArray(val)) {
-                        var subHtml = '<span><b>' + specs[i].name + ': </b></span>';
+                        var subHtml = '<span><b>' + specs[id].name + ': </b></span>';
                         for (var j in val) {
                             var subObj = val[j];
                             for (var k in subObj) {
@@ -79,19 +104,54 @@ horaceApp.directive('dflCatSearchResult', function () {
                         }
                         html += subHtml;
                     } else if (typeof val !== 'string') {
-                        var subHtml = '<span><b>' + subSpecs[i].name + ': </b></span>';
+                        var subHtml = '<span><b>' + subSpecs[id].name + ': </b></span>';
                         for (var l in val) {
                             subHtml += makeSpan(subSpecs[l].name, val[l], true, 'i');
                         }
                         html += subHtml;
                     } else {
-                        html += makeSpan(specs[i].name, obj[i], true, 'b');
+                        html += makeSpan(specs[id].name, val, true, 'b');
                     }
                     count += 1;
                 }
             }
             html += '</div>';
             element[0].innerHTML = html;
+
+
+//            var specs = client.shared.catalogFieldSpecs;
+//            var subSpecs = client.shared.catalogFieldSubSpecs;
+//            var obj = scope.result.obj;
+//            var html = '<div style="margin-top: .5em">';
+//            var len = obj.len - 1; // minus _id
+//            var count = 0;
+//            for (var i in obj) {
+//                if (i !== '_id' && i !== 'content') { // TODO remove 'content' when content is moved to the works collection
+//                    var val = obj[i];
+//                    if ($.isArray(val)) {
+//                        var subHtml = '<span><b>' + specs[i].name + ': </b></span>';
+//                        for (var j in val) {
+//                            var subObj = val[j];
+//                            for (var k in subObj) {
+//                                var subSpec = subSpecs[k];
+//                                subHtml += makeSpan(subSpec.subIdName || subSpec.name, subObj[k], true, 'i');
+//                            }
+//                        }
+//                        html += subHtml;
+//                    } else if (typeof val !== 'string') {
+//                        var subHtml = '<span><b>' + subSpecs[i].name + ': </b></span>';
+//                        for (var l in val) {
+//                            subHtml += makeSpan(subSpecs[l].name, val[l], true, 'i');
+//                        }
+//                        html += subHtml;
+//                    } else {
+//                        html += makeSpan(specs[i].name, obj[i], true, 'b');
+//                    }
+//                    count += 1;
+//                }
+//            }
+//            html += '</div>';
+//            element[0].innerHTML = html;
         }
     };
 });
@@ -100,12 +160,9 @@ horaceApp.directive('dflCatSearchResult', function () {
  * Directive used to validate catalog metadata form
  */
 horaceApp.directive('catalogField', function () {
-//    function validate(scope, ctrl, fieldName, text) {
-//
-//    }
 
     function checkRequired(scope, fieldId, fieldValue) {
-        var specs = client.shared.workTypeCatalogFieldInfo[scope.catalog.postData.metadata.workType];
+        var specs = client.shared.workTypeCatalogFieldSpecs[scope.catalog.postData.metadata.workType];
         var valid = true;
         for (var i in specs) {
             var spec = specs[i];

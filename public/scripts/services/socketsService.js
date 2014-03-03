@@ -85,7 +85,7 @@ horaceApp.service('SocketsService', ['ConfigService', 'NotificationService', fun
         /**
          * result of attempt to create or update a catalog item.
          */
-        txSocket.on('catalog/submit/metadata', function (tx) {
+        txSocket.on('catalog/submit', function (tx) {
             onCatalogSaveMetadataListener(tx);
         });
 

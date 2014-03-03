@@ -26,116 +26,144 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 <!--</div>-->
 <div style="width: 88%">
 
-<!-- TODO one controller per accordion group? -->
+    <!-- TODO one controller per accordion group? -->
 
-<accordion close-others="catalog.openOneAtATime">
+    <accordion close-others="catalog.openOneAtATime">
 
-    <button ng-click="catalog.status()">Get Status (dbg)</button>
+        <button ng-click="catalog.status()">Server Status (dbg)</button>
 
-    <accordion-group is-open="catalog.createCatalogOpen" heading="Create Catalog">
-
-        <div class="yellowBox">
-            <form name="saveMetadataForm" novalidateenctype="multipart/form-data">
-
-                <div style="font-weight: bold">Select Work Type: <select ng-change="catalog.workTypeSelected()"
-                                                                         ng-model="catalog.postData.metadata.workType"
-                                                                         ng-options="value[0] as value[1] for value in catalog.workTypeOptions"></select>
+        <accordion-group is-open="catalog.searchCatalogOpen" heading="Search">
+            <div class="yellowBox">
+                <form name="searchForm" novalidate> <!-- TODO replace button with search icon -->
+                    <div><span style="font-weight: bold">Search: </span><input ng-keypress="catalog.search($event)"
+                                                                               dfl-set-focus
+                                                                               ng-model="catalog.query.general"
+                                                                               name="general" type="text" size="100"/>
+                        <img
+                                tooltip="Search" ng-click="catalog.search()" src="images/search-icon-24.png"/></div>
+                </form>
+                <div id="searchResults" style="display: none">
+                    <dfl-cat-search-result ng-repeat="result in catalog.searchResults"></dfl-cat-search-result>
+                    <div id="searchMsg" style="margin-top: 1em"></div>
                 </div>
+            </div>
+        </accordion-group>
 
-                <input type="hidden" ng-model="catalog.postData.notify"/>
+        <accordion-group is-open="catalog.createCatalogOpen" heading="Create Catalog">
 
-                <div id="catalogFields" style="display: none" ng-init="catalog.metatadaValid = false">
-                    <!-- Start catalog fields -->
-                    <table id="catalogMetadata" style="table-layout:fixed; vertical-align: middle;margin-left: 2em">
-                        <tr ng-repeat="item in catalog.workTypeCatalogFieldInfo[catalog.postData.metadata.workType] | filter: {inForm: true}">
-                            <!--ng-if="(item.id !== 'workType')">-->
-                            <td><span style="font-weight: bold">{{item.name}}:</span><span ng-if="item.required"
-                                                                                           style="font-weight: bold;color:red">*</span>
-                            </td>
-                            <td style="text-align: center;vertical-align: middle;width: 32px"><img
-                                    tooltip="{{item.description}}" src="images/help-icon-24.png"/></td>
-                            <td style="height: 40px;width: 300px;word-wrap:break-word">
-                                <textarea disabled="{{catalog.editable}}" catalog-field name="{{item.id}}" ng-if="item.type === 'text'"
-                                          ng-model="catalog.postData.metadata[item.id]"
-                                          class="catalogField"></textarea>
-                                <input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}" ng-if="item.type === 'input'"
-                                       ng-model="catalog.postData.metadata[item.id]"
-                                       placeholder="{{item.placeholder}}"
-                                       class="catalogField"/>
-                                <select disabled="{{catalog.editable}}" catalog-field name="{{item.id}}" ng-if="item.type === 'select'"
-                                        ng-model="catalog.postData.metadata[item.id]"
-                                        ng-options="value[0] as value[1] for value in item.options"></select>
+            <div class="yellowBox">
+                <form name="saveMetadataForm" novalidateenctype="multipart/form-data">
 
-                                <div ng-if="item.id === 'publisherAddress'">
-                                    <input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}" type="text" class="catalogField"
-                                           ng-model="asyncSelected"
-                                           placeholder="Type Publisher's Address"
-                                           typeahead="address.formatted_address for address in catalog.getAddress($viewValue) | filter:$viewValue"
-                                           typeahead-on-select="catalog.selectedAddress($item)"
-                                           typeahead-editable="false"
-                                           typeahead-loading="loadingLocations" class="form-control">
-                                    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                    <!-- End catalog fields -->
+                    <div style="font-weight: bold">
+                        <span>Select Work Type: </span>
+                        <select
+                                ng-change="catalog.workTypeSelected()"
+                                ng-model="catalog.postData.metadata.workType"
+                                ng-options="value.code as value.name for value in catalog.workTypeOptions"></select>
+                        <span id="controls" style="display: none;margin: 2em">
+                            <table style="display: inline-table">
+                                <tr>
+                                    <!-- Save button -->
+                                    <td style="display: inline-block; width: 32px;"><img
+                                            ng-click="catalog.saveMetadata()"
+                                            ng-show="catalog.editable && catalog.metatadaValid"
+                                            tooltip="Save catalog information"
+                                            src="images/save-icon-16.png"
+                                            ng-show="catalog.metatadaValid"/>
+                                        <img src="images/save-icon-disabled-16.png"
+                                             tooltip="You can't save yet. Required catalog fields must be editable and filled-in."
+                                             ng-show="!catalog.editable || !catalog.metatadaValid"/></td>
 
-                    <!-- Select content file for upload -->
-                    <div class="chooseFileBox">
-                        <span>Content File Type:
-                            <select ng-disabled="true" ng-model="catalog.postData.metadata.contentFormat" ng-options="value[0] as value[1] for value in catalog.contentFormatOptions">
-                            </select>
-                            <input id="fileInput" disabled="{{catalog.editable}}" type="file" ng-file-select="catalog.fileSelected($files)"/>
+                                    <!-- Edit button -->
+                                    <td style="display: inline-block; width: 32px;"><img
+                                            ng-click="catalog.editable = false"
+                                            ng-show="catalog.editable"
+                                            tooltip="Click to make catalog fields uneditable"
+                                            src="images/edit-icon-disabled-16.png"
+                                            ng-show="catalog.metatadaValid"/>
+                                        <img ng-click="catalog.editable = true"
+                                             src="images/edit-icon-16.png"
+                                             tooltip="Click to edit the catalog fields."
+                                             ng-show="!catalog.editable"/></td>
+
+                                    <!-- Clear button -->
+                                    <td style="display: inline-block; width: 32px;"><img
+                                            ng-click="catalog.resetCatalogMetadata()"
+                                            tooltip="Clear Fields"
+                                            src="images/clear-icon-16.png"/></td>
+
+                                    <!-- Cancel upload button -->
+                                    <td style="display: inline-block; width: 32px;"><img tooltip="Cancel file upload"
+                                                                                         ng-click="upload.abort()"
+                                                                                         src="images/cancel-icon-16.png"/>
+                                    </td>
+                                </tr>
+                            </table>
                         </span>
                     </div>
 
-                    <!-- Controls (save/clear/cancel) -->
-                    <div class="errorMsg" ng-show="catalog.error">{{catalog.errorMsg}}</div>
-                    <div style="margin: 1em">
-                        <img ng-click="catalog.saveMetadata()"
-                             ng-show="catalog.editable && catalog.metatadaValid"
-                             tooltip="Save catalog information"
-                             src="images/save-icon-32.png" ng-show="catalog.metatadaValid"/>
-                        <img src="images/save-icon-disabled-32.png"
-                             tooltip="You can't save yet. Required catalog fields must be editable and filled-in."
-                             ng-show="!catalog.editable || !catalog.metatadaValid"/>
+                    <input type="hidden" ng-model="catalog.postData.notify"/>
 
-                        <img style="margin-left: 2em" ng-click="catalog.editable = !catalog.editable"
-                             ng-show="catalog.editable"
-                             tooltip="Edit catalog fields"
-                             src="images/save-icon-32.png" ng-show="catalog.metatadaValid"/>
-                        <img style="margin-left: 2em" ng-click="catalog.editable = !catalog.editable"
-                             src="images/save-icon-disabled-32.png"
-                             tooltip="Click to edit and save the catalog fields."
-                             ng-show="!catalog.editable"/>
 
-                        <img style="margin-left: 2em" ng-click="catalog.resetCatalogMetadata()"
-                             tooltip="Clear Fields"
-                             src="images/clear-icon-32.png"/><span></span>
-                        <button style="margin-left: 2em" tooltip="Cancel file upload" ng-click="upload.abort()"><img src="images/cancel-icon-32.png"/></button>
+                    <div id="catalogFields" style="display: none" ng-init="catalog.metatadaValid = false">
+
+                        <!-- Start catalog fields -->
+                        <table id="catalogMetadata" style="table-layout:fixed; vertical-align: middle;margin-left: 0">
+                            <tr ng-repeat="item in catalog.workTypeCatalogFieldSpecs[catalog.postData.metadata.workType] | filter: {inForm: true}">
+                                <td><span style="font-weight: bold">{{item.name}}:</span><span ng-if="item.required"
+                                                                                               style="font-weight: bold;color:red">*</span>
+                                </td>
+                                <td style="text-align: center;vertical-align: middle;width: 32px"><img
+                                        tooltip="{{item.description}}" src="images/help-icon-24.png"/></td>
+                                <td style="height: 40px;width: 300px;word-wrap:break-word">
+                                    <textarea class="textAreaCatalogField" disabled="{{catalog.editable}}" catalog-field
+                                              name="{{item.id}}" ng-if="item.type === 'text'"
+                                              ng-model="catalog.postData.metadata[item.id]"
+                                              class="catalogField"></textarea>
+                                    <input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}"
+                                           ng-if="item.type === 'input'"
+                                           ng-model="catalog.postData.metadata[item.id]"
+                                           placeholder="{{item.placeholder}}"
+                                           class="catalogField"/>
+                                    <select disabled="{{catalog.editable}}" catalog-field name="{{item.id}}"
+                                            ng-if="item.type === 'select'"
+                                            ng-model="catalog.postData.metadata[item.id]"
+                                            ng-options="value[0] as value[1] for value in item.options"></select>
+
+                                    <div ng-if="item.id === 'publisherAddress'">
+                                        <input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}"
+                                               type="text" class="catalogField"
+                                               ng-model="asyncSelected"
+                                               placeholder="Type Publisher's Address"
+                                               typeahead="address.formatted_address for address in catalog.getAddress($viewValue) | filter:$viewValue"
+                                               typeahead-on-select="catalog.selectedAddress($item)"
+                                               typeahead-editable="false"
+                                               typeahead-loading="loadingLocations" class="form-control">
+                                        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- End catalog fields -->
+
+                        <!-- Select content file for upload -->
+                        <div style="font-weight: bold;margin-left: 1.5em;width: 300px;line-height: 2em;padding: .5em;">
+                        <span id="fileUploadOption" style="display: none">Content File Type:
+                            <select ng-disabled="true" ng-model="catalog.postData.metadata.contentFormat"
+                                    ng-options="value[0] as value[1] for value in catalog.contentFormatOptions">
+                            </select>
+                            <input id="fileInput" disabled="{{catalog.editable}}" type="file"
+                                   ng-file-select="catalog.fileSelected($files)"/>
+                        </span>
+                        </div>
+
+                        <div class="errorMsg" ng-show="catalog.error">{{catalog.errorMsg}}</div>
+
+
                     </div>
-                </div>
-            </form>
-        </div>
-    </accordion-group>
+                </form>
+            </div>
+        </accordion-group>
 
-    <br/>
-
-    <accordion-group is-open="catalog.searchCatalogOpen" heading="Search">
-        <div class="yellowBox"/>
-        <form name="searchForm" novalidate> <!-- TODO replace button with search icon -->
-            <div><span style="font-weight: bold">Search: </span><input ng-keypress="catalog.search($event)"
-                                                                       dfl-set-focus
-                                                                       ng-model="catalog.query.general"
-                                                                       name="general" type="text" size="100"/> <img
-                    tooltip="Search" ng-click="catalog.search()" src="images/search-icon-24.png"/></div>
-        </form>
-        <div id="searchResults" style="display: none">
-            <dfl-cat-search-result ng-repeat="result in catalog.searchResults"></dfl-cat-search-result>
-            <div id="searchMsg" style="margin-top: 1em"></div>
-        </div>
-    </accordion-group>
-
-</accordion>
+    </accordion>
 </div>
