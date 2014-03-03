@@ -50,17 +50,22 @@ horaceApp.directive('dflCatSearchResult', function () {
         }
     }
 
-    function makeSpan(name, value, delim, font) {
-        var span = '<span>';
-        if (font) {
-            span += '<' + font + '>' + name + ': ' + '</' + font + '>' + value;
+    function makeSpan(id, name, value, delim, font) {
+        var title = id === 'title';
+        if (title) {
+            return '<a href="http://apple.com" target="_blank"/><i>"' + value + '</i></a>';
         } else {
-            span += name + ': ' + value;
+            var span = (title?'<a href="http://apple.com" target="_blank">':'<span>');
+            if (font) {
+                span += '<' + font + '>' + name + ': ' + '</' + font + '>' + value;
+            } else {
+                span += name + ': ' + value;
+            }
+            if (delim) {
+                span += '; ';
+            }
+            return span + '</span>';
         }
-        if (delim) {
-            span += '; ';
-        }
-        return span + '</span>';
     }
 
     return {
@@ -68,49 +73,61 @@ horaceApp.directive('dflCatSearchResult', function () {
 //        template: 'openOneAtATime: {{catalog.openOneAtATime}}'
 //        templateUrl: 'template/catalogSearchResultTemplate.html',
         link: function (scope, element, attrs) {
-            var specs = client.shared.catalogFieldSpecs;
-            var subSpecs = client.shared.catalogFieldSubSpecs;
-            var obj1 = scope.result.obj;
-            var sorted = [];
-            for (var kkey in obj1) {
-                var vval = obj1[kkey];
-                var spec = specs[kkey];
+            var mainObjectSpecs = client.shared.catalogFieldSpecs;
+            var subObjectSpecs = client.shared.catalogFieldSubSpecs;
+            var searchResultObj = scope.result.obj;
+            var sortedResults = [];
+            for (var fieldId in searchResultObj) {
+                var fieldValue = searchResultObj[fieldId];
+                var spec = mainObjectSpecs[fieldId];
                 if (spec) {
-                    var s = {id: kkey, val: vval};
-                    sorted.push({rank: spec.rank, data: s});
+                    var sortObject = {id: fieldId, val: fieldValue};
+                    sortedResults.push({rank: spec.rank, data: sortObject});
                 }
             }
-            insertSort(sorted, 'rank')
-            var obj = [];
-            for (var kkey in sorted) {
-                obj.push(sorted[kkey].data);
+            insertSort(sortedResults, 'rank')
+            var orderedResultItems = [];
+            for (var fieldId in sortedResults) {
+                orderedResultItems.push(sortedResults[fieldId].data);
             }
             var html = '<div style="margin-top: .5em">';
-            var len = obj.len - 1; // minus _id
+//            var len = orderedResultItems.len - 1; // minus _id
             var count = 0;
-            for (var i in obj) {
-                var o = obj[i];
-                var id = o.id;
-                var val = o.val;
-                if (id !== '_id' && id !== 'content') { // TODO remove 'content' when content is moved to the works collection
-                    if ($.isArray(val)) {
-                        var subHtml = '<span><b>' + specs[id].name + ': </b></span>';
-                        for (var j in val) {
-                            var subObj = val[j];
-                            for (var k in subObj) {
-                                var subSpec = subSpecs[k];
-                                subHtml += makeSpan(subSpec.subIdName || subSpec.name, subObj[k], true, 'i');
+            for (var fieldSpecKey in orderedResultItems) {
+                var mainSpec = orderedResultItems[fieldSpecKey];
+                var mainSpecId = mainSpec.id;
+                var mainSpecValue = mainSpec.val;
+                var mainSpecPrettyFun = mainSpec.prettyFun;
+                if (mainSpecId !== '_id' && mainSpecId !== 'content') { // TODO remove 'content' when content is moved to the works collection
+                    if ($.isArray(mainSpecValue)) {
+                        var subHtml = '<span><b>' + mainObjectSpecs[mainSpecId].name + ': </b></span>';
+                        for (var specSubObjectKey in mainSpecValue) {
+                            var subObject = mainSpecValue[specSubObjectKey];
+                            for (var subObjectKey in subObject) {
+                                var subObjectSpec = subObjectSpecs[subObjectKey];
+                                var value = subObject[subObjectKey];
+                                if (mainSpecPrettyFun) {
+                                    value = mainSpecPrettyFun(value);
+                                }
+                                subHtml += makeSpan(mainSpecId, subObjectSpec.subIdName || subObjectSpec.name, value, true, 'i');
                             }
                         }
                         html += subHtml;
-                    } else if (typeof val !== 'string') {
-                        var subHtml = '<span><b>' + subSpecs[id].name + ': </b></span>';
-                        for (var l in val) {
-                            subHtml += makeSpan(subSpecs[l].name, val[l], true, 'i');
+                    } else if (typeof mainSpecValue !== 'string') {
+                        var subHtml = '<span><b>' + subObjectSpecs[mainSpecId].name + ': </b></span>';
+                        for (var subspecKey in mainSpecValue) {
+                            var value = mainSpecValue[subspecKey];
+                            if (mainSpecPrettyFun) {
+                                value = mainSpecPrettyFun(value);
+                            }
+                            subHtml += makeSpan(mainSpecId, subObjectSpecs[subspecKey].name, value, true, 'i');
                         }
                         html += subHtml;
                     } else {
-                        html += makeSpan(specs[id].name, val, true, 'b');
+                        if (mainSpecPrettyFun) {
+                            mainSpecValue = mainSpecPrettyFun(mainSpecValue);
+                        }
+                        html += makeSpan(mainSpecId, mainObjectSpecs[mainSpecId].name, mainSpecValue, true, 'b');
                     }
                     count += 1;
                 }
