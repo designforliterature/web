@@ -876,27 +876,6 @@ function makeWorkTypes() {
     return presentationArray;
 }
 
-//workTypes.codes = getCodes(workTypes);
-
-var catalogFieldNames = {
-    workType: 'workType',
-    id: 'id',
-    title: 'title',
-    lang: 'lang',
-    authors: 'authors',
-    editors: 'editors',
-    edition: 'edition',
-    publisherAddress: 'publisherAddress',
-    publisherName: 'publisherName',
-    publisherCity: 'publisherCity',
-    publisherProvince: 'publisherCountry',
-    publisherCountry: 'publisherProvince',
-    copyright: 'copyright',
-    subjects: 'subjects',
-    pageUrl: 'pageUrl',
-    websiteUrl: 'websiteUrl',
-    contentFormat: 'contentFormat'
-};
 var makePrettyFuns = {
     default: function(id, name, value) {
             var span = '<span>';

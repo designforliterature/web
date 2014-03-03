@@ -28,7 +28,9 @@
  */
 'use strict';
 
-// Sets focus on specified element
+/**
+ * dflSetFocus: sets focus on the specified element
+ */
 horaceApp.directive('dflSetFocus', function () {
     return {
         restrict: 'A', // matches attribute dfl-set-focus only
@@ -38,7 +40,9 @@ horaceApp.directive('dflSetFocus', function () {
     };
 });
 
-// A catalog search result item
+/**
+ * dflCatSearchResult: expands a dfl-cat-search-result element
+ */
 horaceApp.directive('dflCatSearchResult', function () {
 
     function insertSort(obj, rankPropName) { // TODO move to utils
