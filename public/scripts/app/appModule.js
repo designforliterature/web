@@ -32,46 +32,54 @@
  */
 
 var horaceApp = angular.module('horaceApp', [
-    'ngRoute',
+    'ui.router',
     'angularFileUpload',
     'ui.bootstrap'
 ]);
 /* End horaceApp module */
 
-horaceApp.config(function ($routeProvider, $locationProvider) {
+horaceApp.config(function ($stateProvider, $urlRouterProvider) {
 
-    $routeProvider
-        .when('/', {
+    $urlRouterProvider.otherwise('/signin')
+//
+    $stateProvider
+        .state('signin', {
             controller: 'SigninCtrl',
+            url: '/signin',
             templateUrl: '/views/signin.html'
         })
-        .when('/signup/', {
+        .state('signup', {
             controller: 'SignupCtrl',
+            url: '/signup',
             templateUrl: '/views/signup.html'
         })
-        .when('/home/', {
+        .state('home', {
             controller: 'HomeCtrl',
+            url: '/home',
             templateUrl: '/views/home.html'
         })
-        .when('/browse/', {
+        .state('browse', {
             controller: 'EditorCtrl',
+            url: '/browse',
             templateUrl: '/views/browse.html'
         })
-        .when('/edit/:order_id    ', {
-            controller: 'EditCtrl',
-//            templateUrl: 'templates/editor.html',
-            templateUrl: 'catalog/edit'
-        })
-        .when('/catalog/', {
+//        .state('edit:order_id    ', {
+//            controller: 'EditCtrl',
+//    url: '/edit',
+////            templateUrl: 'templates/editor.html',
+//            templateUrl: 'catalog/edit'
+//        })
+        .state('catalog', {
             controller: 'CatalogCtrl',
+            url: '/catalog',
             templateUrl: '/views/catalog.html'
         })
-        .otherwise({
-            redirectTo: '/'
-        });
 
-    // configure html5 to get links working on jsfiddle
+// To configure html5 to get links working on jsfiddle:
 //    $locationProvider.html5Mode(true);
 
 });
+
+
+
 /* End horaceApp Route Config */
