@@ -856,31 +856,30 @@ function makeWorkTypes() {
     return presentationArray;
 }
 
-/**
- * searchResultPrettyPrintFun: contains all pretty HTML printing functions for search results.
-  */
-var searchResultPrettyPrintFun = {
-    default: function (id, name, value, delim, font) {
-        var title = id === 'title';
-        if (title) {
-            return '<a href="http://apple.com" target="_blank"/><i>' + value + '</i></a><br/>';
-        } else {
-            var span = (title ? '<a href="http://apple.com" target="_blank">' : '<span>');
-            if (font) {
-                span += '<' + font + '>' + name + ': ' + '</' + font + '>' + value;
-            } else {
-                span += name + ': ' + value;
-            }
-            if (delim) {
-                span += '; ';
-            }
-            return span + '</span>';
-        }
-    },
-    title: function () {
-
-    }
-};
+//
+///**
+// * searchResultPrettyPrintFun: contains all pretty HTML printing functions for search results.
+//  */
+//var searchResultPrettyPrintFun = {
+//    default: function (searchResult, id, name, value, delim, font) {
+//        var span = '<span>';
+//        if (font) {
+//            span += '<' + font + '>' + name + ': ' + '</' + font + '>' + value;
+//        } else {
+//            span += name + ': ' + value;
+//        }
+//        if (delim) {
+//            span += '; ';
+//        }
+//        return span + '</span>';
+//    },
+//    title: function (searchResult, id, name, value, delim, font) {
+//        var id = "'" + searchResult._id + "'";
+//        var x = '<a onclick="sendit('+id+')"><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
+//        return x;
+////        return '<a href="/#edit?i='+searchResult._id+'"/><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
+//    }
+//};
 
 /**
  * catalogFieldSpecs: Presentation specs for each catalog field
@@ -910,11 +909,12 @@ var catalogFieldSpecs = { // TODO incorporate the value type (string/number/choi
 
     // TODO fields need i18n ids: name, description
 
-    workType: {id: 'workType', required: true, name: 'Work Type', type: 'select', specs: workTypeSpecs, options: makeWorkTypes(), validator: 'string', xformer: 'set', inForm: false, rank: 20, prettyFun: searchResultPrettyPrintFun.default},
+    workType: {id: 'workType', required: true, name: 'Work Type', type: 'select', specs: workTypeSpecs, options: makeWorkTypes(), validator: 'string', xformer: 'set', inForm: false, rank: 20},
 
-    id: {id: '_id', name: 'Identifier', type: 'input', description: 'Unique identifier for the catalog item', min: 36, max: 36, validator: 'string', xformer: 'set', inForm: true, rank: 0, prettyFun: searchResultPrettyPrintFun.default},
+    id: {id: '_id', name: 'Identifier', type: 'input', description: 'Unique identifier for the catalog item', min: 36, max: 36, validator: 'string', xformer: 'set', inForm: true, rank: 0},
 
-    title: {id: 'title', name: 'Title', type: 'text', min: 1, description: "The work's original title", validator: 'string', xformer: 'set', inForm: true, rank: 10, prettyFun: searchResultPrettyPrintFun.default},
+    title: {id: 'title', name: 'Title', type: 'text', min: 1, description: "The work's original title", validator: 'string', xformer: 'set', inForm: true, rank: 10},
+
     lang: {id: 'lang', name: 'Language', type: 'select', options: function () {
         var code, langs = [];
         for (var code in isoLangs) {
@@ -922,33 +922,33 @@ var catalogFieldSpecs = { // TODO incorporate the value type (string/number/choi
             langs.push([code, lang.name])
         }
         return langs;
-    }(), min: 2, max: 8, description: 'The main language in which the work for this catalog item is written', validator: 'string', xformer: 'set', inForm: true, rank: 30, prettyFun: searchResultPrettyPrintFun.default},
+    }(), min: 2, max: 8, description: 'The main language in which the work for this catalog item is written', validator: 'string', xformer: 'set', inForm: true, rank: 30},
 
-    authors: {id: 'authors', subId: 'fullName', subIdName: 'Name', name: 'Author(s)', type: 'text', description: 'A list of the original author(s) of this work', validator: 'string', xformer: 'push', inForm: true, rank: 50, prettyFun: searchResultPrettyPrintFun.default},
+    authors: {id: 'authors', subId: 'fullName', subIdName: 'Name', name: 'Author(s)', type: 'text', description: 'A list of the original author(s) of this work', validator: 'string', xformer: 'push', inForm: true, rank: 50},
 
-    editors: {id: 'editors', subId: 'fullName', subIdName: 'Name', name: 'Ed(s)', type: 'text', description: 'For anthologies and other collections, this is a list of the original editor(s) of this work.', validator: 'string', xformer: 'push', inForm: true, rank: 60, prettyFun: searchResultPrettyPrintFun.default},
+    editors: {id: 'editors', subId: 'fullName', subIdName: 'Name', name: 'Ed(s)', type: 'text', description: 'For anthologies and other collections, this is a list of the original editor(s) of this work.', validator: 'string', xformer: 'push', inForm: true, rank: 60},
 
-    edition: {id: 'edition', name: 'Edition', type: 'input', description: 'The edition of this work. This must be a number.', validator: 'integer', min: 1, max: 1000, xformer: 'set', inForm: true, rank: 40, prettyFun: searchResultPrettyPrintFun.default}, // TODO present a number wheel?
+    edition: {id: 'edition', name: 'Edition', type: 'input', description: 'The edition of this work. This must be a number.', validator: 'integer', min: 1, max: 1000, xformer: 'set', inForm: true, rank: 40}, // TODO present a number wheel?
 
-    publisherAddress: {id: 'publisherAddress', toId: 'publisher', 'subId': 'address', subIdName: 'Full Address', name: "Publisher Address", type: 'typeahead', description: "The address of this work's publisher", validator: 'string', xformer: 'construct', inForm: true, rank: 1, prettyFun: searchResultPrettyPrintFun.default},
+    publisherAddress: {id: 'publisherAddress', toId: 'publisher', 'subId': 'address', subIdName: 'Full Address', name: "Publisher Address", type: 'typeahead', description: "The address of this work's publisher", validator: 'string', xformer: 'construct', inForm: true, rank: 1},
 
-    publisherName: {id: 'publisherName', toId: 'publisher', 'subId': 'name', name: 'Publisher Name', type: 'input', min: 1, description: "The name of this work's publisher", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 70, prettyFun: searchResultPrettyPrintFun.default},
+    publisherName: {id: 'publisherName', toId: 'publisher', 'subId': 'name', name: 'Publisher Name', type: 'input', min: 1, description: "The name of this work's publisher", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 70},
 
-    publisherCity: {id: 'publisherCity', toId: 'publisher', 'subId': 'city', name: 'Publisher City', type: 'input', description: "The publisher's city", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 80, prettyFun: searchResultPrettyPrintFun.default},
+    publisherCity: {id: 'publisherCity', toId: 'publisher', 'subId': 'city', name: 'Publisher City', type: 'input', description: "The publisher's city", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 80},
 
-    publisherProvince: {id: 'publisherProvince', toId: 'publisher', 'subId': 'province', name: 'Publisher Province', type: 'input', description: "The publisher's province or state", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 90, prettyFun: searchResultPrettyPrintFun.default},
+    publisherProvince: {id: 'publisherProvince', toId: 'publisher', 'subId': 'province', name: 'Publisher Province', type: 'input', description: "The publisher's province or state", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 90},
 
-    publisherCountry: {id: 'publisherCountry', toId: 'publisher', 'subId': 'country', name: 'Publisher Country', type: 'input', description: "The publisher's country", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 100, prettyFun: searchResultPrettyPrintFun.default},
+    publisherCountry: {id: 'publisherCountry', toId: 'publisher', 'subId': 'country', name: 'Publisher Country', type: 'input', description: "The publisher's country", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 100},
 
-    copyright: {id: 'copyright', name: 'Copyright', type: 'text', min: 8, description: "A copyright description", validator: 'string', xformer: 'set', inForm: true, rank: 110, prettyFun: searchResultPrettyPrintFun.default},
+    copyright: {id: 'copyright', name: 'Copyright', type: 'text', min: 8, description: "A copyright description", validator: 'string', xformer: 'set', inForm: true, rank: 110},
 
-    subjects: {id: 'subjects', subId: 'name', name: 'Subject(s)', type: 'text', description: "Subjects areas pertaining to this work", validator: 'string', xformer: 'push', inForm: true, rank: 120, prettyFun: searchResultPrettyPrintFun.default},
+    subjects: {id: 'subjects', subId: 'name', name: 'Subject(s)', type: 'text', description: "Subjects areas pertaining to this work", validator: 'string', xformer: 'push', inForm: true, rank: 120},
 
-    pageUrl: {id: 'pageUrl', name: 'Page URL', type: 'input', placeholder: 'http://', min: 10, description: "The URL to the page cited by this catalog item", validator: 'url', xformer: 'set', inForm: true, rank: 11, prettyFun: searchResultPrettyPrintFun.default},
+    pageUrl: {id: 'pageUrl', name: 'Page URL', type: 'input', placeholder: 'http://', min: 10, description: "The URL to the page cited by this catalog item", validator: 'url', xformer: 'set', inForm: true, rank: 11},
 
-    websiteUrl: {id: 'websiteUrl', name: 'Website URL', type: 'input', placeholder: 'http://', min: 10, description: "The URL to the home page cited by this catalog item", validator: 'url', xformer: 'set', inForm: true, rank: 11, prettyFun: searchResultPrettyPrintFun.default},
+    websiteUrl: {id: 'websiteUrl', name: 'Website URL', type: 'input', placeholder: 'http://', min: 10, description: "The URL to the home page cited by this catalog item", validator: 'url', xformer: 'set', inForm: true, rank: 11},
 
-    contentFormat: {id: 'contentFormat', name: 'Content Format', type: 'select', description: "The format of an uploaded content file", validator: 'noop', xformer: 'set', inForm: false, rank: 1000, prettyFun: searchResultPrettyPrintFun.default} // TODO set to appropriate validator instead of noop
+    contentFormat: {id: 'contentFormat', name: 'Content Format', type: 'select', description: "The format of an uploaded content file", validator: 'noop', xformer: 'set', inForm: false, rank: 1000} // TODO set to appropriate validator instead of noop
 };
 
 /**

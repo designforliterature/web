@@ -82,6 +82,7 @@ Note: Using <% and %> as Hogan delimiters instead of mustaches (mustaches reserv
     <script src="scripts/controllers/signinCtrl.js"></script>
     <script src="scripts/controllers/signupCtrl.js"></script>
     <script src="scripts/controllers/editorCtrl.js"></script>
+    <script src="scripts/controllers/editCtrl.js"></script>
     <script src="scripts/controllers/homeCtrl.js"></script>
     <script src="scripts/controllers/catalogCtrl.js"></script>
     <!-- End application scripts ----------------------------------------------------- -->
@@ -110,7 +111,11 @@ Note: Using <% and %> as Hogan delimiters instead of mustaches (mustaches reserv
 <body ng-app="horaceApp">
 
 <div ng-controller="AppCtrl">
+
+    <div ng-include="app.menubar"></div>
+
     <div ng-view></div>
+
 </div>
 
 <!-- Websocket messages from transactions for debugging only -->

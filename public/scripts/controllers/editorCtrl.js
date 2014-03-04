@@ -101,7 +101,6 @@ var work =
     type: 'Poem'
 };
 
-// Signin controls username and password model
 horaceApp.controller('EditorCtrl', function ($scope, EditorEngine, EditorSettings, UserPrefs) {
 
     /* Execute after document loads */

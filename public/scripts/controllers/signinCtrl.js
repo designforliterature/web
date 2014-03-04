@@ -31,13 +31,8 @@
 
 horaceApp.controller('SigninCtrl', function ($scope, $http, $location) {
 
-    $scope.signin = {
-        menubars: {standard: 'views/menubarOffline.html'}
-    };
-    $scope.signin.menubar = $scope.signin.menubars.standard;
 
-
-    $scope.signin.login = function () {
+    $scope.signin = {login: function () {
         var user = $scope.signin.user;
         $http.post('/login', user)
             .success(function (res) {
@@ -56,6 +51,7 @@ horaceApp.controller('SigninCtrl', function ($scope, $http, $location) {
                 $scope.signin.msg = 'Technical Problem: Please retry';
                 $scope.signin.error = true;
             });
+    }
     };
 });
 /* End SigninCtrl */

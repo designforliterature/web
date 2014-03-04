@@ -24,16 +24,18 @@
 
 'use strict';
 
-// TODO error handling
+// TODO better error handling
+
 
 
 /**
  * Controls the catalog behavior (search, create, update).
  */
 
-horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $timeout, $upload) {
+horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $timeout, $upload, $compile) {
 
-    var defaultNotify = true;
+
+    var defaultNotify = false;
 
     $('input[type=file]').css('background-color', 'red');
 
@@ -42,7 +44,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
         // Accordion flags
         openOneAtATime: false,
         searchCatalogOpen: true,
-        createCatalogOpen: true,
+        createCatalogOpen: false,
 
         /** userLang: the client's current language */
         clientLang: window.navigator.userLanguage || window.navigator.language,
@@ -234,6 +236,10 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             }
         },
 
+        goEdit: function (workId) {
+
+        },
+
         /* status: get server status DBG ONLY TODO REMOVE */
         status: function (event) {
             $http.get('/sys/status')
@@ -288,7 +294,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
     function setMetadataFieldControls(disabled) {
         $('#catalogMetadata input, #catalogMetadata select, #catalogMetadata textarea').attr('disabled', disabled);
         $('#fileInput').attr('disabled', disabled);
-        $('.textAreaCatalogField').css('resize', disabled?'none':'vertical');
+        $('.textAreaCatalogField').css('resize', disabled ? 'none' : 'vertical');
 //        $scope.editable = !disabled;
     }
 
@@ -298,6 +304,53 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             setMetadataFieldControls(editable);
         }
     });
+
+
+        // TODO solution might be to use https://github.com/angular-ui/ui-router/wiki/URL-Routing
+    // TODO move the following into editCtl
+
+    clientApp.sendIt = function (id) {
+        console.info('hello');
+        $.ajax({
+            type: "GET",
+            url: 'catalog/edit?i=' + id,
+            success: function(a,b) {
+                horaceApp.debug(a);
+//                var c = $('#catalog');
+//                $compile(c)($scope);
+                //document.location = 'index.html#/browse/';
+            }
+        });
+    }
+
+    /**
+     * searchResultPrettyPrintFun: contains all pretty HTML printing functions for search results.
+     * These functions are called from the dfl search directive
+     */
+    var searchResultPrettyPrintFun = {
+        default: function (searchResult, id, name, value, delim, font) {
+            var span = '<span>';
+            if (font) {
+                span += '<' + font + '>' + name + ': ' + '</' + font + '>' + value;
+            } else {
+                span += name + ': ' + value;
+            }
+            if (delim) {
+                span += '; ';
+            }
+            return span + '</span>';
+        },
+        title: function (searchResult, id, name, value, delim, font) {
+            var id = "'" + searchResult._id + "'";
+            var x = '<a onclick="clientApp.sendIt(' + id + ')"><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
+            return x;
+        }
+    };
+
+    for (var specId in client.shared.catalogFieldSpecs) {
+        var spec = client.shared.catalogFieldSpecs[specId];
+        spec.prettyFun = (specId === 'title') ? searchResultPrettyPrintFun.title : searchResultPrettyPrintFun.default;
+    }
 
 });
 /* End of CatalogCtrl */

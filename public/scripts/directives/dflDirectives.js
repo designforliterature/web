@@ -83,7 +83,7 @@ horaceApp.directive('dflCatSearchResult', function () {
                             for (var subObjectKey in subObject) {
                                 var subObjectSpec = subObjectSpecs[subObjectKey];
                                 var value = subObject[subObjectKey];
-                                subHtml += prettyFun(mainSpecId, subObjectSpec.subIdName || subObjectSpec.name, value, true, 'i');
+                                subHtml += prettyFun(searchResultObj, mainSpecId, subObjectSpec.subIdName || subObjectSpec.name, value, true, 'i');
                             }
                         }
                         html += subHtml;
@@ -91,11 +91,11 @@ horaceApp.directive('dflCatSearchResult', function () {
                         var subHtml = '<span><b>' + subObjectSpecs[mainSpecId].name + ': </b></span>';
                         for (var subspecKey in mainSpecValue) {
                             var value = mainSpecValue[subspecKey];
-                            subHtml += prettyFun(mainSpecId, subObjectSpecs[subspecKey].name, value, true, 'i');
+                            subHtml += prettyFun(searchResultObj, mainSpecId, subObjectSpecs[subspecKey].name, value, true, 'i');
                         }
                         html += subHtml;
                     } else {
-                        html += prettyFun(mainSpecId, mainObjectSpecs[mainSpecId].name, mainSpecValue, true, 'b');
+                        html += prettyFun(searchResultObj, mainSpecId, mainObjectSpecs[mainSpecId].name, mainSpecValue, true, 'b');
                     }
                     count += 1;
                 }

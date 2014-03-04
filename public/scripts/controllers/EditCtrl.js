@@ -1,7 +1,7 @@
 /*
  *The MIT License (MIT)
  *
- *Copyright (c) 2014 Ruben Kleiman
+ *Copyright (c) 2013 Ruben Kleiman
  *
  *Permission is hereby granted, free of charge, to any person obtaining a copy of this software
  *and associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -22,46 +22,10 @@
 
 // CLIENT SIDE --------------------------------------------------------------------------------------------
 
-/**
- * This is the toplevel controller for the client.
- * All global-like behavior should be encapsulated here.
- */
-
 'use strict';
 
-// DBG type := {true|false} true is http, false is sockets
-var debug = true;
-if (debug) {
-    $('#httpDebug').css('display', 'inline');
-    $('#socketDebug').css('display', 'inline');
-}
+horaceApp.controller('EditCtrl', function ($scope, $routeParams) {
 
-horaceApp.debug = function (obj, type) {
-    if (debug) {
-        var dbg = (typeof type === 'undefined' || type) ? $('#httpDebug') : $('#socketDebug')
-        dbg.css('display', 'inline');
-        if ('undefined' !== typeof dbg) {
-            if (obj.type === 'trans') {
-                dbg.css('color', 'blue');
-            } else if (obj.type === 'ack') {
-                dbg.css('color', 'green');
-            } else {
-                dbg.css('color', 'red');
-            }
-            dbg[0].innerHTML = '<b>' + JSON.stringify(obj) + '</b>';
-        }
-    }
-};
-
-horaceApp.controller('AppCtrl', function ($scope, SocketsService) {
-
-    // Connect websockets when client is (re-)loaded
-    SocketsService.connectSockets();
-
-    $scope.app =
-    {
-        menubar: 'views/menubarOffline.html'
-    };
+    $scope.order_id = $routeParams.order_id;
 
 });
-/* End AppCtrl */

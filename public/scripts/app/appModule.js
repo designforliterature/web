@@ -19,7 +19,7 @@
  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
+ */
 
 // CLIENT SIDE --------------------------------------------------------------------------------------------
 
@@ -35,7 +35,8 @@ var horaceApp = angular.module('horaceApp', [
     'ngRoute',
     'angularFileUpload',
     'ui.bootstrap'
-]); /* End horaceApp module */
+]);
+/* End horaceApp module */
 
 horaceApp.config(function ($routeProvider, $locationProvider) {
 
@@ -56,6 +57,11 @@ horaceApp.config(function ($routeProvider, $locationProvider) {
             controller: 'EditorCtrl',
             templateUrl: '/views/browse.html'
         })
+        .when('/edit/:order_id    ', {
+            controller: 'EditCtrl',
+//            templateUrl: 'templates/editor.html',
+            templateUrl: 'catalog/edit'
+        })
         .when('/catalog/', {
             controller: 'CatalogCtrl',
             templateUrl: '/views/catalog.html'
@@ -67,4 +73,5 @@ horaceApp.config(function ($routeProvider, $locationProvider) {
     // configure html5 to get links working on jsfiddle
 //    $locationProvider.html5Mode(true);
 
-}); /* End horaceApp Route Config */
+});
+/* End horaceApp Route Config */
