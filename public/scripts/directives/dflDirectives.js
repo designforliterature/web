@@ -45,33 +45,6 @@ horaceApp.directive('dflSetFocus', function () {
  */
 horaceApp.directive('dflCatSearchResult', function () {
 
-    function insertSort(obj, rankPropName) { // TODO move to utils
-        for (var i = 0, j, other; i < obj.length; ++i) {
-            other = obj[i];
-            for (j = i - 1; j >= 0 && obj[j][rankPropName] > other[rankPropName]; --j)
-                obj[j + 1] = obj[j];
-            obj[j + 1] = other;
-        }
-    }
-
-    function makeSpan(id, name, value, delim, font) {
-        var title = id === 'title';
-        if (title) {
-            return '<a href="http://apple.com" target="_blank"/><i>"' + value + '</i></a>';
-        } else {
-            var span = (title?'<a href="http://apple.com" target="_blank">':'<span>');
-            if (font) {
-                span += '<' + font + '>' + name + ': ' + '</' + font + '>' + value;
-            } else {
-                span += name + ': ' + value;
-            }
-            if (delim) {
-                span += '; ';
-            }
-            return span + '</span>';
-        }
-    }
-
     return {
         restrict: 'E', // matches only element dfl-cat-search-result only
 //        template: 'openOneAtATime: {{catalog.openOneAtATime}}'
@@ -89,7 +62,7 @@ horaceApp.directive('dflCatSearchResult', function () {
                     sortedResults.push({rank: spec.rank, data: sortObject});
                 }
             }
-            insertSort(sortedResults, 'rank')
+            clientApp.dfUtils.insertSort(sortedResults, 'rank')
             var orderedResultItems = [];
             for (var fieldId in sortedResults) {
                 orderedResultItems.push(sortedResults[fieldId].data);
@@ -100,8 +73,8 @@ horaceApp.directive('dflCatSearchResult', function () {
             for (var fieldSpecKey in orderedResultItems) {
                 var mainSpec = orderedResultItems[fieldSpecKey];
                 var mainSpecId = mainSpec.id;
+                var prettyFun = mainObjectSpecs[mainSpecId].prettyFun;
                 var mainSpecValue = mainSpec.val;
-                var mainSpecPrettyFun = mainSpec.prettyFun;
                 if (mainSpecId !== '_id' && mainSpecId !== 'content') { // TODO remove 'content' when content is moved to the works collection
                     if ($.isArray(mainSpecValue)) {
                         var subHtml = '<span><b>' + mainObjectSpecs[mainSpecId].name + ': </b></span>';
@@ -110,10 +83,7 @@ horaceApp.directive('dflCatSearchResult', function () {
                             for (var subObjectKey in subObject) {
                                 var subObjectSpec = subObjectSpecs[subObjectKey];
                                 var value = subObject[subObjectKey];
-                                if (mainSpecPrettyFun) {
-                                    value = mainSpecPrettyFun(value);
-                                }
-                                subHtml += makeSpan(mainSpecId, subObjectSpec.subIdName || subObjectSpec.name, value, true, 'i');
+                                subHtml += prettyFun(mainSpecId, subObjectSpec.subIdName || subObjectSpec.name, value, true, 'i');
                             }
                         }
                         html += subHtml;
@@ -121,58 +91,17 @@ horaceApp.directive('dflCatSearchResult', function () {
                         var subHtml = '<span><b>' + subObjectSpecs[mainSpecId].name + ': </b></span>';
                         for (var subspecKey in mainSpecValue) {
                             var value = mainSpecValue[subspecKey];
-                            if (mainSpecPrettyFun) {
-                                value = mainSpecPrettyFun(value);
-                            }
-                            subHtml += makeSpan(mainSpecId, subObjectSpecs[subspecKey].name, value, true, 'i');
+                            subHtml += prettyFun(mainSpecId, subObjectSpecs[subspecKey].name, value, true, 'i');
                         }
                         html += subHtml;
                     } else {
-                        if (mainSpecPrettyFun) {
-                            mainSpecValue = mainSpecPrettyFun(mainSpecValue);
-                        }
-                        html += makeSpan(mainSpecId, mainObjectSpecs[mainSpecId].name, mainSpecValue, true, 'b');
+                        html += prettyFun(mainSpecId, mainObjectSpecs[mainSpecId].name, mainSpecValue, true, 'b');
                     }
                     count += 1;
                 }
             }
             html += '</div>';
             element[0].innerHTML = html;
-
-
-//            var specs = client.shared.catalogFieldSpecs;
-//            var subSpecs = client.shared.catalogFieldSubSpecs;
-//            var obj = scope.result.obj;
-//            var html = '<div style="margin-top: .5em">';
-//            var len = obj.len - 1; // minus _id
-//            var count = 0;
-//            for (var i in obj) {
-//                if (i !== '_id' && i !== 'content') { // TODO remove 'content' when content is moved to the works collection
-//                    var val = obj[i];
-//                    if ($.isArray(val)) {
-//                        var subHtml = '<span><b>' + specs[i].name + ': </b></span>';
-//                        for (var j in val) {
-//                            var subObj = val[j];
-//                            for (var k in subObj) {
-//                                var subSpec = subSpecs[k];
-//                                subHtml += makeSpan(subSpec.subIdName || subSpec.name, subObj[k], true, 'i');
-//                            }
-//                        }
-//                        html += subHtml;
-//                    } else if (typeof val !== 'string') {
-//                        var subHtml = '<span><b>' + subSpecs[i].name + ': </b></span>';
-//                        for (var l in val) {
-//                            subHtml += makeSpan(subSpecs[l].name, val[l], true, 'i');
-//                        }
-//                        html += subHtml;
-//                    } else {
-//                        html += makeSpan(specs[i].name, obj[i], true, 'b');
-//                    }
-//                    count += 1;
-//                }
-//            }
-//            html += '</div>';
-//            element[0].innerHTML = html;
         }
     };
 });

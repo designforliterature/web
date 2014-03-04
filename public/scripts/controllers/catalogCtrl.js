@@ -33,7 +33,7 @@
 
 horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $timeout, $upload) {
 
-    var defaultNotify = false;
+    var defaultNotify = true;
 
     $('input[type=file]').css('background-color', 'red');
 

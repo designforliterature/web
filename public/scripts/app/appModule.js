@@ -25,6 +25,7 @@
 
 'use strict';
 
+
 /**
  * This is the client application's angular module.
  * Angular configuration (esp. routes) is done here.
