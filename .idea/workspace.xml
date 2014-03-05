@@ -6,7 +6,7 @@
     <option name="CUSTOM_SCOPE_NAME" value="web" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="readme update&#10;">
+    <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -83,7 +83,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="5" selection-start="492" selection-end="492" vertical-scroll-proportion="0.14618474" vertical-offset="43" max-vertical-offset="1875">
+            <state line="15" column="47" selection-start="536" selection-end="536" vertical-scroll-proportion="0.18072289" vertical-offset="0" max-vertical-offset="1875">
               <folding />
             </state>
           </provider>
@@ -746,7 +746,11 @@
       <created>1394012287800</created>
       <updated>1394012287800</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="readme update&#10;">
+      <created>1394012325390</created>
+      <updated>1394012325390</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1147,7 +1151,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="5" selection-start="492" selection-end="492" vertical-scroll-proportion="0.14618474" vertical-offset="43" max-vertical-offset="1875">
+        <state line="15" column="47" selection-start="536" selection-end="536" vertical-scroll-proportion="0.18072289" vertical-offset="0" max-vertical-offset="1875">
           <folding />
         </state>
       </provider>

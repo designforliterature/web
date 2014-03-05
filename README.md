@@ -1,6 +1,6 @@
 # Design for Literature
-#### The MIT License (MIT)
-#### Copyright (c) 2014 Ruben Kleiman
+##### The MIT License (MIT)
+##### Copyright (c) 2014 Ruben Kleiman
 
 ![Design For Literature](public/images/dfl-icon-250.png "Design For Literature")
 
@@ -13,7 +13,7 @@ To contact Ruben Kleiman: <rk@post.harvard.edu>.
 
 ## Single-Machine, Development Installation
 
-##### IMPORTANT: this is still under development, so it's not recommended that you install this. But if you do install it and encounter any problems getting the initial screen/page (not bugs!), please report them to me.
+##### IMPORTANT: this is in early, pre-release development, so it's not recommended that you install this. But if you do install it and encounter any problems getting the initial screen/page (not bugs!), please report them to me.
 
 - Install (1) git, (2) latest nodejs, and (3) MongoDB 2.4.x
 - Open a Unix shell and clone this git directory: git clone https://github.com/design4literature/web
