@@ -995,7 +995,8 @@ var client = {
                 lang: function () {
                     var code, codes = {};
                     for (code in isoLangs) {
-                        codes[code] = code;
+                        var lang = isoLangs[code];
+                        codes[code] = lang.name;
                     }
                     return codes;
                 }()

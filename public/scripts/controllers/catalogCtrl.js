@@ -282,6 +282,69 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                     $scope.catalog.errorMsg = 'Technical Problem: Please retry. (' + err + ')';
                     $scope.catalog.error = true;
                 });
+        },
+
+        /**
+         * printSearchResult: Pretty-prints in HTML a search result.
+         * Called by search result directive for each search result.
+         * The HTML string is constructed and set to the specified
+         * element's innerHTML property (this expands the directive's
+         * element, thus completing its job).
+         * @param searchResultObj   The search result
+         * @param element   The element used by the directive
+         * @param attrs The attributes in that element
+         */
+        printSearchResult: function (searchResultObj, element, attrs) {
+            var mainObjectSpecs = client.shared.catalogFieldSpecs;
+            var subObjectSpecs = client.shared.catalogFieldSubSpecs;
+            var sortedResults = [];
+            for (var fieldId in searchResultObj) {
+                var fieldValue = searchResultObj[fieldId];
+                var spec = mainObjectSpecs[fieldId];
+                if (spec) {
+                    var sortObject = {id: fieldId, val: fieldValue};
+                    sortedResults.push({rank: spec.rank, data: sortObject});
+                }
+            }
+            clientApp.dfUtils.insertSort(sortedResults, 'rank')
+            var orderedResultItems = [];
+            for (var fieldId in sortedResults) {
+                orderedResultItems.push(sortedResults[fieldId].data);
+            }
+            var html = '<div style="margin-top: .5em">';
+            var count = 0;
+            for (var fieldSpecKey in orderedResultItems) {
+                var mainSpec = orderedResultItems[fieldSpecKey];
+                var mainSpecId = mainSpec.id;
+                var prettyFun = mainObjectSpecs[mainSpecId].prettyFun;
+                var mainSpecValue = mainSpec.val;
+                if (mainSpecId !== '_id' && mainSpecId !== 'content') { // TODO remove 'content' when content is moved to the works collection
+                    if ($.isArray(mainSpecValue)) {
+                        var subHtml = '<span><b>' + mainObjectSpecs[mainSpecId].name + ': </b></span>';
+                        for (var specSubObjectKey in mainSpecValue) {
+                            var subObject = mainSpecValue[specSubObjectKey];
+                            for (var subObjectKey in subObject) {
+                                var subObjectSpec = subObjectSpecs[subObjectKey];
+                                var value = subObject[subObjectKey];
+                                subHtml += prettyFun(searchResultObj, mainSpecId, subObjectSpec.subIdName || subObjectSpec.name, value, true, 'i');
+                            }
+                        }
+                        html += subHtml;
+                    } else if (typeof mainSpecValue !== 'string') {
+                        var subHtml = '<span><b>' + subObjectSpecs[mainSpecId].name + ': </b></span>';
+                        for (var subspecKey in mainSpecValue) {
+                            var value = mainSpecValue[subspecKey];
+                            subHtml += prettyFun(searchResultObj, mainSpecId, subObjectSpecs[subspecKey].name, value, true, 'i');
+                        }
+                        html += subHtml;
+                    } else {
+                        html += prettyFun(searchResultObj, mainSpecId, mainObjectSpecs[mainSpecId].name, mainSpecValue, true, 'b');
+                    }
+                    count += 1;
+                }
+            }
+            html += '</div>';
+            element[0].innerHTML = html;
         }
     };
     /* END of scope vars */
@@ -316,7 +379,6 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                 horaceApp.debug(a);
                 var line = a.content.verses[0].lines[0];
                 $state.go('edit', {id: a._id, content: JSON.stringify(a.content)});
-//                $state.go('edit', {id: a._id, content: line});
             }
         });
     };
@@ -339,16 +401,29 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             return span + '</span>';
         },
         title: function (searchResult, id, name, value, delim, font) {
-            var x = '<a onclick="clientApp.sendIt(&quot;' + searchResult._id + '&quot;' + ')"><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
-//            var x = '<a ' + ref + '>' + value +'</a><br style="margin-bottom: -.2em"/>'
+            var x = '<a style="margin-right: 6px" onclick="clientApp.sendIt(&quot;' + searchResult._id + '&quot;' + ')"><i>' + value + '</i></a>';
+//            var x = '<a onclick="clientApp.sendIt(&quot;' + searchResult._id + '&quot;' + ')"><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
             return x;
+        },
+        workType: function (searchResult, id, name, workType, delim, font) {
+            var workTypeName = client.shared.catalogFieldSpecs['workType'].specs[workType].name;
+            var lang = client.shared.definitions.collections.lang[searchResult.lang];
+            return '(' + workTypeName + ', ' + lang + ') ';
+        },
+        lang: function (searchResult, id, name, value, delim, font) {
+            return '';
+        },
+        contentFormat: function (searchResult, id, name, value, delim, font) {
+            return '';
         }
+
     };
 
     for (var specId in client.shared.catalogFieldSpecs) {
         var spec = client.shared.catalogFieldSpecs[specId];
         // TODO add rest of funs
-        spec.prettyFun = (specId === 'title') ? searchResultPrettyPrintFun.title : searchResultPrettyPrintFun.default;
+        var prettyFun = searchResultPrettyPrintFun[specId];
+        spec.prettyFun = prettyFun || searchResultPrettyPrintFun.default;
     }
 
 });
