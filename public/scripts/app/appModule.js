@@ -40,7 +40,7 @@ var horaceApp = angular.module('horaceApp', [
 
 horaceApp.config(function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/signin')
+    $urlRouterProvider.otherwise('/signin') // default
 //
     $stateProvider
         .state('signin', {
@@ -63,12 +63,14 @@ horaceApp.config(function ($stateProvider, $urlRouterProvider) {
             url: '/browse',
             templateUrl: '/views/browse.html'
         })
-//        .state('edit:order_id    ', {
-//            controller: 'EditCtrl',
-//    url: '/edit',
-////            templateUrl: 'templates/editor.html',
-//            templateUrl: 'catalog/edit'
-//        })
+        .state('edit', {
+//            controller: function($stateParams){
+//                console.info($stateParams);
+//            },
+            controller: 'EditCtrl',
+            url: '/edit/:contactId',
+            templateUrl: 'views/edit.html'
+        })
         .state('catalog', {
             controller: 'CatalogCtrl',
             url: '/catalog',

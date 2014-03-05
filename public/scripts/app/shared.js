@@ -856,30 +856,6 @@ function makeWorkTypes() {
     return presentationArray;
 }
 
-//
-///**
-// * searchResultPrettyPrintFun: contains all pretty HTML printing functions for search results.
-//  */
-//var searchResultPrettyPrintFun = {
-//    default: function (searchResult, id, name, value, delim, font) {
-//        var span = '<span>';
-//        if (font) {
-//            span += '<' + font + '>' + name + ': ' + '</' + font + '>' + value;
-//        } else {
-//            span += name + ': ' + value;
-//        }
-//        if (delim) {
-//            span += '; ';
-//        }
-//        return span + '</span>';
-//    },
-//    title: function (searchResult, id, name, value, delim, font) {
-//        var id = "'" + searchResult._id + "'";
-//        var x = '<a onclick="sendit('+id+')"><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
-//        return x;
-////        return '<a href="/#edit?i='+searchResult._id+'"/><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
-//    }
-//};
 
 /**
  * catalogFieldSpecs: Presentation specs for each catalog field

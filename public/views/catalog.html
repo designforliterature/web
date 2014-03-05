@@ -33,11 +33,11 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         <accordion-group is-open="catalog.searchCatalogOpen" heading="Search">
             <div class="yellowBox">
-                <form name="searchForm" novalidate> <!-- TODO replace button with search icon -->
+                <form name="searchForm" novalidate>
                     <div><span style="font-weight: bold">Search: </span><input ng-keypress="catalog.search($event)"
                                                                                dfl-set-focus
                                                                                ng-model="catalog.query.general"
-                                                                               name="general" type="text" size="100"/>
+                                                                               name="general" type="text" size="10"/>
                         <img tooltip="Search" ng-click="catalog.search()" src="images/search-icon-24.png"/></div>
                 </form>
                 <div id="searchResults" style="display: none">

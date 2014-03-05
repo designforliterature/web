@@ -22,13 +22,9 @@
 -->
 
 <div ng-include="signin.menubar"></div>
-<div> Select a tab by setting active binding to true:</div>
-<div style="text-align: left">
-    <!--<button class="btn btn-small" ng-click="tabs[0].active = true">Select Tab 1</button>-->
-    <!--<button class="btn btn-small" ng-click="tabs[1].active = true">Select Tab 2</button>-->
-    <!--<button class="btn btn-small" ng-click="tabs[1].disabled = !tabs[1].disabled">Enable / Disable Tab 2</button>-->
+<div>
+    Play page... TODO
     <tabset>
-        <!--<tab heading="Static title" ng-include="signin.test"></tab>-->
         <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
             {{tab.content}}
         </tab>
@@ -36,7 +32,7 @@
             <tab-heading>
                 <b class="icon-bell">Alert Tab</b>
             </tab-heading>
-            I've got an HTML heading, and a select callback. Pretty cool!
+            This would be the heading
         </tab>
     </tabset>
 </div>

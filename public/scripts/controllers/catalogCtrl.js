@@ -32,8 +32,7 @@
  * Controls the catalog behavior (search, create, update).
  */
 
-horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $timeout, $upload, $compile) {
-
+horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $timeout, $upload, $state) {
 
     var defaultNotify = false;
 
@@ -285,6 +284,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                 });
         }
     };
+    /* END of scope vars */
 
     /**
      * setMetadataFieldControls: enables/disables catalog metadata
@@ -305,23 +305,24 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
         }
     });
 
-
         // TODO solution might be to use https://github.com/angular-ui/ui-router/wiki/URL-Routing
     // TODO move the following into editCtl
 
     clientApp.sendIt = function (id) {
-        console.info('hello');
+//        $state.go('edit', {contactId: id});
+//        $state.go('/edit/' + id, {id: id});
         $.ajax({
             type: "GET",
-            url: 'catalog/edit?i=' + id,
-            success: function(a,b) {
+            url: 'catalog/work?id=' + id,
+            success: function (a, b) {
                 horaceApp.debug(a);
+                $state.go('edit', {contactId: a});
 //                var c = $('#catalog');
 //                $compile(c)($scope);
                 //document.location = 'index.html#/browse/';
             }
         });
-    }
+    };
 
     /**
      * searchResultPrettyPrintFun: contains all pretty HTML printing functions for search results.
@@ -341,14 +342,16 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             return span + '</span>';
         },
         title: function (searchResult, id, name, value, delim, font) {
-            var id = "'" + searchResult._id + "'";
-            var x = '<a onclick="clientApp.sendIt(' + id + ')"><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
+//            var ref = 'onclick="$state.go(&quot;' + searchResult._id + '&quot;)"';
+            var x = '<a onclick="clientApp.sendIt(&quot;' + searchResult._id + '&quot;' + ')"><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
+//            var x = '<a ' + ref + '>' + value +'</a><br style="margin-bottom: -.2em"/>'
             return x;
         }
     };
 
     for (var specId in client.shared.catalogFieldSpecs) {
         var spec = client.shared.catalogFieldSpecs[specId];
+        // TODO add rest of funs
         spec.prettyFun = (specId === 'title') ? searchResultPrettyPrintFun.title : searchResultPrettyPrintFun.default;
     }
 

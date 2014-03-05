@@ -53,7 +53,15 @@ horaceApp.debug = function (obj, type) {
     }
 };
 
-horaceApp.controller('AppCtrl', function ($scope, SocketsService) {
+horaceApp.controller('AppCtrl', function ($scope, $rootScope, SocketsService) {
+
+    $rootScope.$on('$stateChangeStart',
+        function (event, toState, toParams, fromState, fromParams) {
+            console.info(event);
+//            event.preventDefault();
+            // transitionTo() promise will be rejected with
+            // a 'transition prevented' error
+        });
 
     // Connect websockets when client is (re-)loaded
     SocketsService.connectSockets();

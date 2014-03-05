@@ -7,12 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app/appModule.js" afterPath="$PROJECT_DIR$/public/scripts/app/appModule.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/catalog.html" afterPath="$PROJECT_DIR$/public/views/catalog.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/catalog.js" afterPath="$PROJECT_DIR$/lib/routes/catalog.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/signin.html" afterPath="$PROJECT_DIR$/public/views/signin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/signup.html" afterPath="$PROJECT_DIR$/public/views/signup.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/home.html" afterPath="$PROJECT_DIR$/public/views/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app/shared.js" afterPath="$PROJECT_DIR$/public/scripts/app/shared.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -36,77 +38,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="catalog.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/views/catalog.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="37" selection-start="2027" selection-end="2027" vertical-scroll-proportion="0.31728396" vertical-offset="328" max-vertical-offset="2595">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signup.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/signup.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="3" selection-start="1104" selection-end="1104" vertical-scroll-proportion="-11.875" vertical-offset="30" max-vertical-offset="900">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="appModule.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/app/appModule.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="45" selection-start="1388" selection-end="1388" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+            <state line="82" column="0" selection-start="2735" selection-end="2735" vertical-scroll-proportion="0.0" vertical-offset="373" max-vertical-offset="1080">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index-uir.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index-uir.html">
+      <file leaf-file-name="edit.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="27" selection-start="484" selection-end="492" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1140">
+            <state line="22" column="4" selection-start="1094" selection-end="1094" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="420">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signin.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/signin.html">
+      <file leaf-file-name="catalog.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/catalog.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="58" selection-start="2743" selection-end="2743" vertical-scroll-proportion="-27.5" vertical-offset="180" max-vertical-offset="1005">
+            <state line="35" column="51" selection-start="1622" selection-end="1622" vertical-scroll-proportion="-8.208333" vertical-offset="328" max-vertical-offset="2595">
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="route1.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/route1.html">
+      <file leaf-file-name="editCtrl.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/editCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="19" selection-start="75" selection-end="75" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="135">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="route1.list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/route1.list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="5" selection-start="89" selection-end="89" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="135">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="route2.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/route2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="19" selection-start="75" selection-end="75" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="135">
+            <state line="31" column="0" selection-start="1401" selection-end="1401" vertical-scroll-proportion="0.23338048" vertical-offset="0" max-vertical-offset="707">
               <folding />
             </state>
           </provider>
@@ -115,16 +79,35 @@
       <file leaf-file-name="appCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="1426" selection-end="1426" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+            <state line="59" column="21" selection-start="2332" selection-end="2332" vertical-scroll-proportion="0.0" vertical-offset="193" max-vertical-offset="900">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="route2.list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/route2.list.html">
+      <file leaf-file-name="catalogCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="5" selection-start="93" selection-end="93" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="135">
+            <state line="315" column="33" selection-start="12660" selection-end="12660" vertical-scroll-proportion="0.0" vertical-offset="4198" max-vertical-offset="5160">
+              <folding>
+                <marker date="1393986418000" expanded="true" signature="13884:13904" placeholder="..." />
+                <marker date="1393986418000" expanded="true" signature="13975:13995" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="angular.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="http://localhost:3000/scripts/vendor/angular/angular.js">
+          <provider selected="true" editor-type-id="httpFileEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="catalog.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="103" column="0" selection-start="4467" selection-end="4467" vertical-scroll-proportion="0.0" vertical-offset="1010" max-vertical-offset="3390">
               <folding />
             </state>
           </provider>
@@ -158,8 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/template/book.html" />
-        <option value="$PROJECT_DIR$/public/template/chapter.html" />
         <option value="$PROJECT_DIR$/public/styles/animate.css" />
         <option value="$PROJECT_DIR$/public/monkey.html" />
         <option value="$PROJECT_DIR$/public/scripts/script.js" />
@@ -189,33 +170,35 @@
         <option value="$PROJECT_DIR$/public/scripts/services/socketsService.js" />
         <option value="$PROJECT_DIR$/public/scripts/app/utils.js" />
         <option value="$PROJECT_DIR$/public/scripts/directives/dflDirectives.js" />
-        <option value="$PROJECT_DIR$/lib/routes/catalog.js" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/signinCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/EditCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/editorCtrl.js" />
         <option value="$PROJECT_DIR$/public/template/editor.html" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/editCtrl.js" />
-        <option value="$PROJECT_DIR$/public/scripts/app/shared.js" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" />
         <option value="$PROJECT_DIR$/public/route1.html" />
         <option value="$PROJECT_DIR$/public/route1.list.html" />
         <option value="$PROJECT_DIR$/public/route2.html" />
         <option value="$PROJECT_DIR$/public/route2.list.html" />
-        <option value="$PROJECT_DIR$/public/index-uir.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/signin.html" />
         <option value="$PROJECT_DIR$/public/views/signup.html" />
-        <option value="$PROJECT_DIR$/public/scripts/app/appModule.js" />
         <option value="$PROJECT_DIR$/public/views/signin.html" />
         <option value="$PROJECT_DIR$/public/views/catalog.html" />
+        <option value="$PROJECT_DIR$/public/scripts/app/shared.js" />
+        <option value="$PROJECT_DIR$/public/views/home.html" />
+        <option value="$PROJECT_DIR$/public/index-uir.html" />
+        <option value="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/appModule.js" />
+        <option value="$PROJECT_DIR$/public/views/edit.html" />
+        <option value="$PROJECT_DIR$/public/scripts/controllers/editCtrl.js" />
+        <option value="$PROJECT_DIR$/lib/routes/catalog.js" />
+        <option value="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" />
       </list>
     </option>
   </component>
   <component name="NamedScopeManager">
     <scope name="web" pattern="!file:app/bower_components/angular//*&amp;&amp;!file:app/bower_components/angular-cookies//*&amp;&amp;!file:app/bower_components/angular-mocks//*&amp;&amp;!file:app/bower_components/angular-resource//*&amp;&amp;!file:app/bower_components/angular-route//*&amp;&amp;!file:app/bower_components/angular-sanitize//*&amp;&amp;!file:app/bower_components/angular-scenario//*&amp;&amp;!file:app/bower_components/es5-shim//*&amp;&amp;!file:app/bower_components/es5-shim/tests//*&amp;&amp;!file:app/bower_components/es5-shim/tests/helpers//*&amp;&amp;!file:app/bower_components/es5-shim/tests/lib//*&amp;&amp;!file:app/bower_components/es5-shim/tests/spec//*&amp;&amp;!file:app/bower_components/json3//*&amp;&amp;!file:app/bower_components/json3/benchmark//*&amp;&amp;!file:app/bower_components/json3/benchmark/assets//*&amp;&amp;!file:app/bower_components/json3/lib//*&amp;&amp;!file:app/bower_components/json3/page//*&amp;&amp;!file:app/bower_components/json3/test//*&amp;&amp;!file:app/bower_components/json3/vendor//*&amp;&amp;!file:node_modules/.bin//*&amp;&amp;!file:node_modules/async//*&amp;&amp;!file:node_modules/connect-mongodb//*&amp;&amp;!file:node_modules/express//*&amp;&amp;!file:node_modules/express-namespace//*&amp;&amp;!file:node_modules/grunt/docs//*&amp;&amp;!file:node_modules/grunt//*&amp;&amp;!file:node_modules/grunt-autoprefixer//*&amp;&amp;!file:node_modules/grunt-concurrent//*&amp;&amp;!file:node_modules/grunt-contrib-clean//*&amp;&amp;!file:node_modules/grunt-contrib-coffee//*&amp;&amp;!file:node_modules/grunt-contrib-compass//*&amp;&amp;!file:node_modules/grunt-contrib-concat//*&amp;&amp;!file:node_modules/grunt-contrib-copy//*&amp;&amp;!file:node_modules/grunt-contrib-cssmin//*&amp;&amp;!file:node_modules/grunt-contrib-htmlmin//*&amp;&amp;!file:node_modules/grunt-contrib-imagemin/*&amp;&amp;!file:node_modules/grunt-contrib-imagemin//*&amp;&amp;!file:node_modules/grunt-contrib-jshint//*&amp;&amp;!file:node_modules/grunt-contrib-uglify//*&amp;&amp;!file:node_modules/grunt-contrib-watch//*&amp;&amp;!file:node_modules/grunt-express-server//*&amp;&amp;!file:node_modules/grunt-google-cdn//*&amp;&amp;!file:node_modules/grunt-karma//*&amp;&amp;!file:node_modules/grunt-ngmin//*&amp;&amp;!file:node_modules/grunt-open//*&amp;&amp;!file:node_modules/grunt-rev//*&amp;&amp;!file:node_modules/grunt-svgmin//*&amp;&amp;!file:node_modules/grunt-usemin//*&amp;&amp;!file:node_modules/hjs//*&amp;&amp;!file:node_modules/jshint-stylish//*&amp;&amp;!file:node_modules/karma//*&amp;&amp;!file:node_modules/karma-chrome-launcher//*&amp;&amp;!file:node_modules/karma-coffee-preprocessor//*&amp;&amp;!file:node_modules/karma-firefox-launcher//*&amp;&amp;!file:node_modules/karma-html2js-preprocessor//*&amp;&amp;!file:node_modules/karma-jasmine//*&amp;&amp;!file:node_modules/karma-ng-html2js-preprocessor//*&amp;&amp;!file:node_modules/karma-ng-scenario//*&amp;&amp;!file:node_modules/karma-phantomjs-launcher//*&amp;&amp;!file:node_modules/karma-requirejs//*&amp;&amp;!file:node_modules/karma-script-launcher//*&amp;&amp;!file:node_modules/load-grunt-tasks//*&amp;&amp;!file:node_modules/mongodb//*&amp;&amp;!file:node_modules/mongoose//*&amp;&amp;!file:node_modules/time-grunt//*&amp;&amp;!file:dictionaries//*&amp;&amp;!file:inspectionProfiles//*&amp;&amp;!file:jsLinters//*&amp;&amp;!file:libraries//*&amp;&amp;!file:runConfigurations//*&amp;&amp;!file:selenium//*&amp;&amp;!file:.name&amp;&amp;!file:bower.json&amp;&amp;!file:web.iml&amp;&amp;!file:encodings.xml&amp;&amp;!file:Gruntfile.js&amp;&amp;!file:jsLibraryMappings.xml&amp;&amp;!file:misc.xml&amp;&amp;!file:modules.xml&amp;&amp;!file:Readme.md&amp;&amp;!file:vcs.xml&amp;&amp;!file:workspace.xml&amp;&amp;!file:node_modules/protractor//*" />
     <scope name="app" pattern="(file:lib/db//*||file:lib/models//*||file:lib/routes//*||file:lib/services//*||file:lib/session//*||file:lib/utilities//*||file:lib/views//*||file:public/scripts//*||file:public/styles//*||file:public/views//*||file:public/template/tabs//*||file:public/template/tooltip//*||file:server.js)&amp;&amp;!file:public/styles/vendor/angularUI//*&amp;&amp;!file:public/scripts/vendor/angularUI//*&amp;&amp;!file:public/scripts/vendor//*" />
-    <scope name="client" pattern="(file:public/fonts//*||file:public/images//*||file:public/scripts//*||file:public/styles/error.css||file:public/styles/main.css||file:public/styles/menubarOnline.css||file:public/styles/signin.css||file:public/styles/style.css||file:public/views/*||file:public/template/progressbar/*||file:public/template/tabs/*||file:public/template/tooltip/*||file:public/404.html||file:public/about.html||file:public/index.html||file:public/signinHelp.html)&amp;&amp;!file:public/styles/vendor/bootstrap//*&amp;&amp;!file:public/styles/vendor/fonts//*&amp;&amp;!file:public/scripts/vendor/angular//*&amp;&amp;!file:public/scripts/vendor/angular-animate//*&amp;&amp;!file:public/scripts/vendor/angular-cookies//*&amp;&amp;!file:public/scripts/vendor/angular-mocks//*&amp;&amp;!file:public/scripts/vendor/angular-resource//*&amp;&amp;!file:public/scripts/vendor/angular-route//*&amp;&amp;!file:public/scripts/vendor/angular-sanitize//*&amp;&amp;!file:public/scripts/vendor/angular-scenario//*&amp;&amp;!file:public/scripts/vendor/angular-ui//*&amp;&amp;!file:public/scripts/vendor/angular-ui/templates//*&amp;&amp;!file:public/scripts/vendor/angular-ui/templates/stylesheets//*&amp;&amp;!file:public/scripts/vendor/angularjs-placeholder-master//*&amp;&amp;!file:public/scripts/vendor/bootstrap/css//*&amp;&amp;!file:public/scripts/vendor/bootstrap/fonts//*&amp;&amp;!file:public/scripts/vendor/es5-shim//*&amp;&amp;!file:public/scripts/vendor/jquery//*&amp;&amp;!file:public/scripts/vendor/json3//*&amp;&amp;!file:public/scripts/vendor/json3/lib//*&amp;&amp;!file:public/scripts/vendor/ng-file-upload//*&amp;&amp;!file:public/scripts/vendor/sizzle//*&amp;&amp;!file:public/scripts/vendor/sizzle/dist//*&amp;&amp;!file:public/scripts/vendor/sizzle/tasks//*&amp;&amp;!file:public/scripts/vendor/sizzle/test//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/data//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/libs/qunit//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/unit//*&amp;&amp;!file:public/scripts/vendor/socket.io//*" />
+    <scope name="client" pattern="((file:public/fonts//*||file:public/images//*||file:public/scripts//*||file:public/styles/error.css||file:public/styles/main.css||file:public/styles/menubarOnline.css||file:public/styles/signin.css||file:public/styles/style.css||file:public/views/*||file:public/template/progressbar/*||file:public/template/tabs/*||file:public/template/tooltip/*||file:public/404.html||file:public/about.html||file:public/index.html||file:public/signinHelp.html)&amp;&amp;!file:public/styles/vendor/bootstrap//*&amp;&amp;!file:public/styles/vendor/fonts//*&amp;&amp;!file:public/scripts/vendor/angular//*&amp;&amp;!file:public/scripts/vendor/angular-animate//*&amp;&amp;!file:public/scripts/vendor/angular-cookies//*&amp;&amp;!file:public/scripts/vendor/angular-mocks//*&amp;&amp;!file:public/scripts/vendor/angular-resource//*&amp;&amp;!file:public/scripts/vendor/angular-route//*&amp;&amp;!file:public/scripts/vendor/angular-sanitize//*&amp;&amp;!file:public/scripts/vendor/angular-scenario//*&amp;&amp;!file:public/scripts/vendor/angular-ui//*&amp;&amp;!file:public/scripts/vendor/angular-ui/templates//*&amp;&amp;!file:public/scripts/vendor/angular-ui/templates/stylesheets//*&amp;&amp;!file:public/scripts/vendor/angularjs-placeholder-master//*&amp;&amp;!file:public/scripts/vendor/bootstrap/css//*&amp;&amp;!file:public/scripts/vendor/bootstrap/fonts//*&amp;&amp;!file:public/scripts/vendor/es5-shim//*&amp;&amp;!file:public/scripts/vendor/jquery//*&amp;&amp;!file:public/scripts/vendor/json3//*&amp;&amp;!file:public/scripts/vendor/json3/lib//*&amp;&amp;!file:public/scripts/vendor/ng-file-upload//*&amp;&amp;!file:public/scripts/vendor/sizzle//*&amp;&amp;!file:public/scripts/vendor/sizzle/dist//*&amp;&amp;!file:public/scripts/vendor/sizzle/tasks//*&amp;&amp;!file:public/scripts/vendor/sizzle/test//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/data//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/libs/qunit//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/unit//*&amp;&amp;!file:public/scripts/vendor/socket.io//*||file:public/template/typeahead//*)&amp;&amp;!file:public/scripts/vendor/angular-ui-router//*" />
     <scope name="server" pattern="file:lib/db/*||file:lib/routes/*||file:lib/services/*||file:lib/services/methods/*||file:lib/session/*||file:lib/store/*||file:lib/utilities/*||file:lib/views/*||file:public/scripts/app/schema.js||file:package.json||file:server.js||file:lib/model//*" />
   </component>
   <component name="ProjectFrameBounds">
@@ -275,7 +258,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -510,6 +492,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -536,7 +519,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="settings.nodejs" />
+    <property name="options.lastSelected" value="project.scopes" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="TODO_SCOPE" value="Project Files" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -924,7 +907,11 @@
       <created>1393920615778</created>
       <updated>1393920615778</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Changed to ui-router for greater flexibility">
+      <created>1393975823398</created>
+      <updated>1393975823398</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -951,12 +938,14 @@
     <frame x="58" y="22" width="2502" height="1418" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33018124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2723077" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24890591" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15437324" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33794162" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43461537" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34775087" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26692307" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -964,8 +953,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2723077" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3031652" sideWeight="0.600624" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937598" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1005,7 +992,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="specs for each field in context of work type; more data-driven validation" />
     <MESSAGE value="search catalog" />
     <MESSAGE value="Basic earch workflow running." />
     <MESSAGE value="presenting search results" />
@@ -1030,39 +1016,25 @@
     <MESSAGE value="pretty print results" />
     <MESSAGE value="added icons; shared.js cleanup" />
     <MESSAGE value="adding dynamic routing to editor/reader" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding dynamic routing to editor/reader" />
+    <MESSAGE value="Changed to ui-router for greater flexibility" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed to ui-router for greater flexibility" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/public/scripts/controllers/editCtrl.js</url>
-          <line>28</line>
-          <option name="timeStamp" value="1137" />
-        </line-breakpoint>
-        <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/lib/routes/catalog.js</url>
           <line>103</line>
-          <option name="timeStamp" value="1165" />
+          <option name="timeStamp" value="1198" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="1174" />
+      <option name="time" value="1199" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="484" column="0" selection-start="19722" selection-end="19722" vertical-scroll-proportion="0.33333334" vertical-offset="6967" max-vertical-offset="14190" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="441" column="0" selection-start="12371" selection-end="12371" vertical-scroll-proportion="0.33295965" vertical-offset="6318" max-vertical-offset="7635" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection/core.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="632" column="0" selection-start="22279" selection-end="22279" vertical-scroll-proportion="0.33295965" vertical-offset="9183" max-vertical-offset="10980" />
@@ -1183,11 +1155,6 @@
         <state line="89" column="11" selection-start="3413" selection-end="3413" vertical-scroll-proportion="0.0" vertical-offset="699" max-vertical-offset="2550" />
       </provider>
     </entry>
-    <entry file="http://localhost:3000/scripts/vendor/angular/angular.js">
-      <provider selected="true" editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/configService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="832" />
@@ -1201,11 +1168,6 @@
     <entry file="file://$PROJECT_DIR$/lib/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="17" selection-start="1375" selection-end="1375" vertical-scroll-proportion="0.0" vertical-offset="38" max-vertical-offset="870" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/dflDirectives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="49" selection-start="4420" selection-end="4420" vertical-scroll-proportion="-14.346154" vertical-offset="1007" max-vertical-offset="3615" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/menubarOffline.html">
@@ -1223,43 +1185,10 @@
         <state line="21" column="0" selection-start="1125" selection-end="1248" vertical-scroll-proportion="0.018028846" vertical-offset="0" max-vertical-offset="2535" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="0" selection-start="4467" selection-end="4467" vertical-scroll-proportion="0.0" vertical-offset="983" max-vertical-offset="3315">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/editCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="3" selection-start="1367" selection-end="1367" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/template/editor.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="52" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="120">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="915" column="163" selection-start="23524" selection-end="23524" vertical-scroll-proportion="0.0" vertical-offset="13635" max-vertical-offset="19155">
-          <folding>
-            <marker date="1393918042000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1393918042000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="320" column="60" selection-start="12655" selection-end="12796" vertical-scroll-proportion="0.0" vertical-offset="3091" max-vertical-offset="5115">
-          <folding>
-            <marker date="1393920563000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1269,13 +1198,6 @@
           <folding>
             <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/angular-ui-router/angular-ui-router.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1261">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,37 +1215,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/app/appModule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="45" selection-start="1388" selection-end="1388" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/route2.list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="5" selection-start="93" selection-end="93" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="135">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1426" selection-end="1426" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/route2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="19" selection-start="75" selection-end="75" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="135">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/route1.list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="5" selection-start="89" selection-end="89" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="135">
           <folding />
         </state>
       </provider>
@@ -1339,23 +1233,117 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="58" selection-start="2743" selection-end="2743" vertical-scroll-proportion="-27.5" vertical-offset="180" max-vertical-offset="1005">
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/route2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="19" selection-start="75" selection-end="75" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="135">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="37" selection-start="1510" selection-end="1510" vertical-scroll-proportion="0.5704698" vertical-offset="0" max-vertical-offset="894">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/directives/dflDirectives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="32" selection-start="4696" selection-end="4696" vertical-scroll-proportion="0.0" vertical-offset="834" max-vertical-offset="3300">
+          <folding>
+            <marker date="1393900205000" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index-uir.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="27" selection-start="484" selection-end="492" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1140">
+        <state line="52" column="18" selection-start="1573" selection-end="1573" vertical-scroll-proportion="-25.625" vertical-offset="165" max-vertical-offset="1125">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="857" column="0" selection-start="20160" selection-end="20160" vertical-scroll-proportion="0.44771242" vertical-offset="12129" max-vertical-offset="18480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="http://localhost:3000/scripts/vendor/angular/angular.js">
+      <provider selected="true" editor-type-id="httpFileEditor">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/catalog.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="37" selection-start="2027" selection-end="2027" vertical-scroll-proportion="0.31728396" vertical-offset="328" max-vertical-offset="2595">
+        <state line="35" column="51" selection-start="1622" selection-end="1622" vertical-scroll-proportion="-8.208333" vertical-offset="328" max-vertical-offset="2595">
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="21" selection-start="2332" selection-end="2332" vertical-scroll-proportion="0.0" vertical-offset="193" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/appModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="0" selection-start="2735" selection-end="2735" vertical-scroll-proportion="0.0" vertical-offset="373" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="4" selection-start="1094" selection-end="1094" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/angular-ui-router/angular-ui-router.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="167" selection-end="167" vertical-scroll-proportion="0.129683" vertical-offset="0" max-vertical-offset="694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/route1.list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="5" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0658858" vertical-offset="0" max-vertical-offset="683">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="315" column="33" selection-start="12660" selection-end="12660" vertical-scroll-proportion="0.0" vertical-offset="4198" max-vertical-offset="5160">
+          <folding>
+            <marker date="1393986418000" expanded="true" signature="13884:13904" placeholder="..." />
+            <marker date="1393986418000" expanded="true" signature="13975:13995" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="0" selection-start="4467" selection-end="4467" vertical-scroll-proportion="0.0" vertical-offset="1010" max-vertical-offset="3390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/editCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1401" selection-end="1401" vertical-scroll-proportion="0.23338048" vertical-offset="0" max-vertical-offset="707">
           <folding />
         </state>
       </provider>
