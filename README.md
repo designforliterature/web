@@ -48,6 +48,8 @@ communication with collaborators.
 ## Roadmap
 - `April 7, 2014`: Demo milestone (see Demo Wishlist, below) (with an update available every other week thereafter).
 - `Date TBD`: First release: 0.1.0
+- `Date TBD`: Lemma Service Integration. The lemma service provides lemma lookups for Design for Literature clients. The lemma service is implemented as a Finnagle/Scala server and
+may be found at https://github.com/rubenkleiman/lemma-service.
 
 The demo milestone is a tool for showing some of the ideas while recruiting
 volunteers and obtaining funding.
