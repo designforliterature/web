@@ -244,6 +244,10 @@ var isoLangs = {
         "name": "German",
         "nativeName": "Deutsch"
     },
+    "grc": {
+        "name": "Greek, Ancient",
+        "nativeName": "Ελληνικά"
+    },
     "el": {
         "name": "Greek, Modern",
         "nativeName": "Ελληνικά"
@@ -869,7 +873,8 @@ function makeWorkTypes() {
  * validator := the validation method
  * xformer := the object transformer := {set | push | construct}, where
  *    set := sets the server-side value with the client's value without transformation
- *    push := pushes the client's value into a server-side array
+ *    push := pushes the client's value into a server-side array of objects containing various
+ *            fields for the pushed object
  *    construct := builds a server-side object with the client's value. The key for the constructed
  *                 server-side object is the toId (see publisher as an example), and the key
  *                 for the client-side value is the subId if it is defined, else the id itself.
@@ -918,7 +923,8 @@ var catalogFieldSpecs = { // TODO incorporate the value type (string/number/choi
 
     copyright: {id: 'copyright', name: 'Copyright', type: 'text', min: 8, description: "A copyright description", validator: 'string', xformer: 'set', inForm: true, rank: 110},
 
-    subjects: {id: 'subjects', subId: 'name', name: 'Subject(s)', type: 'text', description: "Subjects areas pertaining to this work", validator: 'string', xformer: 'push', inForm: true, rank: 120},
+//    subjects: {id: 'subjects', subId: 'name', name: 'Subject(s)', type: 'text', description: "Subjects areas pertaining to this work", validator: 'string', xformer: 'push', inForm: true, rank: 120},
+    subjects: {id: 'subjects', name: 'Subject(s)', type: 'text', min: 1, description: "Subjects areas pertaining to this work", validator: 'string', xformer: 'subjects', inForm: true, rank: 120},
 
     pageUrl: {id: 'pageUrl', name: 'Page URL', type: 'input', placeholder: 'http://', min: 10, description: "The URL to the page cited by this catalog item", validator: 'url', xformer: 'set', inForm: true, rank: 11},
 

@@ -27,7 +27,6 @@
 // TODO better error handling
 
 
-
 /**
  * Controls the catalog behavior (search, create, update).
  */
@@ -318,8 +317,9 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                 var mainSpecId = mainSpec.id;
                 var prettyFun = mainObjectSpecs[mainSpecId].prettyFun;
                 var mainSpecValue = mainSpec.val;
-                if (mainSpecId !== '_id' && mainSpecId !== 'content') { // TODO remove 'content' when content is moved to the works collection
-                    if ($.isArray(mainSpecValue)) {
+                var mainSpecValueType = $.isArray(mainSpecValue) ? 'array' : typeof mainSpecValue;
+                if (mainSpecId !== '_id' && mainSpecId !== 'content') { // TODO set content to a summary or description or first few lines
+                    if (mainSpecValueType === 'array') {
                         var subHtml = '<span><b>' + mainObjectSpecs[mainSpecId].name + ': </b></span>';
                         for (var specSubObjectKey in mainSpecValue) {
                             var subObject = mainSpecValue[specSubObjectKey];
@@ -330,15 +330,21 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                             }
                         }
                         html += subHtml;
-                    } else if (typeof mainSpecValue !== 'string') {
-                        var subHtml = '<span><b>' + subObjectSpecs[mainSpecId].name + ': </b></span>';
-                        for (var subspecKey in mainSpecValue) {
-                            var value = mainSpecValue[subspecKey];
-                            subHtml += prettyFun(searchResultObj, mainSpecId, subObjectSpecs[subspecKey].name, value, true, 'i');
-                        }
-                        html += subHtml;
-                    } else {
+                    } else if (mainSpecValueType === 'string' || mainSpecValueType === 'number' || mainSpecValueType === 'boolean') {
                         html += prettyFun(searchResultObj, mainSpecId, mainObjectSpecs[mainSpecId].name, mainSpecValue, true, 'b');
+                    } else if (mainSpecValueType === 'object') {
+                        if (mainSpecId === 'subjects') {
+                            html += prettyFun(searchResultObj, mainSpecId, null, value, true, 'i');
+                        } else {
+                            var subHtml = '<span><b>' + subObjectSpecs[mainSpecId].name + ': </b></span>';
+                            for (var subspecKey in mainSpecValue) {
+                                var value = mainSpecValue[subspecKey];
+                                subHtml += prettyFun(searchResultObj, mainSpecId, subObjectSpecs[subspecKey].name, value, true, 'i');
+                                html += subHtml;
+                            }
+                        }
+                    } else {
+                        // ignore
                     }
                     count += 1;
                 }
@@ -368,7 +374,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
         }
     });
 
-        // TODO solution might be to use https://github.com/angular-ui/ui-router/wiki/URL-Routing
+    // TODO solution might be to use https://github.com/angular-ui/ui-router/wiki/URL-Routing
     // TODO move the following into editCtl
 
     clientApp.sendIt = function (id) {
@@ -415,9 +421,55 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
         },
         contentFormat: function (searchResult, id, name, value, delim, font) {
             return '';
+        },
+        subjects: function (searchResult, id, name, value, delim, font) {
+            var subjects = searchResult.subjects;
+            if (subjects) {
+                var html = '',
+                    len = subjects.data.length;
+                for (var count = 0; count < len; count += 1) {
+                    html += '<i>' + subjects.data[count]['undefined'] + ((count === length-1)?'':', ') +'</i>';
+                }
+                return '<span>Subject: ' + html + '</span>';
+            } else {
+                return '';
+            }
         }
-
     };
+//    var searchResultPrettyPrintFun = {
+//        default: function (searchResult, id, name, value, delim, font) {
+//            var span = '<span>';
+//            if (font) {
+//                span += '<' + font + '>' + name + ': ' + '</' + font + '>' + value;
+//            } else {
+//                span += name + ': ' + value;
+//            }
+//            if (delim) {
+//                span += '; ';
+//            }
+//            return span + '</span>';
+//        },
+//        title: function (searchResult, id, name, value, delim, font) {
+//            var x = '<a style="margin-right: 6px" onclick="clientApp.sendIt(&quot;' + searchResult._id + '&quot;' + ')"><i>' + value + '</i></a>';
+////            var x = '<a onclick="clientApp.sendIt(&quot;' + searchResult._id + '&quot;' + ')"><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
+//            return x;
+//        },
+//        workType: function (searchResult, id, name, workType, delim, font) {
+//            var workTypeName = client.shared.catalogFieldSpecs['workType'].specs[workType].name;
+//            var lang = client.shared.definitions.collections.lang[searchResult.lang];
+//            return '(' + workTypeName + ', ' + lang + ') ';
+//        },
+//        lang: function (searchResult, id, name, value, delim, font) {
+//            return '';
+//        },
+//        contentFormat: function (searchResult, id, name, value, delim, font) {
+//            return '';
+//        },
+//        subjects: function (searchResult, id, name, value, delim, font) {
+//            return '';
+//        }
+//
+//    };
 
     for (var specId in client.shared.catalogFieldSpecs) {
         var spec = client.shared.catalogFieldSpecs[specId];
