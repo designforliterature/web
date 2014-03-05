@@ -15,15 +15,15 @@ To contact Ruben Kleiman: <rk@post.harvard.edu>.
 
 ##### IMPORTANT: this is in early, pre-release development, so it's not recommended that you install this. But if you do install it and encounter any problems getting the initial screen/page (not bugs!), please report them to me.
 
-- Install (1) git, (2) latest nodejs, and (3) MongoDB 2.4.x
-- Open a Unix shell and clone this git directory: git clone https://github.com/design4literature/web
-- To start the DB server, execute the shell script web/scripts/start_db.sh. WHEN STARTING
+- Install (1) `git`, (2) latest `nodejs`, and (3) `MongoDB 2.4.x`
+- Open a Unix shell and clone this git directory: `git clone https://github.com/design4literature/web`
+- To start the DB server, execute the shell script `web/scripts/start_db.sh`. WHEN STARTING
 IT FOR THE FIRST TIME, READ THE INSTRUCTIONS IN THIS SCRIPT FILE.
-- To run the server, in a Unix shell cd to the cloned web directory and enter "node server.js"
-- To run the client open a browser (preferably not IE) and enter http://localhost:3000
+- To run the server, in a Unix shell cd to the cloned web directory and enter `node server.js`
+- To run the client open a browser (preferably not IE) and enter `http://localhost:3000`
 - To stop operations, you can Control-C or kill the node process and then Control-C or kill the DB process.
 
-## HIRA Reference Implementation
+## `HIRA` Reference Implementation
 
 The reference model is used to guide and evaluate the HIRA spec. The first
 draft version of HIRA will be published by mid-2014.
