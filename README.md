@@ -11,6 +11,15 @@ About this project: http://designforliterature.com or <info@designforliterature.
 
 To contact Ruben Kleiman: <rk@post.harvard.edu>.
 
+## Single-Machine, Development Installation
+
+#### IMPORTANT: this is still under development, so it's not recommended that you install this.
+#### But if you do install it and encounter any problems getting the initial screen/page (not bugs!), please report them to me.
+
+- Install (1) git, (2) latest nodejs, and (3) MongoDB 2.4.x
+- Open a Unix shell and clone this git directory: git clone https://github.com/design4literature/web
+- To run the server, in a Unix shell cd to the cloned web directory and enter "node server.js"
+- To run the client open a browser (preferably not IE) and enter http://localhost:3000
 
 ## HIRA Reference Implementation
 
@@ -43,7 +52,7 @@ volunteers and obtaining funding.
 
 The first release is gated by volunteers and/or funding resources.
 
-## Technology Notes
+## Implementation Notes
 ### Web Socket and HTTP Connection Management
 
 Sockets are cached on a per-session basis to permit access
