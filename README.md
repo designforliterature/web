@@ -18,8 +18,11 @@ To contact Ruben Kleiman: <rk@post.harvard.edu>.
 
 - Install (1) git, (2) latest nodejs, and (3) MongoDB 2.4.x
 - Open a Unix shell and clone this git directory: git clone https://github.com/design4literature/web
+- To start the DB server, execute the shell script web/scripts/start_db.sh. WHEN STARTING
+IT FOR THE FIRST TIME, READ THE INSTRUCTIONS IN THIS SCRIPT FILE.
 - To run the server, in a Unix shell cd to the cloned web directory and enter "node server.js"
 - To run the client open a browser (preferably not IE) and enter http://localhost:3000
+- To stop operations, you can Control-C or kill the node process and then Control-C or kill the DB process.
 
 ## HIRA Reference Implementation
 
