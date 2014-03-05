@@ -309,17 +309,14 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
     // TODO move the following into editCtl
 
     clientApp.sendIt = function (id) {
-//        $state.go('edit', {contactId: id});
-//        $state.go('/edit/' + id, {id: id});
         $.ajax({
             type: "GET",
             url: 'catalog/work?id=' + id,
             success: function (a, b) {
                 horaceApp.debug(a);
-                $state.go('edit', {contactId: a});
-//                var c = $('#catalog');
-//                $compile(c)($scope);
-                //document.location = 'index.html#/browse/';
+                var line = a.content.verses[0].lines[0];
+                $state.go('edit', {id: a._id, content: JSON.stringify(a.content)});
+//                $state.go('edit', {id: a._id, content: line});
             }
         });
     };
@@ -342,7 +339,6 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             return span + '</span>';
         },
         title: function (searchResult, id, name, value, delim, font) {
-//            var ref = 'onclick="$state.go(&quot;' + searchResult._id + '&quot;)"';
             var x = '<a onclick="clientApp.sendIt(&quot;' + searchResult._id + '&quot;' + ')"><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
 //            var x = '<a ' + ref + '>' + value +'</a><br style="margin-bottom: -.2em"/>'
             return x;

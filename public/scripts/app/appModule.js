@@ -68,7 +68,7 @@ horaceApp.config(function ($stateProvider, $urlRouterProvider) {
 //                console.info($stateParams);
 //            },
             controller: 'EditCtrl',
-            url: '/edit/:contactId',
+            url: '/edit/?id&content',
             templateUrl: 'views/edit.html'
         })
         .state('catalog', {
