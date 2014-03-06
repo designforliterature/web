@@ -23,10 +23,63 @@ IT FOR THE FIRST TIME, READ THE INSTRUCTIONS IN THIS SCRIPT FILE.
 - To run the client open a browser (preferably not IE) and enter `http://localhost:3000`
 - To stop operations, you can Control-C or kill the node process and then Control-C or kill the DB process.
 
+## Architecture
+
+The target architecture is based on various services and clients: All services
+communicate via HTTP or through the Queue Service
+
+#### Client
+This is an HTML5/CSS3/JS/ANGULARJS client for browsers. As much processing as possible
+is delegated to it.
+
+#### Web Server
+This is a NODEJS/EXPRESS service. It handles basic client
+processing (templates, data translation, user authentication, etc.)
+
+#### Queue Service
+This is a persistent, distributed queue (probably Kafka) through which
+various services delegate work.
+
+#### Search Service
+This will probably be a SOLR/Lucene service. The service will
+handle indexing and search for catalogs and for content. It picks
+up requests either through HTTP or from the Queue Service.
+
+#### Content Service
+This service stores and retrieves catalog metadata or content. It picks up requests
+from the Queue Service and HTTP.
+
+#### Lemma Service
+Handles storage and provision of lexicon look-ups by clients.
+
+#### Exchange Service
+Provides RDF and other APIs conforming to external parties
+to provide and retrieve catalog metadata and content. Also
+provides an API for creating definitions for the Lemma Service.
+
+#### Analytics Services
+A variety of services for analyzing the content and incoming
+events from Queue Service.
+
+![Services](docs/images/DFL Architecture-services.jpg "Services")
+![Stack](docs/images/DFL Architecture-stack.jpg "Tech Stack")
+
 ## `HIRA` Reference Implementation
 
 The reference model is used to guide and evaluate the HIRA spec. The first
 draft version of HIRA will be published by mid-2014.
+
+Due to limited resource constraints we will approach the target in increments.
+For the first version, the strategy is to bundle the separate services into
+a minimal set: one server (called the "bundled server") and one client. What would otherwise be separate
+services will be isolated in the code with wrappers called managers. For example, catalog search and indexing
+would be wrapped by searchManager.js, and the bundled server would delegate indexing and search
+requests from the client to this manager. Eventually, when we implement a search service (e.g., SOLR),
+the client would directly make requests to the search service (using the same API).
+Another example would be storing a catalog item's metadata or some content: in this
+case, the storeManager.js wrapper would initially handle this, but when a
+separate Content Service is implemented, the manager would simply put the request
+into the Queue Service and the Content Service would pick up the request from there.
 
 All components communicate via a `RESTful` protocol.
 
