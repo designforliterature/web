@@ -36,7 +36,7 @@ var express = require('express'),
     sessionSockets,
     io = require('socket.io'),
 
-    db = require('./lib/db'),
+    db = require('./lib/db/mongoDbManager.js'),
     routes = require('./lib/routes'),
     session = require('./lib/session'),
     cookieParser,
