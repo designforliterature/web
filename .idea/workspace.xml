@@ -6,33 +6,7 @@
     <option name="CUSTOM_SCOPE_NAME" value="web" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/110809_FamilyChineseOahu_EN_00317_2040x1360-small-12.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/110809_FamilyChineseOahu_EN_02016_981x654-small-14.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/110809_FamilyChineseOahu_EN_02390_2880x1921-small-10.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/DFL Architecture-services.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/images/DFL Architecture-stack.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Index.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Metadata/Properties.plist" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/mt10@2x-92.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/mt1@2x-83.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/mt2@2x-84.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/mt3@2x-85.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/mt4@2x-86.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/mt5@2x-87.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/mt6@2x-88.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/mt7@2x-89.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/mt8@2x-90.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/mt9@2x-91.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/preview-micro.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/preview-web.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/preview.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/st0-559.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Data/st1-563.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Metadata/BuildVersionHistory.plist" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/DFL Architecture.key/Metadata/DocumentIdentifier" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/services/catalogService.js" afterPath="$PROJECT_DIR$/lib/services/catalogService.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/services/methods/poemMethods.js" afterPath="$PROJECT_DIR$/lib/services/methods/poetryMethods.js" />
+    <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="readme update">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -72,7 +46,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="0" selection-start="2525" selection-end="2525" vertical-scroll-proportion="0.6987952" vertical-offset="0" max-vertical-offset="2700">
+            <state line="68" column="51" selection-start="3061" selection-end="3061" vertical-scroll-proportion="0.8192771" vertical-offset="0" max-vertical-offset="2805">
               <folding />
             </state>
           </provider>
@@ -138,15 +112,6 @@
         <entry file="file://$PROJECT_DIR$/lib/utilities/generalUtils.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="75" column="12" selection-start="3119" selection-end="3119" vertical-scroll-proportion="0.0" vertical-offset="589" max-vertical-offset="1365">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mongoDbManager.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="0" selection-start="2996" selection-end="2996" vertical-scroll-proportion="0.0" vertical-offset="728" max-vertical-offset="4305">
               <folding />
             </state>
           </provider>
@@ -812,7 +777,11 @@
       <created>1394137242693</created>
       <updated>1394137242693</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="docs">
+      <created>1394144763939</created>
+      <updated>1394144763939</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -893,7 +862,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="field subspecs; search result directive" />
     <MESSAGE value="New icons and search fixups" />
     <MESSAGE value="Content upload&#10;" />
     <MESSAGE value="icons" />
@@ -918,7 +886,8 @@
     <MESSAGE value="readme update&#10;" />
     <MESSAGE value="db content&#10;" />
     <MESSAGE value="added search manager (separate from store) to isolate search" />
-    <option name="LAST_COMMIT_MESSAGE" value="added search manager (separate from store) to isolate search" />
+    <MESSAGE value="docs" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -929,11 +898,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test-content/iliad-greek.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4005" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/WebStorm7/extLibs/nodejs-v0.10.24-src/core-modules-sources/lib/fs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="265" column="13" selection-start="7388" selection-end="7388" vertical-scroll-proportion="0.33295965" vertical-offset="3393" max-vertical-offset="26190" />
@@ -1230,12 +1194,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docs/images/DFL Architecture-services.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="0" selection-start="2525" selection-end="2525" vertical-scroll-proportion="0.6987952" vertical-offset="0" max-vertical-offset="2700">
+        <state line="68" column="51" selection-start="3061" selection-end="3061" vertical-scroll-proportion="0.8192771" vertical-offset="0" max-vertical-offset="2805">
           <folding />
         </state>
       </provider>

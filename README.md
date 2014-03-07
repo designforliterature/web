@@ -13,7 +13,7 @@ To contact Ruben Kleiman: <rk@post.harvard.edu>.
 
 ## Single-Machine, Development Installation
 
-##### IMPORTANT: this is in early, pre-release development, so it's not recommended that you install this. But if you do install it and encounter any problems getting the initial screen/page (not bugs!), please report them to me.
+##### IMPORTANT: this is an early, pre-release version, so it's not recommended that you install it yet--not to mention to use it. But if you do install it and encounter any problems getting the initial screen/page (not bugs!), please report them to me.
 
 - Install (1) `git`, (2) latest `nodejs`, and (3) `MongoDB 2.4.x`
 - Open a Unix shell and clone this git directory: `git clone https://github.com/design4literature/web`
@@ -35,6 +35,10 @@ is delegated to it.
 #### Web Server
 This is a NODEJS/EXPRESS service. It handles basic client
 processing (templates, data translation, user authentication, etc.)
+
+#### Exchange Service
+Services requests by external APIs and parties, permitting the
+APIs among the DFL services to develop independently of existing "standards."
 
 #### Queue Service
 This is a persistent, distributed queue (probably Kafka) through which
@@ -59,7 +63,10 @@ provides an API for creating definitions for the Lemma Service.
 
 #### Analytics Services
 A variety of services for analyzing the content and incoming
-events from Queue Service.
+events from Queue Service. There are real-time and offline services.
+The real-time services (based on Storm) provide immediate analysis of data,
+whereas the offline services (based on Hadoop) provide "big data"
+analysis that is more appropriate for offline work.
 
 ![Services](docs/images/DFL Architecture-services.jpg "Services")
 ![Stack](docs/images/DFL Architecture-stack.jpg "Tech Stack")
