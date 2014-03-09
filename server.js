@@ -54,12 +54,6 @@ console.info('Environment: %s\nLocation: %s\nConfiguration:\n',
 // Configure express for all environments
 app.configure(function () {
     if (env === 'development') {
-
-        // long stack traces
-//        var longjohn = require('longjohn'); // TODO not sure yet whether this works or not
-//        longjohn.async_trace_limit = 20;  // defaults to 10 unlimited: -1;
-//        longjohn.empty_frame = 'ASYNC CALLBACK';
-
         app.use(express.errorHandler({
             dumpExceptions: true,
             showStack: true
@@ -84,20 +78,23 @@ app.configure(function () {
     app.use(express['static'](path.join(__dirname, 'public'))); // Configure our app's static page server
     db.use(app, function (err) { // First initialize our DB wrapper
         if (err) {
+            console.error(err);
             throw {type: 'fatal', msg: 'DB not created: ' + err};
         } else {
             routes.use(app, function (err) { // Then initialize the router, which relies on our DB being initialized
                 if (err) {
+                    console.error(err);
                     throw {type: 'fatal', msg: 'Routes not created: ' + err};
                 }
             });
+
             var ioLogLevel = {error: 0, warn: 1, info: 2, debug: 3}.warn; // Set socket.io lib log level
             require('./lib/routes/sockets.js').init(app, sessionSockets, httpServer, ioLogLevel); // Open websocket communications
         }
     });
 });
 
-var port = config.rest.port || process.env.NODE_SERVER_PORT || 80;
+var port = config.rest.port || process.env.DFL_SERVER_PORT || 80;
 
 // Start the server
 httpServer.listen(port);

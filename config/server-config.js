@@ -29,10 +29,13 @@ module.exports = function (env) {
                 poolSize: 5,
                 host: "localhost",
                 port: 21191,
-                writeConcern: "majority",
-                readPreference: "primary",
-                slaveOk: false,
-                fsync: true,
+                options: {
+                    writeConcern: "majority",
+                    readPreference: "primary",
+                    safe: "true",
+                    slaveOk: false,
+                    fsync: true
+                },
                 dbNames: ["users", "session", "works"],
                 sessionDb: "session",
                 verbose: true
@@ -54,10 +57,13 @@ module.exports = function (env) {
                 poolSize: 200,
                 host: "localhost",
                 port: 21191,
-                writeConcern: "majority",
-                readPreference: "primary",
-                slaveOk: false,
-                fsync: true,
+                options: {
+                    w: "majority",
+                    readPreference: "primary",
+                    safe: "true",
+                    slaveOk: false,
+                    fsync: true
+                },
                 dbNames: ["users", "session", "works"],
                 sessionDb: "session",
                 verbose: true
@@ -79,10 +85,13 @@ module.exports = function (env) {
                 poolSize: 20,
                 host: "localhost",
                 port: 21191,
-                writeConcern: "majority",
-                readPreference: "primary",
-                slaveOk: false,
-                fsync: true,
+                options: {
+                    writeConcern: "majority",
+                    readPreference: "primary",
+                    safe: "true",
+                    slaveOk: false,
+                    fsync: true
+                },
                 dbNames: ["users", "session", "works"],
                 sessionDb: "session",
                 verbose: true

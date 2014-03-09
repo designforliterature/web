@@ -55,8 +55,15 @@ Note: Using <% and %> as Hogan delimiters instead of mustaches (mustaches reserv
 
     <link rel="stylesheet" href="scripts/vendor/bootstrap/css/bootstrap.css"/>
 
+    <script src="scripts/vendor/jquery/jquery.min.js"></script>
+    <!--<script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+
+    <!-- bundle includes Bloodhound and typeahead -->
+    <!--<script>document.write('<base href="' + document.location + '" />');</script>-->
+    <!--<script src="scripts/vendor/angular-typeahead/typeahead.bundle.js"></script>-->
     <script src="scripts/vendor/ng-file-upload/angular-file-upload-shim.min.js"></script>
     <script src="scripts/vendor/angular/angular.js"></script>
+    <!--<script src="scripts/vendor/angular-typeahead/angular-typeahead.min.js"></script>-->
     <script src="scripts/vendor/ng-file-upload/angular-file-upload.min.js"></script>
     <!--<script src="scripts/vendor/angular-route/angular-route.js"></script>-->
     <script src="scripts/vendor/angular-ui-router/angular-ui-router.min.js"></script>
@@ -65,7 +72,6 @@ Note: Using <% and %> as Hogan delimiters instead of mustaches (mustaches reserv
     <script src="scripts/vendor/angular-ui/ui-bootstrap.js"></script>
 
     <script src="scripts/vendor/socket.io/socket.io.min.js"></script>
-    <script src="scripts/vendor/jquery/jquery.min.js"></script>
     <!-- End system scripts ----------------------------------------------------------- -->
 
     <!-- Start application scripts --------------------------------------------------- -->
@@ -80,10 +86,11 @@ Note: Using <% and %> as Hogan delimiters instead of mustaches (mustaches reserv
     <script src="scripts/services/userPrefs.js"></script>
     <script src="scripts/directives/dflDirectives.js"></script>
     <script src="scripts/controllers/appCtrl.js"></script>
+    <script src="scripts/controllers/testCtrl.js"></script>
     <script src="scripts/controllers/signinCtrl.js"></script>
     <script src="scripts/controllers/signupCtrl.js"></script>
     <script src="scripts/controllers/editorCtrl.js"></script>
-    <script src="scripts/controllers/editCtrl.js"></script>
+    <script src="scripts/controllers/workCtrl.js"></script>
     <script src="scripts/controllers/homeCtrl.js"></script>
     <script src="scripts/controllers/catalogCtrl.js"></script>
     <!-- End application scripts ----------------------------------------------------- -->

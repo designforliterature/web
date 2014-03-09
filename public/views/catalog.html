@@ -29,7 +29,7 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
     <accordion close-others="catalog.openOneAtATime">
 
-        <button ng-click="catalog.status()">Server Status (dbg)</button>
+        <button style="margin: 10px 10px 10px 10px" ng-click="catalog.status()">Server Status (dbg)</button>
 
         <accordion-group is-open="catalog.searchCatalogOpen" heading="Search">
             <div class="yellowBox">
@@ -39,6 +39,7 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                                                                ng-model="catalog.query.general"
                                                                                name="general" type="text" size="10"/>
                         <img tooltip="Search" ng-click="catalog.search()" src="images/search-icon-24.png"/></div>
+                    <input type="hidden" ng-init="catalog.query.notify = true"/>
                 </form>
                 <div id="searchResults" style="display: none">
                     <dfl-cat-search-result ng-repeat="result in catalog.searchResults"></dfl-cat-search-result>
@@ -46,6 +47,8 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 </div>
             </div>
         </accordion-group>
+
+        <br/>
 
         <accordion-group is-open="catalog.createCatalogOpen" heading="Create Catalog">
 
@@ -100,7 +103,7 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                         </span>
                     </div>
 
-                    <input type="hidden" ng-model="catalog.postData.notify"/>
+                    <input type="hidden" ng-init="catalog.postData.notify = true"/>
 
 
                     <div id="catalogFields" style="display: none" ng-init="catalog.metatadaValid = false">
@@ -128,17 +131,48 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                             ng-model="catalog.postData.metadata[item.id]"
                                             ng-options="value[0] as value[1] for value in item.options"></select>
 
-                                    <div ng-if="item.id === 'publisherAddress'">
+                                    <div ng-if="item.id === 'publisherAddress' && item.type === 'typeahead'">
                                         <input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}"
                                                type="text" class="catalogField"
                                                ng-model="asyncSelected"
-                                               placeholder="Type Publisher's Address"
+                                               placeholder="Enter Publisher's Address"
                                                typeahead="address.formatted_address for address in catalog.getAddress($viewValue) | filter:$viewValue"
                                                typeahead-on-select="catalog.selectedAddress($item)"
                                                typeahead-editable="false"
                                                typeahead-loading="loadingLocations" class="form-control">
                                         <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
                                     </div>
+
+                                    <div ng-if="item.id === 'authors' && item.type === 'typeahead'">
+                                        <input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}"
+                                               type="text" class="catalogField"
+                                               ng-model="asyncSelected"
+                                               placeholder="Enter author's name"
+                                               typeahead="author.fullName for author in catalog.getAuthor($viewValue) | filter:$viewValue"
+                                               typeahead-on-select="catalog.selectedAuthor($item)"
+                                               typeahead-editable="false"
+                                               typeahead-loading="loadingLocations" class="form-control">
+                                        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+                                    </div>
+
+                                    <!--<div  ng-if="item.id === 'authors' && item.type === 'typeahead'" ng-controller="TestCtrl"> <p>Model: {{selectedNumber|json}}</p>-->
+                                    <!--<input type="text" sf-typeahead options="exampleOptions" placeholder="Enter author's name"-->
+                                    <!--datasets="numbersDataset" ng-model="selectedNumber">-->
+                                    <!--</div>-->
+
+
+                                    <!--<div ng-if="item.id === 'authors' && item.type === 'typeahead'">-->
+                                    <!--<input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}"-->
+                                    <!--type="text" class="catalogField"-->
+                                    <!--ng-model="asyncSelected"-->
+                                    <!--placeholder="Type author name"-->
+                                    <!--typeahead="author.name for authors in catalog.getAuthor($viewValue) | filter:$viewValue"-->
+                                    <!--typeahead-on-select="catalog.selectedAuthor($item)"-->
+                                    <!--typeahead-editable="false"-->
+                                    <!--typeahead-loading="loadingLocations" class="form-control">-->
+                                    <!--<i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>-->
+                                    <!--</div>-->
+
                                 </td>
                             </tr>
                         </table>

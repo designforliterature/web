@@ -100,7 +100,7 @@ var work =
     type: 'Poem'
 };
 
-horaceApp.controller('EditCtrl', function ($scope, EditorEngine, EditorSettings, UserPrefs, $stateParams) {
+horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, EditorSettings, UserPrefs, $stateParams) {
 
     /* Execute after document loads */
     $scope.$on('$viewContentLoaded', function () {

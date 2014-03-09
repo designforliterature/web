@@ -17,8 +17,8 @@ To contact Ruben Kleiman: <rk@post.harvard.edu>.
 
 - Install (1) `git`, (2) latest `nodejs`, and (3) `MongoDB 2.4.x`
 - Open a Unix shell and clone this git directory: `git clone https://github.com/design4literature/web`
-- To start the DB server, execute the shell script `web/scripts/start_db.sh`. WHEN STARTING
-IT FOR THE FIRST TIME, READ THE INSTRUCTIONS IN THIS SCRIPT FILE.
+- To start the DB server, execute the shell script `web/scripts/start_db.sh`. **Read the instructions
+in the latter file before starting the server for the first time.**
 - To run the server, in a Unix shell cd to the cloned web directory and run the script `scripts/run-webserver.sh`
 - To run the client open a browser (preferably not IE) and enter `http://localhost:3000`
 - To stop operations, you can Control-C or kill the node process and then Control-C or kill the DB process.
@@ -76,7 +76,7 @@ analysis that is more appropriate for offline work.
 The reference model is used to guide and evaluate the HIRA spec. The first
 draft version of HIRA will be published by mid-2014.
 
-Due to limited resource constraints we will approach the target in increments.
+Due to resource constraints we will approach the target in increments.
 For the first version, the strategy is to bundle the separate services into
 a minimal set: one server (called the "bundled server") and one client. What would otherwise be separate
 services will be isolated in the code with wrappers called managers. For example, catalog search and indexing
@@ -88,7 +88,7 @@ case, the storeManager.js wrapper would initially handle this, but when a
 separate Content Service is implemented, the manager would simply put the request
 into the Queue Service and the Content Service would pick up the request from there.
 
-All components communicate via a `RESTful` protocol.
+All components communicate via a `RESTful` http protocol or the Queue Service.
 
 When possible, a `RESTful` service is implemented in node.js/express. Clients are
 implemented in `HTML5/CSS3/Javascript/Angularjs`. For more sophisticated

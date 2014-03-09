@@ -58,18 +58,19 @@ horaceApp.config(function ($stateProvider, $urlRouterProvider) {
             url: '/home',
             templateUrl: '/views/home.html'
         })
+        // browse is a demo and test area to be replaced by WorkCtrl
         .state('browse', {
             controller: 'EditorCtrl',
             url: '/browse',
             templateUrl: '/views/browse.html'
         })
-        .state('edit', {
+        .state('work', {
 //            controller: function($stateParams){
 //                console.info($stateParams);
 //            },
-            controller: 'EditCtrl',
-            url: '/edit/?id&content',
-            templateUrl: 'views/edit.html'
+            controller: 'WorkCtrl',
+            url: '/work/?id&content',
+            templateUrl: 'views/work.html'
         })
         .state('catalog', {
             controller: 'CatalogCtrl',

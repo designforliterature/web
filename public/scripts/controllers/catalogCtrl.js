@@ -41,8 +41,8 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
 
         // Accordion flags
         openOneAtATime: false,
-        searchCatalogOpen: true,
-        createCatalogOpen: false,
+        searchCatalogOpen: false,
+        createCatalogOpen: true,
 
         /** userLang: the client's current language */
         clientLang: window.navigator.userLanguage || window.navigator.language,
@@ -133,10 +133,6 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                 });
         },
 
-        printMetadata: function () { // DBG
-            console.info($scope.catalog.postData.metadata);
-        },
-
         /**
          * selectedAddress: Called when the user has selected an address. The address
          * is a location returned by the Google location service.
@@ -168,6 +164,21 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             if (country) {
                 $scope.catalog.postData.metadata.publisherCountry = country;
             }
+        },
+
+        getAuthor: function (input) {
+            return $http.get('/catalog/persons/json', {
+                params: {
+                    name: input,
+                    suggest: true
+                }
+            }).then(function (res) {
+                    return res.data.persons;
+                });
+        },
+
+        selectedAuthor: function (person) {
+            $scope.catalog.postData.metadata.authors = person.fullName;
         },
 
         /* query: catalog search query fields TODO must conform to server-side schema.query! */
@@ -364,7 +375,6 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
         $('#catalogMetadata input, #catalogMetadata select, #catalogMetadata textarea').attr('disabled', disabled);
         $('#fileInput').attr('disabled', disabled);
         $('.textAreaCatalogField').css('resize', disabled ? 'none' : 'vertical');
-//        $scope.editable = !disabled;
     }
 
     // TODO not called when catalog.editable model is changed within scope methods!
@@ -378,13 +388,14 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
     // TODO move the following into editCtl
 
     clientApp.sendIt = function (id) {
+        // TODO replace with $http call (consistency)
         $.ajax({
             type: "GET",
             url: 'catalog/work?id=' + id,
             success: function (a, b) {
                 horaceApp.debug(a);
                 var line = a.content.verses[0].lines[0];
-                $state.go('edit', {id: a._id, content: JSON.stringify(a.content)});
+                $state.go('work', {id: a._id, content: JSON.stringify(a.content)});
             }
         });
     };
@@ -436,41 +447,8 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             }
         }
     };
-//    var searchResultPrettyPrintFun = {
-//        default: function (searchResult, id, name, value, delim, font) {
-//            var span = '<span>';
-//            if (font) {
-//                span += '<' + font + '>' + name + ': ' + '</' + font + '>' + value;
-//            } else {
-//                span += name + ': ' + value;
-//            }
-//            if (delim) {
-//                span += '; ';
-//            }
-//            return span + '</span>';
-//        },
-//        title: function (searchResult, id, name, value, delim, font) {
-//            var x = '<a style="margin-right: 6px" onclick="clientApp.sendIt(&quot;' + searchResult._id + '&quot;' + ')"><i>' + value + '</i></a>';
-////            var x = '<a onclick="clientApp.sendIt(&quot;' + searchResult._id + '&quot;' + ')"><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
-//            return x;
-//        },
-//        workType: function (searchResult, id, name, workType, delim, font) {
-//            var workTypeName = client.shared.catalogFieldSpecs['workType'].specs[workType].name;
-//            var lang = client.shared.definitions.collections.lang[searchResult.lang];
-//            return '(' + workTypeName + ', ' + lang + ') ';
-//        },
-//        lang: function (searchResult, id, name, value, delim, font) {
-//            return '';
-//        },
-//        contentFormat: function (searchResult, id, name, value, delim, font) {
-//            return '';
-//        },
-//        subjects: function (searchResult, id, name, value, delim, font) {
-//            return '';
-//        }
-//
-//    };
 
+    /* Add to specs the client-specific fields--in particular, pretty print functions */
     for (var specId in client.shared.catalogFieldSpecs) {
         var spec = client.shared.catalogFieldSpecs[specId];
         // TODO add rest of funs

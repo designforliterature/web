@@ -6,8 +6,19 @@ db.catalog.ensureIndex({'title': 'text', authors: 'text', 'publisher.name': 'tex
     name: "catalog_search",
     weight: {
         'title': 3,
-//        'authors.fullname': 2, // TODO won't work: authors is now an array, but of objects that include fullName with what we want
         'subjects.text': 2,
         'publisher.name': 1
     }
+});
+
+// Index a person. DB: works, COLLECTION: person
+/**
+ * person fields:
+ * _id: the record id (uuid.v4)
+ * fullName: as complete a name as possible in locale-specific order (e.g., for most Western countries and
+ * languages, last name first)
+ * description: descriptive information about this person (helps users to identify them)
+ */
+db.person.ensureIndex({fullName: 'text'}, {
+    name: "person_search"
 });
