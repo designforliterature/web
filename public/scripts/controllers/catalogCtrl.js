@@ -170,15 +170,19 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             return $http.get('/catalog/persons/json', {
                 params: {
                     name: input,
-                    suggest: true
+                    suggest: false
                 }
             }).then(function (res) {
-                    return res.data.persons;
+                    return res.data.persons; // TODO check for hard error
                 });
         },
 
-        selectedAuthor: function (person) {
-            $scope.catalog.postData.metadata.authors = person.fullName;
+        selectedAuthor: function (person, $model, $label) {
+            $scope.catalog.postData.metadata.authors = person; // TODO multiple persons (need UI changes)
+            // Overwrite input value with full name
+            $timeout(function () {
+                document.getElementById('authorss').value = person.fullName;
+            }, 100);
         },
 
         /* query: catalog search query fields TODO must conform to server-side schema.query! */
@@ -439,7 +443,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                 var html = '',
                     len = subjects.data.length;
                 for (var count = 0; count < len; count += 1) {
-                    html += '<i>' + subjects.data[count]['undefined'] + ((count === length-1)?'':', ') +'</i>';
+                    html += '<i>' + subjects.data[count]['undefined'] + ((count === length - 1) ? '' : ', ') + '</i>';
                 }
                 return '<span>Subject: ' + html + '</span>';
             } else {

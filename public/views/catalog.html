@@ -144,18 +144,18 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                     </div>
 
                                     <div ng-if="item.id === 'authors' && item.type === 'typeahead'">
-                                        <input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}"
+                                        <input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}" id="authorss"
                                                type="text" class="catalogField"
                                                ng-model="asyncSelected"
                                                placeholder="Enter author's name"
-                                               typeahead="author.fullName for author in catalog.getAuthor($viewValue) | filter:$viewValue"
-                                               typeahead-on-select="catalog.selectedAuthor($item)"
+                                               typeahead="(author.description? (author.fullName + ' (' + author.description + ')') : author.fullName) for author in catalog.getAuthor($viewValue) | filter:$viewValue"
+                                               typeahead-on-select="catalog.selectedAuthor($item, $model, $label)"
                                                typeahead-editable="false"
                                                typeahead-loading="loadingLocations" class="form-control">
                                         <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
                                     </div>
 
-                                    <!--<div  ng-if="item.id === 'authors' && item.type === 'typeahead'" ng-controller="TestCtrl"> <p>Model: {{selectedNumber|json}}</p>-->
+
                                     <!--<input type="text" sf-typeahead options="exampleOptions" placeholder="Enter author's name"-->
                                     <!--datasets="numbersDataset" ng-model="selectedNumber">-->
                                     <!--</div>-->

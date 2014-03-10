@@ -7,23 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/services/personService.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/template/editor.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/services/catalogService.js" afterPath="$PROJECT_DIR$/lib/services/catalogService.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/scripts/controllers/EditCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/views/edit.html" afterPath="$PROJECT_DIR$/public/views/work.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app/appModule.js" afterPath="$PROJECT_DIR$/public/scripts/app/appModule.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/init-db-populate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/catalog.html" afterPath="$PROJECT_DIR$/public/views/catalog.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/catalog.js" afterPath="$PROJECT_DIR$/lib/routes/catalog.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/session/index.js" afterPath="$PROJECT_DIR$/lib/session/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/init-db.js" afterPath="$PROJECT_DIR$/scripts/init-db.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/search/searchManager.js" afterPath="$PROJECT_DIR$/lib/search/searchManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/server-config.js" afterPath="$PROJECT_DIR$/config/server-config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/model/schema.js" afterPath="$PROJECT_DIR$/lib/model/schema.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app/shared.js" afterPath="$PROJECT_DIR$/public/scripts/app/shared.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/utilities/ternTree.js" afterPath="$PROJECT_DIR$/lib/utilities/ternTree.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -50,40 +43,28 @@
       <file leaf-file-name="catalog.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/catalog.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="73" selection-start="10048" selection-end="10048" vertical-scroll-proportion="-14.833333" vertical-offset="1894" max-vertical-offset="3105">
+            <state line="157" column="0" selection-start="10654" selection-end="10654" vertical-scroll-proportion="-21.0" vertical-offset="1851" max-vertical-offset="3105">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="catalogCtrl.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="catalogCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="174" column="36" selection-start="6655" selection-end="6655" vertical-scroll-proportion="0.31170663" vertical-offset="2389" max-vertical-offset="6975">
+            <state line="175" column="0" selection-start="6657" selection-end="6657" vertical-scroll-proportion="0.0" vertical-offset="2049" max-vertical-offset="6735">
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <marker date="1394330122000" expanded="true" signature="13124:13140" placeholder="..." />
-                <marker date="1394330122000" expanded="true" signature="17887:17904" placeholder="..." />
+                <marker date="1394409200000" expanded="true" signature="13389:13405" placeholder="..." />
+                <marker date="1394409200000" expanded="true" signature="18152:18169" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="catalog.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
+      <file leaf-file-name="appCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="0" selection-start="5441" selection-end="5441" vertical-scroll-proportion="0.0" vertical-offset="1744" max-vertical-offset="4080">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="personService.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/services/personService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="27" selection-start="1759" selection-end="1759" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+            <state line="60" column="13" selection-start="2208" selection-end="2368" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="855">
               <folding />
             </state>
           </provider>
@@ -92,7 +73,7 @@
       <file leaf-file-name="searchManager.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/search/searchManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="25" selection-start="1986" selection-end="1986" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+            <state line="51" column="24" selection-start="1985" selection-end="1985" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
               <folding />
             </state>
           </provider>
@@ -101,25 +82,7 @@
       <file leaf-file-name="mongoDbManager.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="271" column="59" selection-start="8338" selection-end="8338" vertical-scroll-proportion="0.0" vertical-offset="3178" max-vertical-offset="5205">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="generalUtils.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/utilities/generalUtils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="12" selection-start="3119" selection-end="3119" vertical-scroll-proportion="0.0" vertical-offset="589" max-vertical-offset="1365">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ternTree.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/utilities/ternTree.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="153" column="25" selection-start="4544" selection-end="4561" vertical-scroll-proportion="-88.26923" vertical-offset="0" max-vertical-offset="2385">
+            <state line="288" column="6" selection-start="9088" selection-end="9088" vertical-scroll-proportion="-10.846154" vertical-offset="4038" max-vertical-offset="6240">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -127,10 +90,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shared.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="init-db.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/init-db.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="0" selection-start="1356" selection-end="1356" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="init-db-populate.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/init-db-populate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="0" selection-start="2008" selection-end="2008" vertical-scroll-proportion="-6.111111" vertical-offset="0" max-vertical-offset="2730">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="87" column="58" selection-start="4659" selection-end="4659" vertical-scroll-proportion="-11.333333" vertical-offset="1033" max-vertical-offset="2100">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shared.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="907" column="102" selection-start="23296" selection-end="23305" vertical-scroll-proportion="0.0" vertical-offset="13095" max-vertical-offset="18585">
+            <state line="907" column="250" selection-start="23453" selection-end="23453" vertical-scroll-proportion="0.28950542" vertical-offset="13050" max-vertical-offset="18585">
               <folding />
             </state>
           </provider>
@@ -164,7 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lib/routes/sys.js" />
         <option value="$PROJECT_DIR$/lib/services/methods/poemMethods.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/editorEngine.js" />
         <option value="$PROJECT_DIR$/public/styles/app.css" />
@@ -183,7 +176,6 @@
         <option value="$PROJECT_DIR$/public/views/home.html" />
         <option value="$PROJECT_DIR$/public/index-uir.html" />
         <option value="$PROJECT_DIR$/lib/db/index.js" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/editorCtrl.js" />
         <option value="$PROJECT_DIR$/public/views/browse.html" />
         <option value="$PROJECT_DIR$/public/views/edit.html" />
@@ -191,7 +183,6 @@
         <option value="$PROJECT_DIR$/scripts/start_db.sh" />
         <option value="localhost:3000/scripts/vendor/angular/angular.js" />
         <option value="$PROJECT_DIR$/public/scripts/directives/dflDirectives.js" />
-        <option value="$PROJECT_DIR$/lib/model/schema.js" />
         <option value="$PROJECT_DIR$/lib/services/CatalogService.js" />
         <option value="$PROJECT_DIR$/lib/store/storeManager.js" />
         <option value="$PROJECT_DIR$/lib/routes/users.js" />
@@ -199,22 +190,25 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/lib/session/index.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/testCtrl.js" />
-        <option value="$PROJECT_DIR$/public/scripts/app/shared.js" />
         <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/config/server-config.js" />
         <option value="$PROJECT_DIR$/lib/services/catalogService.js" />
         <option value="$PROJECT_DIR$/public/scripts/app/appModule.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
-        <option value="$PROJECT_DIR$/scripts/init-db.js" />
-        <option value="$PROJECT_DIR$/lib/routes/catalog.js" />
         <option value="$PROJECT_DIR$/lib/services/personService.js" />
         <option value="$PROJECT_DIR$/lib/search/searchManager.js" />
         <option value="$PROJECT_DIR$/node_modules/node-ngram/ngram.js" />
-        <option value="$PROJECT_DIR$/public/views/catalog.html" />
+        <option value="$PROJECT_DIR$/lib/routes/catalog.js" />
         <option value="$PROJECT_DIR$/lib/utilities/ternTree.js" />
-        <option value="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/shared.js" />
+        <option value="$PROJECT_DIR$/lib/model/schema.js" />
+        <option value="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" />
+        <option value="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
+        <option value="$PROJECT_DIR$/scripts/init-db.js" />
+        <option value="$PROJECT_DIR$/scripts/init-db-populate.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/views/catalog.html" />
       </list>
     </option>
   </component>
@@ -435,7 +429,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mongodb" />
+              <option name="myItemId" value="grunt-contrib-imagemin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -453,15 +447,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mongodb" />
+              <option name="myItemId" value="grunt-contrib-imagemin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongodb" />
+              <option name="myItemId" value="node_modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -479,19 +469,221 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mongodb" />
+              <option name="myItemId" value="grunt-contrib-imagemin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="node_modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mongodb" />
+              <option name="myItemId" value="jpegtran-bin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="connection" />
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grunt-contrib-imagemin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jpegtran-bin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bin-wrapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grunt-contrib-imagemin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jpegtran-bin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bin-wrapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grunt-contrib-imagemin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jpegtran-bin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bin-wrapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grunt-contrib-imagemin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jpegtran-bin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bin-wrapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="object" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grunt-contrib-imagemin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jpegtran-bin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bin-wrapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collection" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -661,6 +853,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -740,7 +950,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="project.scopes" />
+    <property name="options.lastSelected" value="editor" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="TODO_SCOPE" value="Project Files" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -783,6 +993,14 @@
       <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -793,23 +1011,15 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -1187,7 +1397,15 @@
       <created>1394151254449</created>
       <updated>1394151254449</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="person indexing and search; autocompletion">
+      <created>1394330145167</created>
+      <updated>1394330145167</updated>
+    </task>
+    <task id="LOCAL-00084" summary="added tern tree algo">
+      <created>1394330199876</created>
+      <updated>1394330199876</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1220,7 +1438,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35176653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24890591" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15431105" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43394777" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34178188" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34775087" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26651305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1230,9 +1448,29 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937598" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3031652" sideWeight="0.600624" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33018124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35176653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34178188" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34775087" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32846153" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24890591" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15431105" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3031652" sideWeight="0.600624" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937598" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout>
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26651305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USERS">
@@ -1248,8 +1486,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="New icons and search fixups" />
-    <MESSAGE value="Content upload&#10;" />
     <MESSAGE value="icons" />
     <MESSAGE value="node modules&#10;" />
     <MESSAGE value="poetry contents upload and update from raw file" />
@@ -1273,34 +1509,19 @@
     <MESSAGE value="added search manager (separate from store) to isolate search" />
     <MESSAGE value="docs" />
     <MESSAGE value="readme update" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme update" />
+    <MESSAGE value="person indexing and search; autocompletion" />
+    <MESSAGE value="added tern tree algo" />
+    <option name="LAST_COMMIT_MESSAGE" value="added tern tree algo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js</url>
-          <line>175</line>
-          <option name="timeStamp" value="1319" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="1320" />
+      <option name="time" value="1376" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/angular-ui-router/angular-ui-router.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="167" selection-end="167" vertical-scroll-proportion="0.129683" vertical-offset="0" max-vertical-offset="694" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/editorCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="17" selection-start="4378" selection-end="4378" vertical-scroll-proportion="0.0" vertical-offset="1070" max-vertical-offset="2535" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/browse.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="1310" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="540" />
@@ -1373,13 +1594,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="67" selection-start="1082" selection-end="1082" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="2805">
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/services/methods/poetryMethods.js">
@@ -1403,23 +1624,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/socket.io/lib/namespace.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="291" column="9" selection-start="5474" selection-end="5474" vertical-scroll-proportion="0.0" vertical-offset="4129" max-vertical-offset="5415">
-          <folding />
-        </state>
+        <state line="291" column="9" selection-start="5474" selection-end="5474" vertical-scroll-proportion="0.0" vertical-offset="4129" max-vertical-offset="5415" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/routes/sockets.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="23" selection-start="7328" selection-end="7328" vertical-scroll-proportion="0.0" vertical-offset="2224" max-vertical-offset="2940">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/model/schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="240" column="32" selection-start="9786" selection-end="9786" vertical-scroll-proportion="0.0" vertical-offset="993" max-vertical-offset="4755">
-          <folding />
-        </state>
+        <state line="184" column="23" selection-start="7328" selection-end="7328" vertical-scroll-proportion="0.0" vertical-offset="2224" max-vertical-offset="2940" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/template/typeahead/typeahead-match.html">
@@ -1443,39 +1653,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/testCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="30" selection-start="1148" selection-end="1156" vertical-scroll-proportion="0.036764707" vertical-offset="0" max-vertical-offset="816">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/mongo_client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="377" column="0" selection-start="15934" selection-end="15934" vertical-scroll-proportion="0.33333334" vertical-offset="5346" max-vertical-offset="6690">
-          <folding />
-        </state>
+        <state line="377" column="0" selection-start="15934" selection-end="15934" vertical-scroll-proportion="0.33333334" vertical-offset="5346" max-vertical-offset="6690" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="12" selection-start="3208" selection-end="3208" vertical-scroll-proportion="0.5631068" vertical-offset="378" max-vertical-offset="1305">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="81" selection-start="3330" selection-end="3330" vertical-scroll-proportion="-8.083333" vertical-offset="796" max-vertical-offset="2115">
-          <folding />
-        </state>
+        <state line="81" column="12" selection-start="3208" selection-end="3208" vertical-scroll-proportion="0.5631068" vertical-offset="378" max-vertical-offset="1305" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/session/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="61" selection-start="4169" selection-end="4169" vertical-scroll-proportion="0.0" vertical-offset="581" max-vertical-offset="1665">
-          <folding />
-        </state>
+        <state line="101" column="61" selection-start="4169" selection-end="4169" vertical-scroll-proportion="0.0" vertical-offset="581" max-vertical-offset="1665" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
@@ -1487,63 +1677,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/work.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="16" selection-start="1167" selection-end="1167" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="615">
-          <folding />
-        </state>
+        <state line="26" column="16" selection-start="1167" selection-end="1167" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="615" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/app/appModule.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="20" selection-start="2306" selection-end="2306" vertical-scroll-proportion="0.5796897" vertical-offset="264" max-vertical-offset="1095">
-          <folding />
-        </state>
+        <state line="66" column="20" selection-start="2306" selection-end="2306" vertical-scroll-proportion="0.5796897" vertical-offset="264" max-vertical-offset="1095" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/server-config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="53" selection-start="2407" selection-end="2407" vertical-scroll-proportion="0.084626235" vertical-offset="930" max-vertical-offset="1740">
-          <folding />
-        </state>
+        <state line="66" column="53" selection-start="2407" selection-end="2407" vertical-scroll-proportion="0.084626235" vertical-offset="930" max-vertical-offset="1740" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/services/catalogService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="82" column="6" selection-start="2911" selection-end="2911" vertical-scroll-proportion="0.36310396" vertical-offset="682" max-vertical-offset="1815">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="907" column="102" selection-start="23296" selection-end="23305" vertical-scroll-proportion="0.0" vertical-offset="13095" max-vertical-offset="18585">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/init-db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="8" selection-start="861" selection-end="865" vertical-scroll-proportion="0.44428772" vertical-offset="0" max-vertical-offset="709">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/node_modules/bin-wrapper/node_modules/mout/object/find.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="21" selection-start="170" selection-end="173" vertical-scroll-proportion="0.12693936" vertical-offset="0" max-vertical-offset="709">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/node_modules/bin-wrapper/node_modules/mout/collection/find.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="35" selection-start="106" selection-end="106" vertical-scroll-proportion="0.042313118" vertical-offset="0" max-vertical-offset="709">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/node_modules/bin-wrapper/node_modules/mout/collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="37" selection-start="268" selection-end="268" vertical-scroll-proportion="0.16925247" vertical-offset="0" max-vertical-offset="709">
           <folding />
         </state>
       </provider>
@@ -1557,23 +1706,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/utilities/generalUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="12" selection-start="3119" selection-end="3119" vertical-scroll-proportion="0.0" vertical-offset="589" max-vertical-offset="1365">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="163" column="36" selection-start="3610" selection-end="3610" vertical-scroll-proportion="0.33286318" vertical-offset="2209" max-vertical-offset="4905">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/services/personService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="27" selection-start="1759" selection-end="1759" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
           <folding />
         </state>
       </provider>
@@ -1585,16 +1720,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/search/searchManager.js">
+    <entry file="file://$PROJECT_DIR$/lib/utilities/ternTree.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="25" selection-start="1986" selection-end="1986" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+        <state line="155" column="20" selection-start="4663" selection-end="4675" vertical-scroll-proportion="0.0" vertical-offset="1276" max-vertical-offset="2550">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/utilities/generalUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="0" selection-start="2220" selection-end="2220" vertical-scroll-proportion="0.29356357" vertical-offset="91" max-vertical-offset="1365">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/utilities/ternTree.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/node_modules/bin-wrapper/node_modules/mout/object/find.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="25" selection-start="4544" selection-end="4561" vertical-scroll-proportion="-88.26923" vertical-offset="0" max-vertical-offset="2385">
+        <state line="6" column="21" selection-start="170" selection-end="173" vertical-scroll-proportion="0.10856453" vertical-offset="0" max-vertical-offset="829">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/node_modules/bin-wrapper/node_modules/mout/collection/find.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="35" selection-start="106" selection-end="106" vertical-scroll-proportion="0.036188178" vertical-offset="0" max-vertical-offset="829">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/node_modules/bin-wrapper/node_modules/mout/collection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="38" selection-start="269" selection-end="269" vertical-scroll-proportion="0.14475271" vertical-offset="0" max-vertical-offset="829">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/model/schema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="235" column="61" selection-start="9543" selection-end="9543" vertical-scroll-proportion="0.0" vertical-offset="3283" max-vertical-offset="5175">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -1603,7 +1768,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="0" selection-start="5441" selection-end="5441" vertical-scroll-proportion="0.0" vertical-offset="1744" max-vertical-offset="4080">
+        <state line="130" column="34" selection-start="5422" selection-end="5422" vertical-scroll-proportion="0.0" vertical-offset="1474" max-vertical-offset="3795">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/services/personService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="26" selection-start="1758" selection-end="1758" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/search/searchManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="24" selection-start="1985" selection-end="1985" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="13" selection-start="2208" selection-end="2368" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="175" column="0" selection-start="6657" selection-end="6657" vertical-scroll-proportion="0.0" vertical-offset="2049" max-vertical-offset="6735">
+          <folding>
+            <marker date="1394409200000" expanded="true" signature="13389:13405" placeholder="..." />
+            <marker date="1394409200000" expanded="true" signature="18152:18169" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="288" column="6" selection-start="9088" selection-end="9088" vertical-scroll-proportion="-10.846154" vertical-offset="4038" max-vertical-offset="6240">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/init-db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="0" selection-start="1356" selection-end="1356" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -1612,26 +1824,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/catalog.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="73" selection-start="10048" selection-end="10048" vertical-scroll-proportion="-14.833333" vertical-offset="1894" max-vertical-offset="3105">
+        <state line="157" column="0" selection-start="10654" selection-end="10654" vertical-scroll-proportion="-21.0" vertical-offset="1851" max-vertical-offset="3105">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
+    <entry file="file://$PROJECT_DIR$/scripts/init-db-populate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="271" column="59" selection-start="8338" selection-end="8338" vertical-scroll-proportion="0.0" vertical-offset="3178" max-vertical-offset="5205">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="36" selection-start="6655" selection-end="6655" vertical-scroll-proportion="0.31170663" vertical-offset="2389" max-vertical-offset="6975">
+        <state line="22" column="0" selection-start="2008" selection-end="2008" vertical-scroll-proportion="-6.111111" vertical-offset="0" max-vertical-offset="2730">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1394330122000" expanded="true" signature="13124:13140" placeholder="..." />
-            <marker date="1394330122000" expanded="true" signature="17887:17904" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="58" selection-start="4659" selection-end="4659" vertical-scroll-proportion="-11.333333" vertical-offset="1033" max-vertical-offset="2100">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="907" column="250" selection-start="23453" selection-end="23453" vertical-scroll-proportion="0.28950542" vertical-offset="13050" max-vertical-offset="18585">
+          <folding />
         </state>
       </provider>
     </entry>

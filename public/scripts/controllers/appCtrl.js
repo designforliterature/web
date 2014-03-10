@@ -55,11 +55,10 @@ horaceApp.debug = function (obj, type) {
 
 horaceApp.controller('AppCtrl', function ($scope, $rootScope, SocketsService) {
 
-    $rootScope.$on('$stateChangeStart',
-        function (event, toState, toParams, fromState, fromParams) {
-            console.info(event);
-//            event.preventDefault();
-        });
+//    $rootScope.$on('$stateChangeStart',
+//        function (event, toState, toParams, fromState, fromParams) {
+////            event.preventDefault();
+//        });
 
     // Connect websockets when client is (re-)loaded
     SocketsService.connectSockets();

@@ -905,7 +905,7 @@ var catalogFieldSpecs = { // TODO incorporate the value type (string/number/choi
         return langs;
     }(), min: 2, max: 8, description: 'The main language in which the work for this catalog item is written', validator: 'string', xformer: 'set', inForm: true, rank: 30},
 
-    authors: {id: 'authors', subId: 'fullName', subIdName: 'Name', name: 'Author(s)', type: 'typeahead', description: 'A list of the original author(s) of this work', validator: 'string', xformer: 'push', inForm: true, rank: 50},
+    authors: {id: 'authors', subId: 'fullName', subIdName: 'Name', name: 'Author(s)', type: 'typeahead', description: 'A list of the original author(s) of this work', validator: 'noop', xformer: 'authors', inForm: true, rank: 50}, // TODO change noop
 
     editors: {id: 'editors', subId: 'fullName', subIdName: 'Name', name: 'Ed(s)', type: 'text', description: 'For anthologies and other collections, this is a list of the original editor(s) of this work.', validator: 'string', xformer: 'push', inForm: true, rank: 60},
 
