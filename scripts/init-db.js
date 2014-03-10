@@ -13,11 +13,12 @@ var conn = new Mongo('localhost:21191'),
 catalogCol.dropIndexes();
 
 // Index a catalog item. DB: works, COLLECTION: catalog
-catalogCol.ensureIndex({'title': 'text', authors: 'text', 'publisher.name': 'text', subjects: 'text'}, {
+catalogCol.ensureIndex({'title': 'text', 'authors.keywords': 'text', 'subjects.keywords': 'text', 'publisher.name': 'text'}, {
     name: "catalog_search",
     weight: {
-        'title': 3,
-        'subjects.text': 2,
+        'title': 4,
+        'authors.keywords': 3,
+        'subjects.keywords': 2,
         'publisher.name': 1
     }
 });
@@ -37,6 +38,6 @@ personCol.ensureIndex({fullName: 'text', altNames: 'text'}, {
 });
 
 
-publisherCol.ensureIndes({companyName: 'text', imprints: 'text'}, {
+publisherCol.ensureIndex({companyName: 'text', imprints: 'text'}, {
     name: "publisher_search"
 });

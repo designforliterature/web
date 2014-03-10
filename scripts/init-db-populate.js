@@ -22,10 +22,10 @@ personCol.insert({fullName: 'Homer', description: 'Homer is a 20th century carto
 //personCol.insert({fullName: '', description: ''});
 
 
-publisher.insert({companyName: 'Harvard University Press', url: 'http://www.hup.harvard.edu', phone: '617-495-2600', fax: '617-496-4677', address: '79 Garden St., Cambridge, MA, US', city: 'Cambridge', province: 'Massachusetts', country: 'US', imprints: ['Belknap Press', 'Harvard University Press']});
-//publisher.insert({companyName: '', url: '', phone: '', fax: '', address: '', city: '', province: '', country: '', imprints: []});
+publisherCol.insert({companyName: 'Harvard University Press', url: 'http://www.hup.harvard.edu', phone: '617-495-2600', fax: '617-496-4677', address: '79 Garden St., Cambridge, MA, US', city: 'Cambridge', province: 'Massachusetts', country: 'US', imprints: ['Belknap Press', 'Harvard University Press']});
+//publisherCol.insert({companyName: '', url: '', phone: '', fax: '', address: '', city: '', province: '', country: '', imprints: []});
 
-publisher.insert({companyName: 'Random House', url:'http://www.randomhouse.com', phone: '(212) 782-9000', fax: '(212) 572-6066', address: '1745 Broadway, NY, NY, 10019', city: 'New York', province: 'New York', country: 'US', imprints: [
+publisherCol.insert({companyName: 'Random House', url:'http://www.randomhouse.com', phone: '(212) 782-9000', fax: '(212) 572-6066', address: '1745 Broadway, NY, NY, 10019', city: 'New York', province: 'New York', country: 'US', imprints: [
     'Alfred A. Knopf',
     'Alfred A. Knopf',
     "American Heart Association (Books)",
