@@ -36,6 +36,11 @@ body {
     padding-right: 5px;
 }
 
+/* Following to make angularjs-bootstrap-ui work correctly */
+.nav, .pagination, .carousel .panel-title a {
+    cursor: pointer;
+}
+
 a {
     color: #00B7FF;
 }
@@ -60,10 +65,6 @@ a.error {
     transition: color .4s ease-in;
 }
 
-/* Following to make angularjs-bootstrap-ui work correctly */
-.nav, .pagination, .carousel .panel-title a {
-    cursor: pointer;
-}
 
 .defaultDivStyle {
     text-align: center;

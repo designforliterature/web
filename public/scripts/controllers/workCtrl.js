@@ -128,14 +128,16 @@ $scope.editor = {
 
     /* Start pagination controls */
     pager: {
-        currentPage: 4,
-        totalItems: 120,  // number of pages * 10
-//        maxSize: 2,
+        currentPage: 1,
+        totalPages: 10,
         setPage: function (pageno) {
-            $scope.editor.pager.currentPage = pageno;
+            if (pageno > 0 && pageno <= $scope.editor.pager.totalPages) {
+                $scope.editor.pager.currentPage = pageno;
+            }
         },
-        selectPage: function (pageno) {
-            console.info('Selected page no. ' + pageno);
+        changePage: function () {
+            var val = $('#pageSelector')[0].value;
+            console.info(val);
         }
     },
     /* End pagination controls */

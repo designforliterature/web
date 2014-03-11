@@ -26,8 +26,10 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 <div>ID: {{editor.id}}</div>
 <div>CONTENT: {{editor.content.verses[0].lines[0]}}</div>
 
-<pager style="text-align: left" total-items="editor.pager.totalItems" page="editor.pager.currentPage" on-select-page="editor.pager.selectPage(page)" previous-text="« Previous" next-text="Next »"></pager>
-
+<ng-label>Poem: {{editor.pager.currentPage}} / {{editor.pager.totalPages}}</ng-label>
+Set Page: <input ng-change="{{editor.pager.changePage()}}" ng-model="editor.pager.currentPage" id="pageSelector" style="width: 40px" type="text"/>
+<button ng-click="editor.pager.setPage(editor.pager.currentPage - 1)">Previous</button>
+<button ng-click="editor.pager.setPage(editor.pager.currentPage + 1)">Next</button>
 
 <div class="headline">Catullus: Poem 3</div>
 <button ng-click="editor.test()">Annotate</button>
