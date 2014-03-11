@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/db/mongoDbManager.js" afterPath="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -29,7 +30,19 @@
     <favorites_list name="web" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="mongoDbManager.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="21" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.3301887" vertical-offset="0" max-vertical-offset="6585">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -100,7 +113,6 @@
         <option value="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
         <option value="$PROJECT_DIR$/public/views/work.html" />
         <option value="$PROJECT_DIR$/public/styles/app.css" />
-        <option value="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
         <option value="$PROJECT_DIR$/lib/model/schema.js" />
         <option value="$PROJECT_DIR$/node-examples/http_requests_parallel.js" />
         <option value="$PROJECT_DIR$/node-examples/tcp_server.js" />
@@ -108,6 +120,7 @@
         <option value="$PROJECT_DIR$/node-examples/pipe_streams.js" />
         <option value="$PROJECT_DIR$/node-examples/transform_stream.js" />
         <option value="$PROJECT_DIR$/node-examples/parallel_io.js" />
+        <option value="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
       </list>
     </option>
   </component>
@@ -832,7 +845,11 @@
       <created>1394575264441</created>
       <updated>1394575264441</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="mongodb mgr&#10;">
+      <created>1394575297209</created>
+      <updated>1394575297209</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -857,14 +874,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="22" width="2503" height="1418" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33018124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24890591" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15390813" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15390813" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43855608" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34775087" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -913,7 +930,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="some work on content chunking for poetry" />
     <MESSAGE value="some work on content chunking for poetry&#10;" />
     <MESSAGE value="improved stack trace on errors" />
     <MESSAGE value="fixed typo" />
@@ -938,7 +954,8 @@
     <MESSAGE value="citations using Chicago Manual of Style; work presentation UI, work storage, pagination; added Merrill's Catullus text" />
     <MESSAGE value="page controls" />
     <MESSAGE value="mongodb mgr" />
-    <option name="LAST_COMMIT_MESSAGE" value="mongodb mgr" />
+    <MESSAGE value="mongodb mgr&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="mongodb mgr&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -951,7 +968,9 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lib/store/storeManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="23" selection-start="1354" selection-end="1354" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570" />
+        <state line="31" column="23" selection-start="1354" selection-end="1354" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/application.js">
@@ -1006,7 +1025,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/utilities/uuid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3750" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3750">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
@@ -1046,7 +1069,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/search/searchManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="24" selection-start="1985" selection-end="1985" vertical-scroll-proportion="0.69196427" vertical-offset="0" max-vertical-offset="672" />
+        <state line="51" column="24" selection-start="1985" selection-end="1985" vertical-scroll-proportion="0.69196427" vertical-offset="0" max-vertical-offset="672">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/directives/dflDirectives.js">
@@ -1096,12 +1121,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/services/catalogService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="65" selection-start="4392" selection-end="4392" vertical-scroll-proportion="-13.038462" vertical-offset="1011" max-vertical-offset="1815" />
+        <state line="110" column="65" selection-start="4392" selection-end="4392" vertical-scroll-proportion="-13.038462" vertical-offset="1011" max-vertical-offset="1815">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/services/methods/poetryMethods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="26" selection-start="6966" selection-end="6966" vertical-scroll-proportion="0.0" vertical-offset="2148" max-vertical-offset="3435" />
+        <state line="195" column="26" selection-start="6966" selection-end="6966" vertical-scroll-proportion="0.0" vertical-offset="2148" max-vertical-offset="3435">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test-content/iliad-greek.txt">
@@ -1165,14 +1194,11 @@
         <state line="20" column="121" selection-start="2004" selection-end="2004" vertical-scroll-proportion="-0.011895321" vertical-offset="300" max-vertical-offset="2715" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="300" column="4" selection-start="9495" selection-end="9495" vertical-scroll-proportion="0.0" vertical-offset="4249" max-vertical-offset="6585" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="4" selection-start="2447" selection-end="2447" vertical-scroll-proportion="0.38691324" vertical-offset="313" max-vertical-offset="3885" />
+        <state line="59" column="4" selection-start="2447" selection-end="2447" vertical-scroll-proportion="0.38691324" vertical-offset="313" max-vertical-offset="3885">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/model/schema.js">
@@ -1221,6 +1247,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="18" selection-start="194" selection-end="194" vertical-scroll-proportion="0.094339624" vertical-offset="0" max-vertical-offset="1272">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="21" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.3301887" vertical-offset="0" max-vertical-offset="6585">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
