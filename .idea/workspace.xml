@@ -6,8 +6,7 @@
     <option name="CUSTOM_SCOPE_NAME" value="web" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="page controls&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
+    <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -829,7 +828,11 @@
       <created>1394574605441</created>
       <updated>1394574605441</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="mongodb mgr">
+      <created>1394575264441</created>
+      <updated>1394575264441</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -910,7 +913,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="db startup script enables text indexing" />
     <MESSAGE value="some work on content chunking for poetry" />
     <MESSAGE value="some work on content chunking for poetry&#10;" />
     <MESSAGE value="improved stack trace on errors" />
@@ -935,7 +937,8 @@
     <MESSAGE value="typos" />
     <MESSAGE value="citations using Chicago Manual of Style; work presentation UI, work storage, pagination; added Merrill's Catullus text" />
     <MESSAGE value="page controls" />
-    <option name="LAST_COMMIT_MESSAGE" value="page controls" />
+    <MESSAGE value="mongodb mgr" />
+    <option name="LAST_COMMIT_MESSAGE" value="mongodb mgr" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
