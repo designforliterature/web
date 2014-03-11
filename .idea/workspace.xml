@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/db/mongoDbManager.js" afterPath="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -34,7 +33,7 @@
       <file leaf-file-name="mongoDbManager.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="21" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.3301887" vertical-offset="0" max-vertical-offset="6585">
+            <state line="28" column="20" selection-start="1294" selection-end="1294" vertical-scroll-proportion="0.3301887" vertical-offset="0" max-vertical-offset="6585">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -853,7 +852,11 @@
       <created>1394575404516</created>
       <updated>1394575404516</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="mongodb mgr&#10;">
+      <created>1394575510434</created>
+      <updated>1394575510434</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1256,7 +1259,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="21" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.3301887" vertical-offset="0" max-vertical-offset="6585">
+        <state line="28" column="20" selection-start="1294" selection-end="1294" vertical-scroll-proportion="0.3301887" vertical-offset="0" max-vertical-offset="6585">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
