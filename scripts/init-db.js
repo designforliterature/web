@@ -6,10 +6,15 @@
 
 var conn = new Mongo('localhost:21191'),
     worksDb = conn.getDB('works'),
+    worksCol = worksDb.getCollection('work'),
     personCol = worksDb.getCollection('person'),
     catalogCol = worksDb.getCollection('catalog'),
     publisherCol = worksDb.getCollection('publisher');
 
+
+worksCol.remove();
+
+catalogCol.remove();
 catalogCol.dropIndexes();
 
 // Index a catalog item. DB: works, COLLECTION: catalog
@@ -24,6 +29,7 @@ catalogCol.ensureIndex({'title': 'text', 'authors.keywords': 'text', 'subjects.k
 });
 
 // Index a person. DB: works, COLLECTION: person
+personCol.remove();
 personCol.dropIndexes();
 /**
  * person fields:
@@ -37,6 +43,10 @@ personCol.ensureIndex({fullName: 'text', altNames: 'text'}, {
     name: "person_search"
 });
 
+
+// Index publishers
+publisherCol.remove();
+publisherCol.dropIndexes();
 
 publisherCol.ensureIndex({companyName: 'text', imprints: 'text'}, {
     name: "publisher_search"

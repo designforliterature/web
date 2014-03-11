@@ -26,6 +26,8 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 <div>ID: {{editor.id}}</div>
 <div>CONTENT: {{editor.content.verses[0].lines[0]}}</div>
 
+<pager style="text-align: left" total-items="editor.pager.totalItems" page="editor.pager.currentPage" on-select-page="editor.pager.selectPage(page)" previous-text="« Previous" next-text="Next »"></pager>
+
 
 <div class="headline">Catullus: Poem 3</div>
 <button ng-click="editor.test()">Annotate</button>

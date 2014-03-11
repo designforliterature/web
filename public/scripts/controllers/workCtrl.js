@@ -121,9 +121,24 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, EditorSettings,
     $scope.editor.activateSettings(EditorSettings);
 });
 
+
 $scope.editor = {
 
     id: $stateParams.id,
+
+    /* Start pagination controls */
+    pager: {
+        currentPage: 4,
+        totalItems: 120,  // number of pages * 10
+//        maxSize: 2,
+        setPage: function (pageno) {
+            $scope.editor.pager.currentPage = pageno;
+        },
+        selectPage: function (pageno) {
+            console.info('Selected page no. ' + pageno);
+        }
+    },
+    /* End pagination controls */
 
     content: JSON.parse($stateParams.content),
 

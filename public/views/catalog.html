@@ -39,7 +39,7 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                                                                ng-model="catalog.query.general"
                                                                                name="general" type="text" size="10"/>
                         <img tooltip="Search" ng-click="catalog.search()" src="images/search-icon-24.png"/></div>
-                    <input type="hidden" ng-init="catalog.query.notify = true"/>
+                    <input type="hidden" ng-init="catalog.query.notify = false"/>
                 </form>
                 <div id="searchResults" style="display: none">
                     <dfl-cat-search-result ng-repeat="result in catalog.searchResults"></dfl-cat-search-result>
@@ -103,7 +103,7 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                         </span>
                     </div>
 
-                    <input type="hidden" ng-init="catalog.postData.notify = true"/>
+                    <input type="hidden" ng-init="catalog.postData.notify = false"/>
 
 
                     <div id="catalogFields" style="display: none" ng-init="catalog.metatadaValid = false">
@@ -143,35 +143,29 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                                         <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
                                     </div>
 
-                                    <div ng-if="item.id === 'authors' && item.type === 'typeahead'">
-                                        <input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}" id="authorss"
+                                    <div ng-if="item.id === 'editors' && item.type === 'typeahead'">
+                                        <input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}" id="editors"
                                                type="text" class="catalogField"
                                                ng-model="asyncSelected"
-                                               placeholder="Enter author's name"
-                                               typeahead="(author.description? (author.fullName + ' (' + author.description + ')') : author.fullName) for author in catalog.getAuthor($viewValue) | filter:$viewValue"
-                                               typeahead-on-select="catalog.selectedAuthor($item, $model, $label)"
+                                               placeholder="Enter editor's name"
+                                               typeahead="(person.description? (person.fullName + ' (' + person.description + ')') : person.fullName) for person in catalog.getPerson($viewValue) | filter:$viewValue"
+                                               typeahead-on-select="catalog.selectedPerson($item, $model, $label, 'editors')"
                                                typeahead-editable="false"
                                                typeahead-loading="loadingLocations" class="form-control">
                                         <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
                                     </div>
 
-
-                                    <!--<input type="text" sf-typeahead options="exampleOptions" placeholder="Enter author's name"-->
-                                    <!--datasets="numbersDataset" ng-model="selectedNumber">-->
-                                    <!--</div>-->
-
-
-                                    <!--<div ng-if="item.id === 'authors' && item.type === 'typeahead'">-->
-                                    <!--<input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}"-->
-                                    <!--type="text" class="catalogField"-->
-                                    <!--ng-model="asyncSelected"-->
-                                    <!--placeholder="Type author name"-->
-                                    <!--typeahead="author.name for authors in catalog.getAuthor($viewValue) | filter:$viewValue"-->
-                                    <!--typeahead-on-select="catalog.selectedAuthor($item)"-->
-                                    <!--typeahead-editable="false"-->
-                                    <!--typeahead-loading="loadingLocations" class="form-control">-->
-                                    <!--<i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>-->
-                                    <!--</div>-->
+                                    <div ng-if="item.id === 'authors' && item.type === 'typeahead'">
+                                        <input disabled="{{catalog.editable}}" catalog-field name="{{item.id}}" id="authors"
+                                               type="text" class="catalogField"
+                                               ng-model="asyncSelected"
+                                               placeholder="Enter author's name"
+                                               typeahead="(person.description? (person.fullName + ' (' + person.description + ')') : person.fullName) for person in catalog.getPerson($viewValue) | filter:$viewValue"
+                                               typeahead-on-select="catalog.selectedPerson($item, $model, $label, 'authors')"
+                                               typeahead-editable="false"
+                                               typeahead-loading="loadingLocations" class="form-control">
+                                        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+                                    </div>
 
                                 </td>
                             </tr>

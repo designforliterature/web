@@ -6,7 +6,6 @@ var conn = new Mongo('localhost:21191'),
     personCol = worksDb.getCollection('person'),
     publisherCol = worksDb.getCollection('publisher');
 
-personCol.remove();
 personCol.insert({fullName: 'Catullus, Gaius Valerius', description: 'Catullus (b. c. 84 BCE) was a poet of the late Roman Republic who wrote in the neoteric style of poetry'});
 personCol.insert({fullName: 'Flaccus, Quintus Horatius', description: 'Horace (b. December 8, 65 BCE) was the leading Roman lyric poet during the time of Augustus', altNames: 'Horace'});
 personCol.insert({fullName: 'Maro, Publius Virgilius', description: 'Vergil (b. October 15, 70 BCE) was a poet of the Augustan period' , altNames: 'Virgil Vergil'});
@@ -18,7 +17,8 @@ personCol.insert({fullName: 'Sophocles', description: 'Sophocles (b. c. 497/6 BC
 personCol.insert({fullName: 'Euripedes', description: 'Eripedes (b. c. 480 BCE) is one of the three classical Green tragedians with extant works'});
 personCol.insert({fullName: 'Aesop', description: "Aesop (b. 620 BCE), creator of Aesop's tales"});
 personCol.insert({fullName: 'Homer', description: 'Homer is a 20th century cartoon character, member of the Simpson family'});
-//personCol.insert({fullName: '', description: ''});
+
+personCol.insert({fullName: 'Merrill, Elmer Truesdell', description: 'Late Rich Professor of Latin in Wesleyan University'});
 //personCol.insert({fullName: '', description: ''});
 
 

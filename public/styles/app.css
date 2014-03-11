@@ -52,6 +52,14 @@ a.error {
     color: red;
 }
 
+.citation {
+    color: black;
+    -webkit-transition: color .4s ease-in;
+    -moz-transition: color .4s ease-in;
+    -o-transition: color .4s ease-in;
+    transition: color .4s ease-in;
+}
+
 /* Following to make angularjs-bootstrap-ui work correctly */
 .nav, .pagination, .carousel .panel-title a {
     cursor: pointer;

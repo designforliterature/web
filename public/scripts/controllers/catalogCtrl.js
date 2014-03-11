@@ -24,9 +24,6 @@
 
 'use strict';
 
-// TODO better error handling
-
-
 /**
  * Controls the catalog behavior (search, create, update).
  */
@@ -41,7 +38,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
 
         // Accordion flags
         openOneAtATime: false,
-        searchCatalogOpen: false,
+        searchCatalogOpen: true,
         createCatalogOpen: true,
 
         /** userLang: the client's current language */
@@ -110,6 +107,9 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             $scope.catalog.postData.metadata = new client.shared.makeClientCatalog(wt);
             $scope.catalog.postData.metadata.workType = wt;
             $scope.catalog.editable = false;
+            angular.forEach($("input[ng-model|='asyncSelected']"), function (i) {
+                i.value = '';
+            });
         },
 
         /**
@@ -166,7 +166,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             }
         },
 
-        getAuthor: function (input) {
+        getPerson: function (input) {
             return $http.get('/catalog/persons/json', {
                 params: {
                     name: input,
@@ -177,11 +177,11 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                 });
         },
 
-        selectedAuthor: function (person, $model, $label) {
-            $scope.catalog.postData.metadata.authors = person; // TODO multiple persons (need UI changes)
+        selectedPerson: function (person, $model, $label, fieldName) {
+            $scope.catalog.postData.metadata[fieldName] = person; // TODO multiple persons (need UI changes)
             // Overwrite input value with full name
             $timeout(function () {
-                document.getElementById('authorss').value = person.fullName;
+                document.getElementById(fieldName).value = person.fullName;
             }, 100);
         },
 
@@ -298,74 +298,57 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                 });
         },
 
-        /**
-         * printSearchResult: Pretty-prints in HTML a search result.
-         * Called by search result directive for each search result.
-         * The HTML string is constructed and set to the specified
-         * element's innerHTML property (this expands the directive's
-         * element, thus completing its job).
-         * @param searchResultObj   The search result
-         * @param element   The element used by the directive
-         * @param attrs The attributes in that element
-         */
+
         printSearchResult: function (searchResultObj, element, attrs) {
-            var mainObjectSpecs = client.shared.catalogFieldSpecs;
-            var subObjectSpecs = client.shared.catalogFieldSubSpecs;
-            var sortedResults = [];
-            for (var fieldId in searchResultObj) {
-                var fieldValue = searchResultObj[fieldId];
-                var spec = mainObjectSpecs[fieldId];
-                if (spec) {
-                    var sortObject = {id: fieldId, val: fieldValue};
-                    sortedResults.push({rank: spec.rank, data: sortObject});
-                }
-            }
-            clientApp.dfUtils.insertSort(sortedResults, 'rank')
-            var orderedResultItems = [];
-            for (var fieldId in sortedResults) {
-                orderedResultItems.push(sortedResults[fieldId].data);
-            }
-            var html = '<div style="margin-top: .5em">';
-            var count = 0;
-            for (var fieldSpecKey in orderedResultItems) {
-                var mainSpec = orderedResultItems[fieldSpecKey];
-                var mainSpecId = mainSpec.id;
-                var prettyFun = mainObjectSpecs[mainSpecId].prettyFun;
-                var mainSpecValue = mainSpec.val;
-                var mainSpecValueType = $.isArray(mainSpecValue) ? 'array' : typeof mainSpecValue;
-                if (mainSpecId !== '_id' && mainSpecId !== 'content') { // TODO set content to a summary or description or first few lines
-                    if (mainSpecValueType === 'array') {
-                        var subHtml = '<span><b>' + mainObjectSpecs[mainSpecId].name + ': </b></span>';
-                        for (var specSubObjectKey in mainSpecValue) {
-                            var subObject = mainSpecValue[specSubObjectKey];
-                            for (var subObjectKey in subObject) {
-                                var subObjectSpec = subObjectSpecs[subObjectKey];
-                                var value = subObject[subObjectKey];
-                                subHtml += prettyFun(searchResultObj, mainSpecId, subObjectSpec.subIdName || subObjectSpec.name, value, true, 'i');
+            var fieldSpecs = client.shared.catalogFieldSpecs,
+                citationOrder = fieldSpecs.workType.specs[searchResultObj.workType].citationOrder,
+                fieldName, fieldValue, haveAuthors = false,
+                html = '<div style="margin-top: .5em">';
+            for (var i in citationOrder) {
+                fieldName = citationOrder[i];
+                fieldValue = searchResultObj[fieldName];
+                if (fieldValue) {
+                    switch (fieldName) {
+                        case fieldIds.authors:
+                            for (var j in fieldValue.data) {
+                                var author = fieldValue.data[j];
+                                if (j > 0) {
+                                    html += ' and ';
+                                }
+                                html += '<a class="citation" href="' + author[fieldSpecs.id.id] + '">' + author.fullName + '</a>';
                             }
-                        }
-                        html += subHtml;
-                    } else if (mainSpecValueType === 'string' || mainSpecValueType === 'number' || mainSpecValueType === 'boolean') {
-                        html += prettyFun(searchResultObj, mainSpecId, mainObjectSpecs[mainSpecId].name, mainSpecValue, true, 'b');
-                    } else if (mainSpecValueType === 'object') {
-                        if (mainSpecId === 'subjects') {
-                            html += prettyFun(searchResultObj, mainSpecId, null, value, true, 'i');
-                        } else {
-                            var subHtml = '<span><b>' + subObjectSpecs[mainSpecId].name + ': </b></span>';
-                            for (var subspecKey in mainSpecValue) {
-                                var value = mainSpecValue[subspecKey];
-                                subHtml += prettyFun(searchResultObj, mainSpecId, subObjectSpecs[subspecKey].name, value, true, 'i');
-                                html += subHtml;
+                            html += ', ';
+                            haveAuthors = true;
+                            break;
+                        case fieldIds.editors:
+                            if (haveAuthors) {
+                                html += '[';
                             }
-                        }
-                    } else {
-                        // ignore
+                            var count = fieldValue.data.length;
+                            for (var j in fieldValue.data) {
+                                var editor = fieldValue.data[j];
+                                if (j > 0) {
+                                    html += ' and ';
+                                }
+                                html += '<a class="citation" href="' + editor[fieldSpecs.id.id] + '">' + editor.fullName + '</a>';
+                            }
+                            html += ((count === 1) ? ' ed.' : ' eds.') + (haveAuthors ? ']' : '');
+                            break;
+                        case fieldIds.lang:
+                            html += ' [in ' + isoLangs[fieldValue].name + ']';
+                            break;
+                        case fieldIds.publisher:
+                            html += makePublisherHTML(fieldValue, searchResultObj);
+                            break;
+                        case fieldIds.title:
+                            html += '<a class="citation" onclick="clientApp.sendIt(&quot;' + searchResultObj[fieldSpecs.id.id] + '&quot;)"><i> ' + fieldValue + '</i></a> ';
+                            break;
+                        case fieldIds.workType:
+                            break;
                     }
-                    count += 1;
                 }
             }
-            html += '</div>';
-            element[0].innerHTML = html;
+            element[0].innerHTML = html + '</div>';
         }
     };
     /* END of scope vars */
@@ -397,68 +380,59 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             type: "GET",
             url: 'catalog/work?id=' + id,
             success: function (a, b) {
-                horaceApp.debug(a);
-                var line = a.content.verses[0].lines[0];
-                $state.go('work', {id: a._id, content: JSON.stringify(a.content)});
+                if (a.type === 'ack') {
+                    if (a.content) {
+                        $state.go('work', {id: a.content._id, content: JSON.stringify(a.content.content)});
+                    } else {
+                        alert('no content');
+                        console.trace(a)
+                    }
+                } else {
+                    console.trace(a);
+                }
             }
         });
     };
 
     /**
-     * searchResultPrettyPrintFun: contains all pretty HTML printing functions for search results.
-     * These functions are called from the dfl search directive
+     * Prints html for publisher citation
+     * @param publisher    The publisher object
+     * @param searchResultObj   The search result object (with all fields)
      */
-    var searchResultPrettyPrintFun = {
-        default: function (searchResult, id, name, value, delim, font) {
-            var span = '<span>';
-            if (font) {
-                span += '<' + font + '>' + name + ': ' + '</' + font + '>' + value;
-            } else {
-                span += name + ': ' + value;
-            }
-            if (delim) {
-                span += '; ';
-            }
-            return span + '</span>';
-        },
-        title: function (searchResult, id, name, value, delim, font) {
-            var x = '<a style="margin-right: 6px" onclick="clientApp.sendIt(&quot;' + searchResult._id + '&quot;' + ')"><i>' + value + '</i></a>';
-//            var x = '<a onclick="clientApp.sendIt(&quot;' + searchResult._id + '&quot;' + ')"><i>' + value + '</i></a><br style="margin-bottom: -.2em"/>';
-            return x;
-        },
-        workType: function (searchResult, id, name, workType, delim, font) {
-            var workTypeName = client.shared.catalogFieldSpecs['workType'].specs[workType].name;
-            var lang = client.shared.definitions.collections.lang[searchResult.lang];
-            return '(' + workTypeName + ', ' + lang + ') ';
-        },
-        lang: function (searchResult, id, name, value, delim, font) {
-            return '';
-        },
-        contentFormat: function (searchResult, id, name, value, delim, font) {
-            return '';
-        },
-        subjects: function (searchResult, id, name, value, delim, font) {
-            var subjects = searchResult.subjects;
-            if (subjects) {
-                var html = '',
-                    len = subjects.data.length;
-                for (var count = 0; count < len; count += 1) {
-                    html += '<i>' + subjects.data[count]['undefined'] + ((count === length - 1) ? '' : ', ') + '</i>';
-                }
-                return '<span>Subject: ' + html + '</span>';
-            } else {
-                return '';
-            }
+    function makePublisherHTML(publisher, searchResultObj) {
+        var html = ' (', haveOne = false;
+        if (publisher.city) {
+            html += publisher.city;
+            haveOne = true;
         }
-    };
-
-    /* Add to specs the client-specific fields--in particular, pretty print functions */
-    for (var specId in client.shared.catalogFieldSpecs) {
-        var spec = client.shared.catalogFieldSpecs[specId];
-        // TODO add rest of funs
-        var prettyFun = searchResultPrettyPrintFun[specId];
-        spec.prettyFun = prettyFun || searchResultPrettyPrintFun.default;
+        if (publisher.province) {
+            if (haveOne) {
+                html += ', ';
+            }
+            haveOne = true;
+            html += publisher.province;
+        }
+        if (publisher.country) {
+            if (haveOne) {
+                html += ', ';
+            }
+            haveOne = true;
+            html += publisher.country;
+        }
+        if (publisher.name) {
+            if (haveOne) {
+                html += ': ';
+            }
+            haveOne = true;
+            html += publisher.name;
+        }
+        if (publisher.year) {
+            if (haveOne) {
+                html += ', ';
+            }
+            html += publisher.year;
+        }
+        return html + ')';
     }
-
 });
 /* End of CatalogCtrl */

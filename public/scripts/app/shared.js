@@ -783,6 +783,29 @@ contentFormats.options = [
     [contentFormats.dflMarkdown, 'DFL Markdown'] // TODO i18n
 ];
 
+
+var fieldIds = {
+    workType: 'workType',
+    id: '_id',
+    title: 'title',
+    lang: 'lang',
+    authors: 'authors',
+    editors: 'editors',
+    edition: 'edition',
+    publisher: 'publisher',
+    publisherAddress: 'publisherAddress',
+    publisherName: 'publisherName',
+    publisherCity: 'publisherCity',
+    publisherProvince: 'publisherProvince',
+    publisherCountry: 'publisherCountry',
+    publicationYear: 'pubYear',
+    copyright: 'copyright',
+    subjects: 'subjects',
+    pageUrl: 'pageUrl',
+    websiteUrl: 'websiteUrl',
+    contentFormat: 'contentFormat'
+};
+
 /**
  * workTypeSpecs: specs for each work type
  * TODO should come from server
@@ -799,20 +822,33 @@ contentFormats.options = [
  TODO i18n for work type names
  */
 var workTypeSpecs = {
-    WebSite: {name: 'Web Site', source: 'url', rank: 1},
-    WebPage: {name: 'Web Page', source: 'url', rank: 2},
-    BookPoetry: {name: 'Poetry (Book)', source: 'file', rank: 3},
-    Poem: {name: 'Poem', source: 'file', rank: 4},
-    BookDrama: {name: 'Drama (Book)', source: 'file', rank: 5},
-    BookNovel: {name: 'Novel (Book)', source: 'file', rank: 6},
-    BookNonFiction: {name: 'Non-Fiction (Book)', source: 'file', rank: 7},
-    BookFiction: {name: 'Fiction (Book)', source: 'file', rank: 8},
-    BookShortStories: {name: 'Short Stories (Book)', source: 'file', rank: 9},
-    ShortStory: {name: 'Short Story', source: 'file', rank: 10},
-    JournalArticle: {name: 'Article (Journal)', source: 'file', rank: 11},
-    MagazineArticle: {name: 'Article (Magazine)', source: 'file', rank: 12},
-    FreeFormat: {name: 'Free Format Text', source: 'file', rank: 13}
+    WebSite: {name: 'Web Site', source: 'url', rank: 1, citationOrder: {}},
+    WebPage: {name: 'Web Page', source: 'url', rank: 2, citationOrder: {}},
+    BookPoetry: {name: 'Poetry (Book)', source: 'file', rank: 3, citationOrder: {}},
+    Poem: {name: 'Poem', source: 'file', rank: 4, citationOrder: {}},
+    BookDrama: {name: 'Drama (Book)', source: 'file', rank: 5, citationOrder: {}},
+    BookNovel: {name: 'Novel (Book)', source: 'file', rank: 6, citationOrder: {}},
+    BookNonFiction: {name: 'Non-Fiction (Book)', source: 'file', rank: 7, citationOrder: {}},
+    BookFiction: {name: 'Fiction (Book)', source: 'file', rank: 8, citationOrder: {}},
+    BookShortStories: {name: 'Short Stories (Book)', source: 'file', rank: 9, citationOrder: {}},
+    ShortStory: {name: 'Short Story', source: 'file', rank: 10, citationOrder: {}},
+    JournalArticle: {name: 'Article (Journal)', source: 'file', rank: 11, citationOrder: {}},
+    MagazineArticle: {name: 'Article (Magazine)', source: 'file', rank: 12, citationOrder: {}},
+    FreeFormat: {name: 'Free Format Text', source: 'file', rank: 13, citationOrder: {}}
 };
+workTypeSpecs.WebSite.citationOrder = [fieldIds.websiteUrl, fieldIds.authors, fieldIds.editors, fieldIds.publisher];
+workTypeSpecs.WebPage.citationOrder = [fieldIds.pageUrl, fieldIds.authors, fieldIds.editors, fieldIds.publisher];
+workTypeSpecs.BookPoetry.citationOrder = [fieldIds.authors, fieldIds.editors, fieldIds.title, fieldIds.edition, fieldIds.lang, fieldIds.publisher];
+workTypeSpecs.Poem.citationOrder = [fieldIds.authors, fieldIds.editors, fieldIds.title, fieldIds.edition, fieldIds.lang, fieldIds.publisher];
+workTypeSpecs.BookDrama.citationOrder = [fieldIds.authors, fieldIds.editors, fieldIds.title, fieldIds.edition, fieldIds.lang, fieldIds.publisher];
+workTypeSpecs.BookNovel.citationOrder = [fieldIds.authors, fieldIds.editors, fieldIds.title, fieldIds.edition, fieldIds.lang, fieldIds.publisher];
+workTypeSpecs.BookNonFiction.citationOrder = [fieldIds.authors, fieldIds.editors, fieldIds.title, fieldIds.edition, fieldIds.lang, fieldIds.publisher];
+workTypeSpecs.BookFiction.citationOrder = [fieldIds.authors, fieldIds.editors, fieldIds.title, fieldIds.edition, fieldIds.lang, fieldIds.publisher];
+workTypeSpecs.BookShortStories.citationOrder = [fieldIds.authors, fieldIds.editors, fieldIds.title, fieldIds.edition, fieldIds.lang, fieldIds.publisher];
+workTypeSpecs.ShortStory.citationOrder = [fieldIds.authors, fieldIds.editors, fieldIds.title, fieldIds.edition, fieldIds.lang, fieldIds.publisher];
+workTypeSpecs.JournalArticle.citationOrder = [fieldIds.authors, fieldIds.editors, fieldIds.title, fieldIds.edition, fieldIds.lang, fieldIds.publisher];
+workTypeSpecs.MagazineArticle.citationOrder = [fieldIds.authors, fieldIds.editors, fieldIds.title, fieldIds.edition, fieldIds.lang, fieldIds.publisher];
+workTypeSpecs.FreeFormat.citationOrder = [fieldIds.authors, fieldIds.editors, fieldIds.title, fieldIds.edition, fieldIds.lang, fieldIds.publisher];
 
 /**
  * horaApp.dfUtils: utilities outside of angularjs
@@ -839,13 +875,13 @@ var clientApp = {
 };
 
 /**
- * makeWorkTypes: returns array of work types specs as they
- * should be presented by clients. Should be gc'd as it's used
+ * makeWorkTypesPresentationOrder: returns array of work types specs as they
+ * should be presented by clients (e.g., in a menu). Should be gc'd as it's used
  * just once.
  * @returns {Array} An array containing the the work type code
  * and the displayable work type name
  */
-function makeWorkTypes() {
+function makeWorkTypesPresentationOrder() {
     var presentationArray = [];
     for (var workTypeCode in workTypeSpecs) {
         var item = {code: workTypeCode};
@@ -890,13 +926,14 @@ var catalogFieldSpecs = { // TODO incorporate the value type (string/number/choi
 
     // TODO fields need i18n ids: name, description
 
-    workType: {id: 'workType', required: true, name: 'Work Type', type: 'select', specs: workTypeSpecs, options: makeWorkTypes(), validator: 'string', xformer: 'set', inForm: false, rank: 20},
+    // TODO rank is a function of the workType (e.g., an article citation versus a book)
+    workType: {id: fieldIds.workType, required: true, name: 'Work Type', type: 'select', specs: workTypeSpecs, options: makeWorkTypesPresentationOrder(), validator: 'string', xformer: 'set', inForm: false, rank: 20},
 
-    id: {id: '_id', name: 'Identifier', type: 'input', description: 'Unique identifier for the catalog item', min: 36, max: 36, validator: 'string', xformer: 'set', inForm: true, rank: 0},
+    id: {id: fieldIds.id, name: 'Identifier', type: 'input', description: 'Unique identifier for the catalog item', min: 36, max: 36, validator: 'string', xformer: 'set', inForm: true, rank: 0},
 
-    title: {id: 'title', name: 'Title', type: 'text', min: 1, description: "The work's original title", validator: 'string', xformer: 'set', inForm: true, rank: 10},
+    title: {id: fieldIds.title, name: 'Title', type: 'text', min: 1, description: "The work's original title", validator: 'string', xformer: 'set', inForm: true, rank: 10},
 
-    lang: {id: 'lang', name: 'Language', type: 'select', options: function () {
+    lang: {id: fieldIds.lang, name: 'Language', type: 'select', options: function () {
         var code, langs = [];
         for (var code in isoLangs) {
             var lang = isoLangs[code];
@@ -905,32 +942,34 @@ var catalogFieldSpecs = { // TODO incorporate the value type (string/number/choi
         return langs;
     }(), min: 2, max: 8, description: 'The main language in which the work for this catalog item is written', validator: 'string', xformer: 'set', inForm: true, rank: 30},
 
-    authors: {id: 'authors', subId: 'fullName', subIdName: 'Name', name: 'Author(s)', type: 'typeahead', description: 'A list of the original author(s) of this work', validator: 'noop', xformer: 'authors', inForm: true, rank: 50}, // TODO change noop
+    authors: {id: fieldIds.authors, subId: 'fullName', subIdName: 'Name', name: 'Author(s)', type: 'typeahead', description: 'A list of the original author(s) of this work', validator: 'noop', xformer: 'authors', inForm: true, rank: 50}, // TODO change noop
 
-    editors: {id: 'editors', subId: 'fullName', subIdName: 'Name', name: 'Ed(s)', type: 'text', description: 'For anthologies and other collections, this is a list of the original editor(s) of this work.', validator: 'string', xformer: 'push', inForm: true, rank: 60},
+    editors: {id: fieldIds.editors, subId: 'fullName', subIdName: 'Name', name: 'Ed(s)', type: 'typeahead', description: 'For anthologies and other collections, this is a list of the original editor(s) of this work.', validator: 'noop', xformer: 'editors', inForm: true, rank: 60},// TODO change noop
 
-    edition: {id: 'edition', name: 'Edition', type: 'input', description: 'The edition of this work. This must be a number.', validator: 'integer', min: 1, max: 1000, xformer: 'set', inForm: true, rank: 40}, // TODO present a number wheel?
+    edition: {id: fieldIds.edition, name: 'Edition', type: 'input', description: 'The edition of this work. This must be a number.', validator: 'integer', min: 1, max: 1000, xformer: 'set', inForm: true, rank: 40}, // TODO present a number wheel?
 
-    publisherAddress: {id: 'publisherAddress', toId: 'publisher', 'subId': 'address', subIdName: 'Full Address', name: "Publisher Address", type: 'typeahead', description: "The address of this work's publisher", validator: 'string', xformer: 'construct', inForm: true, rank: 1},
+    publisherAddress: {id: fieldIds.publisherAddress, toId: 'publisher', 'subId': 'address', subIdName: 'Full Address', name: "Publisher Address", type: 'typeahead', description: "The address of this work's publisher", validator: 'string', xformer: 'construct', inForm: true, rank: 1},
 
-    publisherName: {id: 'publisherName', toId: 'publisher', 'subId': 'name', name: 'Publisher Name', type: 'input', min: 1, description: "The name of this work's publisher", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 70},
+    publisherName: {id: fieldIds.publisherName, toId: 'publisher', 'subId': 'name', name: 'Publisher Name', type: 'input', min: 1, description: "The name of this work's publisher", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 70},
 
-    publisherCity: {id: 'publisherCity', toId: 'publisher', 'subId': 'city', name: 'Publisher City', type: 'input', description: "The publisher's city", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 80},
+    publisherCity: {id: fieldIds.publisherCity, toId: 'publisher', 'subId': 'city', name: 'Publisher City', type: 'input', description: "The publisher's city", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 80},
 
-    publisherProvince: {id: 'publisherProvince', toId: 'publisher', 'subId': 'province', name: 'Publisher Province', type: 'input', description: "The publisher's province or state", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 90},
+    publisherProvince: {id: fieldIds.publisherProvince, toId: 'publisher', 'subId': 'province', name: 'Publisher Province', type: 'input', description: "The publisher's province or state", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 90},
 
-    publisherCountry: {id: 'publisherCountry', toId: 'publisher', 'subId': 'country', name: 'Publisher Country', type: 'input', description: "The publisher's country", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 100},
+    publisherCountry: {id: fieldIds.publisherCountry, toId: 'publisher', 'subId': 'country', name: 'Publisher Country', type: 'input', description: "The publisher's country", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 100},
 
-    copyright: {id: 'copyright', name: 'Copyright', type: 'text', min: 8, description: "A copyright description", validator: 'string', xformer: 'set', inForm: true, rank: 110},
+    publicationYear: {id: fieldIds.publicationYear, toId: 'publisher', 'subId': 'year', name: 'Year Published', type: 'input', description: "Year of publication", xform: 'map', xformer: 'construct', validator: 'string', inForm: true, rank: 100},
+
+    copyright: {id: fieldIds.copyright, name: 'Copyright', type: 'text', min: 8, description: "A copyright description", validator: 'string', xformer: 'set', inForm: true, rank: 110},
 
 //    subjects: {id: 'subjects', subId: 'name', name: 'Subject(s)', type: 'text', description: "Subjects areas pertaining to this work", validator: 'string', xformer: 'push', inForm: true, rank: 120},
-    subjects: {id: 'subjects', name: 'Subject(s)', type: 'text', min: 1, description: "Subjects areas pertaining to this work", validator: 'string', xformer: 'subjects', inForm: true, rank: 120},
+    subjects: {id: fieldIds.subjects, name: 'Subject(s)', type: 'text', min: 1, description: "Subjects areas pertaining to this work", validator: 'string', xformer: 'subjects', inForm: true, rank: 120},
 
-    pageUrl: {id: 'pageUrl', name: 'Page URL', type: 'input', placeholder: 'http://', min: 10, description: "The URL to the page cited by this catalog item", validator: 'url', xformer: 'set', inForm: true, rank: 11},
+    pageUrl: {id: fieldIds.pageUrl, name: 'Page URL', type: 'input', placeholder: 'http://', min: 10, description: "The URL to the page cited by this catalog item", validator: 'url', xformer: 'set', inForm: true, rank: 11},
 
-    websiteUrl: {id: 'websiteUrl', name: 'Website URL', type: 'input', placeholder: 'http://', min: 10, description: "The URL to the home page cited by this catalog item", validator: 'url', xformer: 'set', inForm: true, rank: 11},
+    websiteUrl: {id: fieldIds.websiteUrl, name: 'Website URL', type: 'input', placeholder: 'http://', min: 10, description: "The URL to the home page cited by this catalog item", validator: 'url', xformer: 'set', inForm: true, rank: 11},
 
-    contentFormat: {id: 'contentFormat', name: 'Content Format', type: 'select', description: "The format of an uploaded content file", validator: 'noop', xformer: 'set', inForm: false, rank: 1000} // TODO set to appropriate validator instead of noop
+    contentFormat: {id: fieldIds.contentFormat, name: 'Content Format', type: 'select', description: "The format of an uploaded content file", validator: 'noop', xformer: 'set', inForm: false, rank: 1000} // TODO set to appropriate validator instead of noop
 };
 
 /**
@@ -943,6 +982,7 @@ var catalogFieldSubSpecs = {
     publisher: {name: 'Publisher'},
     name: {name: 'Name'},
     city: {name: 'City'},
+    year: {name: 'Year'},
     province: {name: 'Province'},
     country: {name: 'Country'},
     address: {name: 'Address'}
@@ -1044,6 +1084,7 @@ var client = {
                 catalogFieldSpecs.authors ,
                 catalogFieldSpecs.editors ,
                 catalogFieldSpecs.edition ,
+                catalogFieldSpecs.publicationYear ,
                 catalogFieldSpecs.publisherName ,
                 catalogFieldSpecs.publisherAddress ,
                 catalogFieldSpecs.publisherCity ,
@@ -1061,6 +1102,7 @@ var client = {
                 catalogFieldSpecs.authors ,
                 catalogFieldSpecs.editors ,
                 catalogFieldSpecs.edition ,
+                catalogFieldSpecs.publicationYear ,
                 catalogFieldSpecs.publisherName ,
                 catalogFieldSpecs.publisherAddress ,
                 catalogFieldSpecs.publisherCity ,
@@ -1078,6 +1120,7 @@ var client = {
                 catalogFieldSpecs.authors ,
                 catalogFieldSpecs.editors ,
                 catalogFieldSpecs.edition ,
+                catalogFieldSpecs.publicationYear ,
                 catalogFieldSpecs.publisherName ,
                 catalogFieldSpecs.publisherAddress ,
                 catalogFieldSpecs.publisherCity ,
@@ -1095,6 +1138,7 @@ var client = {
                 catalogFieldSpecs.authors ,
                 catalogFieldSpecs.editors ,
                 catalogFieldSpecs.edition ,
+                catalogFieldSpecs.publicationYear ,
                 catalogFieldSpecs.publisherName ,
                 catalogFieldSpecs.publisherAddress ,
                 catalogFieldSpecs.publisherCity ,
@@ -1112,6 +1156,7 @@ var client = {
                 catalogFieldSpecs.authors ,
                 catalogFieldSpecs.editors ,
                 catalogFieldSpecs.edition ,
+                catalogFieldSpecs.publicationYear ,
                 catalogFieldSpecs.publisherName ,
                 catalogFieldSpecs.publisherAddress ,
                 catalogFieldSpecs.publisherCity ,
@@ -1146,6 +1191,7 @@ var client = {
                 catalogFieldSpecs.authors ,
                 catalogFieldSpecs.editors ,
                 catalogFieldSpecs.edition ,
+                catalogFieldSpecs.publicationYear ,
                 catalogFieldSpecs.publisherName ,
                 catalogFieldSpecs.publisherAddress ,
                 catalogFieldSpecs.publisherCity ,
@@ -1163,6 +1209,7 @@ var client = {
                 catalogFieldSpecs.authors ,
                 catalogFieldSpecs.editors ,
                 catalogFieldSpecs.edition ,
+                catalogFieldSpecs.publicationYear ,
                 catalogFieldSpecs.publisherName ,
                 catalogFieldSpecs.publisherAddress ,
                 catalogFieldSpecs.publisherCity ,
@@ -1180,6 +1227,7 @@ var client = {
                 catalogFieldSpecs.authors ,
                 catalogFieldSpecs.editors ,
                 catalogFieldSpecs.edition ,
+                catalogFieldSpecs.publicationYear ,
                 catalogFieldSpecs.publisherName ,
                 catalogFieldSpecs.publisherAddress ,
                 catalogFieldSpecs.publisherCity ,
@@ -1197,6 +1245,7 @@ var client = {
                 catalogFieldSpecs.authors ,
                 catalogFieldSpecs.editors ,
                 catalogFieldSpecs.edition ,
+                catalogFieldSpecs.publicationYear ,
                 catalogFieldSpecs.publisherName ,
                 catalogFieldSpecs.publisherAddress ,
                 catalogFieldSpecs.publisherCity ,
@@ -1214,6 +1263,7 @@ var client = {
                 catalogFieldSpecs.authors ,
                 catalogFieldSpecs.editors ,
                 catalogFieldSpecs.edition ,
+                catalogFieldSpecs.publicationYear ,
                 catalogFieldSpecs.publisherName ,
                 catalogFieldSpecs.publisherAddress ,
                 catalogFieldSpecs.publisherCity ,
