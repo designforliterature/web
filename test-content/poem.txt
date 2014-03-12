@@ -1,5 +1,5 @@
-# Poem | Poem 1
-# Note | Catullus gives his book to his friend, the historian Corneli.
+#!Poem | Poem 1
+#!!Note | Catullus gives his book to his friend, the historian Corneli.
 Cui dono lepidum novum libellum
 arido modo pumice expolitum?
 Corneli, tibi; namque tu solebas
@@ -11,8 +11,8 @@ quare habe tibi quidquid hoc libelli
 qualecumque, quod, o patrona virgo,
 plus uno maneat perenne saeclo.
 
-# Poem | Poem 2
-# Note | Could this passer be Lesbia?
+#!Poem | Poem 2
+#!!Note | Could this passer be Lesbia?
 Passer, deliciae meae puellae,
 quicum ludere, quem in sinu tenere,
 cui primum digitum dare adpetenti
@@ -28,7 +28,7 @@ pernici aureolum fuisse malum,
 quod zonam solvit diu ligatam.
 
 
-# Poem | Poem 3
+#!Poem | Poem 3
 Lugete, o Veneres Cupidinesque
 et quantum est hominum venustiorum!
 passer mortuus est meae puellae,
@@ -48,7 +48,7 @@ o factum male! o miselle passer!
 tua nunc opera meae puellae
 flendo turgiduli rubent ocelli.
 
-# Poem | Poem 4
+#!Poem | Poem 4
 Phasellus ille, quem videtis, hospites,
 ait fuisse navium celerrimus,
 neque ullius natantis impetum trabis
@@ -77,7 +77,7 @@ sed haec prius fuere: nunc recondita
 senet quiete seque dedicat tibi,
 gemelle Castor et gemelle Castoris.
 
-# Poem | Poem 5
+#!Poem | Poem 5
 Vivamus, mea Lesbia, atque amemus,
 rumoresque senum severiorum
 omnes unius aestimemus assis.
@@ -92,7 +92,7 @@ conturbabimus illa, ne sciamus,
 aut ne quis malus invidere possit,
 cum tantum sciat esse basiorum.
 
-# Poem | Poem 6
+#!Poem | Poem 6
 Flavi, delicias tuas Catullo,
 ni sint inlepidae atque inelegantes,
 velles dicere, nec tacere posses.
@@ -111,7 +111,7 @@ quare, quidquid habes boni malique,
 dic nobis: volo te ac tuos amores
 ad caelum lepido vocare versu.
 
-# Poem | Poem 7
+#!Poem | Poem 7
 Quaeris quot mihi basiationes
 tuae, Lesbia, sint satis superque.
 quam magnus numerus Libyssae harenae
@@ -125,7 +125,7 @@ vesano satis et super Catullo est,
 quae nec pernumerare curiosi
 possint nec mala fascinare lingua.
 
-# Poem | Poem 8
+#!Poem | Poem 8
 Miser Catulle, desinas ineptire,
 et quod vides perisse perditum ducas.
 fulsere quondam candidi tibi soles,
@@ -146,7 +146,7 @@ quem nunc amabis? cuius esse diceris?
 quem basiabis? cui labella mordebis?
 at tu, Catulle, destinatus obdura.
 
-# Poem | Poem 9
+#!Poem | Poem 9
 Verani, omnibus e meis amicis
 antistans mihi milibus trecentis,
 venistine domum ad tuos penates
@@ -159,7 +159,7 @@ iucundum os oculosque saviabor.
 o, quantum est hominum beatiorum,
 quid me laetius est beatiusve?
 
-# Poem | Poem 10
+#!Poem | Poem 10
 Varus me meus ad suos amores
 visum duxerat e foro otiosum,
 scortillum, ut mihi tunc repente visum est,
@@ -195,7 +195,7 @@ utor tam bene quam mihi pararim.
 sed tu insulsa male et molesta vivis,
 per quam non licet esse neglegentem.”
 
-# Poem | Poem 11
+#!Poem | Poem 11
 Furi et Aureli, comites Catulli,
 sive in extremos penetrabit Indos,
 litus ut longe resonante Eoa
@@ -226,7 +226,7 @@ qui illius culpa cecidit velut prati
 ultimi flos, praetereunte postquam
   tactus aratro est.
 
-# Poem | Poem 12
+#!Poem | Poem 12
 Marrucine Asini, manu sinistra
 non belle uteris in ioco atque vino:
 tollis lintea neglegentiorum.
@@ -245,7 +245,7 @@ miserunt mihi muneri Fabullus
 et Veranius: haec amem necesse est
 et Veraniolum meum et Fabullum.
 
-# Poem | Poem 13
+#!Poem | Poem 13
 Cenabis bene, mi Fabulle, apud me
 paucis, si tibi di favent, diebus,
 si tecum attuleris bonam atque magnam
@@ -261,7 +261,7 @@ donarunt Veneres Cupidinesque,
 quod tu cum olfacies, deos rogabis
 totum ut te faciant, Fabulle, nasum.
 
-# Poem | Poem 14
+#!Poem | Poem 14
 Ni te plus oculis meis amarem,
 iucundissime Calve, munere isto
 odissem te odio Vatiniano:
@@ -286,12 +286,12 @@ vos hinc interea valete, abite
 illuc unde malum pedem attulistis,
 saecli incommoda, pessimi poetae.
 
-# Poem | Poem 14b
+#!Poem | Poem 14b
 Si qui forte mearum ineptiarum
 lectores eritis manusque vestras
 non horrebitis admovere nobis,
 
-# Poem | Poem 15
+#!Poem | Poem 15
 Commendo tibi me ac meos amores,
 Aureli. Veniam peto pudentem,
 ut, si quicquam animo tuo cupisti
@@ -312,7 +312,7 @@ ah tum te miserum malique fati,
 quem attractis pedibus patente porta
 percurrent raphanique mugilesque.
 
-# Poem | Poem 16
+#!Poem | Poem 16
 Pedicabo ego vos et irrumabo,
 Aureli pathice et cinaede Furi,
 qui me ex versiculis meis putastis,
@@ -328,7 +328,7 @@ vos quod milia multa basiorum
 legistis, male me marem putatis?
 pedicabo ego vos et irrumabo.
 
-# Poem | Poem 17
+#!Poem | Poem 17
 O Colonia, quae cupis ponte ludere longo,
 et salire paratum habes, sed vereris inepta
 crura ponticuli assulis stantis in redivivis,
@@ -356,7 +356,7 @@ si pote stolidum repente excitare veternum
 et supinum animum in gravi derelinquere caeno,
 ferream ut soleam tenaci in voragine mula.
 
-# Poem | Poem 21
+#!Poem | Poem 21
 Aureli, pater esuritionum,
 non harum modo, sed quot aut fuerunt
 aut sunt aut aliis erunt in annis,
@@ -371,7 +371,7 @@ ah me me, puer et sitire discet.
 quare desine, dum licet pudico,
 ne finem facias, sed irrumatus.
 
-# Poem | Poem 22
+#!Poem | Poem 22
 Suffenus iste, Vare, quem probe nosti,
 homo est venustus et dicax et urbanus,
 idemque longe plurimos facit versus.
@@ -394,7 +394,7 @@ quem non in aliqua re videre Suffenum
 possis. Suus cuique attributus est error,
 sed non videmus manticae quod in tergo est.
 
-# Poem | Poem 23
+#!Poem | Poem 23
 Furi, cui neque servus est neque arca
 nec cimex neque araneus neque ignis,
 verum est et pater et noverca, quorum
@@ -423,7 +423,7 @@ noli spernere nec putare parvi,
 et sestertia quae soles precari
 centum desine: nam satis beatu's.
 
-# Poem | Poem 24
+#!Poem | Poem 24
 O qui flosculus es Iuventiorum,
 non horum modo, sed quot aut fuerunt
 aut posthac aliis erunt in annis,
@@ -435,7 +435,7 @@ sed bello huic neque servus est neque arca.
 hoc tu quam libet abice elevaque :
 nec servum tamen ille habet neque arcam.
 
-# Poem | Poem 25
+#!Poem | Poem 25
 Cinaede Thalle, mollior cuniculi capillo
 vel anseris medullula vel imula auricilla
 vel pene languido senis situque araneoso,
@@ -450,21 +450,21 @@ inusta turpiter tibi flagella conscribillent,
 et insolenter aestues velut minuta magno
 deprensa navis in mari vesaniente vento.
 
-# Poem | Poem 26
+#!Poem | Poem 26
 Furi, villula vestra non ad Austri
 flatus opposita est neque ad Favoni
 nec saevi Boreae aut Apeliotae,
 verum ad milia quindecim et ducentos.
 o ventum horribilem atque pestilentem!
 
-# Poem | Poem 26
+#!Poem | Poem 26
 Furi, villula vestra non ad Austri
 flatus opposita est neque ad Favoni
 nec saevi Boreae aut Apeliotae,
 verum ad milia quindecim et ducentos.
 o ventum horribilem atque pestilentem!
 
-# Poem | Poem 27
+#!Poem | Poem 27
 Minister vetuli puer Falerni
 inger mi calices amariores,
 ut lex Postumiae iubet magistrae,
@@ -473,7 +473,7 @@ at vos quo libet hinc abite, lymphae,
 vini pernicies, et ad severos
 migrate: hic merus est Thyonianus.
 
-# Poem | Poem 28
+#!Poem | Poem 28
 Pisonis comites, cohors inanis
 aptis sarcinulis et expeditis,
 Verani optime tuque mi Fabulle,
@@ -490,7 +490,7 @@ farti estis. pete nobiles amicos.
 at vobis mala multa di deaeque
 dent, opprobria Romuli Remique.
 
-# Poem | Poem 29
+#!Poem | Poem 29
 Quis hoc potest videre, quis potest pati,
 nisi impudicus et vorax et aleo,
 Mamurram habere quod comata GaIlia
@@ -516,8 +516,8 @@ nisi uncta devorare patrimonia?
 eone nomine 'urbis opulentissime
 socer generque, perdidistis omnia?
 
-# Poem | Poem 30
-# Note | Asclepiadean major
+#!Poem | Poem 30
+#!!Note | Asclepiadean major
 Alfene immemor atque unanimis false sodalibus,
 iam te nil miseret, dure, tui dulcis amiculi?
 iam me prodere, iam non dubitas fallere, perfide?
@@ -531,8 +531,8 @@ ventos irrita ferre ac nebulas aerias sinis.
 si tu oblitus es, at di meminerunt, meminit Fides,
 quae te ut paeniteat postmodo facti faciet tui.
 
-# Poem | Poem 31
-# Note | Choliambic
+#!Poem | Poem 31
+#!!Note | Choliambic
 Paene insularum, Sirmio, insularumque
 ocelle, quascumque in liquentibus stagnis
 marique vasto fert uterque Neptunus,
@@ -548,7 +548,7 @@ salve, o venusta Sirmio, atque ero gaude;
 gaudete vosque, o Lydiae lacus undae;
 ridete, quidquid est domi cachinnorum.
 
-# Poem | Poem 32
+#!Poem | Poem 32
 Amabo, mea dulcis Ipsithilla,
 meae deliciae, mei lepores,
 iube ad te veniam meridiatum.
@@ -561,7 +561,7 @@ verum, si quid ages, statim iubeto:
 nam pransus iaceo et satur supinus
 pertundo tunicamque palliumque.
 
-# Poem | Poem 33
+#!Poem | Poem 33
 O furum optime balneariorum
 Vibenni pater, et cinaede fili,
 (nam dextra pater inquinatiore,
@@ -571,7 +571,7 @@ itis, quandoquidem patris rapinae
 notae sunt populo, et natis pilosas,
 fili, non potes asse venditare?
 
-# Poem | Poem 34
+#!Poem | Poem 34
 Dianae sumus in fide
 puellae et pueri integri;
 Dianam pueri integri
@@ -602,7 +602,7 @@ sancta nomine, Romulique,
 antique ut solita es, bona
 sospites ope gentem.
 
-# Poem | Poem 35
+#!Poem | Poem 35
 Poetae tenero, meo sodali
 velim Caecilio, papyre, dicas,
 Veronam veniat, Novi relinquens
@@ -622,7 +622,7 @@ ignosco tibi, Sapphica puella
 Musa doctior: est enim venuste
 Magna Caecilio incohata Mater.
 
-# Poem | Poem 36
+#!Poem | Poem 36
 Annales Volusi, cacata charta,
 votum solvite pro mea puella:
 nam sanctae Veneri Cupidinique
@@ -644,8 +644,8 @@ at vos interea venite in ignem,
 pleni ruris et inficetiarum
 Annales Volusi, cacata charta.
 
-# Poem | Poem 37
-# Note | Choliambic
+#!Poem | Poem 37
+#!!Note | Choliambic
 Salax taberna vosque contubernales,
 a pilleatis nona fratribus pila,
 solis putatis esse mentulas vobis,
@@ -667,7 +667,7 @@ cuniculosae Celtiberiae fili,
 Egnati, opaca quem bonum facit barba
 et dens Hibera defricatus urina.
 
-# Poem | Poem 38
+#!Poem | Poem 38
 Male est, Cornifici, tuo Catullo,
 male est me hercule ei et laboriose,
 et magis magis in dies et horas.
@@ -677,8 +677,8 @@ irascor tibi.  sic meos amores?
 paulum quid libet adlocutionis,
 maestius lacrimis Simonideis.
 
-# Poem | Poem 39
-# Note | Choliambic
+#!Poem | Poem 39
+#!!Note | Choliambic
 Egnatius, quod candidos habet dentes,
 renidet usque quaque.  si ad rei ventum est
 subsellium, cum orator excitat fletum,
@@ -701,7 +701,7 @@ dentem atque russam defricare gingivam,
 ut quo iste vester expolitior dens est,
 hoc te amplius bibisse praedicet loti.
 
-# Poem | Poem 40
+#!Poem | Poem 40
 Quaenam te mala mens, miselle Ravide,
 agit praecipitem in meos iambos?
 quis deus tibi non bene advocatus
@@ -711,7 +711,7 @@ quid vis? qua libet esse notus optas?
 eris, quandoquidem meos amores
 cum longa voluisti amare poena.
 
-# Poem | Poem 41
+#!Poem | Poem 41
 Ameana puella defututa
 tota milia me decem poposcit,
 ista turpiculo puella naso,
@@ -721,7 +721,7 @@ amicos medicosque convocate:
 non est sana puella, nec rogare
 qualis sit solet aes imaginosum.
 
-# Poem | Poem 42
+#!Poem | Poem 42
 Adeste, hendecasyllabi, quot estis
 omnes undique, quotquot estis omnes.
 iocum me putat esse moecha turpis
@@ -747,7 +747,7 @@ mutanda est ratio modusque nobis,
 si quid proficere amplius potestis,
 'pudica et proba, redde codicillos.'
 
-# Poem | Poem 43
+#!Poem | Poem 43
 Salve, nec minimo puella naso
 nec bello pede nec nigris ocellis
 nec longis digitis nec ore sicco
@@ -757,8 +757,8 @@ ten provincia narrat esse bellam?
 tecum Lesbia nostra comparatur?
 o saeclum insapiens et infacetum!
 
-# Poem | Poem 44
-# Note | Choliambic
+#!Poem | Poem 44
+#!!Note | Choliambic
 O funde noster seu Sabine seu Tiburs
 (nam te esse Tiburtem autumant quibus non est
 cordi Catullum laedere: at quibus cordi est
@@ -781,7 +781,7 @@ Sesti recepso, quin gravedinem et tussim
 non mi, sed ipsi Sestio ferat frigus,
 qui tunc vocat me cum malum librum 1egi.
 
-# Poem | Poem 45
+#!Poem | Poem 45
 Acmen Septimius suos amores
 tenens in gremio 'mea,' inquit, 'Acme,
 ni te perdite amo atque amare porro
@@ -809,7 +809,7 @@ facit delicias libidinesque.
 quis ullos homines beatiores
 vidit, quis Venerem auspicatiorem?
 
-# Poem | Poem 46
+#!Poem | Poem 46
 Iam ver egelidos refert tepores,
 iam caeli furor aequinoctialis
 iucundis Zephyri silescit auris.
@@ -822,7 +822,7 @@ o dulces comitum valete coetus,
 longe quos simul a domo profectos
 diversae variae viae reportant.
 
-# Poem | Poem 47
+#!Poem | Poem 47
 Porci et Socration, duae sinistrae
 Pisonis, scabies famesque mundi,
 vos Veraniolo meo et Fabullo
@@ -831,7 +831,7 @@ vos convivia lauta sumptuose
 de die facitis? mei sodales
 quaerunt in trivio vocationes?
 
-# Poem | Poem 48
+#!Poem | Poem 48
 Mellitos oculos tuos, Iuventi,
 siquis me sinat usque basiare,
 usque ad milia basiem trecenta,
@@ -839,7 +839,7 @@ nec unquam videar satur futurus,
 non si densior aridis aristis
 sit nostrae seges osculationis.
 
-# Poem | Poem 49
+#!Poem | Poem 49
 Disertissime Romuli nepotum,
 quot sunt quotque fuere, Marce Tulli,
 quotque post aliis erunt in annis,
@@ -848,7 +848,7 @@ agit pessimus omnium poeta,
 tanto pessimus omnium poeta
 quanto tu optimus omnium patronus.
 
-# Poem | Poem 50
+#!Poem | Poem 50
 Hesterno, Licini, die otiosi
 multum lusimus in meis tabellis,
 ut convenerat esse delicatos.
@@ -871,8 +871,8 @@ oramus, cave despuas, ocelle,
 ne poenas Nemesis reposcat a te.
 est vehemens dea: laedere hanc caveto.
 
-# Poem | Poem 51
-# Note | Lesser Sapphic
+#!Poem | Poem 51
+#!!Note | Lesser Sapphic
 Ille mi par esse deo videtur,
 ille, si fas est, superare divos
 qui sedens adversus identidem te
@@ -890,20 +890,20 @@ otio exsultas nimiumque gestis.
 otium et reges prius et beatas
 perdidit urbes.
 
-# Poem | Poem 52
+#!Poem | Poem 52
 Quid est, Catulle? quid moraris emori?
 sella in curuli struma Nonius sedet,
 per consulatum perierat Vatinius:
 quid est, Catulle? quid moraris emori?
 
-# Poem | Poem 53
+#!Poem | Poem 53
 Risi nescio quem modo e corona,
 qui, cum mirifice Vatiniana
 meus crimina Calvus explicasset,
 admirans ait haec manusque tollens
 'di magni, salaputium disertum!'
 
-# Poem | Poem 54
+#!Poem | Poem 54
 Othonis caput oppido est pusillum,
 *
 et eri rustica semilauta crura,
@@ -915,8 +915,8 @@ tibi et Fuficio, seni recocto
 irascere iterum meis iambis
 immerentibus, unice imperator.
 
-# Poem | Poem 55
-# Note | Irregular Phalaecean
+#!Poem | Poem 55
+#!!Note | Irregular Phalaecean
 Oramus, si forte non molestum est,
 demonstres ubi sint tuae tenebrae.
 te campo quaesivimus minore,
@@ -940,7 +940,7 @@ verbosa gaudet Venus loquella.
 vel vi vis, licet obseres palatum,
 dum veri sis particeps amoris.
 
-# Poem | Poem 56
+#!Poem | Poem 56
 O rem ridiculam, Cato, et iocosam
 dignamque auribus et tuo cachinno.
 ride, quidquid amas, Cato, Catullum:
@@ -949,7 +949,7 @@ deprendi modo pupulum puellae
 trusantem: hunc ego, si placet Dionae,
 pro telo rigida mea cecidi.
 
-# Poem | Poem 57
+#!Poem | Poem 57
 Pulchre convenit improbis cinaedis,
 Mamurrae pathicoque Caesarique.
 nec mirum: maculae pares utrisque,
@@ -961,14 +961,14 @@ non hic quam ille magis vorax adulter,
 rivales socii puellularum:
 pulchre convenit improbis cinaedis.
 
-# Poem | Poem 58
+#!Poem | Poem 58
 Caeli, Lesbia nostra, Lesbia illa,
 illa Lesbia, quam Catullus unam
 plus quam se atque suos amavit omnes,
 nunc in quadriviis et angiportis
 glubit magnanimi Remi nepotes.
 
-# Poem | Poem 58b
+#!Poem | Poem 58b
 Non custos si fingar ille Cretum,
 non si Pegaseo ferar volatu,
 non Ladas ego pinnipesve Perseus,
@@ -980,24 +980,24 @@ defessus tamen omnibus medullis
 et multis langoribus peresus
 essem te mihi, amice, quaeritando.
 
-# Poem | Poem 59
-# Note | Choliambic
+#!Poem | Poem 59
+#!!Note | Choliambic
 Bononiensis Rufa Rufulum fellat,
 uxor Meneni, saepe quam in sepulcretis
 vidistis ipso rapere de rogo cenam,
 cum devolutum ex igne prosequens panem
 ab semiraso tunderetur ustore.
 
-# Poem | Poem 60
-# Note | Choliambic
+#!Poem | Poem 60
+#!!Note | Choliambic
 Num te leaena montibus Libystinis
 aut Scylla latrans infima inguinum parte
 tam mente dura procreavit ac taetra,
 ut supplicis vocem in novissimo casu
 contemptam haberes, ah nimis fero corde?
 
-# Poem | Poem 61
-# Note | Four second Glyconics catalectic and one second Pherecratic acatalectic
+#!Poem | Poem 61
+#!!Note | Four second Glyconics catalectic and one second Pherecratic acatalectic
 Collis o Heliconii
 cultor, Uraniae genus,
 qui rapis teneram ad virum
@@ -1274,8 +1274,8 @@ coniuges, bene vivite et
 munere adsiduo valentem
 exercete iuventam.
 
-# Poem | Poem 62"'
-# Note | Dactylic hexameter
+#!Poem | Poem 62"'
+#!!Note | Dactylic hexameter
 <head lang="en">youths</head>
 Vesper adest: iuvenes, consurgite: vesper Olympo
 exspectata diu vix tandem lumina tollit.
@@ -1352,8 +1352,8 @@ tertia sola tua est.  noli pugnare duobus,
 qui genero sua iura simul cum dote dederunt.
 Hymen o Hymenaee, Hymen ades o Hymenaee.
 
-# Poem | Poem 63
-# Note | Galliambic
+#!Poem | Poem 63
+#!!Note | Galliambic
 Super alta vectus Attis celeri rate maria
 Phrygium ut nemus citato cupide pede tetigit
 adiitque opaca silvis redimita loca deae,
@@ -1448,8 +1448,8 @@ ibi semper omne vitae spatium famula fuit.
 procul a mea tuus sit furor omnis, era, domo:
 alios age incitatos, alios age rabidos.
 
-# Poem | Poem 64"'
-# Note | Dactylic hexameter
+#!Poem | Poem 64"'
+#!!Note | Dactylic hexameter
 Peliaco quondam prognatae vertice pinus
 dicuntur liquidas Neptuni nasse per undas
 Phasidos ad fluctus et fines Aeeteos,
@@ -1860,7 +1860,7 @@ iustificam nobis mentem avertere deorum.
 quare nec talis dignantur visere coetus
 nec se contingi patiuntur lumine claro.
 
-# Poem | Poem 65
+#!Poem | Poem 65
 Etsi me adsiduo defectum cura dolore
 sevocat a doctis, Ortale, virginibus,
 nec potis est dulcis Musarum expromere fetus
@@ -1886,7 +1886,7 @@ dum adventu matris prosilit, excutitur;
 atque illud prono praeceps agitur decursu,
 huic manat tristi conscius ore rubor.
 
-# Poem | Poem 66
+#!Poem | Poem 66
 Omnia qui magni dispexit lumina mundi,
 qui stellarum ortus comperit atque obitus,
 flammeus ut rapidi solis nitor obscuretur,
@@ -1982,7 +1982,7 @@ sed potius largis adfice muneribus.
 sidera cur retinent? utinam coma regia fiam
 proximus Hydrochoi fulgeret Oarion.
 
-# Poem | Poem 67
+#!Poem | Poem 67
 O dulci iucunda viro, iucunda parenti,
 salve, teque bona Iuppiter auctet ope,
 Ianua, quam Balbo dicunt servisse benigne
@@ -2032,7 +2032,7 @@ nomine ne tollat rubra supercilia.
 longus homo est, magnas cui lites intulit olim
 falsum mendaci ventre puerperium.'
 
-# Poem | Poem 68a
+#!Poem | Poem 68a
 Quod mihi fortuna casuque oppressus acerbo
 conscriptum hoc lacrimis mittis epistolium,
 naufragum ut eiectum spumantibus aequoris undis
@@ -2074,7 +2074,7 @@ id facere aut animo non satis ingenuo
 quod tibi non utriusque petenti copia parta est:
 ultro ego deferrem, copia si qua foret.
 
-# Poem | Poem 68b
+#!Poem | Poem 68b
 non possum reticere, deae, qua me Allius in re
 iuverit aut quantis iuverit officiis,
 ne fugiens saeclis obliviscentibus aetas
@@ -2196,7 +2196,7 @@ a quo sunt primo omnia nata bona,
 et longe ante omnes mihi quae me carior ipso est,
 lux mea, qua viva vivere dulce mihi est.
 
-# Poem | Poem 69
+#!Poem | Poem 69
 Noli admirari quare tibi femina nulla,
 Rufe, velit tenerum supposuisse femur,
 non si illam rarae labefactes munere vestis
@@ -2208,13 +2208,13 @@ bestia, nec quicum bella puella cubet.
 quare aut crudelem nasorum interfice pestem,
 aut admirari desine cur fugiunt.
 
-# Poem | Poem 70
+#!Poem | Poem 70
 Nulli se dicit mulier mea nubere malle
 quam mihi, non si se Iuppiter ipse petat.
 dicit: sed mulier cupido quod dicit amanti
 in vento et rapida scribere oportet aqua.
 
-# Poem | Poem 71
+#!Poem | Poem 71
 Si cui iure bono sacer alarum obstitit hircus,
 aut si quem merito tarda podagra secat,
 Aemulus iste tuus, qui vestrum exercet amorem,
@@ -2222,7 +2222,7 @@ mirifice est a te nactus utrumque malum.
 nam quotiens futuit totiens ulciscitur ambos:
 illam adfligit odore, ipse perit podagra.
 
-# Poem | Poem 72
+#!Poem | Poem 72
 Dicebas quondam solum te nosse Catullum,
 Lesbia, nec prae me velle tenere Iovem.
 dilexi tum te non tantum ut vulgus amicam,
@@ -2232,7 +2232,7 @@ multo mi tamen es vilior et levior.
 qui potis est? inquis. quod amantem iniuria talis
 cogit amare magis, sed bene velle minus.
 
-# Poem | Poem 73
+#!Poem | Poem 73
 Desine de quoquam quicquam bene velle mereri
 aut aliquem fieri posse putare pium.
 omnia sunt ingrata, nihil fecisse benigne:
@@ -2240,7 +2240,7 @@ immo etiam taedet, taedet obestque magis:
 ut mihi, quem nemo gravius nec acerbius urget
 Quam modo qui me unum atque unicum amicum habuit.
 
-# Poem | Poem 74
+#!Poem | Poem 74
 Gellius audierat patruum obiurgare solere,
 si quis delicias diceret aut faceret.
 hoc ne ipsi accideret, patrui perdepsuit ipsam
@@ -2248,13 +2248,13 @@ uxorem et patruum reddidit Harpocratem.
 quod voluit fecit: nam, quamvis irrumet ipsum
 nunc patruum, verbum non faciet patruus.
 
-# Poem | Poem 75
+#!Poem | Poem 75
 Huc est mens deducta tua, mea Lesbia, culpa,
 atque ita se officio perdidit ipsa suo,
 ut iam nec bene velle queat tibi, si optuma fias,
 nec desistere amare, omnia si facias.
 
-# Poem | Poem 76
+#!Poem | Poem 76
 Si qua recordanti benefacta priora voluptas
 est homini, cum se cogitat esse pium,
 nec sanctam violasse fidem, nec foedere in ullo
@@ -2282,7 +2282,7 @@ aut, quod non potis est, esse pudica velit:
 ipse valere opto et taetrum hunc deponere morbum.
 o di, reddite mi hoc pro pietate mea.
 
-# Poem | Poem 77
+#!Poem | Poem 77
 Rufe mihi frustra ac nequiquam credite amice
 (frustra? immo magno cum pretio atque malo),
 sicine subrepsti mi atque intestina perurens
@@ -2290,7 +2290,7 @@ hei misero eripuisti omnia nostra bona?
 eripuisti, eheu nostrae crudele venenum
 vitae, eheu nostrae pestis amicitiae.
 
-# Poem | Poem 78
+#!Poem | Poem 78
 Gallus habet fratres, quorum est lepidissima coniunx
 alterius, lepidus filius alterius.
 Gallus homo est bellus: nam dulces iungit amores,
@@ -2298,7 +2298,7 @@ cum puero ut bello bella puella cubet.
 Gallus homo est stultus nec se videt esse maritum,
 qui patruus patrui monstret adulterium.
 
-# Poem | Poem 78b
+#!Poem | Poem 78b
 . . . . . . . . .
 . . . . . . . . .
 Sed nunc id doleo quod purae pura puellae
@@ -2306,13 +2306,13 @@ savia comminxit spurca saliva tua.
 verum id non impune feres: nam te omnia saecla
 noscent et qui sis fama loquetur anus.
 
-# Poem | Poem 79
+#!Poem | Poem 79
 Lesbius est pulcher: quid ni? quem Lesbia malit
 quam te cum tota gente, Catulle, tua.
 sed tamen hic pulcher vendat cum gente Catullum,
 si tria notorum savia reppererit.
 
-# Poem | Poem 80
+#!Poem | Poem 80
 Quid dicam, Gelli, quare rosea ista labella
 Hiberna fiant candidiora nive,
 mane domo cum exis et cum te octava quiete
@@ -2322,7 +2322,7 @@ grandia te medii tenta vorare viri?
 sic certe est: clamant Victoris rupta miselli
 ilia, et emulso labra notata sero.
 
-# Poem | Poem 81
+#!Poem | Poem 81
 Nemone in tanto potuit populo esse, Iuventi,
 bellus homo quem tu diligere inciperes
 praeterquam iste tuus moribunda ab sede Pisauri
@@ -2330,13 +2330,13 @@ hospes inaurata pallidior statua?
 qui tibi nunc cordi est, quem tu praeponere nobis
 audes et nescis quod facinus facias.
 
-# Poem | Poem 82
+#!Poem | Poem 82
 Quinti, si tibi vis oculos debere Catullum
 aut aliud si quid carius est oculis,
 eripere ei noli multo quod carius illi
 est oculis seu quid carius est oculis.
 
-# Poem | Poem 83
+#!Poem | Poem 83
 Lesbia mi praesente viro mala plurima dicit:
 haec illi fatuo maxima laetitia est.
 mule, nihil sentis. si nostri oblita taceret,
@@ -2344,7 +2344,7 @@ sana esset: nunc quod gannit et obloquitur,
 non solum meminit, sed, quae multo acrior est res,
 irata est: hoc est, uritur et loquitur.
 
-# Poem | Poem 84
+#!Poem | Poem 84
 Chommoda dicebat, si quando commode vellet
 dicere, et insidias Arrius hinsidias,
 et tum mirifice sperabat se esse locutum
@@ -2358,11 +2358,11 @@ cum subito adfertur nuntius horribilis
 Ionios fluctus, postquam illuc Arrius isset,
 iam non Ionios esse, sed Hionios.
 
-# Poem | Poem 85
+#!Poem | Poem 85
 Odi et amo. quare id faciam fortasse requiris
 nescio, sed fieri sentio et excrucior.
 
-# Poem | Poem 86
+#!Poem | Poem 86
 Quintia formosa est multis, mihi candida, longa,
 recta est. haec ego sic singula confiteor,
 totum illud 'formosa' nego: nam nulla venustas,
@@ -2370,13 +2370,13 @@ nulla in tam magno est corpore mica salis.
 Lesbia formosa est, quae cum pulcherrima tota est,
 tum omnibus una omnis subripuit Veneres.
 
-# Poem | Poem 87
+#!Poem | Poem 87
 Nulla potest mulier tantum se dicere amatam
 vere, quantum a me Lesbia amata mea es
 nulla fides ullo fuit unquam in foedere tanta
 quanta in amore tuo ex parte reperta mea est.
 
-# Poem | Poem 88
+#!Poem | Poem 88
 Quid facit is, Gelli, qui cum matre atque sorore
 prurit et abiectis pervigilat tunicis?
 quid facit is patruum qui non sinit esse maritum?
@@ -2386,7 +2386,7 @@ nec genitor nympharum abluit Oceanus:
 nam nihil est quicquam sceleris quo prodeat ultra,
 non si demisso se ipse voret capite.
 
-# Poem | Poem 89
+#!Poem | Poem 89
 Gellius est tenuis: quid ni? cui tam bona mater
 tamque valens vivat tamque venusta soror
 tamque bonus patruus tamque omnia plena puellis
@@ -2394,7 +2394,7 @@ cognatis, quare is desinat esse macer?
 qui ut nihil attingat, nisi quod fas tangere non est,
 quantumvis quare sit macer invenies.
 
-# Poem | Poem 90
+#!Poem | Poem 90
 Nascatur magus ex Gelli matrisque nefando
 coniugio et discat Persicum haruspicium:
 nam magus ex matre et gnato gignatur oportet,
@@ -2402,7 +2402,7 @@ si vera est Persarum impia religio,
 gratus ut accepto veneretur carmine divos
 omentum in flamma pingue liquefaciens.
 
-# Poem | Poem 91
+#!Poem | Poem 91
 Non ideo, Gelli, sperabam te mihi fidum
 in misero hoc nostro, hoc perdito amore fore
 quod te cognossem bene constantemve putarem
@@ -2414,21 +2414,21 @@ non satis id causae credideram esse tibi.
 tu satis id duxti: tantum tibi gaudium in omni
 culpa est in quacumque est aliquid sceleris.
 
-# Poem | Poem 92
+#!Poem | Poem 92
 Lesbia mi dicit semper male nec tacet unquam
 de me: Lesbia me dispeream nisi amat.
 quo signo? quia sunt totidem mea: deprecor illam
 adsidue, verum dispeream nisi amo.
 
-# Poem | Poem 93
+#!Poem | Poem 93
 Nil nimium studeo, Caesar, tibi velle placere,
 nec scire utrum sis albus an ater homo.
 
-# Poem | Poem 94
+#!Poem | Poem 94
 Mentula moechatur. moechatur mentula certe.
 hoc est quod dicunt, ipsa olera olla legit.
 
-# Poem | Poem 95
+#!Poem | Poem 95
 Zmyrna mei Cinnae nonam post denique messem
 quam coepta est nonamque edita post hiemem,
 milia cum interea quingenta Hortensius uno
@@ -2440,7 +2440,7 @@ et laxas scombris saepe dabunt tunicas.
 parva mei mihi sint cordi monumenta sodalis:
 at populus tumido gaudeat Antimacho.
 
-# Poem | Poem 96
+#!Poem | Poem 96
 Si quicquam mutis gratum acceptumve sepulcris
 accidere a nostro, Calve, dolore potest,
 quo desiderio veteres renovamus amores
@@ -2448,7 +2448,7 @@ atque olim missas flemus amicitias,
 certe non tanto mors immatura dolori est
 Quintiliae, quantum gaudet amore tuo.
 
-# Poem | Poem 97
+#!Poem | Poem 97
 Non (ita me di ament) quicquam referre putavi
 utrumne os an culum olfacerem Aemilio.
 nilo mundius hoc, nihiloque immundius illud,
@@ -2462,7 +2462,7 @@ et non pistrino traditur atque asino?
 quem si qua attingit, non illam posse putemus
 aegroti culum lingere carnificis?
 
-# Poem | Poem 98
+#!Poem | Poem 98
 In te, si in quemquam, dici pose, putide Victi,
 id quod verbosis dicitur et fatuis:
 ista cum lingua, si usus veniat tibi, possis
@@ -2470,7 +2470,7 @@ culos et crepidas lingere carpatinas.
 si nos omnino vis omnes perdere, Victi,
 hiscas: omnino quod cupis efficies.
 
-# Poem | Poem 99
+#!Poem | Poem 99
 Subripui tibi, dum ludis, mellite Iuventi,
 saviolum dulci dulcius ambrosia.
 verum id non impune tuli: namque amplius horam
@@ -2488,7 +2488,7 @@ saviolum tristi tristius elleboro.
 quam quoniam poenam misero proponis amori,
 nunquam iam posthac basia subripiam.
 
-# Poem | Poem 100
+#!Poem | Poem 100
 Caelius Aufilenum et Quintius Aufilenam
 flos Veronensum depereunt iuvenum,
 hic fratrem, ille sororem. hoc est quod dicitur illud
@@ -2498,7 +2498,7 @@ per facta exhibita est unica amicitia
 cum vesana meas torreret flamma medullas.
 sis felix, Caeli, sis in amore potens.
 
-# Poem | Poem 101
+#!Poem | Poem 101
 Multas per gentes et multa per aequora vectus
 advenio has miseras, frater, ad inferias,
 ut te postremo donarem munere mortis
@@ -2510,33 +2510,33 @@ tradita sunt tristi munere ad inferias,
 accipe fraterno multum manantia fletu
 atque in perpetuum, frater, ave atque vale.
 
-# Poem | Poem 102
+#!Poem | Poem 102
 Si quicquam tacito commissum est fido ab amico
 cuius sit penitus nota fides animi,
 meque esse invenies illorum iure sacratum,
 Corneli, et factum me esse puta Harpocratem.
 
-# Poem | Poem 103
+#!Poem | Poem 103
 Aut sodes mihi redde decem sestertia, Silo,
 deinde esto quamvis saevus et indomitus:
 aut, si te nummi deIectant, desine quaeso
 Leno esse atque idem saevus et indomitus.
 
-# Poem | Poem 104
+#!Poem | Poem 104
 Credis me potuisse meae maledicere vitae,
 ambobus mihi quae carior est oculis?
 non potui, nec, si possem, tam perdite amarem:
 sed tu cum Tappone omnia monstra facis.
 
-# Poem | Poem 105
+#!Poem | Poem 105
 Mentula conatur Pipleum scandere montem:
 Musae furcillis praecipitem eiciunt.
 
-# Poem | Poem 106
+#!Poem | Poem 106
 Cum puero bello praeconem qui videt esse,
 quid credat, nisi se vendere discupere?
 
-# Poem | Poem 107
+#!Poem | Poem 107
 Si cui quid cupido optantique obtigit unquam
 insperanti, hoc est gratum animo proprie.
 quare hoc est gratum nobis quoque, carius auro,
@@ -2546,7 +2546,7 @@ nobis. o lucem candidiore nota!
 quis me uno vivit felicior, aut magis hac res
 optandas vita dicere quis poterit?
 
-# Poem | Poem 108
+#!Poem | Poem 108
 Si, Comini, populi arbitrio tua cana senectus
 spurcata impuris moribus intereat,
 non equidem dubito quin primum inimica bonorum
@@ -2554,7 +2554,7 @@ lingua exsecta avido sit data vulturio,
 effossos oculos voret atro gutture corvus,
 intestina canes, cetera membra lupi.
 
-# Poem | Poem 109
+#!Poem | Poem 109
 Iucundum, mea vita, mihi proponis amorem
 hunc nostrum inter nos perpetuumque fore.
 di magni, facite ut vere promittere possit
@@ -2562,7 +2562,7 @@ atque id sincere dicat et ex animo,
 ut liceat nobis tota perducere vita
 aeternum hoc sanctae foedus amicitiae.
 
-# Poem | Poem 110
+#!Poem | Poem 110
 Aufilena, bonae semper laudantur amicae:
 accipiunt pretium quod facere instituunt.
 tu, quod promisti mihi, quod mentita, inimica es;
@@ -2572,23 +2572,23 @@ Aufilena, fuit: sed data corripere
 fraudando 'efficit plus quam meretricis avarae,
 quae sese toto corpore prostituit.
 
-# Poem | Poem 111
+#!Poem | Poem 111
 Aufilena, viro contentam vivere solo
 nuptarum laus e laudibus eximiis:
 sed cuivis quamvis potius succumbere par est
 quam matrem fratres ex patruo parere.
 
-# Poem | Poem 112
+#!Poem | Poem 112
 Multus homo est, Naso, neque tecum multus homo est qui
 descendit: Naso, multus es et pathicus.
 
-# Poem | Poem 113
+#!Poem | Poem 113
 Consule Pompeio primum duo, Cinna, solebant
 Maeciliam: facto consule nunc iterum
 manserunt duo, sed creverunt milia in unum
 singula. fecundum semen adulterio.
 
-# Poem | Poem 114
+#!Poem | Poem 114
 Firmanus saltu non falso Mentula dives
 fertur, qui tot res in se habet egregias,
 aucupium omne genus, piscis, prata, arva, ferasque.
@@ -2596,7 +2596,7 @@ nequiquam: fructus sumptibus exsuperat.
 quare concedo sit dives, dum omnia desint;
 saltum laudemus, dum domo ipse egeat.
 
-# Poem | Poem 115
+#!Poem | Poem 115
 Mentula habet iuxta triginta iugera prati,
 quadraginta arvi: cetera sunt maria.
 cur non divitiis Croesum superare potis sit
@@ -2606,7 +2606,7 @@ usque ad Hyperboreos et mare ad Oceanum?
 omnia magna haec sunt, tamen ipse est maximus ultro,
 non homo, sed vero mentula magna minax.
 
-# Poem | Poem 116
+#!Poem | Poem 116
 Saepe tibi studioso animo venante requirens
 carmina uti possem mittere Battiadae
 qui te lenirem nobis, neu conarere
@@ -2615,3 +2615,5 @@ hunc video mihi nunc frustra sumptum esse laborem,
 Gelli, nec nostras hic valuisse preces.
 contra nos tela ista tua evitamus amictu:
 at fixus nostris tu dabis supplicium.
+
+#!End
