@@ -382,7 +382,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             success: function (a, b) {
                 if (a.type === 'ack') {
                     if (a.content) {
-                        $state.go('work', {id: a.content._id, content: JSON.stringify(a.content.content)});
+                        $state.go('work', {id: a.content._id, content: JSON.stringify(a.content)});
                     } else {
                         alert('no content');
                         console.trace(a)

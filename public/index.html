@@ -47,7 +47,7 @@ Note: Using <% and %> as Hogan delimiters instead of mustaches (mustaches reserv
           content="Horace application from Design for Literature lets people learn, edit, and publish Latin classics and documents in general."/>
     <title id="title">Design for Literature: Horace</title>
 
-    <!-- Start system scripts --------------------------------------------------------- -->
+    <!-- Start vendor scripts --------------------------------------------------------- -->
     <!-- Enabling HTML5 support for Internet Explorer -->
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -56,23 +56,16 @@ Note: Using <% and %> as Hogan delimiters instead of mustaches (mustaches reserv
     <link rel="stylesheet" href="scripts/vendor/bootstrap/css/bootstrap.css"/>
 
     <script src="scripts/vendor/jquery/jquery.min.js"></script>
-    <!--<script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
-
-    <!-- bundle includes Bloodhound and typeahead -->
-    <!--<script>document.write('<base href="' + document.location + '" />');</script>-->
-    <!--<script src="scripts/vendor/angular-typeahead/typeahead.bundle.js"></script>-->
     <script src="scripts/vendor/ng-file-upload/angular-file-upload-shim.min.js"></script>
     <script src="scripts/vendor/angular/angular.js"></script>
-    <!--<script src="scripts/vendor/angular-typeahead/angular-typeahead.min.js"></script>-->
     <script src="scripts/vendor/ng-file-upload/angular-file-upload.min.js"></script>
-    <!--<script src="scripts/vendor/angular-route/angular-route.js"></script>-->
     <script src="scripts/vendor/angular-ui-router/angular-ui-router.min.js"></script>
     <script src="scripts/vendor/angular-animate/angular-animate.min.js"></script>
     <script src="scripts/vendor/angular-ui/angular-ui.js"></script>
     <script src="scripts/vendor/angular-ui/ui-bootstrap.js"></script>
-
     <script src="scripts/vendor/socket.io/socket.io.min.js"></script>
-    <!-- End system scripts ----------------------------------------------------------- -->
+    <script src="scripts/vendor/jtree/jstree.min.js"></script>
+    <!-- End vendor scripts ----------------------------------------------------------- -->
 
     <!-- Start application scripts --------------------------------------------------- -->
     <!-- TODO on first released version, consolidate all js into a single file -->
@@ -97,8 +90,7 @@ Note: Using <% and %> as Hogan delimiters instead of mustaches (mustaches reserv
     <!-- Start application styles --------------------------------------------------- -->
     <link rel='stylesheet' href='styles/app.css'/>
     <link rel='stylesheet' href='styles/signin.css'/>
-    <!-- used by ui-bootstrap -->
-    <!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel='stylesheet' href='scripts/vendor/jtree/themes/default/style.min.css'/>
     <!-- End application styles ----------------------------------------------------- -->
 </head>
 

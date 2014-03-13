@@ -1,5 +1,4 @@
 #! Poem | Poem 1
-#!! Note | Catullus gives his book to his friend, the historian Corneli.
 Cui dono lepidum novum libellum
 arido modo pumice expolitum?
 Corneli, tibi; namque tu solebas
@@ -10,6 +9,7 @@ doctis, Iuppiter, et laboriosis!
 quare habe tibi quidquid hoc libelli
 qualecumque, quod, o patrona virgo,
 plus uno maneat perenne saeclo.
+#!! Note | Catullus gives his book to his friend, the historian Corneli.
 
 #! Poem | Poem 2
 #!! Note | Could this passer be Lesbia?

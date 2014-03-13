@@ -102,115 +102,141 @@ var work =
 
 horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, EditorSettings, UserPrefs, $stateParams) {
 
-    /* Execute after document loads */
-    $scope.$on('$viewContentLoaded', function () {
-        var verses = $scope.editor.content.verses;
-        var text = '<D_P>';
-        for (var verseKey in verses) {
-            var lines = verses[verseKey].lines;
-            text += '<D_V>';
-            for (var lineKey in lines) {
-                var line = lines[lineKey];
-                text += '<D_L>' + line + '</D_L>';
+    function makeText(items) {
+        var text = '<D_P><D_V>', openVerse = true;
+        for (var itemNo in items) {
+            var item = items[itemNo];
+            if (itemNo === 0 || item.length === 0) {
+                text += openVerse ? '</D_V>' : '<D_V>';
+                openVerse = !openVerse;
             }
-            text += '</D_V>'
+            text += '<D_L>' + item + '</D_L>';
+        }
+        if (openVerse) {
+            text += '</D_V>';
         }
         text += '</D_P>';
-//        $scope.editor.setContent(work);
-    $scope.editor.setContent({content: text, type: 'Poem'});
-    $scope.editor.activateSettings(EditorSettings);
-});
+        return text;
+    }
+
+    function makeJtreeToc(toc) { // TODO deal with a huge outline
+        console.info(JSON.stringify(toc));
+        var data = [],
+            jtreeToc = {
+//                plugins: ['checkbox'],
+                core: {multiple: false, data: data}};
+        for (var i in toc) {
+            var chunk = toc[i],
+                toplevelItem = {id: chunk.chunkId, icon: false, text: chunk.title};
+            data.push(toplevelItem);
+            if (chunk.sections && chunk.sections.length !== 0) {
+                toplevelItem.children = [];
+                for (var subsectionNo in chunk.sections) {
+                    var section = chunk.sections[subsectionNo],
+                        sectionTocItem = {id: section.id, icon: false, text: section.title};
+                    toplevelItem.children.push(sectionTocItem); // TODO make recursive for all levels
+                }
+            }
+        }
+        return jtreeToc;
+    }
+
+    /* Execute after document loads */
+    $scope.$on('$viewContentLoaded', function () { // TODO this only works for poems now
+        $('#toc').jstree(makeJtreeToc($scope.editor.content.toc));
+        $scope.editor.setContent({content: makeText($scope.editor.content.data), type: 'Poem'}); // TODO setToc or pass toc
+        $scope.editor.activateSettings(EditorSettings);
+    });
 
 
-$scope.editor = {
+    $scope.editor = {
 
-    id: $stateParams.id,
+        id: $stateParams.id,
 
-    /* Start pagination controls */
-    pager: {
-        currentPage: 1,
-        totalPages: 10,
-        setPage: function (pageno) {
-            if (pageno > 0 && pageno <= $scope.editor.pager.totalPages) {
-                $scope.editor.pager.currentPage = pageno;
+        /* Start pagination controls */
+        pager: {
+            currentPage: 1,
+            totalPages: 10,
+            setPage: function (pageno) {
+                if (pageno > 0 && pageno <= $scope.editor.pager.totalPages) {
+                    $scope.editor.pager.currentPage = pageno;
+                }
+            },
+            changePage: function () {
+                var val = $('#pageSelector')[0].value;
             }
         },
-        changePage: function () {
-            var val = $('#pageSelector')[0].value;
-            console.info(val);
-        }
-    },
-    /* End pagination controls */
+        /* End pagination controls */
 
-    content: JSON.parse($stateParams.content),
+        content: JSON.parse($stateParams.content),
 
-    setContent: function (work) {
-        var type = work.type;
-        var layout = $scope.editor.engine.workTypeLayouts[type];
-        if (layout) {
-            layout(work);
-        } else {
-            throw {type: 'fatal', msg: 'Invalid work layout type "' + type + '"'};
-        }
-    },
-
-    /**
-     * Activates settings. Removes current settings.
-     * @param settings The editor's settings object.
-     */
-    activateSettings: function (settings) {
-
-        function activateSettingStyles() {
-            var styles = $('#d_styles');
-            if (!styles || styles.length === 0) {
-                throw {type: 'fatal', msg: 'Default styles (id d_styles) missing'};
+        setContent: function (work) {
+            var type = work.type;
+            var layout = $scope.editor.engine.workTypeLayouts[type];
+            if (layout) {
+                layout(work);
+            } else {
+                throw {type: 'fatal', msg: 'Invalid work layout type "' + type + '"'};
             }
-            var className;
-            var style;
-            var html = '';
-            for (className in settings.styles) {
-                if (settings.styles.hasOwnProperty(className)) {
-                    style = settings.styles[className];
-                    html += style + ' ';
+        },
+
+        /**
+         * Activates settings. Removes current settings.
+         * @param settings The editor's settings object.
+         */
+        activateSettings: function (settings) {
+
+            function activateSettingStyles() {
+                var styles = $('#d_styles');
+                if (!styles || styles.length === 0) {
+                    throw {type: 'fatal', msg: 'Default styles (id d_styles) missing'};
+                }
+                var className;
+                var style;
+                var html = '';
+                for (className in settings.styles) {
+                    if (settings.styles.hasOwnProperty(className)) {
+                        style = settings.styles[className];
+                        html += style + ' ';
+                    }
+                }
+                styles[0].innerHTML = html;
+            }
+
+            activateSettingStyles();
+        },
+
+        // stub function to do a test annotation
+        test: function () {
+            var viewMethName;
+            for (viewMethName in testAnnotation.views) {
+                if (testAnnotation.views.hasOwnProperty(viewMethName)) {
+                    var viewMeth = $scope.editor.engine.viewMethods[viewMethName];
+                    if (viewMeth) {
+                        viewMeth($scope, testAnnotation);
+                    } else {
+                        throw {type: 'fatal', msg: 'No view method named "' + viewMethName + '"'};
+                    }
                 }
             }
-            styles[0].innerHTML = html;
+        },
+
+        // stub function to clear all annotation views
+        clearAnnotationViews: function () {
+            $(EditorSettings.nodeNames.selectionSpan).each(function (i) {
+                var child = $(this)[0].firstChild;
+                $(this).replaceWith(child);
+
+            });
         }
-
-        activateSettingStyles();
-    },
-
-    // stub function to do a test annotation
-    test: function () {
-        var viewMethName;
-        for (viewMethName in testAnnotation.views) {
-            if (testAnnotation.views.hasOwnProperty(viewMethName)) {
-                var viewMeth = $scope.editor.engine.viewMethods[viewMethName];
-                if (viewMeth) {
-                    viewMeth($scope, testAnnotation);
-                } else {
-                    throw {type: 'fatal', msg: 'No view method named "' + viewMethName + '"'};
-                }
-            }
-        }
-    },
-
-    // stub function to clear all annotation views
-    clearAnnotationViews: function () {
-        $(EditorSettings.nodeNames.selectionSpan).each(function (i) {
-            var child = $(this)[0].firstChild;
-            $(this).replaceWith(child);
-
-        });
-    }
-};
-/* End of $scope.editor */
+    };
+    /* End of $scope.editor */
 
 // Set the editor engine to use
-$scope.editor.engine = EditorEngine;
+    $scope.editor.engine = EditorEngine;
 
 // Set the user preferences
-$scope.editor.prefs = UserPrefs;
+    $scope.editor.prefs = UserPrefs;
 
 })
 ;
