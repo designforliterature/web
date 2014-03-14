@@ -100,7 +100,7 @@ var work =
     type: 'Poem'
 };
 
-horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, EditorSettings, UserPrefs, $stateParams) {
+horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, EditorSettings, UserPrefs, $stateParams) {
 
     function makeText(items) {
         var text = '<D_P><D_V>', openVerse = true;
@@ -120,10 +120,10 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, EditorSettings,
     }
 
     function makeJtreeToc(toc) { // TODO deal with a huge outline
-        console.info(JSON.stringify(toc));
+//        console.info(JSON.stringify(toc));
         var data = [],
             jtreeToc = {
-//                plugins: ['checkbox'],
+                plugins: ['wholerow'],
                 core: {multiple: false, data: data}};
         for (var i in toc) {
             var chunk = toc[i],
@@ -144,6 +144,14 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, EditorSettings,
     /* Execute after document loads */
     $scope.$on('$viewContentLoaded', function () { // TODO this only works for poems now
         $('#toc').jstree(makeJtreeToc($scope.editor.content.toc));
+        $('#toc').on('changed.jstree', function (event, data) {
+            console.info('Changed: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
+        });
+        $('#toc').on('hover_node.jstree', function (event, data) {
+//            var id = data.node.id;
+//            var el = $('#'+id);
+            console.info('Hover: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
+        });
         $scope.editor.setContent({content: makeText($scope.editor.content.data), type: 'Poem'}); // TODO setToc or pass toc
         $scope.editor.activateSettings(EditorSettings);
     });
@@ -233,7 +241,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, EditorSettings,
     /* End of $scope.editor */
 
 // Set the editor engine to use
-    $scope.editor.engine = EditorEngine;
+    $scope.editor.engine = EditorEngine2;
 
 // Set the user preferences
     $scope.editor.prefs = UserPrefs;

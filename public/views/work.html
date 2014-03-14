@@ -23,18 +23,41 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </style>
 
 <br/><br/>
-
-<table>
-    <tr>
-        <td><content/></td>
-        <td style="font-size: 10px;font-weight: bolder">
-            <table style="vertical-align: top">
-                <tr><td><ng-label>Poem: {{editor.pager.currentPage}} / {{editor.pager.totalPages}}</ng-label>
-                    Set Page: <input ng-change="{{editor.pager.changePage()}}" ng-model="editor.pager.currentPage" id="pageSelector" style="width: 40px" type="text"/>
-                </td><button ng-click="editor.pager.setPage(editor.pager.currentPage - 1)">Previous</button> <button ng-click="editor.pager.setPage(editor.pager.currentPage + 1)">Next</button></tr>
-                <tr><td><toc id="toc" style="float:left;padding:10px;text-wrap:normal;vertical-align: text-top"/></td></tr>
-            </table>
-        </td>
-    </tr>
-</table>
+<!--  style="overflow-y: scroll; height:800px;" -->
+<div>
+    <table style="border-style: solid;border: 1px">
+        <tr>
+            <td style="vertical-align: top">
+                <content/>
+            </td>
+            <td style="vertical-align: top;font-size: 10px;font-weight: bolder;background-color: #fdecab; padding: 0 8px 0 8px">
+                <table>
+                    <tr>
+                        <td><b style="font-size: larger">Table of Contents</b></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <ng-label>Poem: {{editor.pager.currentPage}} / {{editor.pager.totalPages}} pages
+                                </ng-label>
+                                | <i>Set Page:</i> <input ng-change="{{editor.pager.changePage()}}"
+                                                          ng-model="editor.pager.currentPage"
+                                                          id="pageSelector" style="width: 40px" type="text"/><br/>
+                                    <button ng-click="editor.pager.setPage(editor.pager.currentPage - 1)">Previous Page
+                                    </button>
+                                    <button ng-click="editor.pager.setPage(editor.pager.currentPage + 1)">Next Page
+                                    </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="toc" style="overflow-y: scroll;height:400px;width:200px;float:left;padding:10px;text-wrap:normal;vertical-align: text-top"/>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
 

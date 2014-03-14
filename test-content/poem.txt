@@ -1274,7 +1274,7 @@ coniuges, bene vivite et
 munere adsiduo valentem
 exercete iuventam.
 
-#! Poem | Poem 62"'
+#! Poem | Poem 62
 #!! Note | Dactylic hexameter
 <head lang="en">youths</head>
 Vesper adest: iuvenes, consurgite: vesper Olympo
@@ -1448,7 +1448,7 @@ ibi semper omne vitae spatium famula fuit.
 procul a mea tuus sit furor omnis, era, domo:
 alios age incitatos, alios age rabidos.
 
-#! Poem | Poem 64"'
+#! Poem | Poem 64
 #!! Note | Dactylic hexameter
 Peliaco quondam prognatae vertice pinus
 dicuntur liquidas Neptuni nasse per undas

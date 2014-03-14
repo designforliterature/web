@@ -1,11 +1,12 @@
-! Copyright | License
+#! Copyright | Copyright Notice
+The Iliad.
 Homer. Homeri Opera in five volumes. Oxford, Oxford University Press. 1920.
 The Annenberg CPB/Project provided support for entering this text.
 This work is licensed under a Creative Commons
 Attribution-ShareAlike 3.0 United States License:
 http://creativecommons.org/licenses/by-sa/3.0/us/
 
-# Poem | Book 1
+#! Poem | Book 1
 μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος
 οὐλομένην, ἣ μυρί᾽ Ἀχαιοῖς ἄλγε᾽ ἔθηκε,
 πολλὰς δ᾽ ἰφθίμους ψυχὰς Ἄϊδι προΐαψεν
@@ -145,7 +146,7 @@ http://creativecommons.org/licenses/by-sa/3.0/us/
 τριπλῇ τετραπλῇ τ᾽ ἀποτείσομεν, αἴ κέ ποθι Ζεὺς
 δῷσι πόλιν Τροίην εὐτείχεον ἐξαλαπάξαι.
 
-# Poem | Book 2
+#! Poem | Book 2
 ἄλλοι μέν ῥα θεοί τε καὶ ἀνέρες ἱπποκορυσταὶ
 εὗδον παννύχιοι, Δία δ᾽ οὐκ ἔχε νήδυμος ὕπνος,
 ἀλλ᾽ ὅ γε μερμήριζε κατὰ φρένα ὡς Ἀχιλῆα

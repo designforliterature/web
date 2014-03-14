@@ -25,7 +25,7 @@
  Color Scheme:
  default font blue color: #00B7FF
  link color: #00B7FF
- annotation yellow: #ffe62d
+ annotation yellow: fdecab
  submit button color: #6b6dbb
  submit button color gradient:from(#88add7), to(#6b6dbb)
 */
@@ -83,13 +83,13 @@ div.headline {
     line-height: 2em;
     padding: .5em;
 
-    background: #ffd220;
-    background-color: #ffd220;
-    background: -webkit-linear-gradient(top, #fffd76 0%, #ffd220 100%);
-    background: -moz-linear-gradient(top, #fffd76 0%, #ffd220 100%);
-    background: -o-linear-gradient(top, #fffd76 0%, #ffd220 100%);
-    background: -ms-linear-gradient(top, #fffd76 0%, #ffd220 100%);
-    background: linear-gradient(top, #fffd76 0%, #ffd220 100%);
+    background: #fdecab;
+    background-color: #fdecab;
+    background: -webkit-linear-gradient(top, #fdecab 0%, #ffe26d 100%);
+    background: -moz-linear-gradient(top, #fdecab 0%, #ffe26d 100%);
+    background: -o-linear-gradient(top, #fdecab 0%, #ffe26d 100%);
+    background: -ms-linear-gradient(top, #fdecab 0%, #ffe26d 100%);
+    background: linear-gradient(top, #fdecab 0%, #ffe26d 100%);
 
     /*background-color: #ffd220;*/
     /*text-align: center;*/
@@ -152,3 +152,35 @@ textarea, input, select .catalogField {
     height: 2em;
     font-family: 'American Typewriter'
 }
+
+/*.dfl_tooltip{*/
+    /*display: inline;*/
+    /*position: relative;*/
+/*}*/
+
+/*.dfl_tooltip:hover:after{*/
+    /*background: white;*/
+    /*color: black;*/
+    /*background: rgba(0,0,0,.8);*/
+    /*border-radius: 5px;*/
+    /*bottom: 26px;*/
+    /*color: #fff;*/
+    /*content: attr(tooltip);*/
+    /*left: 20%;*/
+    /*padding: 5px 15px;*/
+    /*position: absolute;*/
+    /*z-index: 98;*/
+    /*width: 220px;*/
+/*}*/
+
+/*.dfl_tooltip:hover:before{*/
+    /*border: solid;*/
+    /*border-color: #333 transparent;*/
+    /*border-width: 6px 6px 0 6px;*/
+    /*bottom: 20px;*/
+    /*content: '';*/
+    /*left: 50%;*/
+    /*position: absolute;*/
+    /*z-index: 99;*/
+/*}*/
+/*<a href="#" title="This is some information for our tooltip." class="tooltip"><span title="More">CSS3 Tooltip</span></a>*/
