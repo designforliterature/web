@@ -234,7 +234,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                     }).progress(function (evt) {
                             console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                         }).success(function (data, status, headers, config) {
-                            console.log(data);
+                            //console.log(data);
                             if (status === 200) {
                                 horaceApp.debug(data);
                                 $scope.catalog.metatadaValid = false;
@@ -371,27 +371,8 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
         }
     });
 
-    // TODO solution might be to use https://github.com/angular-ui/ui-router/wiki/URL-Routing
-    // TODO move the following into editCtl
-
     clientApp.sendIt = function (id) {
-        // TODO replace with $http call (consistency)
-        $.ajax({
-            type: "GET",
-            url: 'catalog/work?id=' + id,
-            success: function (a, b) {
-                if (a.type === 'ack') {
-                    if (a.content) {
-                        $state.go('work', {id: a.content._id, content: JSON.stringify(a.content)});
-                    } else {
-                        alert('no content');
-                        console.trace(a)
-                    }
-                } else {
-                    console.trace(a);
-                }
-            }
-        });
+        $state.go('work', {id: id}); // TODO inline
     };
 
     /**

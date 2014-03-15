@@ -100,7 +100,7 @@ var work =
     type: 'Poem'
 };
 
-horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, EditorSettings, UserPrefs, $stateParams) {
+horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams) {
 
     function makeText(items) {
         var text = '<D_P><D_V>', openVerse = true;
@@ -120,14 +120,13 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, EditorSettings
     }
 
     function makeJtreeToc(toc) { // TODO deal with a huge outline
-//        console.info(JSON.stringify(toc));
         var data = [],
             jtreeToc = {
                 plugins: ['wholerow'],
                 core: {multiple: false, data: data}};
         for (var i in toc) {
             var chunk = toc[i],
-                toplevelItem = {id: chunk.chunkId, icon: false, text: chunk.title};
+                toplevelItem = {id: chunk.id, icon: false, text: chunk.title};
             data.push(toplevelItem);
             if (chunk.sections && chunk.sections.length !== 0) {
                 toplevelItem.children = [];
@@ -143,17 +142,38 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, EditorSettings
 
     /* Execute after document loads */
     $scope.$on('$viewContentLoaded', function () { // TODO this only works for poems now
-        $('#toc').jstree(makeJtreeToc($scope.editor.content.toc));
-        $('#toc').on('changed.jstree', function (event, data) {
-            console.info('Changed: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
+        $.ajax({
+            type: "GET",
+            url: 'catalog/work?id=' + $scope.editor.id,
+            success: function (a, b) {
+                if (a.type === 'ack') {
+                    if (a.content) {
+                        try {
+                            $scope.editor.workDirectory = WorkDirectoryService.makeDirectory(a.content);
+                            $('#toc').jstree(makeJtreeToc(a.content.toc));
+                            $('#toc').on('changed.jstree', function (event, data) {
+                                console.info('Changed: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
+                            });
+                            $('#toc').on('hover_node.jstree', function (event, data) {
+                                console.info('Hover: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
+                            });
+                            $scope.editor.setContent({content: makeText(a.content.data), type: 'Poem'}); // TODO setToc or pass toc
+                            $scope.editor.activateSettings(EditorSettings);
+                        } catch (error) {
+                            console.trace(error.message, error.stack); // TODO handle this
+                        }
+                    } else {
+                        alert('no content'); // TODO handle this
+                        console.trace(a)
+                    }
+                } else { // TODO handle development error
+                    console.trace(a);
+                }
+            },
+            error: function(err) {
+                console.trace(err); // TODO handle real error
+            }
         });
-        $('#toc').on('hover_node.jstree', function (event, data) {
-//            var id = data.node.id;
-//            var el = $('#'+id);
-            console.info('Hover: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
-        });
-        $scope.editor.setContent({content: makeText($scope.editor.content.data), type: 'Poem'}); // TODO setToc or pass toc
-        $scope.editor.activateSettings(EditorSettings);
     });
 
 
@@ -176,7 +196,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, EditorSettings
         },
         /* End pagination controls */
 
-        content: JSON.parse($stateParams.content),
+        workDirectory: undefined,
 
         setContent: function (work) {
             var type = work.type;
@@ -246,6 +266,5 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, EditorSettings
 // Set the user preferences
     $scope.editor.prefs = UserPrefs;
 
-})
-;
+});
 /* End EditCtrl */
