@@ -119,26 +119,39 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
         return text;
     }
 
-    function makeJtreeToc(toc) { // TODO deal with a huge outline
-        var data = [],
-            jtreeToc = {
-                plugins: ['wholerow'],
-                core: {multiple: false, data: data}};
+    function makeJtreeData(toc, jtreeData) { // TODO deal with a huge outline // TODO make recursive for all levels
         for (var i in toc) {
             var chunk = toc[i],
                 toplevelItem = {id: chunk.id, icon: false, text: chunk.title};
-            data.push(toplevelItem);
+            jtreeData.push(toplevelItem);
             if (chunk.sections && chunk.sections.length !== 0) {
                 toplevelItem.children = [];
-                for (var subsectionNo in chunk.sections) {
-                    var section = chunk.sections[subsectionNo],
-                        sectionTocItem = {id: section.id, icon: false, text: section.title};
-                    toplevelItem.children.push(sectionTocItem); // TODO make recursive for all levels
-                }
+                makeJtreeData(chunk.sections, toplevelItem.children);
             }
         }
-        return jtreeToc;
     }
+
+//    function makeJtreeToc(toc) { // TODO deal with a huge outline // TODO make recursive for all levels
+//        var jtreeData = [],
+//            jtreeToc = {
+////                plugins: ['wholerow'],
+//                core: {multiple: false, data: jtreeData}
+//            };
+//        for (var i in toc) {
+//            var chunk = toc[i],
+//                toplevelItem = {id: chunk.id, icon: false, text: chunk.title};
+//            jtreeData.push(toplevelItem);
+//            if (chunk.sections && chunk.sections.length !== 0) {
+//                toplevelItem.children = [];
+//                for (var subsectionNo in chunk.sections) {
+//                    var section = chunk.sections[subsectionNo],
+//                        sectionTocItem = {id: section.id, icon: false, text: section.title};
+//                    toplevelItem.children.push(sectionTocItem);
+//                }
+//            }
+//        }
+//        return jtreeToc;
+//    }
 
     /* Execute after document loads */
     $scope.$on('$viewContentLoaded', function () { // TODO this only works for poems now
@@ -150,7 +163,13 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
                     if (a.content) {
                         try {
                             $scope.editor.workDirectory = WorkDirectoryService.makeDirectory(a.content);
-                            $('#toc').jstree(makeJtreeToc(a.content.toc));
+                            var jtreeData = [],
+                                jtreeToc = {
+//                                  plugins: ['wholerow'],
+                                    core: {multiple: false, data: jtreeData}
+                                };
+                            makeJtreeData(a.content.toc, jtreeData);
+                            $('#toc').jstree(jtreeToc);
                             $('#toc').on('changed.jstree', function (event, data) {
                                 console.info('Changed: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
                             });
@@ -170,7 +189,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
                     console.trace(a);
                 }
             },
-            error: function(err) {
+            error: function (err) {
                 console.trace(err); // TODO handle real error
             }
         });

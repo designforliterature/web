@@ -9,8 +9,14 @@ doctis, Iuppiter, et laboriosis!
 quare habe tibi quidquid hoc libelli
 qualecumque, quod, o patrona virgo,
 plus uno maneat perenne saeclo.
-#!! Note | Catullus gives his book to his friend, the historian Cornelius.
+#!! Note | The Giving
+Catullus gives his book to his friend, the historian Cornelius.
+#!! Note | The Comparison
 He is comparing himself to Cornelius, in jest.
+#!! Note | The Book
+A so-called "little" book of no consequence.
+#!!! Note | Is it really so?
+Could Catullus be pulling our leg?
 
 #! Poem | Poem 2
 #!! Note | Could this passer be Lesbia?

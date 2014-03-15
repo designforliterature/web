@@ -13,15 +13,20 @@ horaceApp.service('WorkDirectoryService', function () {
         this.title = title;
         this.parent = parent;
         this.children = children;
-        this.content = undefined; // cached data
     }
 
     function processToc(children, parent, toc, contentCache) {
         if (children && children.length !== 0) {
-            for (var i in children) {
-                var chunk = children[i],
-                    chunkInfo = new ChunkInfo(chunk.id, chunk.title, parent);
-                contentCache[chunkInfo.id] = chunkInfo;
+            var i, chunk, lastChunk, chunkInfo;
+            for (i in children) {
+                lastChunk = chunkInfo;
+                chunk = children[i];
+                chunkInfo = new ChunkInfo(chunk.id, chunk.title, parent);
+                if (lastChunk) {
+                    chunkInfo.prevSib = lastChunk;
+                    lastChunk.nextSib = chunkInfo;
+                }
+                contentCache[chunkInfo.id] = chunkInfo; // make an entry
                 if (!parent) {
                     toc.push(chunkInfo);
                 } else {
@@ -36,10 +41,17 @@ horaceApp.service('WorkDirectoryService', function () {
         }
     }
 
-    function setContent(cache, id, content) {
-        var cacheInfo = cache[id];
+    function setToplevelChunkContent(cache, chunk) {
+        var cacheInfo = cache[chunk.id];
         if (cacheInfo) {
-            cacheInfo.content = content;
+            if (chunk.data && chunk.data.length !== 0) {
+                cacheInfo.content = chunk.data;
+                if (chunk.sections && chunk.sections.length !== 0) { // use children instead of sections in store/server
+                    for (var i in chunk.sections) {
+                        setToplevelChunkContent(cache, chunk.sections[i]);
+                    }
+                }
+            }
         } else {
             console.trace('Missing chunk info for chunk id ' + id); // TODO handle this development error
         }
@@ -67,7 +79,7 @@ horaceApp.service('WorkDirectoryService', function () {
         this.toc = [];
         this.contentCache = {};
         processToc(rootChunk.toc, null, this.toc, this.contentCache);
-        setContent(this.contentCache, rootChunk._id, rootChunk.data);
+        setToplevelChunkContent(this.contentCache, rootChunk);
 
         /* getChunkInfo: returns chunk info for the given chunk id */
         this.getChunkInfo = function (id) {
@@ -96,6 +108,8 @@ horaceApp.service('WorkDirectoryService', function () {
         this.previousChunkInfo = function (level, id, chunkInfo) {
 
         };
+
+        return this;
 
     };
 
