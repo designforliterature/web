@@ -172,10 +172,11 @@ The backend will eventually consist of a distributed queue (e.g., `Kafka`) feedi
 into various processes--some of them implemented in `Storm`.
 
 ### Demo Wishlist
-- Create and update catalog items
-- Upload content
-- Search catalog
-- Browse poems
-- Annotate poems (simple and complex annotation, citation, dictionary lookup)
+- Create catalog items (done)
+- Upload content for catalog items for Catullus and Iliad (done)
+- Search catalog (done)
+- Read content with table of content navigation (done)
+- Sign-in and signup (done)
+- Annotate content -- simple and complex annotation, citation, dictionary lookup
 - libraries with permissions, users, catalogs and content copies, etc.
   (not necessary for demo but would be nice: libraries are distributed (library comm protocol))
