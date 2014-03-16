@@ -31,9 +31,9 @@
  */
 horaceApp.service('EditorSettings', ['$compile', function ($compile) {
 
-    // TODO generalize highliting styles
+    var defaultContentWidth = "30em";
 
-    var settings = {
+    return {
 
         xpaths: {
             /* Specify xpath elements for finding editor structures. Each is an array of xpath expressions.  */
@@ -54,11 +54,14 @@ horaceApp.service('EditorSettings', ['$compile', function ($compile) {
             selectionEnd: 'D_SE', /* Used to mark the end of a selection */
             selectionSpan: 'D_S', /* A span used to style a part of a selection */
 
+            title: 'D_T', /* A title */
+            prose: 'D_R', /* A prose section */
+            paragraph: 'D_F', /* A paragraph */
             poem: 'D_P',  /* A poem */
             verse: 'D_V', /* A verse (e.g., in a poem) */
             line: 'D_L', /* A line (e.g., in a verse) */
-            lineNumbering: 'D_N', /* Block containing line numbers for a poem or prose */
-            lineNumber: 'D_NL', /* A line number itself within a line number block */
+            lineNumbering: 'D_N', /* Block containing line numbers for a poem or prose TODO get rid of this when browse.html and EditorEngine.js are deleted */
+            lineNumber: 'D_NL', /* A line number itself within a line number block TODO get rid of this when browse.html and EditorEngine.js are deleted*/
             note: 'A_NOTE', /* Links in popup notes */
             tooltip: 'D_T', /* A tooltip for a note */
 
@@ -69,16 +72,18 @@ horaceApp.service('EditorSettings', ['$compile', function ($compile) {
 
         styles: {
             /* Specify the styles to use for each editor tag */
-            D_P: "D_P {display:block;width:600px}",
-            D_V: "D_V {display:block}",
+            D_T: "D_T {display:block; font-weight:bold; font-size: larger}",
+            D_R: "D_R {display:block;}",
+            D_F: "D_F {display:block; width:" + defaultContentWidth + '}',
+            D_P: "D_P {display:block; width:" + defaultContentWidth + '}',
+            D_V: "D_V {display:block;}",
             D_L: "D_L {display:block}",
-            D_N: "D_N {display:block;float:right;width:10em;text-align:left}",
-            D_NL: "D_NL {display:block}",
+            D_N: "D_N {display:block;float:right;width:10em;text-align:left}", // TODO get rid of this when browse.html and EditorEngine.js are deleted
+            D_NL: "D_NL {display:block}", // TODO get rid of this when browse.html and EditorEngine.js are deleted
             D_HY: ".D_HY {background-color: #ffff00}",
             D_HR: ".D_HR {background-color: #ff767b}",
             A_NOTE: "A.note {color:#3648FF;font-weight:bold}"
         }
     };
-    return settings;
 }
 ]);

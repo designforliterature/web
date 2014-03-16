@@ -854,6 +854,13 @@ workTypeSpecs.FreeFormat.citationOrder = [fieldIds.authors, fieldIds.editors, fi
  * horaApp.dfUtils: utilities outside of angularjs
  */
 var clientApp = {
+    /**
+     * Configuration parameters
+     */
+    config: {
+        subchunkKeyLength: 10
+    },
+
     dfUtils:{
 
         /**
@@ -1051,6 +1058,8 @@ var client = {
             },
 
             contentFormats: contentFormats,
+
+            subchunkKeyLength: clientApp.config.subchunkKeyLength,
 
             /* The size in characters allowed in each content chunk */
             chunkSize: 40 // TODO make this 4096 (or more) for production

@@ -102,22 +102,6 @@ var work =
 
 horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams) {
 
-    function makeText(items) {
-        var text = '<D_P><D_V>', openVerse = true;
-        for (var itemNo in items) {
-            var item = items[itemNo];
-            if (itemNo === 0 || item.length === 0) {
-                text += openVerse ? '</D_V>' : '<D_V>';
-                openVerse = !openVerse;
-            }
-            text += '<D_L>' + item + '</D_L>';
-        }
-        if (openVerse) {
-            text += '</D_V>';
-        }
-        text += '</D_P>';
-        return text;
-    }
 
     function makeJtreeData(toc, jtreeData) { // TODO deal with a huge outline // TODO make recursive for all levels
         for (var i in toc) {
@@ -131,33 +115,15 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
         }
     }
 
-//    function makeJtreeToc(toc) { // TODO deal with a huge outline // TODO make recursive for all levels
-//        var jtreeData = [],
-//            jtreeToc = {
-////                plugins: ['wholerow'],
-//                core: {multiple: false, data: jtreeData}
-//            };
-//        for (var i in toc) {
-//            var chunk = toc[i],
-//                toplevelItem = {id: chunk.id, icon: false, text: chunk.title};
-//            jtreeData.push(toplevelItem);
-//            if (chunk.sections && chunk.sections.length !== 0) {
-//                toplevelItem.children = [];
-//                for (var subsectionNo in chunk.sections) {
-//                    var section = chunk.sections[subsectionNo],
-//                        sectionTocItem = {id: section.id, icon: false, text: section.title};
-//                    toplevelItem.children.push(sectionTocItem);
-//                }
-//            }
-//        }
-//        return jtreeToc;
-//    }
+    $scope.searchToc = function (str) {
+
+    };
 
     /* Execute after document loads */
     $scope.$on('$viewContentLoaded', function () { // TODO this only works for poems now
-        $.ajax({
+        $.ajax({ // TODO convert to $http call for consistency
             type: "GET",
-            url: 'catalog/work?id=' + $scope.editor.id,
+            url: 'catalog/work/chunk?id=' + $scope.editor.id,
             success: function (a, b) {
                 if (a.type === 'ack') {
                     if (a.content) {
@@ -165,18 +131,37 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
                             $scope.editor.workDirectory = WorkDirectoryService.makeDirectory(a.content);
                             var jtreeData = [],
                                 jtreeToc = {
-//                                  plugins: ['wholerow'],
+//                                    plugins: ['search'],
                                     core: {multiple: false, data: jtreeData}
                                 };
                             makeJtreeData(a.content.toc, jtreeData);
+
+//                            var to = false;
+//                            $('#tocSearch').keyup(function () {
+//                                if (to) {
+//                                    clearTimeout(to);
+//                                }
+//                                to = setTimeout(function () {
+//                                    var v = $('#tocSearch').val();
+//                                    var r = $('#toc').jstree(true).search(v);
+//                                    console.info(r);
+//                                }, 3000);
+//                            });
+
                             $('#toc').jstree(jtreeToc);
                             $('#toc').on('changed.jstree', function (event, data) {
-                                console.info('Changed: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
+                                var chunkInfo = $scope.editor.workDirectory.getChunkInfo(data.node.id, function (err, chunkInfo) {
+                                    $scope.editor.setContent(chunkInfo);
+                                });
+//                                console.info('Changed: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
                             });
                             $('#toc').on('hover_node.jstree', function (event, data) {
-                                console.info('Hover: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
+//                                console.info('Hover: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
                             });
-                            $scope.editor.setContent({content: makeText(a.content.data), type: 'Poem'}); // TODO setToc or pass toc
+                            // Set initial content TODO pick up "last location" from user history
+                            $scope.editor.workDirectory.getChunkInfo(a.content.id, function (err, chunkInfo) {
+                                $scope.editor.setContent(chunkInfo);
+                            });
                             $scope.editor.activateSettings(EditorSettings);
                         } catch (error) {
                             console.trace(error.message, error.stack); // TODO handle this
@@ -217,13 +202,12 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
 
         workDirectory: undefined,
 
-        setContent: function (work) {
-            var type = work.type;
-            var layout = $scope.editor.engine.workTypeLayouts[type];
+        setContent: function (chunkInfo) {
+            var layout = $scope.editor.engine.workTypeLayouts[chunkInfo.dataType];
             if (layout) {
-                layout(work);
+                layout(chunkInfo);
             } else {
-                throw {type: 'fatal', msg: 'Invalid work layout type "' + type + '"'};
+                console.trace({type: 'fatal', msg: 'Invalid work chunk layout type "' + chunkInfo.dataType + '"'});
             }
         },
 

@@ -6,10 +6,11 @@
  * WorkService: returns a function that creates a work's directory.
  * The directory handles the local caching and navigation of the work.
  */
-horaceApp.service('WorkDirectoryService', function () {
+horaceApp.service('WorkDirectoryService', function ($http) {
 
-    function ChunkInfo(id, title, parent, children) {
+    function ChunkInfo(id, dataType, title, parent, children) {
         this.id = id;
+        this.dataType = dataType;
         this.title = title;
         this.parent = parent;
         this.children = children;
@@ -21,7 +22,7 @@ horaceApp.service('WorkDirectoryService', function () {
             for (i in children) {
                 lastChunk = chunkInfo;
                 chunk = children[i];
-                chunkInfo = new ChunkInfo(chunk.id, chunk.title, parent);
+                chunkInfo = new ChunkInfo(chunk.id, chunk.dataType, chunk.title, parent);
                 if (lastChunk) {
                     chunkInfo.prevSib = lastChunk;
                     lastChunk.nextSib = chunkInfo;
@@ -57,12 +58,13 @@ horaceApp.service('WorkDirectoryService', function () {
         }
     }
 
-    function getContent(cache, id) {
-        var cacheInfo = cache[id];
-        if (!cacheInfo) {
-            // TODO fetch it if it hasn't already been found
-        }
-        callback(null, cacheInfo.content);
+    /**
+     * Returns the root chunk for the specified chunk info
+     * @param chunkInfo A chunk info
+     * @returns {*} The chunk root
+     */
+    function getRootChunkInfo(chunkInfo) {
+        return chunkInfo.parent ? getRootChunkInfo(chunkInfo.parent) : chunkInfo;
     }
 
     /**
@@ -81,14 +83,31 @@ horaceApp.service('WorkDirectoryService', function () {
         processToc(rootChunk.toc, null, this.toc, this.contentCache);
         setToplevelChunkContent(this.contentCache, rootChunk);
 
-        /* getChunkInfo: returns chunk info for the given chunk id */
-        this.getChunkInfo = function (id) {
-            return this.contentCache[id];
-        };
-
-        /* getChunkContent: returns contents of specified chunk (undefined if there are no contents) */
-        this.getChunkContent = function (id, callback) {
-            getContent(id, callback);
+        /**
+         * getChunkInfo: returns chunk info (with content--if any) for the given chunk id
+         * @param id The chunk id
+         * @param callback The callback
+         * @returns {*} A ChunkInfo object or null if there's no chunk for the id.
+         */
+        this.getChunkInfo = function (id, callback) {
+            var cache = this.contentCache,
+            chunkInfo = cache[id];
+            if (chunkInfo && !chunkInfo.content) {
+                var rootChunk = getRootChunkInfo(chunkInfo);
+                $http.get('/catalog/work/chunk',
+                    { params: { id: rootChunk.id}})
+                    .success(function (res) {
+                        if (res.content) {
+                            setToplevelChunkContent(cache, res.content);
+                        }
+                        callback(null, chunkInfo);
+                    })
+                    .error(function (error) {
+                        callback(error);
+                    });
+            } else {
+                callback(null, chunkInfo);
+            }
         };
 
         /* Returns an array of children of specified chunk (empty array if there are none) */

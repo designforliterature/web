@@ -65,7 +65,6 @@ a.error {
     transition: color .4s ease-in;
 }
 
-
 .defaultDivStyle {
     text-align: center;
     vertical-align: middle;
@@ -108,24 +107,25 @@ div.headline {
 .textAreaCatalogField {
     resize: none
 }
+
 /*.chooseFileBox {*/
-    /*font-weight: bold;*/
-    /*margin-left: 2em;*/
-    /*width: 300px;*/
-    /*line-height: 2em;*/
-    /*padding: .5em;*/
+/*font-weight: bold;*/
+/*margin-left: 2em;*/
+/*width: 300px;*/
+/*line-height: 2em;*/
+/*padding: .5em;*/
 
-    /*background: #ffd220;*/
-    /*background-color: #ffc824;*/
+/*background: #ffd220;*/
+/*background-color: #ffc824;*/
 
-    /*background-color: #ffd220;*/
-    /*text-align: center;*/
-    /*border-radius: 20px;*/
-    /*-moz-border-radius: 20px;*/
+/*background-color: #ffd220;*/
+/*text-align: center;*/
+/*border-radius: 20px;*/
+/*-moz-border-radius: 20px;*/
 
-    /*-moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);*/
-    /*-webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);*/
-    /*box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);*/
+/*-moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);*/
+/*-webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);*/
+/*box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);*/
 /*}*/
 
 .left-column, .right-column {
@@ -153,34 +153,69 @@ textarea, input, select .catalogField {
     font-family: 'American Typewriter'
 }
 
+/* work.html */
+.editorContent {
+    overflow-y: scroll;
+    width: auto;
+    height: 400px;
+    margin-left: .5em;
+    border: 1px;
+    border-style: solid;
+    padding: 1em 1em 1em 1em;
+    -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+    -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+    box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
+
+.editorToc {
+    overflow-y: scroll;
+    vertical-align: top;
+    font-size: 10px;
+    font-weight: bolder;
+    background-color: #fdecab;
+    padding: 1em 1em 1em 1em;
+    border: 1px;
+    border-style: solid;
+    width: auto;
+    height: 400px;
+    -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+    -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+    box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
+
+.editorTocTree {
+    height: 350px;
+    margin-top: 4px
+}
+
 /*.dfl_tooltip{*/
-    /*display: inline;*/
-    /*position: relative;*/
+/*display: inline;*/
+/*position: relative;*/
 /*}*/
 
 /*.dfl_tooltip:hover:after{*/
-    /*background: white;*/
-    /*color: black;*/
-    /*background: rgba(0,0,0,.8);*/
-    /*border-radius: 5px;*/
-    /*bottom: 26px;*/
-    /*color: #fff;*/
-    /*content: attr(tooltip);*/
-    /*left: 20%;*/
-    /*padding: 5px 15px;*/
-    /*position: absolute;*/
-    /*z-index: 98;*/
-    /*width: 220px;*/
+/*background: white;*/
+/*color: black;*/
+/*background: rgba(0,0,0,.8);*/
+/*border-radius: 5px;*/
+/*bottom: 26px;*/
+/*color: #fff;*/
+/*content: attr(tooltip);*/
+/*left: 20%;*/
+/*padding: 5px 15px;*/
+/*position: absolute;*/
+/*z-index: 98;*/
+/*width: 220px;*/
 /*}*/
 
 /*.dfl_tooltip:hover:before{*/
-    /*border: solid;*/
-    /*border-color: #333 transparent;*/
-    /*border-width: 6px 6px 0 6px;*/
-    /*bottom: 20px;*/
-    /*content: '';*/
-    /*left: 50%;*/
-    /*position: absolute;*/
-    /*z-index: 99;*/
+/*border: solid;*/
+/*border-color: #333 transparent;*/
+/*border-width: 6px 6px 0 6px;*/
+/*bottom: 20px;*/
+/*content: '';*/
+/*left: 50%;*/
+/*position: absolute;*/
+/*z-index: 99;*/
 /*}*/
 /*<a href="#" title="This is some information for our tooltip." class="tooltip"><span title="More">CSS3 Tooltip</span></a>*/

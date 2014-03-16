@@ -9,17 +9,16 @@ doctis, Iuppiter, et laboriosis!
 quare habe tibi quidquid hoc libelli
 qualecumque, quod, o patrona virgo,
 plus uno maneat perenne saeclo.
-#!! Note | The Giving
+#!! Prose | The Giving
 Catullus gives his book to his friend, the historian Cornelius.
-#!! Note | The Comparison
+#!! Prose | The Comparison
 He is comparing himself to Cornelius, in jest.
-#!! Note | The Book
+#!! Prose | The Book
 A so-called "little" book of no consequence.
-#!!! Note | Is it really so?
+#!!! Prose | Is it really so?
 Could Catullus be pulling our leg?
 
 #! Poem | Poem 2
-#!! Note | Could this passer be Lesbia?
 Passer, deliciae meae puellae,
 quicum ludere, quem in sinu tenere,
 cui primum digitum dare adpetenti
@@ -33,6 +32,8 @@ et tristis animi levare curas!
 ... Tam gratum est mihi quam ferunt puellae
 pernici aureolum fuisse malum,
 quod zonam solvit diu ligatam.
+#!! Prose | Could this passer be Lesbia?
+Probably, but we'll never really know
 
 
 #! Poem | Poem 3
@@ -464,13 +465,6 @@ nec saevi Boreae aut Apeliotae,
 verum ad milia quindecim et ducentos.
 o ventum horribilem atque pestilentem!
 
-#! Poem | Poem 26
-Furi, villula vestra non ad Austri
-flatus opposita est neque ad Favoni
-nec saevi Boreae aut Apeliotae,
-verum ad milia quindecim et ducentos.
-o ventum horribilem atque pestilentem!
-
 #! Poem | Poem 27
 Minister vetuli puer Falerni
 inger mi calices amariores,
@@ -524,7 +518,6 @@ eone nomine 'urbis opulentissime
 socer generque, perdidistis omnia?
 
 #! Poem | Poem 30
-#!! Note | Asclepiadean major
 Alfene immemor atque unanimis false sodalibus,
 iam te nil miseret, dure, tui dulcis amiculi?
 iam me prodere, iam non dubitas fallere, perfide?
@@ -537,9 +530,9 @@ idem nunc retrahis te ac tua dicta omnia factaque
 ventos irrita ferre ac nebulas aerias sinis.
 si tu oblitus es, at di meminerunt, meminit Fides,
 quae te ut paeniteat postmodo facti faciet tui.
+#!! Prose | Asclepiadean major
 
 #! Poem | Poem 31
-#!! Note | Choliambic
 Paene insularum, Sirmio, insularumque
 ocelle, quascumque in liquentibus stagnis
 marique vasto fert uterque Neptunus,
@@ -554,6 +547,7 @@ hoc est quod unum est pro laboribus tantis.
 salve, o venusta Sirmio, atque ero gaude;
 gaudete vosque, o Lydiae lacus undae;
 ridete, quidquid est domi cachinnorum.
+#!! Prose | Choliambic
 
 #! Poem | Poem 32
 Amabo, mea dulcis Ipsithilla,
@@ -652,7 +646,6 @@ pleni ruris et inficetiarum
 Annales Volusi, cacata charta.
 
 #! Poem | Poem 37
-#!! Note | Choliambic
 Salax taberna vosque contubernales,
 a pilleatis nona fratribus pila,
 solis putatis esse mentulas vobis,
@@ -673,6 +666,7 @@ tu praeter omnes une de capillatis,
 cuniculosae Celtiberiae fili,
 Egnati, opaca quem bonum facit barba
 et dens Hibera defricatus urina.
+#!! Prose | Choliambic
 
 #! Poem | Poem 38
 Male est, Cornifici, tuo Catullo,
@@ -685,7 +679,6 @@ paulum quid libet adlocutionis,
 maestius lacrimis Simonideis.
 
 #! Poem | Poem 39
-#!! Note | Choliambic
 Egnatius, quod candidos habet dentes,
 renidet usque quaque.  si ad rei ventum est
 subsellium, cum orator excitat fletum,
@@ -707,6 +700,7 @@ quod quisque minxit, hoc sibi solet mane
 dentem atque russam defricare gingivam,
 ut quo iste vester expolitior dens est,
 hoc te amplius bibisse praedicet loti.
+#!! Prose | Choliambic
 
 #! Poem | Poem 40
 Quaenam te mala mens, miselle Ravide,
@@ -765,7 +759,6 @@ tecum Lesbia nostra comparatur?
 o saeclum insapiens et infacetum!
 
 #! Poem | Poem 44
-#!! Note | Choliambic
 O funde noster seu Sabine seu Tiburs
 (nam te esse Tiburtem autumant quibus non est
 cordi Catullum laedere: at quibus cordi est
@@ -787,6 +780,7 @@ nec deprecor iam, si nefaria scripta
 Sesti recepso, quin gravedinem et tussim
 non mi, sed ipsi Sestio ferat frigus,
 qui tunc vocat me cum malum librum 1egi.
+#!! Prose | Choliambic
 
 #! Poem | Poem 45
 Acmen Septimius suos amores
@@ -879,7 +873,6 @@ ne poenas Nemesis reposcat a te.
 est vehemens dea: laedere hanc caveto.
 
 #! Poem | Poem 51
-#!! Note | Lesser Sapphic
 Ille mi par esse deo videtur,
 ille, si fas est, superare divos
 qui sedens adversus identidem te
@@ -887,7 +880,7 @@ spectat et audit
 dulce ridentem, misero quod omnis
 eripit sensus mihi: nam simul te,
 Lesbia, adspexi, nihil est super mi
-. . . . 
+. . . .
 lingua sed torpet, tenuis sub artus
 flamma demanat, sonitu suopte
 tintinant aures, gemina teguntur
@@ -896,6 +889,7 @@ otium, Catulle, tibi molestum est:
 otio exsultas nimiumque gestis.
 otium et reges prius et beatas
 perdidit urbes.
+#!! Prose | Lesser Sapphic
 
 #! Poem | Poem 52
 Quid est, Catulle? quid moraris emori?
@@ -923,7 +917,6 @@ irascere iterum meis iambis
 immerentibus, unice imperator.
 
 #! Poem | Poem 55
-#!! Note | Irregular Phalaecean
 Oramus, si forte non molestum est,
 demonstres ubi sint tuae tenebrae.
 te campo quaesivimus minore,
@@ -946,6 +939,7 @@ fructus proicies amoris omnes:
 verbosa gaudet Venus loquella.
 vel vi vis, licet obseres palatum,
 dum veri sis particeps amoris.
+#!! Prose | Irregular Phalaecean
 
 #! Poem | Poem 56
 O rem ridiculam, Cato, et iocosam
@@ -988,23 +982,22 @@ et multis langoribus peresus
 essem te mihi, amice, quaeritando.
 
 #! Poem | Poem 59
-#!! Note | Choliambic
 Bononiensis Rufa Rufulum fellat,
 uxor Meneni, saepe quam in sepulcretis
 vidistis ipso rapere de rogo cenam,
 cum devolutum ex igne prosequens panem
 ab semiraso tunderetur ustore.
+#!! Prose | Choliambic
 
 #! Poem | Poem 60
-#!! Note | Choliambic
 Num te leaena montibus Libystinis
 aut Scylla latrans infima inguinum parte
 tam mente dura procreavit ac taetra,
 ut supplicis vocem in novissimo casu
 contemptam haberes, ah nimis fero corde?
+#!! Prose | Choliambic
 
 #! Poem | Poem 61
-#!! Note | Four second Glyconics catalectic and one second Pherecratic acatalectic
 Collis o Heliconii
 cultor, Uraniae genus,
 qui rapis teneram ad virum
@@ -1280,9 +1273,9 @@ lusimus satis. at, boni
 coniuges, bene vivite et
 munere adsiduo valentem
 exercete iuventam.
+#!! Prose | Four second Glyconics catalectic and one second Pherecratic acatalectic
 
 #! Poem | Poem 62
-#!! Note | Dactylic hexameter
 <head lang="en">youths</head>
 Vesper adest: iuvenes, consurgite: vesper Olympo
 exspectata diu vix tandem lumina tollit.
@@ -1358,9 +1351,9 @@ tertia pars patri, pars est data tertia matri,
 tertia sola tua est.  noli pugnare duobus,
 qui genero sua iura simul cum dote dederunt.
 Hymen o Hymenaee, Hymen ades o Hymenaee.
+#!! Prose | Dactylic hexameter
 
 #! Poem | Poem 63
-#!! Note | Galliambic
 Super alta vectus Attis celeri rate maria
 Phrygium ut nemus citato cupide pede tetigit
 adiitque opaca silvis redimita loca deae,
@@ -1454,9 +1447,9 @@ ibi semper omne vitae spatium famula fuit.
 <milestone ed="P" unit="para"/>dea magna, dea Cybelle, dea domina Dindymi,
 procul a mea tuus sit furor omnis, era, domo:
 alios age incitatos, alios age rabidos.
+#!! Prose | Galliambic
 
 #! Poem | Poem 64
-#!! Note | Dactylic hexameter
 Peliaco quondam prognatae vertice pinus
 dicuntur liquidas Neptuni nasse per undas
 Phasidos ad fluctus et fines Aeeteos,
@@ -1533,7 +1526,8 @@ spinosas Erycina serens in pectore curas
 illa tempestate, ferox quo ex tempore Theseus
 egressus curvis e litoribus Piraei
 attigit iniusti regis Gortynia tecta.
-<milestone ed="P" unit="para"/>nam perhibent olim crudeli peste coactam
+
+nam perhibent olim crudeli peste coactam
 Androgeoneae poenas exsolvere caedis
 electos iuvenes simul et decus innuptarum
 Cecropiam solitam esse dapem dare Minotauro.
@@ -1560,7 +1554,8 @@ quantos illa tulit languenti corde timores,
 quanto saepe magis fulgore expalluit auri,
 cum saevum cupiens contra contendere monstrum
 aut mortem appeteret Theseus aut praemia laudis.
-<milestone ed="P" unit="para"/>non ingrata tamen frustra munuscula divis
+
+non ingrata tamen frustra munuscula divis
 promittens tacito succendit vota labello.
 nam velut in summo quatientem bracchia Tauro
 quercum aut conigeram sudanti cortice pinum
@@ -1573,7 +1568,8 @@ inde pedem sospes multa cum laude reflexit
 errabunda regens tenui vestigia filo,
 ne labyrintheis e flexibus egredientem
 tecti frustraretur inobservabilis error.
-<milestone ed="P" unit="para"/>sed quid ego a primo digressus carmine plura
+
+sed quid ego a primo digressus carmine plura
 commemorem, ut linquens genitoris filia vultum,
 ut consanguineae complexum, ut denique matris,
 quae misera in gnata deperdita laetabatur,
@@ -1589,7 +1585,7 @@ tum tremuli salis adversas procurrere in undas
 mollia nudatae tollentem tegmina surae,
 atque haec extremis maestam dixisse querelis,
 frigidulos udo singultus ore cientem:
-<milestone ed="P" unit="para"/>'sicine me patriis avectam, perfide, ab aris,
+'sicine me patriis avectam, perfide, ab aris,
 perfide, deserto liquisti in litore, Theseu?
 sicine discedens neglecto numine divum
 immernor ah devota domum periuria portas?
@@ -1621,7 +1617,8 @@ at tamen in vestras potuisti ducere sedes
 quae tibi iucundo famularer serva labore
 candida permulcens liquidis vestigia lymphis
 purpureave tuum constemens veste cubile.
-<milestone ed="P" unit="para"/>sed quid ego ignaris nequiquam conqueror auris
+
+sed quid ego ignaris nequiquam conqueror auris
 exsternata malo, quae nullis sensibus auctae
 nec missas audire queunt nec reddere voces?
 ille autem prope iam mediis versatur in undis,
@@ -1659,7 +1656,8 @@ quae quoniam verae nascuntur pectore ab imo,
 vos nolite pati nostrum vanescere luctum,
 sed quali solam Theseus me mente reliquit,
 tali mente, deae, funestet seque suosque.'
-<milestone ed="P" unit="para"/>has postquam maesto profudit pectore voces
+
+has postquam maesto profudit pectore voces
 supplicium saevis exposcens anxia factis,
 adnuit invicto caelestum numine rector,
 quo nutu tellus atque horrida contremuerunt
@@ -1672,7 +1670,8 @@ sospitem Erechtheum se ostendit visere portum
 namque ferunt olim, classi cum moenia divae
 linquentem gnatum ventis concrederet Aegeus,
 talia complexum iuveni mandata dedisse:
-<milestone ed="P" unit="para"/>'gnate mihi longe iucundior unice vita,
+
+'gnate mihi longe iucundior unice vita,
 gnate, ego quem in dubios cogor dimittere casus
 reddite in extrema nuper mihi fine senectae,
 quandoquidem fortuna mea ac tua fervida virtus
@@ -1695,7 +1694,8 @@ funestam antennae deponant undique vestem
 candidaque intorti sustollant vela rudentes,
 quam primum cernens ut laeta gaudia mente
 agnoscam, cum te reducem aetas prospera sistet.'
-<milestone ed="P" unit="para"/>haec mandata prius constanti mente tenentem
+
+haec mandata prius constanti mente tenentem
 Thesea ceu pulsae ventorum flamine nubes
 aerium nivei montis liquere cacumen.
 at pater, ut summa prospectum ex arce petebat
@@ -1706,7 +1706,8 @@ amissum credens immiti Thesea fato.
 sic funesta domus ingressus tecta paterna
 morte ferox Theseus, qualem Minoidi luctu
 obtulerat mente immemori, talem ipse recepit.
-<milestone ed="P" unit="para"/>quae tum prospectans cedentem maesta carinam
+
+quae tum prospectans cedentem maesta carinam
 multiplices animo volvebat saucia curas.
 at parte ex alia florens volitabat Iacchus
 cum thiaso satyrorum et Nysigenis silenis
@@ -1724,7 +1725,8 @@ multis raucisonos efflabant cornua bombos
 barbaraque horribili stridebat tibia cantu.
 talibus amplifice vestis decorata figuris
 pulvinar complexa suo velabat amictu.
-<milestone ed="P" unit="para"/>quae postquam cupide spectando Thessala pubes
+
+quae postquam cupide spectando Thessala pubes
 expleta est, sanctis coepit decedere divis.
 hic, qualis flatu placidum mare matutino
 horrificans Zephyrus proclivas incitat undas
@@ -1735,7 +1737,8 @@ post vento crescente magis magis increbescunt
 purpureaque procul nantes ab luce refulgent,
 sic tum vestibuli linquentes regia tecta
 ad se quisque vago passim pede discedebant.
-<milestone ed="P" unit="para"/>quorum post abitum princeps e vertice Peli
+
+quorum post abitum princeps e vertice Peli
 advenit Chiron portans silvestria dona:
 nam quoscumque ferunt campi, quos Thessala magnis
 montibus ora creat, quos propter fluminis undas
@@ -1760,7 +1763,8 @@ advenit, caelo te solum, Phoebe, relinquens
 unigenamque simul cultricem montibus Idri:
 Pelea nam tecum pariter soror adspernata est
 nec Thetidis taedas voluit celebrare iugalis.
-<milestone ed="P" unit="para"/>qui postquam niveis flexerunt sedibus artus,
+
+qui postquam niveis flexerunt sedibus artus,
 large multiplici constructae sunt dape mensae,
 cum interea infirmo quatientes corpora motu
 veridicos Parcae coeperunt edere cantus.
@@ -1780,66 +1784,79 @@ vellera virgati custodibant calathisci.
 haec tum clarisona vellentes vellera voce
 talia divino fuderunt carmine fata,
 carmine perfidiae quod post nulla arguet aetas:
-<milestone ed="P" unit="para"/>'o decus eximium magnis virtutibus augens,
+
+'o decus eximium magnis virtutibus augens,
 Emathiae tutamen opis, clarissime nato,
 accipe quod laeta tibi pandunt luce sorores,
 veridicum oraclum. sed vos, quae fata secuntur,
 currite ducentes subtegmina, currite, fusi.
-<milestone ed="P" unit="para"/>adveniet tibi iam portans optata maritis
+
+adveniet tibi iam portans optata maritis
 Hesperus, adveniet fausto cum sidere coniunx,
 quae tibi flexanimo mentem perfundat amore
 languidulosque paret tecum coniungere somnos
 levia substernens robusto bracchia collo.
 currite ducentes subtegmina, currite, fusi.
-<milestone ed="P" unit="para"/>nulla domus tales unquam contexit amores,
+
+nulla domus tales unquam contexit amores,
 nullus amor tali coniunxit foedere amantes
 qualis adest Thetidi, qualis concordia Peleo.
 currite ducentes subtegmina, currite, fusi.
-<milestone ed="P" unit="para"/>nascetur vobis expers terroris Achilles,
+
+nascetur vobis expers terroris Achilles,
 hostibus haud tergo, sed forti pectore notus,
 qui persaepe vago victor certamine cursus
 flammea praevertet celeris vestigia cervae.
 currite ducentes subtegmina, currite, fusi.
-<milestone ed="P" unit="para"/>non illi quisquam bello se conferet heros,
+
+non illi quisquam bello se conferet heros,
 cum Phrygii Teucro manabunt sanguine campi
 Troicaque obsidens longinquo moenia bello
 periuri Pelopis vastabit tertius heres.
 currite ducentes subtegmina, currite, fusi.
-<milestone ed="P" unit="para"/>illius egregias virtutes claraque facta
+
+illius egregias virtutes claraque facta
 saepe fatebuntur gnatorum in funere matres,
 cum incultum cano solvent a vertice crinem
 putridaque infirmis variabunt pectora palmis.
 currite ducentes subtegmina, currite, fusi.
-<milestone ed="P" unit="para"/>namque velut densas praecerpens messor aristas
+
+namque velut densas praecerpens messor aristas
 sole sub ardenti flaventia demetit arva,
 Troiugenum infesto prosternet corpora ferro.
 currite ducentes subtegmina, currite, fusi.
-<milestone ed="P" unit="para"/>testis erit magnis virtutibus unda Scamandri,
+
+testis erit magnis virtutibus unda Scamandri,
 quae passim rapido diffunditur Hellesponto,
 cuius iter caesis angustans corporum acervis
 alta tepefaciet permixta fiumina caede.
 currite ducentes subtegmina, currite, fusi.
-<milestone ed="P" unit="para"/>denique testis erit morti quoque reddita praeda
+
+denique testis erit morti quoque reddita praeda
 cum teres excelso coacervatum aggere bustum
 excipiet niveos percussae virginis artus.
 Currite ducentes subtegmina, currite, fusi.
-<milestone ed="P" unit="para"/>nam simul ac fessis dederit fors copiam Achivis
+
+nam simul ac fessis dederit fors copiam Achivis
 urbis Dardaniae Neptunia solvere vincla,
 alta Polyxenia madefient caede sepulcra,
 quae, velut ancipiti succumbens victima ferro,
 proiciet truncum submisso poplite corpus.
 currite ducentes subtegmina, currite, fusi.
-<milestone ed="P" unit="para"/>quare agite optatos animi coniungite amores.
+
+quare agite optatos animi coniungite amores.
 accipiat coniunx felici foedere divam,
 dedatur cupido iam dudum nupta marito.
 currite ducentes subtegmina, currite, fusi.
-<milestone ed="P" unit="para"/>non illam nutrix orienti luce revisens
+
+non illam nutrix orienti luce revisens
 hesterno collum poterit circumdare filo
 (currite ducentes subtegmina, currite, fusi),
 anxia nec mater discordis maesta puellae
 secubitu caros mittet sperare nepotes.
 currite ducentes subtegmina, currite, fusi.'
-<milestone ed="P" unit="para"/>talia praefantes quondam felicia Pelei
+
+talia praefantes quondam felicia Pelei
 carmina divino cecinerunt pectore Parcae.
 praesentes namque ante domos invisere castas
 heroum et sese mortali ostendere coetu
@@ -1866,6 +1883,7 @@ omnia fanda nefanda malo permixta furore
 iustificam nobis mentem avertere deorum.
 quare nec talis dignantur visere coetus
 nec se contingi patiuntur lumine claro.
+#!! Prose | Dactylic hexameter
 
 #! Poem | Poem 65
 Etsi me adsiduo defectum cura dolore
