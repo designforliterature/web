@@ -296,59 +296,6 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                     $scope.catalog.errorMsg = 'Technical Problem: Please retry. (' + err + ')';
                     $scope.catalog.error = true;
                 });
-        },
-
-
-        printSearchResult: function (searchResultObj, element, attrs) {
-            var fieldSpecs = client.shared.catalogFieldSpecs,
-                citationOrder = fieldSpecs.workType.specs[searchResultObj.workType].citationOrder,
-                fieldName, fieldValue, haveAuthors = false,
-                html = '<div style="margin-top: .5em">';
-            for (var i in citationOrder) {
-                fieldName = citationOrder[i];
-                fieldValue = searchResultObj[fieldName];
-                if (fieldValue) {
-                    switch (fieldName) {
-                        case fieldIds.authors:
-                            for (var j in fieldValue.data) {
-                                var author = fieldValue.data[j];
-                                if (j > 0) {
-                                    html += ' and ';
-                                }
-                                html += '<a class="citation" href="' + author[fieldSpecs.id.id] + '">' + author.fullName + '</a>';
-                            }
-                            html += ', ';
-                            haveAuthors = true;
-                            break;
-                        case fieldIds.editors:
-                            if (haveAuthors) {
-                                html += '[';
-                            }
-                            var count = fieldValue.data.length;
-                            for (var j in fieldValue.data) {
-                                var editor = fieldValue.data[j];
-                                if (j > 0) {
-                                    html += ' and ';
-                                }
-                                html += '<a class="citation" href="' + editor[fieldSpecs.id.id] + '">' + editor.fullName + '</a>';
-                            }
-                            html += ((count === 1) ? ' ed.' : ' eds.') + (haveAuthors ? ']' : '');
-                            break;
-                        case fieldIds.lang:
-                            html += ' [in ' + isoLangs[fieldValue].name + ']';
-                            break;
-                        case fieldIds.publisher:
-                            html += makePublisherHTML(fieldValue, searchResultObj);
-                            break;
-                        case fieldIds.title:
-                            html += '<a class="citation" onclick="clientApp.sendIt(&quot;' + searchResultObj[fieldSpecs.id.id] + '&quot;)"><i> ' + fieldValue + '</i></a> ';
-                            break;
-                        case fieldIds.workType:
-                            break;
-                    }
-                }
-            }
-            element[0].innerHTML = html + '</div>';
         }
     };
     /* END of scope vars */
