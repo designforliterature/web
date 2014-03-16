@@ -108,14 +108,12 @@ horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($com
                         if (lineNo === 0 || item.length === 0) {
                             text += openVerse ? '</D_V>' : '<D_V>';
                             openVerse = !openVerse;
-                            openVerse || (numbering += makeNumber());
-                            item = '&nbsp;';
-                        } else {
-                            var foo = item.indexOf('munuscula divis'); // TODO failing on one line
-                            lineCount += 1;
                             if (doNumber) {
-                                numbering += makeNumber(lineCount);
+                                numbering += makeNumber()
                             }
+                            item = '&nbsp;';
+                        } else if (doNumber) {
+                                numbering += makeNumber(lineCount += 1);
                         }
                         text += '<D_L>' + item + '</D_L>';
                     }

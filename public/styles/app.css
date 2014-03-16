@@ -32,7 +32,7 @@
 
 body {
     padding-top: 5px;
-    padding-left: 5em;
+    padding-left: 5px;
     padding-right: 5px;
 }
 
@@ -75,6 +75,19 @@ div.headline {
     font-size: x-large;
     font-weight: bold;
     margin: .5em;
+}
+
+div.toplevelMenus {
+    vertical-align: middle;
+    background-color: #fdecab;
+    color: #00B7FF;
+    line-height: 3em;
+    width: 768px; /* iPad 1 width */
+    padding: 2px 2px 2px 2px;
+
+    -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+    -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+    box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
 }
 
 .yellowBox {
@@ -156,7 +169,7 @@ textarea, input, select .catalogField {
 /* work.html */
 .editorContent {
     overflow-y: scroll;
-    width: auto;
+    /*width: auto;*/
     height: 400px;
     margin-left: .5em;
     border: 1px;

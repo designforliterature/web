@@ -26,6 +26,7 @@
 div.horace {
     height: 100%;
 }
+
 img.horace {
     float: left;
     margin-top: .3em;
@@ -34,13 +35,7 @@ img.horace {
 
 div.menubar {
     font-size: 10px;
-    /*vertical-align: middle*/
 }
-
-table.branding {
-     font-size: 10px;
-    text-align: left
- }
 
 div.small {
     /*margin-top: -1em;*/
@@ -76,6 +71,7 @@ div.signinBox {
     font-size: 1.1em;
     width: 100%;
 }
+
 .signinButton-true {
     margin-top: .5em;
     cursor: default;
