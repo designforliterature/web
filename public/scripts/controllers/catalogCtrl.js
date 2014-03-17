@@ -51,13 +51,13 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             $scope.catalog.contentFile = $files[0];
         },
 
-        workTypeCatalogFieldSpecs: client.shared.workTypeCatalogFieldSpecs,
+        workTypeCatalogFieldSpecs: dflGlobals.shared.workTypeCatalogFieldSpecs,
 
-        catalogFieldSpecs: client.shared.catalogFieldSpecs,
+        catalogFieldSpecs: dflGlobals.catalogFieldSpecs,
 
-        contentFormatOptions: client.shared.definitions.contentFormats.options,
+        contentFormatOptions: dflGlobals.contentFormats.options,
 
-        workTypeOptions: client.workTypeOptions,
+        workTypeOptions: dflGlobals.catalogFieldSpecs.workType.options,
 
         /* metatadaValid: true if the metadata has been validated by client.
          Used by save button, too.
@@ -92,7 +92,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             var haveFileUpload = $scope.catalog.catalogFieldSpecs.workType.specs[wt].source === 'file';
             var div = $('#fileUploadOption');
             if (haveFileUpload) {
-                $scope.catalog.postData.metadata.contentFormat = contentFormats.dflMarkdown; // default
+                $scope.catalog.postData.metadata.contentFormat = dflGlobals.contentFormats.dflMarkdown; // default
                 div.css('display', 'inline');
             } else {
                 div.css('display', 'none');
@@ -104,7 +104,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
          */
         resetCatalogMetadata: function () {
             var wt = $scope.catalog.postData.metadata.workType;
-            $scope.catalog.postData.metadata = new client.shared.makeClientCatalog(wt);
+            $scope.catalog.postData.metadata = new dflGlobals.shared.makeClientCatalog(wt);
             $scope.catalog.postData.metadata.workType = wt;
             $scope.catalog.editable = false;
             angular.forEach($("input[ng-model|='asyncSelected']"), function (i) {
@@ -313,46 +313,5 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             setMetadataFieldControls(editable);
         }
     });
-
-    /**
-     * Prints html for publisher citation
-     * @param publisher    The publisher object
-     * @param searchResultObj   The search result object (with all fields)
-     */
-    function makePublisherHTML(publisher, searchResultObj) {
-        var html = ' (', haveOne = false;
-        if (publisher.city) {
-            html += publisher.city;
-            haveOne = true;
-        }
-        if (publisher.province) {
-            if (haveOne) {
-                html += ', ';
-            }
-            haveOne = true;
-            html += publisher.province;
-        }
-        if (publisher.country) {
-            if (haveOne) {
-                html += ', ';
-            }
-            haveOne = true;
-            html += publisher.country;
-        }
-        if (publisher.name) {
-            if (haveOne) {
-                html += ': ';
-            }
-            haveOne = true;
-            html += publisher.name;
-        }
-        if (publisher.year) {
-            if (haveOne) {
-                html += ', ';
-            }
-            html += publisher.year;
-        }
-        return html + ')';
-    }
 });
 /* End of CatalogCtrl */

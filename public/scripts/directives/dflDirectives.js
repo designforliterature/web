@@ -55,13 +55,54 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
     };
 
     /**
+     * Prints html for publisher citation
+     * @param publisher    The publisher object
+     * @param searchResultObj   The search result object (with all fields)
+     */
+    function makePublisherHTML(publisher, searchResultObj) {
+        var html = ' (', haveOne = false;
+        if (publisher.city) {
+            html += publisher.city;
+            haveOne = true;
+        }
+        if (publisher.province) {
+            if (haveOne) {
+                html += ', ';
+            }
+            haveOne = true;
+            html += publisher.province;
+        }
+        if (publisher.country) {
+            if (haveOne) {
+                html += ', ';
+            }
+            haveOne = true;
+            html += publisher.country;
+        }
+        if (publisher.name) {
+            if (haveOne) {
+                html += ': ';
+            }
+            haveOne = true;
+            html += publisher.name;
+        }
+        if (publisher.year) {
+            if (haveOne) {
+                html += ', ';
+            }
+            html += publisher.year;
+        }
+        return html + ')';
+    }
+
+    /**
      * Creates the HTML for a search result object.
      * @param searchResultObj   The search result object
      * @param element   The HTML element to which the HTML must be added
      * @param attrs Attributes of the element
      */
     function displaySearchResultHTML(searchResultObj, element, attrs) {
-        var fieldSpecs = client.shared.catalogFieldSpecs,
+        var fieldSpecs = dflGlobals.catalogFieldSpecs,
             citationOrder = fieldSpecs.workType.specs[searchResultObj.workType].citationOrder,
             fieldName, fieldValue, haveAuthors = false,
             html = '<div style="margin-top: .5em">';
@@ -70,7 +111,7 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
             fieldValue = searchResultObj[fieldName];
             if (fieldValue) {
                 switch (fieldName) {
-                    case fieldIds.authors:
+                    case dflGlobals.fieldIds.authors:
                         for (var j in fieldValue.data) {
                             var author = fieldValue.data[j];
                             if (j > 0) {
@@ -81,7 +122,7 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
                         html += ', ';
                         haveAuthors = true;
                         break;
-                    case fieldIds.editors:
+                    case dflGlobals.fieldIds.editors:
                         if (haveAuthors) {
                             html += '[';
                         }
@@ -95,16 +136,16 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
                         }
                         html += ((count === 1) ? ' ed.' : ' eds.') + (haveAuthors ? ']' : '');
                         break;
-                    case fieldIds.lang:
-                        html += ' [in ' + isoLangs[fieldValue].name + ']';
+                    case dflGlobals.fieldIds.lang:
+                        html += ' [in ' + dflGlobals.isoLangs[fieldValue].name + ']';
                         break;
-                    case fieldIds.publisher:
+                    case dflGlobals.fieldIds.publisher:
                         html += makePublisherHTML(fieldValue, searchResultObj);
                         break;
-                    case fieldIds.title:
+                    case dflGlobals.fieldIds.title:
                         html += '<a class="citation" onclick="dflGlobals.goEdit(&quot;' + searchResultObj[fieldSpecs.id.id] + '&quot;)"><i> ' + fieldValue + '</i></a> ';
                         break;
-                    case fieldIds.workType:
+                    case dflGlobals.fieldIds.workType:
                         break;
                 }
             }
@@ -125,7 +166,7 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
 horaceApp.directive('catalogField', function () {
 
     function checkRequired(scope, fieldId, fieldValue) {
-        var specs = client.shared.workTypeCatalogFieldSpecs[scope.catalog.postData.metadata.workType];
+        var specs = dflGlobals.shared.workTypeCatalogFieldSpecs[scope.catalog.postData.metadata.workType];
         var valid = true;
         for (var i in specs) {
             var spec = specs[i];
