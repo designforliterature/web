@@ -41,7 +41,7 @@ var horaceApp = angular.module('horaceApp', [
 horaceApp.config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/signin') // default
-//
+
     $stateProvider
         .state('signin', {
             controller: 'SigninCtrl',
@@ -65,9 +65,6 @@ horaceApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: '/views/browse.html'
         })
         .state('work', {
-//            controller: function($stateParams){
-//                console.info($stateParams);
-//            },
             controller: 'WorkCtrl',
             url: '/work/?id&content',
             templateUrl: 'views/work.html'

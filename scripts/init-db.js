@@ -6,11 +6,14 @@
 
 var conn = new Mongo('localhost:21191'),
     worksDb = conn.getDB('works'),
+    usersDb = conn.getDB('users'),
     worksCol = worksDb.getCollection('work'),
     personCol = worksDb.getCollection('person'),
     catalogCol = worksDb.getCollection('catalog'),
+    userCol = usersDb.getCollection('user'),
     publisherCol = worksDb.getCollection('publisher');
 
+userCol.remove();
 
 worksCol.remove();
 

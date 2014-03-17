@@ -43,7 +43,12 @@ horaceApp.directive('dflSetFocus', function () {
 /**
  * dflCatSearchResult: expands a dfl-cat-search-result element
  */
-horaceApp.directive('dflCatSearchResult', function () {
+horaceApp.directive('dflCatSearchResult', function ($state) {
+
+    clientApp.sendIt = function (id) {
+        $state.go('work', {id: id}); // TODO inline
+    };
+
     function printSearchResult(searchResultObj, element, attrs) {
         var fieldSpecs = client.shared.catalogFieldSpecs,
             citationOrder = fieldSpecs.workType.specs[searchResultObj.workType].citationOrder,

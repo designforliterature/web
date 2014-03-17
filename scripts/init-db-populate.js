@@ -3,8 +3,12 @@
 
 var conn = new Mongo('localhost:21191'),
     worksDb = conn.getDB('works'),
+    usersDb = conn.getDB('users'),
+    userCol = usersDb.getCollection('user'),
     personCol = worksDb.getCollection('person'),
     publisherCol = worksDb.getCollection('publisher');
+
+userCol.insert({username: 'Ruben', password: 'Tsukiko1!'});
 
 personCol.insert({fullName: 'Catullus, Gaius Valerius', description: 'Catullus (b. c. 84 BCE) was a poet of the late Roman Republic who wrote in the neoteric style of poetry'});
 personCol.insert({fullName: 'Flaccus, Quintus Horatius', description: 'Horace (b. December 8, 65 BCE) was the leading Roman lyric poet during the time of Augustus', altNames: 'Horace'});

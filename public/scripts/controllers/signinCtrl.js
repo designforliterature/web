@@ -38,7 +38,7 @@ horaceApp.controller('SigninCtrl', function ($scope, $http, $location) {
             .success(function (res) {
                 horaceApp.debug(res);
                 if (res.type === 'ack') {
-                    $location.path('browse');
+                    $location.path('catalog');
                 } else {
                     $scope.signin.user.name = '';
                     $scope.signin.user.password = '';

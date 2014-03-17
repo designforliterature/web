@@ -861,7 +861,7 @@ var clientApp = {
         subchunkKeyLength: 10
     },
 
-    dfUtils:{
+    dfUtils: {
 
         /**
          * insertSort: insertion sort for array of objects. Ranking
@@ -878,7 +878,7 @@ var clientApp = {
                 array[j + 1] = other;
             }
         }
-    }
+    },
 };
 
 /**

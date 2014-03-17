@@ -20,37 +20,38 @@
  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
-<div ng-controller="SearchCtrl" class="toplevelMenus">
-    <span><a ng-href="http://designforliterature.com" target="_blank"><img
-            ng-src="../images/dfl-icon-32.png"/></a></span>
-    <table style="display: inline-table;font-size: 9px; line-height: 1.5em;vertical-align: middle">
-        <tr>
-            <td><a style="margin-left: 10px" href="about.html" target="_blank">About Horace</a></td>
-        </tr>
-        <tr>
-            <td><a style="margin-left: 10px" ng-href="http://designforliterature.com" target="_blank">
-                Design for Literature</a></td>
-        </tr>
-    </table>
-    <span style="display: inline-block; padding-left: 1em">
-        <form name="searchForm" novalidate>
-            <span style="font-weight: bold"></span><input style="line-height: 1em" style="vertical-align: middle"
-                                                          ng-keypress="search.search($event)"
-                                                          dfl-set-focus
-                                                          ng-model="search.query.general"
-                                                          name="general" type="text" size="10"/>
-            <input type="hidden" ng-init="search.query.notify = false"/>
-            <img tooltip="Search" ng-click="search.search()" src="images/search-icon-24.png"/>
-        </form>
-    </span>
-    <span style="float:right;margin-left: 1em;padding-right: 1em">Settings</span>
-    <span style="margin-left:1em;float:right;"><a href="#catalog">Catalog</a></span>
-
-
+<div ng-controller="SearchCtrl">
+    <div class="toplevelMenus">
+        <span><a ng-href="http://designforliterature.com" target="_blank"><img
+                ng-src="../images/dfl-icon-32.png"/></a></span>
+        <table style="display: inline-table;font-size: 9px; line-height: 1.5em;vertical-align: middle">
+            <tr>
+                <td><a style="margin-left: 10px" href="about.html" target="_blank">About Horace</a></td>
+            </tr>
+            <tr>
+                <td><a style="margin-left: 10px" ng-href="http://designforliterature.com" target="_blank">
+                    Design for Literature</a></td>
+            </tr>
+        </table>
+        <span style="display: inline-block; padding-left: 1em">
+            <form name="searchForm" novalidate>
+                <span style="font-weight: bold"></span><input style="line-height: 1em" style="vertical-align: middle"
+                                                              ng-keypress="search.search($event)"
+                                                              dfl-set-focus
+                                                              ng-model="search.query.general"
+                                                              name="general" type="text" size="10"/>
+                <input type="hidden" ng-init="search.query.notify = false"/>
+                <img tooltip="Search" ng-click="search.search()" src="images/search-icon-24.png"/>
+            </form>
+        </span>
+        <span style="float:right;margin-left: 1em;padding-right: 1em">Settings</span>
+        <span style="margin-left:1em;float:right;"><a href="#catalog">Catalog</a></span>
+    </div>
     <!-- TODO this should be handed over to a search results view -->
     <div id="toplevelSearchResults" style="display: inline-block">
         <dfl-cat-search-result ng-repeat="result in search.searchResults"></dfl-cat-search-result>
         <div id="toplevelSearchMsg" style="margin-top: 1em"></div>
     </div>
-    <div class="searchErrorMsg" ng-show="search.searchError">{{search.errorMsg}}</div> <!-- TODO get rid of this -->
+    <!-- TODO get rid of this error stuff -->
+    <div class="searchErrorMsg" ng-show="search.searchError">{{search.errorMsg}}</div>
 </div>

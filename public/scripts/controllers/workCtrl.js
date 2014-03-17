@@ -115,10 +115,6 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
         }
     }
 
-    $scope.searchToc = function (str) {
-
-    };
-
     /* Execute after document loads */
     $scope.$on('$viewContentLoaded', function () { // TODO this only works for poems now
         $.ajax({ // TODO convert to $http call for consistency
@@ -128,6 +124,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
                 if (a.type === 'ack') {
                     if (a.content) {
                         try {
+                            $scope.editor.activateSettings(EditorSettings);
                             $scope.editor.workDirectory = WorkDirectoryService.makeDirectory(a.content);
                             var jtreeData = [],
                                 jtreeToc = {
@@ -160,9 +157,9 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
                             });
                             // Set initial content TODO pick up "last location" from user history
                             $scope.editor.workDirectory.getChunkInfo(a.content.id, function (err, chunkInfo) {
+                                $.jstree.reference('#toc').select_node(a.content.id);
                                 $scope.editor.setContent(chunkInfo);
                             });
-                            $scope.editor.activateSettings(EditorSettings);
                         } catch (error) {
                             console.trace(error.message, error.stack); // TODO handle this
                         }

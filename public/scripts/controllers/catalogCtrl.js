@@ -249,10 +249,6 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             }
         },
 
-        goEdit: function (workId) {
-
-        },
-
         /* status: get server status DBG ONLY TODO REMOVE */
         status: function (event) {
             $http.get('/sys/status')
@@ -318,9 +314,9 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
         }
     });
 
-    clientApp.sendIt = function (id) {
-        $state.go('work', {id: id}); // TODO inline
-    };
+//    clientApp.sendIt = function (id) {
+//        $state.go('work', {id: id}); // TODO inline
+//    };
 
     /**
      * Prints html for publisher citation
