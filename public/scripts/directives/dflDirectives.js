@@ -45,8 +45,8 @@ horaceApp.directive('dflSetFocus', function () {
  */
 horaceApp.directive('dflCatSearchResult', function ($state) {
 
-    clientApp.sendIt = function (id) {
-        $state.go('work', {id: id}); // TODO inline
+    clientApp.goEditWork = function (chunkId) {
+        $state.go('work', {id: chunkId}); // TODO inline
     };
 
     function printSearchResult(searchResultObj, element, attrs) {
@@ -91,7 +91,7 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
                         html += makePublisherHTML(fieldValue, searchResultObj);
                         break;
                     case fieldIds.title:
-                        html += '<a class="citation" onclick="clientApp.sendIt(&quot;' + searchResultObj[fieldSpecs.id.id] + '&quot;)"><i> ' + fieldValue + '</i></a> ';
+                        html += '<a class="citation" onclick="clientApp.goEditWork(&quot;' + searchResultObj[fieldSpecs.id.id] + '&quot;)"><i> ' + fieldValue + '</i></a> ';
                         break;
                     case fieldIds.workType:
                         break;

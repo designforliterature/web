@@ -314,10 +314,6 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
         }
     });
 
-//    clientApp.sendIt = function (id) {
-//        $state.go('work', {id: id}); // TODO inline
-//    };
-
     /**
      * Prints html for publisher citation
      * @param publisher    The publisher object
