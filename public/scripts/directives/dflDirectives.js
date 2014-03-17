@@ -45,11 +45,22 @@ horaceApp.directive('dflSetFocus', function () {
  */
 horaceApp.directive('dflCatSearchResult', function ($state) {
 
-    clientApp.goEditWork = function (chunkId) {
-        $state.go('work', {id: chunkId}); // TODO inline
+    /**
+     * Takes the work chunk to the editor/viewer
+     * Note: must be defined here so be in scope of the $state variable
+     * @param chunkId The chunk id
+     */
+    dflGlobals.goEdit = function (chunkId) {
+        $state.go('work', {id: chunkId});
     };
 
-    function printSearchResult(searchResultObj, element, attrs) {
+    /**
+     * Creates the HTML for a search result object.
+     * @param searchResultObj   The search result object
+     * @param element   The HTML element to which the HTML must be added
+     * @param attrs Attributes of the element
+     */
+    function displaySearchResultHTML(searchResultObj, element, attrs) {
         var fieldSpecs = client.shared.catalogFieldSpecs,
             citationOrder = fieldSpecs.workType.specs[searchResultObj.workType].citationOrder,
             fieldName, fieldValue, haveAuthors = false,
@@ -91,7 +102,7 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
                         html += makePublisherHTML(fieldValue, searchResultObj);
                         break;
                     case fieldIds.title:
-                        html += '<a class="citation" onclick="clientApp.goEditWork(&quot;' + searchResultObj[fieldSpecs.id.id] + '&quot;)"><i> ' + fieldValue + '</i></a> ';
+                        html += '<a class="citation" onclick="dflGlobals.goEdit(&quot;' + searchResultObj[fieldSpecs.id.id] + '&quot;)"><i> ' + fieldValue + '</i></a> ';
                         break;
                     case fieldIds.workType:
                         break;
@@ -103,9 +114,7 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
     return {
         restrict: 'E', // matches only element dfl-cat-search-result only
         link: function (scope, element, attrs) {
-            // Delegate to controller for now (TODO might be passed to a new print service)
-//            scope.catalog.printSearchResult(scope.result.obj, element, attrs);
-            printSearchResult(scope.result.obj, element, attrs);
+            displaySearchResultHTML(scope.result.obj, element, attrs);
         }
     };
 });

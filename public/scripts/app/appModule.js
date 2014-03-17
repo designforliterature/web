@@ -79,7 +79,4 @@ horaceApp.config(function ($stateProvider, $urlRouterProvider) {
 //    $locationProvider.html5Mode(true);
 
 });
-
-
-
 /* End horaceApp Route Config */

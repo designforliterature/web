@@ -27,8 +27,42 @@
 
 // Keeping everything in one file for now to facilitate quick prototyping... but...
 
-// TODO Clean up so we don't pollute globals; also isolate and eliminate objs not needed by server
+// TODO CLEAN UP: consolidate all globals into dflGlobals object; also isolate and eliminate objs not needed by server
 
+
+/**
+ * App globals independent of angularjs
+ */
+var dflGlobals = {
+    /**
+     * Configuration parameters
+     */
+    config: {
+        subchunkKeyLength: 10
+    },
+
+    /**
+     * horaApp.dfUtils: utilities outside of angularjs
+     */
+    dfUtils: {
+
+        /**
+         * insertSort: insertion sort for array of objects. Ranking
+         * is based on the object's rankPropName. Use quicksort if
+         * array is larger than now.
+         * @param array The array to sort
+         * @param rankPropName  The name of the property to use for sorting
+         */
+        insertSort: function (array, rankPropName) {
+            for (var i = 0, j, other; i < array.length; ++i) {
+                other = array[i];
+                for (j = i - 1; j >= 0 && array[j][rankPropName] > other[rankPropName]; --j)
+                    array[j + 1] = array[j];
+                array[j + 1] = other;
+            }
+        }
+    }
+};
 
 // langs: language dropdown (TODO should come from server)
 /**
@@ -851,37 +885,6 @@ workTypeSpecs.MagazineArticle.citationOrder = [fieldIds.authors, fieldIds.editor
 workTypeSpecs.FreeFormat.citationOrder = [fieldIds.authors, fieldIds.editors, fieldIds.title, fieldIds.edition, fieldIds.lang, fieldIds.publisher];
 
 /**
- * horaApp.dfUtils: utilities outside of angularjs
- */
-var clientApp = {
-    /**
-     * Configuration parameters
-     */
-    config: {
-        subchunkKeyLength: 10
-    },
-
-    dfUtils: {
-
-        /**
-         * insertSort: insertion sort for array of objects. Ranking
-         * is based on the object's rankPropName. Use quicksort if
-         * array is larger than now.
-         * @param array The array to sort
-         * @param rankPropName  The name of the property to use for sorting
-         */
-        insertSort: function (array, rankPropName) {
-            for (var i = 0, j, other; i < array.length; ++i) {
-                other = array[i];
-                for (j = i - 1; j >= 0 && array[j][rankPropName] > other[rankPropName]; --j)
-                    array[j + 1] = array[j];
-                array[j + 1] = other;
-            }
-        }
-    },
-};
-
-/**
  * makeWorkTypesPresentationOrder: returns array of work types specs as they
  * should be presented by clients (e.g., in a menu). Should be gc'd as it's used
  * just once.
@@ -898,7 +901,7 @@ function makeWorkTypesPresentationOrder() {
         }
         presentationArray.push(item);
     }
-    clientApp.dfUtils.insertSort(presentationArray, 'rank'); // change to quick if specs get larger
+    dflGlobals.dfUtils.insertSort(presentationArray, 'rank'); // change to quick if specs get larger
 
     return presentationArray;
 }
@@ -1059,7 +1062,7 @@ var client = {
 
             contentFormats: contentFormats,
 
-            subchunkKeyLength: clientApp.config.subchunkKeyLength,
+            subchunkKeyLength: dflGlobals.config.subchunkKeyLength,
 
             /* The size in characters allowed in each content chunk */
             chunkSize: 40 // TODO make this 4096 (or more) for production
