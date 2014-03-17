@@ -152,6 +152,7 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
         }
         element[0].innerHTML = html + '</div>';
     }
+
     return {
         restrict: 'E', // matches only element dfl-cat-search-result only
         link: function (scope, element, attrs) {
@@ -172,7 +173,7 @@ horaceApp.directive('catalogField', function () {
             var spec = specs[i];
             if (spec.required) {
                 var id = specs[i].id;
-                var value = (id === fieldId)? fieldValue : scope.catalog.postData.metadata[id];
+                var value = (id === fieldId) ? fieldValue : scope.catalog.postData.metadata[id];
                 if (typeof value === 'undefined' || value.length === 0) {
                     valid = false;
                 }
@@ -182,6 +183,7 @@ horaceApp.directive('catalogField', function () {
             scope.catalog.metatadaValid = valid;
         }
     }
+
     return {
         require: 'ngModel',
         link: function (scope, elm, attrs, ctrl) {
@@ -213,7 +215,7 @@ horaceApp.directive('signinField', function () {
      */
     function validate(scope, ctrl, fieldName, text, regexp) {
         var ok = (text !== undefined) && regexp.test(text);
-        scope.signin.error = !ok;
+        scope[scope.dfl_scopeFieldName].error = !ok;
         ctrl.$setValidity(fieldName, ok);
         return ok ? text : undefined;
     }
@@ -226,12 +228,13 @@ horaceApp.directive('signinField', function () {
      * confirmed one are exactly the same; else returns undefined
      */
     function confirmPassword(password, ctrl, scope) {
-        var value = (scope.signin.user && scope.signin.user.password);
-        var ok = (password && (password === value));
+        var dflscopeFieldName = scope.dfl_scopeFieldName,
+            value = (scope[ dflscopeFieldName].user && scope[dflscopeFieldName].user.password),
+            ok = (password && (password === value));
         if (!ok) {
-            scope.signin.msg = 'Must confirm password';
+            scope[dflscopeFieldName].msg = 'Must confirm password';
         }
-        scope.signin.error = !ok;
+        scope[dflscopeFieldName].error = !ok;
         ctrl.$setValidity('confirm', ok);
         return ok ? password : undefined;
     }
@@ -245,19 +248,19 @@ horaceApp.directive('signinField', function () {
                     if (attrs.id === 'confirm') {
                         return confirmPassword(fieldValue, ctrl, scope);
                     }
-                    var isUsername = (attrs.id === 'username');
-                    var isEmail = (attrs.id === 'email');
-                    var valid = validate(scope, ctrl, attrs.id, fieldValue, (isUsername ? USERNAME_REGEXP : (isEmail ? EMAIL_REGEXP : PASSWORD_REGEXP)));
+                    var isUsername = (attrs.id === 'username'),
+                        isEmail = (attrs.id === 'email'),
+                        valid = validate(scope, ctrl, attrs.id, fieldValue, (isUsername ? USERNAME_REGEXP : (isEmail ? EMAIL_REGEXP : PASSWORD_REGEXP)));
                     if (valid === undefined) {
                         var minLength = (isUsername ? 3 : 8);
                         if (isEmail) {
-                            scope.signin.msg = 'Email address invalid';
+                            scope[scope.dfl_scopeFieldName].msg = 'Email address invalid';
                         } else if (fieldValue && fieldValue.length < minLength) {
-                            scope.signin.msg = 'At least ' + minLength + ' characters';
+                            scope[scope.dfl_scopeFieldName].msg = 'At least ' + minLength + ' characters';
                         } else if (fieldValue && fieldValue.length > 32) {
-                            scope.signin.msg = 'No more than 32 characters';
+                            scope[scope.dfl_scopeFieldName].msg = 'No more than 32 characters';
                         } else {
-                            scope.signin.msg = 'Get ' + attrs.id + ' help';
+                            scope[scope.dfl_scopeFieldName].msg = 'Get ' + attrs.id + ' help';
                         }
                     }
                     return valid;
@@ -265,26 +268,3 @@ horaceApp.directive('signinField', function () {
         }
     };
 });
-
-
-//horaceApp.directive('placeholder', function ($timeout) {
-//    "use strict";
-//    return {
-//        link: function (scope, elm, attrs) {
-//            if (attrs.type === 'password') {
-//                return;
-//            }
-//            $timeout(function () {
-//                $(elm).val(attrs.placeholder).focus(function () {
-//                    if ($(this).val() === $(this).attr('placeholder')) {
-//                        $(this).val('');
-//                    }
-//                }).blur(function () {
-//                        if ($(this).val() === '') {
-//                            $(this).val($(this).attr('placeholder'));
-//                        }
-//                    });
-//            });
-//        }
-//    };
-//});

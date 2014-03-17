@@ -65,7 +65,7 @@ horaceApp.controller('AppCtrl', function ($scope, $rootScope, SocketsService) {
 
     $scope.app =
     {
-        menubar: 'views/menubarOffline.html'
+        menubar: 'views/menubar.html'
     };
 
 });

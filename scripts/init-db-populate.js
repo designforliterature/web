@@ -2,8 +2,10 @@
 // To run: mongo --port 21191  init-db-populate.js
 
 var conn = new Mongo('localhost:21191'),
+
     worksDb = conn.getDB('works'),
     usersDb = conn.getDB('users'),
+
     userCol = usersDb.getCollection('user'),
     personCol = worksDb.getCollection('person'),
     publisherCol = worksDb.getCollection('publisher');

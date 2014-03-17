@@ -5,19 +5,26 @@
 // To run: mongo --port 21191  init-db-populate.js
 
 var conn = new Mongo('localhost:21191'),
+
     worksDb = conn.getDB('works'),
     usersDb = conn.getDB('users'),
-    worksCol = worksDb.getCollection('work'),
+    sessionDb = conn.getDB('session'),
+
+    sessionCol = sessionDb.getCollection('sessions'),
+    workCol = worksDb.getCollection('work'),
     personCol = worksDb.getCollection('person'),
     catalogCol = worksDb.getCollection('catalog'),
     userCol = usersDb.getCollection('user'),
     publisherCol = worksDb.getCollection('publisher');
 
-userCol.remove();
-
-worksCol.remove();
-
+// Clear collections
+sessionCol.remove();
+workCol.remove();
+personCol.remove();
 catalogCol.remove();
+userCol.remove();
+publisherCol.remove();
+
 catalogCol.dropIndexes();
 
 // Index a catalog item. DB: works, COLLECTION: catalog
@@ -32,7 +39,6 @@ catalogCol.ensureIndex({'title': 'text', 'authors.keywords': 'text', 'subjects.k
 });
 
 // Index a person. DB: works, COLLECTION: person
-personCol.remove();
 personCol.dropIndexes();
 /**
  * person fields:
@@ -48,7 +54,6 @@ personCol.ensureIndex({fullName: 'text', altNames: 'text'}, {
 
 
 // Index publishers
-publisherCol.remove();
 publisherCol.dropIndexes();
 
 publisherCol.ensureIndex({companyName: 'text', imprints: 'text'}, {

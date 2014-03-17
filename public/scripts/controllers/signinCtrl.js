@@ -31,27 +31,30 @@
 
 horaceApp.controller('SigninCtrl', function ($scope, $http, $location) {
 
+    // Provided for the benefit of directives
+    $scope.dfl_scopeFieldName = 'signin';
 
-    $scope.signin = {login: function () {
-        var user = $scope.signin.user;
-        $http.post('/login', user)
-            .success(function (res) {
-                horaceApp.debug(res);
-                if (res.type === 'ack') {
-                    $location.path('catalog');
-                } else {
-                    $scope.signin.user.name = '';
-                    $scope.signin.user.password = '';
-                    $scope.signin.msg = 'No such user. Try again';
+    $scope.signin = {
+        login: function () {
+            var user = $scope.signin.user;
+            $http.put('/session', user)
+                .success(function (res) {
+                    horaceApp.debug(res);
+                    if (res.type === 'ack') {
+                        $location.path('catalog');
+                    } else {
+                        $scope.signin.user.name = '';
+                        $scope.signin.user.password = '';
+                        $scope.signin.msg = 'No such user. Try again';
+                        $scope.signin.error = true;
+                    }
+                })
+                .error(function (res) {
+                    horaceApp.debug(res);
+                    $scope.signin.msg = 'Technical Problem: Please retry';
                     $scope.signin.error = true;
-                }
-            })
-            .error(function (res) {
-                horaceApp.debug(res);
-                $scope.signin.msg = 'Technical Problem: Please retry';
-                $scope.signin.error = true;
-            });
-    }
+                });
+        }
     };
 });
 /* End SigninCtrl */

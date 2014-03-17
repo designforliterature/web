@@ -26,29 +26,29 @@
 <!-- START SignupCtrl -->
 <div>
     <div class="yellowBox" style="width: 300px;text-align: center;">
-        <form name="signupForm" novalidate class="signinForm" ng-submit="submit(signin.user)">
+        <form name="signupForm" novalidate class="signinForm" ng-submit="signup(signup.user)">
             <div class="signinBox">
                 <div><input id="username" class="signupField" signin-field type="text" set-focus
-                            ng-model="signin.user.name" required ng-trim
+                            ng-model="signup.user.name" required ng-trim
                             placeholder="Username"/></div>
                 <div><input id="password" class="signupField" signin-field type="password"
-                            ng-model="signin.user.password" required ng-trim
+                            ng-model="signup.user.password" required ng-trim
                             placeholder="Password"/></div>
                 <div><input id="confirm" class="signupField" signin-field type="password"
-                            ng-model="signin.user.confirm" required ng-trim
+                            ng-model="signup.user.confirm" required ng-trim
                             placeholder="Confirm Password"/></div>
                 <div><input id="email" class="signupField" signin-field type="text"
-                            ng-model="signin.user.email" required ng-trim
+                            ng-model="signup.user.email" required ng-trim
                             placeholder="Email"/></div>
-                <button id="submit" class="signinButton-{{!signupForm.$valid}}" ng-disabled="!signupForm.$valid">Create Account
+                <button id="submit" ng-click="signup.signup()" class="signinButton-{{!signupForm.$valid}}"
+                        ng-disabled="!signupForm.$valid">Sign In
                 </button>
-                <div class="small"><a ng-href="signinHelp.html">Sign up help</a></div>
+                <div class="small"><a ng-href="signinHelp.html" target="_blank">Sign up help</a></div>
                 <div class="errorMsg" ng-show="signin.showError">
-                    <a class="error" ng-href="signinHelp.html" target="_blank">{{signin.errorMessage}} </a>
+                    <a class="error" ng-href="signinHelp.html" target="_blank">{{signup.errorMessage}} </a>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<h3>{{signin.status}}</h3>
 <!-- END SignupCtrl -->

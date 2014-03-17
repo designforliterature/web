@@ -53,11 +53,6 @@ horaceApp.config(function ($stateProvider, $urlRouterProvider) {
             url: '/signup',
             templateUrl: '/views/signup.html'
         })
-        .state('home', {
-            controller: 'HomeCtrl',
-            url: '/home',
-            templateUrl: '/views/home.html'
-        })
         // browse is a demo and test area to be replaced by WorkCtrl
         .state('browse', {
             controller: 'EditorCtrl',

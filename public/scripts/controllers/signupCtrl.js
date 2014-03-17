@@ -26,7 +26,34 @@
 'use strict';
 
 // Handles the signup profile data.
-horaceApp.controller('SignupCtrl', function ($scope, $http) {
-    $scope.signin = {menubar: 'views/menubarOffline.html'};
+horaceApp.controller('SignupCtrl', function ($scope, $http, $location) {
+
+    // Provided for the benefit of directives
+    $scope.dfl_scopeFieldName = 'signup';
+
+    $scope.signup = {
+        signup: function () {
+            var user = $scope.signup.user;
+            $http.post('/session', user)
+                .success(function (res) {
+                    horaceApp.debug(res);
+                    if (res.type === 'ack') {
+                        $location.path('catalog');
+                    } else {
+                        $scope.signup.user.name = '';
+                        $scope.signup.user.password = '';
+                        $scope.signup.user.email = '';
+                        $scope.signup.user.password = '';
+                        $scope.signup.msg = 'No such user. Try again';
+                        $scope.signup.error = true;
+                    }
+                })
+                .error(function (res) {
+                    horaceApp.debug(res);
+                    $scope.signup.msg = 'Technical Problem: Please retry';
+                    $scope.signup.error = true;
+                });
+        }
+    };
 });
 /* End SignupCtrl */
