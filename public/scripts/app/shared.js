@@ -24,16 +24,48 @@
 // CLIENT (SOME SHARED WITH SERVER) --------------------------------------------------------------------------------
 
 'use strict';
+/**
+ * This file contains definitions, specifications, and globals used by the client.
+ * Eventually, many of these will come from the server, but for initial development
+ * it's convenient to keep it all in one file and share some of it with the server (backwards!).
+ */
 
-// Keeping everything in one file for now to facilitate quick prototyping... but...
-
-// TODO CLEAN UP: consolidate all globals into dflGlobals object; also isolate and eliminate objs not needed by server
-
+// _debug controls whether debug printout is enabled or not. Use the function
+// dflGlobals.debug to print out statements at the bottom of any view.
+var _debug = false;
+if (_debug) {
+    $('#httpDebug').css('display', 'inline');
+    $('#socketDebug').css('display', 'inline');
+}
 
 /**
  * App globals independent of angularjs
  */
 var dflGlobals = {
+
+    /**
+     * Debug printer.
+     * @param obj   Some object to print. The object is stringified.
+     * @param type  Controls the color of the printout.
+     */
+    debug: function (obj, type) {
+        if (_debug) {
+            var dbg = (typeof type === 'undefined' || type) ? $('#httpDebug') : $('#socketDebug')
+            if (dbg) {
+                dbg.css('display', 'inline');
+                if ('undefined' !== typeof dbg) {
+                    if (obj.type === 'trans') {
+                        dbg.css('color', 'blue');
+                    } else if (obj.type === 'ack') {
+                        dbg.css('color', 'green');
+                    } else {
+                        dbg.css('color', 'red');
+                    }
+                    dbg[0].innerHTML = '<b>' + JSON.stringify(obj) + '</b>';
+                }
+            }
+        }
+    },
 
     session: {
         /**

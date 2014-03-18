@@ -28,21 +28,16 @@
  * Controls the catalog behavior (search, create, update).
  */
 
-horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $timeout, $upload) {
+horaceApp.controller('CatalogCtrl', function ($scope, $http, $timeout, $upload) {
 
     $('input[type=file]').css('background-color', 'red');
-
-    // If user is signed in, redirect to the "home" view.
-//    if (!dflGlobals.session.signedIn) {
-//        $location.path = 'signin';
-//    }
 
     $scope.catalog = {
 
         // Accordion flags
         openOneAtATime: false,
-        searchCatalogOpen: true,
-        createCatalogOpen: true,
+        searchCatalogOpen: false,
+        createCatalogOpen: false,
 
         /** userLang: the client's current language */
         clientLang: window.navigator.userLanguage || window.navigator.language,
@@ -214,7 +209,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                     $http.post('/catalog/submit', postData)
                         .success(function (res, status, headers, config) {
                             if (status === 200) {
-                                horaceApp.debug(res);
+                                dflGlobals.debug(res);
                                 $scope.catalog.metatadaValid = false;
                             } else {
                                 $scope.catalog.errorMsg = 'Error: Try again. (' + res.error + ')';
@@ -223,7 +218,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                         })
                         .error(function (err, status, headers, config) { // TODO should be either 400 or 500 page
                             if (status !== 200) {
-                                horaceApp.debug(err);
+                                dflGlobals.debug(err);
                             }
                             $scope.catalog.errorMsg = 'Technical Problem: Please retry. (' + status + ')';
                             $scope.catalog.error = true;
@@ -239,7 +234,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                         }).success(function (data, status, headers, config) {
                             //console.log(data);
                             if (status === 200) {
-                                horaceApp.debug(data);
+                                dflGlobals.debug(data);
                                 $scope.catalog.metatadaValid = false;
                             } else {
                                 $scope.catalog.errorMsg = 'Error: Try again. (' + data.error + ')';
@@ -265,7 +260,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
             $http.post('/catalog/search/query', query)
                 .success(function (res, status, headers, config) {
                     if (status === 200) {
-                        horaceApp.debug(res);
+                        dflGlobals.debug(res);
                         if (typeof res.data === 'undefined' || res.data.length === 0) {
                             searchMsg.innerHTML = res.msg;
                         } else {
@@ -278,7 +273,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                 })
                 .error(function (err, status, headers, config) { // TODO should be either 400 or 500 page
                     if (status !== 200) {
-                        horaceApp.debug(err);
+                        dflGlobals.debug(err);
                     }
                     $scope.catalog.errorMsg = 'Technical Problem: Please retry. (' + err + ')';
                     $scope.catalog.error = true;

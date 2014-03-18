@@ -28,17 +28,37 @@
  * Controls the catalog behavior (search, create, update).
  */
 
-horaceApp.controller('MenubarCtrl', function ($scope, $http, $state) {
+horaceApp.controller('MenubarCtrl', function ($scope, $http, $state, SessionService) {
 
-    $scope.signOff = function() {
+    // Immediate check. Done here because this is when the menubar elements that
+    // depend on session state exist.
+    SessionService.checkSessionState();
+
+    $scope.menubar = {
+
+        goSignIn: function () {
             $state.go('signin');
-//        if (!$state.is('signin')) {
-//        }
-        $http.get('/session/signoff')
-            .success(function (res, status, headers, config) {
-            })
-            .error(function (err, status, headers, config) {
-                console.trace(err);
-            });
+        },
+
+        signOff: function () {
+            $http.get('/session/signoff')
+                .success(function (res, status, headers, config) {
+                    if (status === 200) {
+                        dflGlobals.session.signedIn = false;
+                        $("*[menu*='inSessionMenu']").css('display', 'none');
+                        $("*[menu*='nonSessionMenu']").css('display', 'inline');
+                        $state.go('signin');
+                    } else {
+                        console.trace('could not sign in'); // TODO
+                    }
+                })
+                .error(function (err, status, headers, config) {
+                    console.trace(err);
+                });
+        },
+
+        goCatalog: function () {
+            $state.go('catalog');
+        }
     };
 });

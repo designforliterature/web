@@ -36,7 +36,7 @@ horaceApp.controller('SignupCtrl', function ($scope, $http, $state) {
             var user = $scope.signup.user;
             $http.post('/session', user)
                 .success(function (res) {
-                    horaceApp.debug(res);
+                    dflGlobals.debug(res);
                     if (res.type === 'ack') {
                         $state.go('catalog');
                     } else {
@@ -49,7 +49,7 @@ horaceApp.controller('SignupCtrl', function ($scope, $http, $state) {
                     }
                 })
                 .error(function (res) {
-                    horaceApp.debug(res);
+                    dflGlobals.debug(res);
                     $scope.signup.msg = 'Technical Problem: Please retry';
                     $scope.signup.error = true;
                 });

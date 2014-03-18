@@ -35,9 +35,10 @@ horaceApp.controller('SigninCtrl', function ($scope, $http, $state) {
     $scope.dfl_scopeFieldName = 'signin';
 
     // If user is signed in, redirect to the "home" view.
-    if (dflGlobals.session.signedIn) {
-        $state.go('catalog');
-    }
+//    if (dflGlobals.session.signedIn) {
+//        console.info('about to go to catalog from signin page');
+//        $state.go('catalog');
+//    }
 
     $scope.signin = {
 
@@ -49,9 +50,10 @@ horaceApp.controller('SigninCtrl', function ($scope, $http, $state) {
             var user = $scope.signin.user;
             $http.put('/session', user)
                 .success(function (res) {
-                    horaceApp.debug(res);
+                    dflGlobals.debug(res);
                     if (res.type === 'ack') {
-                        $('#signOffMenu').css('display', 'inline');
+                        $("*[menu*='inSessionMenu']").css('display', 'inline');
+                        $("*[menu*='nonSessionMenu']").css('display', 'none');
                         $state.go('catalog');
                     } else {
                         $scope.signin.user.name = '';
@@ -61,7 +63,7 @@ horaceApp.controller('SigninCtrl', function ($scope, $http, $state) {
                     }
                 })
                 .error(function (res) {
-                    horaceApp.debug(res);
+                    dflGlobals.debug(res);
                     $scope.signin.msg = 'Technical Problem: Please retry';
                     $scope.signin.error = true;
                 });

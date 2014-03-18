@@ -36,7 +36,7 @@ var noteSocket;
 horaceApp.service('SocketsService', ['ConfigService', 'NotificationService', function (ConfigService, NotificationService) {
 
     var onCatalogSearchQueryListener = function (tx) {
-        horaceApp.debug(tx);
+        dflGlobals.debug(tx);
     };
 
     var setCatalogSearchQueryListener = function (listener) {
@@ -44,7 +44,7 @@ horaceApp.service('SocketsService', ['ConfigService', 'NotificationService', fun
     }
 
     var onCatalogSaveMetadataListener = function(tx) {
-        horaceApp.debug(tx);
+        dflGlobals.debug(tx);
     }
 
     var setCatalogSaveMetadataListener = function (listener) {

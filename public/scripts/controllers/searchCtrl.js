@@ -24,11 +24,11 @@
  * Controls the search behavior
  */
 
-horaceApp.controller('SearchCtrl', function ($scope, $http, SocketsService, $timeout, $upload, $state) {
+horaceApp.controller('SearchCtrl', function ($scope, $http) {
 
     $scope.search = {
 
-        menubarCtrlScope: $scope.$parent,
+        menubarCtrlScope: $scope.$parent.menubar,
 
         /* query: catalog search query fields TODO must conform to server-side schema.query! */
         query: {
@@ -50,7 +50,7 @@ horaceApp.controller('SearchCtrl', function ($scope, $http, SocketsService, $tim
             $http.post('/catalog/search/query', query)
                 .success(function (res, status, headers, config) {
                     if (status === 200) {
-                        horaceApp.debug(res);
+                        dflGlobals.debug(res);
                         if (typeof res.data === 'undefined' || res.data.length === 0) {
                             searchMsg.innerHTML = res.msg;
                         } else {
@@ -64,7 +64,7 @@ horaceApp.controller('SearchCtrl', function ($scope, $http, SocketsService, $tim
                 })
                 .error(function (err, status, headers, config) { // TODO should be either 400 or 500 page
                     if (status !== 200) {
-                        horaceApp.debug(err);
+                        dflGlobals.debug(err);
                     }
                     // TODO clean up
                     $scope.search.searchErrorMsg = 'Technical Problem: Please retry. (' + err + ')';

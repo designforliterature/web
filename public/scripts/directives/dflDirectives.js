@@ -45,12 +45,19 @@ horaceApp.directive('dflSetFocus', function () {
  */
 horaceApp.directive('dflCatSearchResult', function ($state) {
 
+    /* currScope: the current scope */
+    var currScope = undefined;
+
     /**
      * Takes the work chunk to the editor/viewer
      * Note: must be defined here so be in scope of the $state variable
      * @param chunkId The chunk id
      */
     dflGlobals.goEdit = function (chunkId) {
+        var toplevelSearchResults = $('#toplevelSearchResults');
+        if (toplevelSearchResults) { // clear results from toplevel search box
+            toplevelSearchResults.css('display', 'none');
+        }
         $state.go('work', {id: chunkId});
     };
 
@@ -156,6 +163,7 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
     return {
         restrict: 'E', // matches only element dfl-cat-search-result only
         link: function (scope, element, attrs) {
+            currScope = scope;
             displaySearchResultHTML(scope.result.obj, element, attrs);
         }
     };

@@ -21,7 +21,8 @@
  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 <div ng-controller="MenubarCtrl">
-    <div ng-controller="SearchCtrl" class="toplevelMenus">
+    <div ng-controller="SearchCtrl">
+    <div class="toplevelMenus">
         <span><a ng-href="http://designforliterature.com" target="_blank"><img
                 ng-src="../images/dfl-icon-32.png"/></a></span>
         <table style="display: inline-table;font-size: 9px; line-height: 1.5em;vertical-align: middle">
@@ -44,15 +45,18 @@
                 <img tooltip="Search" ng-click="search.search()" src="images/search-icon-24.png"/>
             </form>
         </span>
-        <span style="float:right;margin-left: 1em;padding-right: 1em">Settings</span>
-        <span id="signOffMenu" style="display:none;margin-left:1em;float:right;"><a ng-click="search.menubarCtrlScope.signOff()">Sign Off</a></span>
-        <span style="margin-left:1em;float:right;"><a href="#catalog">Catalog</a></span>
+        <span menu="nonSessionMenu" style="display:none;float:right;margin-left: 1em;padding-right: 1em"><a ng-click="search.menubarCtrlScope.goSignIn()">Sign In</a></span>
+        <span menu="inSessionMenu" style="display:none;float:right;margin-left: 1em;padding-right: 1em">Settings</span>
+        <span menu="inSessionMenu" style="display:none;margin-left:1em;float:right;"><a ng-click="search.menubarCtrlScope.signOff()">Sign Off</a></span>
+        <span menu="inSessionMenu" style="display:none;margin-left:1em;float:right;"><a ng-click="search.menubarCtrlScope.goCatalog()">Catalog</a></span>
+
+        <!-- TODO this should be handed over to a search results view -->
+        <div id="toplevelSearchResults" style="display: inline-block">
+            <dfl-cat-search-result ng-repeat="result in search.searchResults"></dfl-cat-search-result>
+            <div id="toplevelSearchMsg" style="margin-top: 1em"></div>
+        </div>
+        <!-- TODO get rid of this error stuff -->
+        <div class="searchErrorMsg" ng-show="search.searchError">{{search.errorMsg}}</div>
     </div>
-    <!-- TODO this should be handed over to a search results view -->
-    <div id="toplevelSearchResults" style="display: inline-block">
-        <dfl-cat-search-result ng-repeat="result in search.searchResults"></dfl-cat-search-result>
-        <div id="toplevelSearchMsg" style="margin-top: 1em"></div>
     </div>
-    <!-- TODO get rid of this error stuff -->
-    <div class="searchErrorMsg" ng-show="search.searchError">{{search.errorMsg}}</div>
 </div>

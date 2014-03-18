@@ -38,15 +38,20 @@ horaceApp.service('SessionService', function ($timeout, $http, $state) {
             .success(function (res) {
                 if (res.type === 'ack' && res.username) {
                     dflGlobals.session.signedIn = true;
-                    $('#signOffMenu').css('display', 'inline');
+                    $("*[menu*='inSessionMenu']").css('display', 'inline');
+                    $("*[menu*='nonSessionMenu']").css('display', 'none');
+                    if ($state.is('signin')) {
+                        $state.go('catalog');
+                    }
                 } else {
                     dflGlobals.session.signedIn = false;
-                    $('#signOffMenu').css('display', 'none');
-                    if (!$state.is('signin')) {
+                    $("*[menu*='inSessionMenu']").css('display', 'none');
+                    $("*[menu*='nonSessionMenu']").css('display', 'inline');
+                    if (!$state.is('work')) {
                         $state.go('signin');
                     }
                 }
-                console.info('User session state: ' + (dflGlobals.session.signedIn ? 'SIGNED IN' : 'SIGNED OUT')); // dbg
+//                console.info('User session state: ' + (dflGlobals.session.signedIn ? 'SIGNED IN' : 'SIGNED OUT')); // dbg
             })
             .error(function (err) {
                 console.trace(err); // TODO
@@ -58,7 +63,8 @@ horaceApp.service('SessionService', function ($timeout, $http, $state) {
         checkSessionState();
         $timeout(checkSessionStateTimeout, 5000);
     };
-    $timeout(checkSessionStateTimeout, 0); // first call is immediate
+    $timeout(checkSessionStateTimeout, 5000);
+
 
     return {
         /**
@@ -67,6 +73,6 @@ horaceApp.service('SessionService', function ($timeout, $http, $state) {
          * the signoff menu item is enabled.
          * @param callback  An optional callback
          */
-//        checkSessionState: checkSessionState
+        checkSessionState: checkSessionState
     };
 });

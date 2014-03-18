@@ -29,30 +29,6 @@
 
 'use strict';
 
-// DBG type := {true|false} true is http, false is sockets
-var debug = true;
-if (debug) {
-    $('#httpDebug').css('display', 'inline');
-    $('#socketDebug').css('display', 'inline');
-}
-
-horaceApp.debug = function (obj, type) {
-    if (debug) {
-        var dbg = (typeof type === 'undefined' || type) ? $('#httpDebug') : $('#socketDebug')
-        dbg.css('display', 'inline');
-        if ('undefined' !== typeof dbg) {
-            if (obj.type === 'trans') {
-                dbg.css('color', 'blue');
-            } else if (obj.type === 'ack') {
-                dbg.css('color', 'green');
-            } else {
-                dbg.css('color', 'red');
-            }
-            dbg[0].innerHTML = '<b>' + JSON.stringify(obj) + '</b>';
-        }
-    }
-};
-
 /**
  * AppCtrl: root controller for the app.
  * Injects all services that must be instantiated when, e.g., any page is refreshed.
