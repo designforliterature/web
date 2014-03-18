@@ -28,6 +28,8 @@ horaceApp.controller('SearchCtrl', function ($scope, $http, SocketsService, $tim
 
     $scope.search = {
 
+        menubarCtrlScope: $scope.$parent,
+
         /* query: catalog search query fields TODO must conform to server-side schema.query! */
         query: {
             general: null, /* general: queries any metadata and content */

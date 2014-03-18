@@ -63,16 +63,10 @@ horaceApp.controller('AppCtrl', function ($scope, $rootScope, $http, $state, Soc
     SocketsService.connectSockets();
 
 
-    $rootScope.$on('$stateChangeStart',
-        function (event, toState, toParams, fromState, fromParams) {
-            console.info(fromState.name + ' -> ' + toState.name); // dbg
-//            SessionService.checkSessionState(function (err, signedIn) {
-//                if (!signedIn) {
-//                    event.preventDefault();
-//                    $state.go('signin');
-//                }
-//            });
-        });
+//    $rootScope.$on('$stateChangeStart',
+//        function (event, toState, toParams, fromState, fromParams) {
+//            console.info(fromState.name + ' -> ' + toState.name); // dbg
+//        });
 
     $scope.app =
     {

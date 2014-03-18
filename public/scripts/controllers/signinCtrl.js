@@ -51,6 +51,7 @@ horaceApp.controller('SigninCtrl', function ($scope, $http, $state) {
                 .success(function (res) {
                     horaceApp.debug(res);
                     if (res.type === 'ack') {
+                        $('#signOffMenu').css('display', 'inline');
                         $state.go('catalog');
                     } else {
                         $scope.signin.user.name = '';

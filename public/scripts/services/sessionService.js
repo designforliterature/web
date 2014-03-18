@@ -29,22 +29,26 @@
  */
 horaceApp.service('SessionService', function ($timeout, $http, $state) {
 
-    function checkSessionState(callback) {
+    /**
+     * checkSessionState: checks whether user is signed in or not.
+     * If user is not signed in (session expired), transfers control to signin view.
+     */
+    function checkSessionState() {
         $http.get('/session/')
             .success(function (res) {
                 if (res.type === 'ack' && res.username) {
                     dflGlobals.session.signedIn = true;
                     $('#signOffMenu').css('display', 'inline');
-                    $state.go('signin');
-                    !callback || callback(null, true);
                 } else {
                     dflGlobals.session.signedIn = false;
-                    !callback || callback(null, false);
+                    $('#signOffMenu').css('display', 'none');
+                    if (!$state.is('signin')) {
+                        $state.go('signin');
+                    }
                 }
                 console.info('User session state: ' + (dflGlobals.session.signedIn ? 'SIGNED IN' : 'SIGNED OUT')); // dbg
             })
             .error(function (err) {
-                !callback || callback(err);
                 console.trace(err); // TODO
             });
     }
@@ -52,7 +56,7 @@ horaceApp.service('SessionService', function ($timeout, $http, $state) {
     // Check whether user is signed in every few seconds
     var checkSessionStateTimeout = function () {
         checkSessionState();
-        $timeout(checkSessionStateTimeout, 1000);
+        $timeout(checkSessionStateTimeout, 5000);
     };
     $timeout(checkSessionStateTimeout, 0); // first call is immediate
 
@@ -63,6 +67,6 @@ horaceApp.service('SessionService', function ($timeout, $http, $state) {
          * the signoff menu item is enabled.
          * @param callback  An optional callback
          */
-        checkSessionState: checkSessionState
+//        checkSessionState: checkSessionState
     };
 });
