@@ -81,7 +81,7 @@ horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($com
                     return text + '</D_R>';
                 }
 
-                var contentElement = $('#content')[0];
+                var contentElement = $('#editorContent')[0];
                 contentElement.innerHTML = makeText(chunkInfo.content);
             },
 
@@ -124,7 +124,7 @@ horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($com
                     return {text: text, numbering: numbering};
                 }
 
-                var contentElement = $('#content')[0];
+                var contentElement = $('#editorContent')[0];
                 var content = makeText(chunkInfo.content, EditorSettings.lineNumberingOn);
 
                 if (EditorSettings.lineNumberingOn) {

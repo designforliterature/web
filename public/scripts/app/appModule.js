@@ -34,7 +34,8 @@
 var horaceApp = angular.module('horaceApp', [
     'ui.router',
     'angularFileUpload',
-    'ui.bootstrap'
+    'ui.bootstrap',
+//    'snap'
 ]);
 /* End horaceApp module */
 

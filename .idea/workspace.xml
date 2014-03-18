@@ -6,14 +6,29 @@
     <option name="CUSTOM_SCOPE_NAME" value="web" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="cleaned up app.css&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/vendor/README.md" afterPath="$PROJECT_DIR$/public/scripts/vendor/README.md" />
+    <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="more navigation; better search result spacing&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/open-menu-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/styles/vendor/snap/snap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/vendor/snap/snap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/vendor/snap/snap.min.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor/bootstrap/css/bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor/bootstrap/css/bootstrap-theme.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor/bootstrap/css/bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor/bootstrap/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor/bootstrap/css/bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor/bootstrap/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor/bootstrap/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor/bootstrap/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/README.md" afterPath="$PROJECT_DIR$/public/styles/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/app.css" afterPath="$PROJECT_DIR$/public/styles/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/catalog.html" afterPath="$PROJECT_DIR$/public/views/catalog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/directives/dflDirectives.js" afterPath="$PROJECT_DIR$/public/scripts/directives/dflDirectives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/menubar.html" afterPath="$PROJECT_DIR$/public/views/menubar.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app/appModule.js" afterPath="$PROJECT_DIR$/public/scripts/app/appModule.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/editorEngine.js" afterPath="$PROJECT_DIR$/public/scripts/services/editorEngine.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/editorEngine2.js" afterPath="$PROJECT_DIR$/public/scripts/services/editorEngine2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/work.html" afterPath="$PROJECT_DIR$/public/views/work.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -36,7 +51,41 @@
     <favorites_list name="web" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="app.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/styles/app.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="338" column="3" selection-start="7109" selection-end="7109" vertical-scroll-proportion="0.0" vertical-offset="4779" max-vertical-offset="6345">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="work.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/views/work.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="39" selection-start="2334" selection-end="2334" vertical-scroll-proportion="0.48370928" vertical-offset="439" max-vertical-offset="1470">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="181" column="19" selection-start="8271" selection-end="8271" vertical-scroll-proportion="0.0" vertical-offset="1916" max-vertical-offset="4035">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -64,28 +113,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lib/parse/contentParser.js" />
-        <option value="$PROJECT_DIR$/lib/utilities/generalUtils.js" />
-        <option value="$PROJECT_DIR$/test-content/poem2.txt" />
-        <option value="$PROJECT_DIR$/public/test.html" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/testCtrl.js" />
-        <option value="$PROJECT_DIR$/public/template/accordion/accordion-group.html" />
-        <option value="localhost:3000/scripts/vendor/jquery/jquery.js" />
-        <option value="$PROJECT_DIR$/public/scripts/services/workService.js" />
-        <option value="localhost:3000/scripts/vendor/angular/angular.js" />
-        <option value="$PROJECT_DIR$/public/scripts/services/workDirectoryService.js" />
-        <option value="$PROJECT_DIR$/public/scripts/services/editorEngine.js" />
-        <option value="$PROJECT_DIR$/public/test-display.html" />
-        <option value="$PROJECT_DIR$/public/scripts/services/editorSettings.js" />
-        <option value="$PROJECT_DIR$/public/scripts/services/editorEngine2.js" />
-        <option value="$PROJECT_DIR$/test-content/iliad-greek.txt" />
-        <option value="$PROJECT_DIR$/test-content/poem.txt" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/public/views/menubarOffline.html" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/testJtreeCtrl.js" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
         <option value="$PROJECT_DIR$/lib/services/CatalogService.js" />
-        <option value="$PROJECT_DIR$/public/scripts/app/appModule.js" />
         <option value="$PROJECT_DIR$/scripts/init-db.js" />
         <option value="$PROJECT_DIR$/scripts/init-db-populate.js" />
         <option value="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
@@ -97,23 +126,43 @@
         <option value="$PROJECT_DIR$/public/scripts/controllers/searchCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/signupCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/socketsService.js" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/signinCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/menubarCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/sessionService.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/app/shared.js" />
         <option value="$PROJECT_DIR$/public/styles/signin.css" />
-        <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/public/test-jtree.html" />
         <option value="$PROJECT_DIR$/public/scripts/vendor/aloha/vendor/jquery-1.7.2.js" />
         <option value="$PROJECT_DIR$/public/test-aloha.html" />
         <option value="$PROJECT_DIR$/public/scripts/vendor/README.md" />
-        <option value="$PROJECT_DIR$/public/styles/README.md" />
         <option value="$PROJECT_DIR$/public/views/catalog.html" />
         <option value="$PROJECT_DIR$/public/scripts/directives/dflDirectives.js" />
         <option value="$PROJECT_DIR$/public/views/menubar.html" />
+        <option value="$PROJECT_DIR$/public/styles/vendor/angular-snap/angular-snap-only.css.js" />
+        <option value="$PROJECT_DIR$/public/test-jtree.html" />
+        <option value="$PROJECT_DIR$/public/scripts/controllers/testJtreeCtrl.js" />
+        <option value="$PROJECT_DIR$/public/test-angular-snap.html" />
+        <option value="$PROJECT_DIR$/public/test/test-jtree.html" />
+        <option value="$PROJECT_DIR$/public/test/test-angular-snap.html" />
+        <option value="$PROJECT_DIR$/public/test/test-jtree/test-jtree.html" />
+        <option value="$PROJECT_DIR$/public/test/test-jtree/testJtreeCtrl.js" />
+        <option value="$PROJECT_DIR$/public/test/test-angular-snap/mainCtrl.js" />
+        <option value="$PROJECT_DIR$/public/test/test-angular-snap/style.css" />
+        <option value="$PROJECT_DIR$/public/test/test-angular-snap/test-angular-snap.html" />
+        <option value="$PROJECT_DIR$/public/styles/README.md" />
+        <option value="$PROJECT_DIR$/public/scripts/services/editorEngine.js" />
+        <option value="$PROJECT_DIR$/public/scripts/services/editorEngine2.js" />
+        <option value="$PROJECT_DIR$/public/styles/vendor/angular-snap/angular-snap.css" />
+        <option value="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/appModule.js" />
+        <option value="$PROJECT_DIR$/public/test/test-snap/test-snap.html" />
+        <option value="$PROJECT_DIR$/../../Snap.js-develop copy/demo/assets/demo.css" />
+        <option value="$PROJECT_DIR$/../../Snap.js-develop copy/demo/assets/demo.js" />
+        <option value="$PROJECT_DIR$/../../Snap.js-develop copy/demo/apps/default.html" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/styles/vendor/snap/snap.css" />
         <option value="$PROJECT_DIR$/public/styles/app.css" />
+        <option value="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
         <option value="$PROJECT_DIR$/public/views/work.html" />
       </list>
     </option>
@@ -121,7 +170,7 @@
   <component name="NamedScopeManager">
     <scope name="web" pattern="!file:app/bower_components/angular//*&amp;&amp;!file:app/bower_components/angular-cookies//*&amp;&amp;!file:app/bower_components/angular-mocks//*&amp;&amp;!file:app/bower_components/angular-resource//*&amp;&amp;!file:app/bower_components/angular-route//*&amp;&amp;!file:app/bower_components/angular-sanitize//*&amp;&amp;!file:app/bower_components/angular-scenario//*&amp;&amp;!file:app/bower_components/es5-shim//*&amp;&amp;!file:app/bower_components/es5-shim/tests//*&amp;&amp;!file:app/bower_components/es5-shim/tests/helpers//*&amp;&amp;!file:app/bower_components/es5-shim/tests/lib//*&amp;&amp;!file:app/bower_components/es5-shim/tests/spec//*&amp;&amp;!file:app/bower_components/json3//*&amp;&amp;!file:app/bower_components/json3/benchmark//*&amp;&amp;!file:app/bower_components/json3/benchmark/assets//*&amp;&amp;!file:app/bower_components/json3/lib//*&amp;&amp;!file:app/bower_components/json3/page//*&amp;&amp;!file:app/bower_components/json3/test//*&amp;&amp;!file:app/bower_components/json3/vendor//*&amp;&amp;!file:node_modules/.bin//*&amp;&amp;!file:node_modules/async//*&amp;&amp;!file:node_modules/connect-mongodb//*&amp;&amp;!file:node_modules/express//*&amp;&amp;!file:node_modules/express-namespace//*&amp;&amp;!file:node_modules/grunt/docs//*&amp;&amp;!file:node_modules/grunt//*&amp;&amp;!file:node_modules/grunt-autoprefixer//*&amp;&amp;!file:node_modules/grunt-concurrent//*&amp;&amp;!file:node_modules/grunt-contrib-clean//*&amp;&amp;!file:node_modules/grunt-contrib-coffee//*&amp;&amp;!file:node_modules/grunt-contrib-compass//*&amp;&amp;!file:node_modules/grunt-contrib-concat//*&amp;&amp;!file:node_modules/grunt-contrib-copy//*&amp;&amp;!file:node_modules/grunt-contrib-cssmin//*&amp;&amp;!file:node_modules/grunt-contrib-htmlmin//*&amp;&amp;!file:node_modules/grunt-contrib-imagemin/*&amp;&amp;!file:node_modules/grunt-contrib-imagemin//*&amp;&amp;!file:node_modules/grunt-contrib-jshint//*&amp;&amp;!file:node_modules/grunt-contrib-uglify//*&amp;&amp;!file:node_modules/grunt-contrib-watch//*&amp;&amp;!file:node_modules/grunt-express-server//*&amp;&amp;!file:node_modules/grunt-google-cdn//*&amp;&amp;!file:node_modules/grunt-karma//*&amp;&amp;!file:node_modules/grunt-ngmin//*&amp;&amp;!file:node_modules/grunt-open//*&amp;&amp;!file:node_modules/grunt-rev//*&amp;&amp;!file:node_modules/grunt-svgmin//*&amp;&amp;!file:node_modules/grunt-usemin//*&amp;&amp;!file:node_modules/hjs//*&amp;&amp;!file:node_modules/jshint-stylish//*&amp;&amp;!file:node_modules/karma//*&amp;&amp;!file:node_modules/karma-chrome-launcher//*&amp;&amp;!file:node_modules/karma-coffee-preprocessor//*&amp;&amp;!file:node_modules/karma-firefox-launcher//*&amp;&amp;!file:node_modules/karma-html2js-preprocessor//*&amp;&amp;!file:node_modules/karma-jasmine//*&amp;&amp;!file:node_modules/karma-ng-html2js-preprocessor//*&amp;&amp;!file:node_modules/karma-ng-scenario//*&amp;&amp;!file:node_modules/karma-phantomjs-launcher//*&amp;&amp;!file:node_modules/karma-requirejs//*&amp;&amp;!file:node_modules/karma-script-launcher//*&amp;&amp;!file:node_modules/load-grunt-tasks//*&amp;&amp;!file:node_modules/mongodb//*&amp;&amp;!file:node_modules/mongoose//*&amp;&amp;!file:node_modules/time-grunt//*&amp;&amp;!file:dictionaries//*&amp;&amp;!file:inspectionProfiles//*&amp;&amp;!file:jsLinters//*&amp;&amp;!file:libraries//*&amp;&amp;!file:runConfigurations//*&amp;&amp;!file:selenium//*&amp;&amp;!file:.name&amp;&amp;!file:bower.json&amp;&amp;!file:web.iml&amp;&amp;!file:encodings.xml&amp;&amp;!file:Gruntfile.js&amp;&amp;!file:jsLibraryMappings.xml&amp;&amp;!file:misc.xml&amp;&amp;!file:modules.xml&amp;&amp;!file:Readme.md&amp;&amp;!file:vcs.xml&amp;&amp;!file:workspace.xml&amp;&amp;!file:node_modules/protractor//*" />
     <scope name="app" pattern="(file:lib/db//*||file:lib/models//*||file:lib/routes//*||file:lib/services//*||file:lib/session//*||file:lib/utilities//*||file:lib/views//*||file:public/scripts//*||file:public/styles//*||file:public/views//*||file:public/template/tabs//*||file:public/template/tooltip//*||file:server.js)&amp;&amp;!file:public/styles/vendor/angularUI//*&amp;&amp;!file:public/scripts/vendor/angularUI//*&amp;&amp;!file:public/scripts/vendor//*" />
-    <scope name="client" pattern="((file:public/fonts//*||file:public/images//*||file:public/scripts//*||file:public/styles/error.css||file:public/styles/main.css||file:public/styles/menubarOnline.css||file:public/styles/signin.css||file:public/styles/style.css||file:public/views/*||file:public/template/progressbar/*||file:public/template/tabs/*||file:public/template/tooltip/*||file:public/404.html||file:public/about.html||file:public/index.html||file:public/signinHelp.html)&amp;&amp;!file:public/styles/vendor/bootstrap//*&amp;&amp;!file:public/styles/vendor/fonts//*&amp;&amp;!file:public/scripts/vendor/angular//*&amp;&amp;!file:public/scripts/vendor/angular-animate//*&amp;&amp;!file:public/scripts/vendor/angular-cookies//*&amp;&amp;!file:public/scripts/vendor/angular-mocks//*&amp;&amp;!file:public/scripts/vendor/angular-resource//*&amp;&amp;!file:public/scripts/vendor/angular-route//*&amp;&amp;!file:public/scripts/vendor/angular-sanitize//*&amp;&amp;!file:public/scripts/vendor/angular-scenario//*&amp;&amp;!file:public/scripts/vendor/angular-ui//*&amp;&amp;!file:public/scripts/vendor/angular-ui/templates//*&amp;&amp;!file:public/scripts/vendor/angular-ui/templates/stylesheets//*&amp;&amp;!file:public/scripts/vendor/angularjs-placeholder-master//*&amp;&amp;!file:public/scripts/vendor/bootstrap/css//*&amp;&amp;!file:public/scripts/vendor/bootstrap/fonts//*&amp;&amp;!file:public/scripts/vendor/es5-shim//*&amp;&amp;!file:public/scripts/vendor/jquery//*&amp;&amp;!file:public/scripts/vendor/json3//*&amp;&amp;!file:public/scripts/vendor/json3/lib//*&amp;&amp;!file:public/scripts/vendor/ng-file-upload//*&amp;&amp;!file:public/scripts/vendor/sizzle//*&amp;&amp;!file:public/scripts/vendor/sizzle/dist//*&amp;&amp;!file:public/scripts/vendor/sizzle/tasks//*&amp;&amp;!file:public/scripts/vendor/sizzle/test//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/data//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/libs/qunit//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/unit//*&amp;&amp;!file:public/scripts/vendor/socket.io//*||file:public/template/typeahead//*)&amp;&amp;!file:public/scripts/vendor/angular-ui-router//*&amp;&amp;!file:public/scripts/vendor/jtree//*&amp;&amp;!file:public/scripts/vendor/jtree/themes/default//*&amp;&amp;!file:public/scripts/vendor/angular-typeahead//*&amp;&amp;!file:public/scripts/vendor/aloha//*&amp;&amp;!file:public/scripts/vendor/plugins/common/abbr//*&amp;&amp;!file:public/scripts/vendor/plugins/common/align//*&amp;&amp;!file:public/scripts/vendor/plugins/common/autoparagraph/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/block//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/commands//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/contenthandler//*&amp;&amp;!file:public/scripts/vendor/plugins/common/contenthandler/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/dom-to-xhtml/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/highlighteditables//*&amp;&amp;!file:public/scripts/vendor/plugins/common/highlighteditables/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/highlighteditables/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/demo//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/extra//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/paste//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/img/jqueryui//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/img/metaview//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/vendor//*&amp;&amp;!file:public/scripts/vendor/plugins/common/undo//*&amp;&amp;!file:public/scripts/vendor/plugins/common/undo/demo//*" />
+    <scope name="client" pattern="((file:public/fonts//*||file:public/images//*||file:public/scripts//*||file:public/styles/error.css||file:public/styles/main.css||file:public/styles/menubarOnline.css||file:public/styles/signin.css||file:public/styles/style.css||file:public/views/*||file:public/template/progressbar/*||file:public/template/tabs/*||file:public/template/tooltip/*||file:public/404.html||file:public/about.html||file:public/index.html||file:public/signinHelp.html)&amp;&amp;!file:public/styles/vendor/bootstrap//*&amp;&amp;!file:public/styles/vendor/fonts//*&amp;&amp;!file:public/scripts/vendor/angular//*&amp;&amp;!file:public/scripts/vendor/angular-animate//*&amp;&amp;!file:public/scripts/vendor/angular-cookies//*&amp;&amp;!file:public/scripts/vendor/angular-mocks//*&amp;&amp;!file:public/scripts/vendor/angular-resource//*&amp;&amp;!file:public/scripts/vendor/angular-route//*&amp;&amp;!file:public/scripts/vendor/angular-sanitize//*&amp;&amp;!file:public/scripts/vendor/angular-scenario//*&amp;&amp;!file:public/scripts/vendor/angular-ui//*&amp;&amp;!file:public/scripts/vendor/angular-ui/templates//*&amp;&amp;!file:public/scripts/vendor/angular-ui/templates/stylesheets//*&amp;&amp;!file:public/scripts/vendor/angularjs-placeholder-master//*&amp;&amp;!file:public/scripts/vendor/bootstrap/css//*&amp;&amp;!file:public/scripts/vendor/bootstrap/fonts//*&amp;&amp;!file:public/scripts/vendor/es5-shim//*&amp;&amp;!file:public/scripts/vendor/jquery//*&amp;&amp;!file:public/scripts/vendor/json3//*&amp;&amp;!file:public/scripts/vendor/json3/lib//*&amp;&amp;!file:public/scripts/vendor/ng-file-upload//*&amp;&amp;!file:public/scripts/vendor/sizzle//*&amp;&amp;!file:public/scripts/vendor/sizzle/dist//*&amp;&amp;!file:public/scripts/vendor/sizzle/tasks//*&amp;&amp;!file:public/scripts/vendor/sizzle/test//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/data//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/libs/qunit//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/unit//*&amp;&amp;!file:public/scripts/vendor/socket.io//*||file:public/template/typeahead//*)&amp;&amp;!file:public/scripts/vendor/angular-ui-router//*&amp;&amp;!file:public/scripts/vendor/jtree//*&amp;&amp;!file:public/scripts/vendor/jtree/themes/default//*&amp;&amp;!file:public/scripts/vendor/angular-typeahead//*&amp;&amp;!file:public/scripts/vendor/aloha//*&amp;&amp;!file:public/scripts/vendor/plugins/common/abbr//*&amp;&amp;!file:public/scripts/vendor/plugins/common/align//*&amp;&amp;!file:public/scripts/vendor/plugins/common/autoparagraph/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/block//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/commands//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/characterpicker/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/contenthandler//*&amp;&amp;!file:public/scripts/vendor/plugins/common/contenthandler/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/dom-to-xhtml/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/format/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/highlighteditables//*&amp;&amp;!file:public/scripts/vendor/plugins/common/highlighteditables/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/highlighteditables/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/horizontalruler/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/demo//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/image/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/extra//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/link/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/list/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/paste//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/table/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/css//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/img//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/img/jqueryui//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/img/metaview//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/lib//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/ca//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/de//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/mk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/pt-br//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/ru//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/uk//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/nls/zh-hans//*&amp;&amp;!file:public/scripts/vendor/plugins/common/ui/vendor//*&amp;&amp;!file:public/scripts/vendor/plugins/common/undo//*&amp;&amp;!file:public/scripts/vendor/plugins/common/undo/demo//*||file:public/styles/app.css" />
     <scope name="server" pattern="file:lib/db/*||file:lib/routes/*||file:lib/services/*||file:lib/services/methods/*||file:lib/session/*||file:lib/store/*||file:lib/utilities/*||file:lib/views/*||file:public/scripts/app/schema.js||file:package.json||file:server.js||file:lib/model//*" />
   </component>
   <component name="ProjectFrameBounds">
@@ -209,20 +258,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -259,7 +294,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -278,6 +313,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -306,22 +359,8 @@
               <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
+              <option name="myItemId" value="snap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -340,10 +379,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="directives" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -433,7 +468,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -491,6 +562,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="attic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -533,26 +618,26 @@
     <property name="LayoutCode.rearrangeEntriesCSS" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/styles/vendor" />
-      <recent name="$PROJECT_DIR$/public/scripts/vendor/aloha" />
-      <recent name="$PROJECT_DIR$/public/scripts/vendor" />
-      <recent name="$PROJECT_DIR$/public/styles/vendor/aloha" />
-      <recent name="$PROJECT_DIR$/public/scripts/vendor/jtree" />
-    </key>
     <key name="OPEN_URL_DIALOG">
       <recent name="http://localhost:3000/users/19" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/public/test/test-snap" />
+      <recent name="$PROJECT_DIR$/public/styles/vendor" />
+      <recent name="$PROJECT_DIR$/public/scripts/vendor/aloha" />
+      <recent name="$PROJECT_DIR$/public/scripts/vendor" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/test/test-jtree" />
+      <recent name="$PROJECT_DIR$/public/test" />
+      <recent name="$PROJECT_DIR$/public/test/test-angular-snap" />
       <recent name="$PROJECT_DIR$/lib/utilities" />
       <recent name="$PROJECT_DIR$/content" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/public/template" />
-      <recent name="$PROJECT_DIR$/attic" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.server.js">
-    <configuration default="false" name="test.html" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" temporary="true" uri="http://localhost:63342/web/public/test-aloha.html">
+    <configuration default="false" name="test.html" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" temporary="true" uri="http://localhost:63342/web/public/test-jtree.html">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
@@ -568,6 +653,14 @@
       <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -578,23 +671,15 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -1122,7 +1207,11 @@
       <created>1395124056565</created>
       <updated>1395124056566</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="more navigation; better search result spacing">
+      <created>1395131257213</created>
+      <updated>1395131257213</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1147,16 +1236,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="22" width="2504" height="1418" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33018124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34615386" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34615386" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24890591" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286347" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18727346" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28923076" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34775087" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26651305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1164,9 +1252,10 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3031652" sideWeight="0.600624" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937598" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3031652" sideWeight="0.600624" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1184,9 +1273,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24890591" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.328905" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26651305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937598" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3031652" sideWeight="0.600624" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937598" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26651305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1203,7 +1292,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="mongodb mgr" />
     <MESSAGE value="mongodb mgr&#10;" />
     <MESSAGE value="chunk save &amp; TOC handling" />
     <MESSAGE value="chunk save &amp; TOC handling; generalized for any type of document&#10;" />
@@ -1228,7 +1316,8 @@
     <MESSAGE value="consolidated css declarations" />
     <MESSAGE value="cleaned up app.css" />
     <MESSAGE value="cleaned up app.css&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned up app.css&#10;" />
+    <MESSAGE value="more navigation; better search result spacing" />
+    <option name="LAST_COMMIT_MESSAGE" value="more navigation; better search result spacing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1242,121 +1331,10 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="1717" />
+      <option name="time" value="1719" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="29" selection-start="4757" selection-end="4757" vertical-scroll-proportion="0.0" vertical-offset="1426" max-vertical-offset="4920" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/workDirectoryService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2115" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-content/poem.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="32" selection-start="111" selection-end="111" vertical-scroll-proportion="0.07782101" vertical-offset="0" max-vertical-offset="39750" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-content/iliad-greek.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="39" selection-start="6070" selection-end="6070" vertical-scroll-proportion="0.8949416" vertical-offset="1500" max-vertical-offset="4020" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="10" selection-start="5255" selection-end="5255" vertical-scroll-proportion="0.0" vertical-offset="1340" max-vertical-offset="2805" />
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="http://localhost:3000/scripts/vendor/angular/angular.js">
-      <provider selected="true" editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/testJtreeCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="23" selection-start="1787" selection-end="1806" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="15" selection-start="1521" selection-end="1521" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/services/CatalogService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="9" selection-start="1822" selection-end="1822" vertical-scroll-proportion="0.5145119" vertical-offset="0" max-vertical-offset="1335" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/model/schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="4" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.15831135" vertical-offset="0" max-vertical-offset="5310">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection/query.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="5" selection-start="5092" selection-end="5092" vertical-scroll-proportion="0.7859922" vertical-offset="1599" max-vertical-offset="2370" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/init-db-populate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="123" selection-start="556" selection-end="556" vertical-scroll-proportion="0.25725594" vertical-offset="0" max-vertical-offset="2805" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/init-db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="19" selection-start="1796" selection-end="1796" vertical-scroll-proportion="0.8508431" vertical-offset="154" max-vertical-offset="975" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="24" selection-start="1130" selection-end="1130" vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="645" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/utilities/generalUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="2" selection-start="4426" selection-end="4426" vertical-scroll-proportion="0.74860334" vertical-offset="875" max-vertical-offset="1770" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="46" selection-start="7367" selection-end="7367" vertical-scroll-proportion="0.29608938" vertical-offset="2540" max-vertical-offset="4215" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="526" column="0" selection-start="18704" selection-end="18704" vertical-scroll-proportion="-9.538462" vertical-offset="7327" max-vertical-offset="8760" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="24" selection-start="2014" selection-end="2014" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="2085" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="25" selection-start="2490" selection-end="2490" vertical-scroll-proportion="-7.3974357" vertical-offset="83" max-vertical-offset="900">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/editorCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5586592" vertical-offset="1395" max-vertical-offset="2835">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/configService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="3" selection-start="1663" selection-end="1663" vertical-scroll-proportion="0.7206704" vertical-offset="0" max-vertical-offset="895" />
@@ -1364,9 +1342,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/signin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="34" selection-start="1179" selection-end="1179" vertical-scroll-proportion="0.34707904" vertical-offset="72" max-vertical-offset="945">
-          <folding />
-        </state>
+        <state line="25" column="34" selection-start="1179" selection-end="1179" vertical-scroll-proportion="0.34707904" vertical-offset="72" max-vertical-offset="945" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/phrase.rnc">
@@ -1376,11 +1352,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/app/appModule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="6" selection-start="2512" selection-end="2512" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/searchCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="66" column="24" selection-start="2974" selection-end="2974" vertical-scroll-proportion="0.0" vertical-offset="78" max-vertical-offset="900" />
@@ -1388,9 +1359,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/signupCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="20" selection-start="2215" selection-end="2215" vertical-scroll-proportion="0.5027933" vertical-offset="0" max-vertical-offset="895">
-          <folding />
-        </state>
+        <state line="51" column="20" selection-start="2215" selection-end="2215" vertical-scroll-proportion="0.5027933" vertical-offset="0" max-vertical-offset="895" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/socketsService.js">
@@ -1400,21 +1369,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/signinCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="36" selection-start="2198" selection-end="2198" vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="1170">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="55" column="36" selection-start="2198" selection-end="2198" vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="1170" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/menubarCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="16" selection-start="1598" selection-end="1606" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="36" selection-start="1702" selection-end="1702" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/sessionService.js">
@@ -1424,35 +1384,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="32" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4320">
-          <folding />
-        </state>
+        <state line="39" column="32" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4320" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="48" selection-start="2572" selection-end="2572" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="19785">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="50" selection-start="5179" selection-end="5179" vertical-scroll-proportion="0.0" vertical-offset="1010" max-vertical-offset="2070">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test-jtree.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="0" selection-start="4970" selection-end="4970" vertical-scroll-proportion="0.3433584" vertical-offset="1001" max-vertical-offset="1875" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test-aloha.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="48" selection-start="663" selection-end="663" vertical-scroll-proportion="0.27554536" vertical-offset="0" max-vertical-offset="871">
-          <folding />
-        </state>
+        <state line="61" column="48" selection-start="2572" selection-end="2572" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="19785" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../document-viewer-master/public/images/DV/embed/controlsArrows.png">
@@ -1460,82 +1397,19 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="360" selection-end="360" vertical-scroll-proportion="-4.4444447" vertical-offset="0" max-vertical-offset="210">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/styles/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="0.11320755" vertical-offset="0" max-vertical-offset="795">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="31" selection-start="6442" selection-end="6442" vertical-scroll-proportion="0.0" vertical-offset="1511" max-vertical-offset="3840">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/catalog.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="20" selection-start="2233" selection-end="2233" vertical-scroll-proportion="-5.14" vertical-offset="343" max-vertical-offset="2955">
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#accordion-group#1;n#accordion#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#form#0;n#div#0;n#accordion-group#1;n#accordion#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#td#0;n#tr#0;n#table#0;n#div#1;n#form#0;n#div#0;n#accordion-group#1;n#accordion#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#accordion-group#1;n#accordion#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
+        <state line="40" column="20" selection-start="2233" selection-end="2233" vertical-scroll-proportion="-5.14" vertical-offset="343" max-vertical-offset="2955" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/directives/dflDirectives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="36" selection-start="4235" selection-end="4235" vertical-scroll-proportion="0.0" vertical-offset="1472" max-vertical-offset="4260">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1395130816000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="120" column="36" selection-start="4235" selection-end="4235" vertical-scroll-proportion="0.0" vertical-offset="1472" max-vertical-offset="4260" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/menubar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="39" selection-start="3330" selection-end="3330" vertical-scroll-proportion="-27.916666" vertical-offset="125" max-vertical-offset="1020">
-          <folding>
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#4;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#5;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/work.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="35" selection-start="1314" selection-end="1314" vertical-scroll-proportion="-5.576923" vertical-offset="0" max-vertical-offset="840">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
+        <state line="53" column="39" selection-start="3330" selection-end="3330" vertical-scroll-proportion="-27.916666" vertical-offset="125" max-vertical-offset="1020" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/images/arrows.png">
@@ -1543,17 +1417,196 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/styles/app.css">
+    <entry file="file://$PROJECT_DIR$/../../document-viewer-master/public/stylesheets/DV/components/ui-navigation.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="266" column="36" selection-start="5893" selection-end="5893" vertical-scroll-proportion="0.3519553" vertical-offset="3675" max-vertical-offset="4815">
+        <state line="79" column="1" selection-start="1445" selection-end="1445" vertical-scroll-proportion="0.21787709" vertical-offset="990" max-vertical-offset="5055" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Snap.js-develop/demo/assets/demo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2985">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../document-viewer-master/public/stylesheets/DV/components/ui-navigation.css">
+    <entry file="file://$PROJECT_DIR$/attic/image-upload.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="1" selection-start="1445" selection-end="1445" vertical-scroll-proportion="0.21787709" vertical-offset="990" max-vertical-offset="5055">
+        <state line="85" column="32" selection-start="2372" selection-end="2381" vertical-scroll-proportion="0.22909507" vertical-offset="1075" max-vertical-offset="2325">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/test/test-jtree/test-jtree.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="17" selection-start="4940" selection-end="4940" vertical-scroll-proportion="0.5875" vertical-offset="790" max-vertical-offset="1935">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/test/test-jtree/testJtreeCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="3" selection-start="1125" selection-end="1993" vertical-scroll-proportion="0.4368932" vertical-offset="0" max-vertical-offset="824">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/test/test-display.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0875" vertical-offset="70" max-vertical-offset="960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/styles/vendor/bootstrap/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="36" selection-start="206" selection-end="206" vertical-scroll-proportion="0.101809956" vertical-offset="0" max-vertical-offset="884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/styles/vendor/bootstrap/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2376" column="19" selection-start="45042" selection-end="45045" vertical-scroll-proportion="0.33333334" vertical-offset="35354" max-vertical-offset="86865">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/styles/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="73" selection-start="149" selection-end="149" vertical-scroll-proportion="0.06896552" vertical-offset="0" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="360" selection-end="360" vertical-scroll-proportion="0.13793103" vertical-offset="0" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="47" selection-start="3063" selection-end="3063" vertical-scroll-proportion="0.0" vertical-offset="506" max-vertical-offset="3855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/jtree/themes/default/style.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="811">
+          <folding>
+            <element signature="e#2522#2625#2" expanded="true" />
+            <element signature="e#4211#4310#2" expanded="true" />
+            <element signature="e#6033#6298#2" expanded="true" />
+            <element signature="e#7329#7508#1" expanded="true" />
+            <element signature="e#10304#10467#2" expanded="true" />
+            <element signature="e#11442#11605#2" expanded="true" />
+            <element signature="e#13826#13989#2" expanded="true" />
+            <element signature="e#15030#15193#2" expanded="true" />
+            <element signature="e#17386#17549#2" expanded="true" />
+            <element signature="e#18586#18749#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../angular-snap.js-bower-master/angular-snap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="1" selection-start="0" selection-end="92" vertical-scroll-proportion="0.12742719" vertical-offset="0" max-vertical-offset="1395">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="54" selection-start="5311" selection-end="5311" vertical-scroll-proportion="0.33333334" vertical-offset="1316" max-vertical-offset="4620">
+          <folding>
+            <marker date="1395170692000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1395170692000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1395170692000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/appModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="3" selection-start="1467" selection-end="1467" vertical-scroll-proportion="0.22991072" vertical-offset="49" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1613" selection-end="1613" vertical-scroll-proportion="0.2845982" vertical-offset="0" max-vertical-offset="896">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Snap.js-develop/demo/apps/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="52" selection-start="639" selection-end="639" vertical-scroll-proportion="0.22700815" vertical-offset="0" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="61" selection-start="4514" selection-end="4514" vertical-scroll-proportion="0.31954888" vertical-offset="885" max-vertical-offset="2130">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/styles/vendor/snap/snap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="17" selection-start="85" selection-end="103" vertical-scroll-proportion="-0.25449872" vertical-offset="273" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/snap/snap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="477" column="13" selection-start="22649" selection-end="22649" vertical-scroll-proportion="0.33333334" vertical-offset="6746" max-vertical-offset="8475">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/open-menu-icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/styles/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="338" column="3" selection-start="7109" selection-end="7109" vertical-scroll-proportion="0.0" vertical-offset="4779" max-vertical-offset="6345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="181" column="19" selection-start="8271" selection-end="8271" vertical-scroll-proportion="0.0" vertical-offset="1916" max-vertical-offset="4035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/work.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="39" selection-start="2334" selection-end="2334" vertical-scroll-proportion="0.48370928" vertical-offset="439" max-vertical-offset="1470">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -70,7 +70,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
 
             /* A poem */
             Poem: function (work) {
-                var content = $('#content')[0];
+                var content = $('#editorContent')[0];
                 content.innerHTML = work.content; // TODO not so straightforward: parts of the content might not be verses
                 if (EditorSettings.lineNumberingOn) {
                     // TODO care must be taken that this works even if content lines are broken up!

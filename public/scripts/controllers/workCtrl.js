@@ -177,8 +177,21 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
         });
     });
 
+    function Drawer(name) {
+        this.snap = new Snap({element: document.getElementById(name)});
+        this.toggle = function () {
+            if(this.snap.state().state=="left" ){
+                this.snap.close();
+            } else {
+                this.snap.open('left');
+            }
+        }
+    }
 
     $scope.editor = {
+
+        /* drawer: contains table of contents and perhaps other aids */
+        drawer: new Drawer('tocDrawer'),
 
         id: $stateParams.id,
 

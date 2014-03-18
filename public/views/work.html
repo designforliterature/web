@@ -23,28 +23,70 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 <style id='d_styles'>
 </style>
 
-<div style="margin-top: 1em">
-    <table>
-        <tr>
-            <td class="editorToc">
-                <table style="border-collapse:collapse">
-                    <tr>
-                        <td><div style="text-align: center"><button class="previousSection"></button><b> Table of Contents </b><button class="nextSection"></button></div></td>
-                    </tr>
-                    <tr style="text-align: center;border: 1px; border-style: solid;border-color: #00B7FF">
-                        <td>Section <input style="width:20px" ng-value="{{editor.pager.currentPage}}"/> of {{editor.pager.totalPages}}</td>
-                    </tr>
-                    <tr>
-                        <td >
-                            <div id="toc" class="editorTocTree"/>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td style="vertical-align: top;">
-                <div class="editorContent" id="content"/>
-            </td>
-        </tr>
-    </table>
+<div style="margin-top: 5em" class="snap-drawers">
+    <div class="snap-drawer snap-drawer-left">
+        <div class="editorToc">
+            <table>
+                <tr>
+                    <td>
+                        <div style="text-align: center">
+                            <button class="previousSection"></button>
+                            <b> Table of Contents </b>
+                            <button class="nextSection"></button>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td>Section <input style="width:20px" ng-value="{{editor.pager.currentPage}}"/> of
+                        {{editor.pager.totalPages}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="toc" class="editorTocTree"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="snap-drawer snap-drawer-right"></div>
 </div>
 
+<div style="margin-top: 5em" id="tocDrawer" class="snap-content">
+    <a ng-click="editor.drawer.toggle()" id="open-left"></a>
+    <div class="editorContent" id="editorContent"/>
+</div>
+
+
+<!--<div style="margin-top: 1em">-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td class="editorToc">-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>-->
+<!--<div style="text-align: center">-->
+<!--<button class="previousSection"></button>-->
+<!--<b> Table of Contents </b>-->
+<!--<button class="nextSection"></button>-->
+<!--</div>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr style="text-align: center;border: 1px; border-style: solid;border-color: #00B7FF">-->
+<!--<td>Section <input style="width:20px" ng-value="{{editor.pager.currentPage}}"/> of-->
+<!--{{editor.pager.totalPages}}-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--<div id="toc" class="editorTocTree"/>-->
+<!--</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</td>-->
+<!--<td style="vertical-align: top;">-->
+<!--<div class="editorContent" id="editorContent"/>-->
+<!--</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--</div>-->

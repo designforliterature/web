@@ -31,10 +31,15 @@
 */
 
 /* START OF GLOBAL CSS */
+html,
 body {
-    padding-top: 5px;
+    font-family: sans-serif;
+    margin: 0;
     padding-left: 5px;
     padding-right: 5px;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    overflow: hidden;
 }
 
 /* Following to make angularjs-bootstrap-ui work correctly */
@@ -169,6 +174,7 @@ textarea, input, select .catalogField {
     border-style: solid;
     border-color: #00B7FF;
     height: 800px;
+    width: 250px;
 }
 
 .editorTocTree {
@@ -179,7 +185,7 @@ textarea, input, select .catalogField {
     background-color: #fdecab;
     padding: 1em 1em 1em 1em;
     height: 800px;
-    width: auto;
+    width: 250px;
     -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
     -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
     box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
@@ -312,5 +318,101 @@ div.errorMsg {
 .nextSection:focus {
     outline: 0;
 }
-
 /* END OF NAVIGATION CSS */
+
+
+
+/* START OF SNAP CSS FOR TOC */
+.snapjs-right .snap-drawer-left {
+    /* Show "Left" drawer for the "Right" drawer  */
+    display: block;
+    right: 0;
+    left: auto;
+}
+
+/* Hide the actual "Right" drawer  */
+.snapjs-right .snap-drawer-right {
+    display: none;
+}
+
+/* Show the "Drag" background  */
+/*#tocDrawer {*/
+    /*background: #BFC7D8 url(drag.png) center 75% no-repeat;*/
+/*}*/
+
+#open-left {
+    background: url(../images/open-menu-icon.png) center center no-repeat;
+    display: block;
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Show the red "No Drag" box */
+/*#no-drag,*/
+/*#do-drag {*/
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*width: 50%;*/
+    /*height: 100px;*/
+    /*margin-left: -25%;*/
+    /*margin-top: -50px;*/
+    /*background: red;*/
+    /*color: #FFF;*/
+    /*text-align: center;*/
+    /*line-height: 100px;*/
+/*}*/
+/*#do-drag{*/
+    /*background: green;*/
+/*}*/
+
+/* Styles for fading out the drawer content  */
+/*.drawer-inner {*/
+    /*-webkit-transition: opacity 0.3s ease;*/
+    /*-moz-transition: opacity 0.3s ease;*/
+    /*-ms-transition: opacity 0.3s ease;*/
+    /*-o-transition: opacity 0.3s ease;*/
+    /*transition: opacity 0.3s ease;*/
+/*}*/
+
+.snapjs-expand-left .drawer-inner,
+.snapjs-expand-right .drawer-inner {
+    opacity: 0;
+}
+
+/* Styles for the "Settings" demo */
+.opt {
+    /*padding: 20px;*/
+    /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/
+}
+
+.opt p {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #222;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* Default demo styles */
+.snap-content {
+    background: white; /* #BFC7D8; */
+}
+
+.snap-drawers {
+    background: white; /* #323949; */
+}
+
+.snap-drawer {
+    background: white; /* #323949; */
+    /*color: black; *//* #eee; */
+}
+
+/*.snap-drawer h3 {*/
+    /*font-size: 36px;*/
+    /*font-weight: normal;*/
+    /*margin: 15px;*/
+/*}*/
+
+/* END OF SNAP CSS FOR TOC */
