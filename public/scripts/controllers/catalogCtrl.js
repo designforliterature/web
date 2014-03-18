@@ -28,11 +28,14 @@
  * Controls the catalog behavior (search, create, update).
  */
 
-horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $timeout, $upload, $state) {
-
-    var defaultNotify = false;
+horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $timeout, $upload) {
 
     $('input[type=file]').css('background-color', 'red');
+
+    // If user is signed in, redirect to the "home" view.
+//    if (!dflGlobals.session.signedIn) {
+//        $location.path = 'signin';
+//    }
 
     $scope.catalog = {
 
@@ -71,7 +74,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
 
         postData: {
             metadata: undefined, // The catalog metadata
-            notify: defaultNotify // eventually a user preference
+            notify: dflGlobals.defaultNotify // eventually a user preference
         },
 
         searchResults: undefined,
@@ -188,7 +191,7 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
         /* query: catalog search query fields TODO must conform to server-side schema.query! */
         query: {
             general: null, /* general: queries any metadata and content */
-            notify: defaultNotify /* eventually part of user prefs */
+            notify: dflGlobals.defaultNotify /* eventually part of user prefs */
         },
 
 //        /* goBrowse: Go browse TODO unfinished */
@@ -247,18 +250,6 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, SocketsService, $ti
                 }
 
             }
-        },
-
-        /* status: get server status DBG ONLY TODO REMOVE */
-        status: function (event) {
-            $http.get('/sys/status')
-                .success(function (res, status, headers, config) {
-                    alert(res.msg);
-                })
-                .error(function (err, status, headers, config) {
-                    console.trace(err);
-                });
-
         },
 
         /* searchCatalog: searches catalog */

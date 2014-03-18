@@ -34,6 +34,19 @@
  * App globals independent of angularjs
  */
 var dflGlobals = {
+
+    session: {
+        /**
+         * signedIn: true if user is currently signed in
+         */
+        signedIn: false
+    },
+
+    /**
+     * defaultNotify: whether notifications should be used for common transactions or not
+     */
+    defaultNotify: false,
+
     /**
      * Configuration parameters
      */

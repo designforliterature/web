@@ -73,6 +73,7 @@ Note: Using <% and %> as Hogan delimiters instead of mustaches (mustaches reserv
     <script src="scripts/app/appModule.js"></script>
     <script src="scripts/app/shared.js"></script>
     <script src="scripts/services/configService.js"></script>
+    <script src="scripts/services/sessionService.js"></script>
     <script src="scripts/services/notificationService.js"></script>
     <script src="scripts/services/socketsService.js"></script>
     <script src="scripts/services/workDirectoryService.js"></script>
@@ -112,7 +113,9 @@ Note: Using <% and %> as Hogan delimiters instead of mustaches (mustaches reserv
 </script>
 <body ng-app="horaceApp">
 
+
 <div ng-controller="AppCtrl">
+<!--<button style="margin: 10px 10px 10px 10px" ng-click="app.serverStatus()">Server Status (dbg)</button>-->
 
     <div ng-include="app.menubar"></div>
 

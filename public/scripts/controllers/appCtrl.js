@@ -53,20 +53,45 @@ horaceApp.debug = function (obj, type) {
     }
 };
 
-horaceApp.controller('AppCtrl', function ($scope, $rootScope, SocketsService) {
-
-//    $rootScope.$on('$stateChangeStart',
-//        function (event, toState, toParams, fromState, fromParams) {
-////            event.preventDefault();
-//        });
+/**
+ * AppCtrl: root controller for the app.
+ * Injects all services that must be instantiated when, e.g., any page is refreshed.
+ */
+horaceApp.controller('AppCtrl', function ($scope, $rootScope, $http, $state, SocketsService, SessionService) {
 
     // Connect websockets when client is (re-)loaded
     SocketsService.connectSockets();
 
+
+    $rootScope.$on('$stateChangeStart',
+        function (event, toState, toParams, fromState, fromParams) {
+            console.info(fromState.name + ' -> ' + toState.name); // dbg
+//            SessionService.checkSessionState(function (err, signedIn) {
+//                if (!signedIn) {
+//                    event.preventDefault();
+//                    $state.go('signin');
+//                }
+//            });
+        });
+
     $scope.app =
     {
-        menubar: 'views/menubar.html'
+        /* menubar: include this view into the HTML page */
+        menubar: 'views/menubar.html',
+
+        /* serverStatus: get server status DBG ONLY TODO REMOVE */
+        serverStatus: function (event) {
+            $http.get('/sys/status')
+                .success(function (res, status, headers, config) {
+                    alert(res.msg);
+                })
+                .error(function (err, status, headers, config) {
+                    console.trace(err);
+                });
+        }
     };
 
 });
 /* End AppCtrl */
+
+

@@ -26,7 +26,7 @@
 'use strict';
 
 // Handles the signup profile data.
-horaceApp.controller('SignupCtrl', function ($scope, $http, $location) {
+horaceApp.controller('SignupCtrl', function ($scope, $http, $state) {
 
     // Provided for the benefit of directives
     $scope.dfl_scopeFieldName = 'signup';
@@ -38,7 +38,7 @@ horaceApp.controller('SignupCtrl', function ($scope, $http, $location) {
                 .success(function (res) {
                     horaceApp.debug(res);
                     if (res.type === 'ack') {
-                        $location.path('catalog');
+                        $state.go('catalog');
                     } else {
                         $scope.signup.user.name = '';
                         $scope.signup.user.password = '';

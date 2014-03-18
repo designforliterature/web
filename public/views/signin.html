@@ -43,7 +43,7 @@
                     <a class="error" ng-href="signinHelp.html" target="_blank">{{signin.msg}} </a>
                 </div>
             </div>
-            <button id="submit" ng-click="signin.login()" class="signinButton-{{!signinForm.$valid}}"
+            <button id="submit" ng-click="signin.signIn()" class="signinButton-{{!signinForm.$valid}}"
                     ng-disabled="!signinForm.$valid">Sign In
             </button>
             <div class="small"><a ng-href="signinHelp.html" target="_blank">Sign in help</a></div>

@@ -26,14 +26,12 @@
 
 horaceApp.controller('SearchCtrl', function ($scope, $http, SocketsService, $timeout, $upload, $state) {
 
-    var defaultNotify = false;
-
     $scope.search = {
 
         /* query: catalog search query fields TODO must conform to server-side schema.query! */
         query: {
             general: null, /* general: queries any metadata and content */
-            notify: defaultNotify /* eventually part of user prefs */
+            notify: dflGlobals.defaultNotify /* eventually part of user prefs */
         },
 
         searchResults: undefined,

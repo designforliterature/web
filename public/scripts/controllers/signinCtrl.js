@@ -26,22 +26,32 @@
 'use strict';
 
 /**
- * Controls user signin behavior
+ * Controls user signin behavior. The user is first routed to the signin view.
  */
 
-horaceApp.controller('SigninCtrl', function ($scope, $http, $location) {
+horaceApp.controller('SigninCtrl', function ($scope, $http, $state) {
 
     // Provided for the benefit of directives
     $scope.dfl_scopeFieldName = 'signin';
 
+    // If user is signed in, redirect to the "home" view.
+    if (dflGlobals.session.signedIn) {
+        $state.go('catalog');
+    }
+
     $scope.signin = {
-        login: function () {
+
+        /**
+         * signIn: called when user completes signin form.
+         * If signin is ok, goes to "home" page.
+         */
+        signIn: function () {
             var user = $scope.signin.user;
             $http.put('/session', user)
                 .success(function (res) {
                     horaceApp.debug(res);
                     if (res.type === 'ack') {
-                        $location.path('catalog');
+                        $state.go('catalog');
                     } else {
                         $scope.signin.user.name = '';
                         $scope.signin.user.password = '';

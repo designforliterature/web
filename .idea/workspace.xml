@@ -7,21 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/scripts/controllers/homeCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/menubarOnline.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/views/menubarOnline.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/views/menubarOffline.html" afterPath="$PROJECT_DIR$/public/views/menubar.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/services/sessionService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app/appModule.js" afterPath="$PROJECT_DIR$/public/scripts/app/appModule.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/directives/dflDirectives.js" afterPath="$PROJECT_DIR$/public/scripts/directives/dflDirectives.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/catalog.html" afterPath="$PROJECT_DIR$/public/views/catalog.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/catalog.js" afterPath="$PROJECT_DIR$/lib/routes/catalog.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/init-db-populate.js" afterPath="$PROJECT_DIR$/scripts/init-db-populate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/init-db.js" afterPath="$PROJECT_DIR$/scripts/init-db.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/db/mongoDbManager.js" afterPath="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/signin.css" afterPath="$PROJECT_DIR$/public/styles/signin.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/menubar.html" afterPath="$PROJECT_DIR$/public/views/menubar.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/searchCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/searchCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app/shared.js" afterPath="$PROJECT_DIR$/public/scripts/app/shared.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/signin.html" afterPath="$PROJECT_DIR$/public/views/signin.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/signinCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/signinCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/signup.html" afterPath="$PROJECT_DIR$/public/views/signup.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/signupCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/signupCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/users.js" afterPath="$PROJECT_DIR$/lib/routes/users.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -47,68 +43,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="users.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/routes/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="13" selection-start="3122" selection-end="3122" vertical-scroll-proportion="0.78080416" vertical-offset="223" max-vertical-offset="2100">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signup.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/signup.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="25" selection-start="2490" selection-end="2490" vertical-scroll-proportion="-6.448718" vertical-offset="157" max-vertical-offset="900">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mongoDbManager.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="526" column="0" selection-start="18704" selection-end="18704" vertical-scroll-proportion="-9.538462" vertical-offset="7327" max-vertical-offset="8760">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signupCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/signupCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="69" selection-start="1333" selection-end="1333" vertical-scroll-proportion="-3.2777777" vertical-offset="243" max-vertical-offset="960">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="signinCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/controllers/signinCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1484" selection-end="1484" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="975">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appCtrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="31" selection-start="2515" selection-end="2515" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="855">
+            <state line="13" column="48" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.html">
+      <file leaf-file-name="signin.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/signin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="25" selection-start="5724" selection-end="5724" vertical-scroll-proportion="-40.125" vertical-offset="777" max-vertical-offset="2025">
+            <state line="25" column="34" selection-start="1179" selection-end="1179" vertical-scroll-proportion="-5.5" vertical-offset="100" max-vertical-offset="945">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sessionService.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/sessionService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="25" selection-start="1935" selection-end="1935" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="catalogCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="41" selection-start="2102" selection-end="2102" vertical-scroll-proportion="0.0" vertical-offset="107" max-vertical-offset="4395">
               <folding />
             </state>
           </provider>
@@ -117,19 +82,58 @@
       <file leaf-file-name="menubar.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/menubar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="54" selection-start="2718" selection-end="2718" vertical-scroll-proportion="-12.0" vertical-offset="105" max-vertical-offset="960">
+            <state line="23" column="8" selection-start="1143" selection-end="1146" vertical-scroll-proportion="-4.8" vertical-offset="105" max-vertical-offset="960">
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#3;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#4;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/home.html">
+      <file leaf-file-name="appCtrl.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="24" selection-start="1130" selection-end="1130" vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="645">
+            <state line="71" column="39" selection-start="2835" selection-end="2835" vertical-scroll-proportion="0.46368715" vertical-offset="350" max-vertical-offset="1245">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signupCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/signupCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="31" selection-start="1721" selection-end="1721" vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="960">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="118" column="0" selection-start="5872" selection-end="5872" vertical-scroll-proportion="-20.708334" vertical-offset="1273" max-vertical-offset="2070">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appModule.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/app/appModule.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="6" selection-start="2512" selection-end="2512" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="930">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="catalog.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/catalog.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="78" selection-start="1405" selection-end="1405" vertical-scroll-proportion="-8.291667" vertical-offset="236" max-vertical-offset="2985">
               <folding />
             </state>
           </provider>
@@ -163,7 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/node-examples/http_requests_parallel.js" />
         <option value="$PROJECT_DIR$/node-examples/tcp_server.js" />
         <option value="$PROJECT_DIR$/node-examples/read_file_stream.js" />
         <option value="$PROJECT_DIR$/node-examples/pipe_streams.js" />
@@ -179,7 +182,6 @@
         <option value="$PROJECT_DIR$/public/template/accordion/accordion-group.html" />
         <option value="localhost:3000/scripts/vendor/jquery/jquery.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/workService.js" />
-        <option value="$PROJECT_DIR$/lib/routes/catalog.js" />
         <option value="localhost:3000/scripts/vendor/angular/angular.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/workDirectoryService.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/editorEngine.js" />
@@ -187,7 +189,6 @@
         <option value="$PROJECT_DIR$/public/test-display.html" />
         <option value="$PROJECT_DIR$/public/scripts/services/editorSettings.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/editorEngine2.js" />
-        <option value="$PROJECT_DIR$/public/views/catalog.html" />
         <option value="$PROJECT_DIR$/public/views/work.html" />
         <option value="$PROJECT_DIR$/test-content/iliad-greek.txt" />
         <option value="$PROJECT_DIR$/test-content/poem.txt" />
@@ -196,31 +197,34 @@
         <option value="$PROJECT_DIR$/public/scripts/controllers/testJtreeCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
         <option value="$PROJECT_DIR$/public/styles/app.css" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/searchCtrl.js" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" />
-        <option value="$PROJECT_DIR$/public/scripts/app/shared.js" />
         <option value="$PROJECT_DIR$/lib/services/CatalogService.js" />
         <option value="$PROJECT_DIR$/public/scripts/app/appModule.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/signinCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/directives/dflDirectives.js" />
         <option value="$PROJECT_DIR$/public/styles/signin.css" />
-        <option value="$PROJECT_DIR$/public/views/signin.html" />
-        <option value="$PROJECT_DIR$/public/views/signup.html" />
         <option value="$PROJECT_DIR$/scripts/init-db.js" />
         <option value="$PROJECT_DIR$/scripts/init-db-populate.js" />
         <option value="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
+        <option value="$PROJECT_DIR$/lib/routes/catalog.js" />
+        <option value="$PROJECT_DIR$/public/views/signup.html" />
+        <option value="$PROJECT_DIR$/lib/routes/users.js" />
+        <option value="$PROJECT_DIR$/public/views/menubar.html" />
+        <option value="$PROJECT_DIR$/public/scripts/controllers/searchCtrl.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/shared.js" />
+        <option value="$PROJECT_DIR$/public/views/catalog.html" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/views/signin.html" />
+        <option value="$PROJECT_DIR$/public/scripts/controllers/signinCtrl.js" />
+        <option value="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" />
+        <option value="$PROJECT_DIR$/public/scripts/services/sessionService.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/signupCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/appCtrl.js" />
-        <option value="$PROJECT_DIR$/public/views/menubar.html" />
-        <option value="$PROJECT_DIR$/lib/routes/users.js" />
       </list>
     </option>
   </component>
   <component name="NamedScopeManager">
     <scope name="web" pattern="!file:app/bower_components/angular//*&amp;&amp;!file:app/bower_components/angular-cookies//*&amp;&amp;!file:app/bower_components/angular-mocks//*&amp;&amp;!file:app/bower_components/angular-resource//*&amp;&amp;!file:app/bower_components/angular-route//*&amp;&amp;!file:app/bower_components/angular-sanitize//*&amp;&amp;!file:app/bower_components/angular-scenario//*&amp;&amp;!file:app/bower_components/es5-shim//*&amp;&amp;!file:app/bower_components/es5-shim/tests//*&amp;&amp;!file:app/bower_components/es5-shim/tests/helpers//*&amp;&amp;!file:app/bower_components/es5-shim/tests/lib//*&amp;&amp;!file:app/bower_components/es5-shim/tests/spec//*&amp;&amp;!file:app/bower_components/json3//*&amp;&amp;!file:app/bower_components/json3/benchmark//*&amp;&amp;!file:app/bower_components/json3/benchmark/assets//*&amp;&amp;!file:app/bower_components/json3/lib//*&amp;&amp;!file:app/bower_components/json3/page//*&amp;&amp;!file:app/bower_components/json3/test//*&amp;&amp;!file:app/bower_components/json3/vendor//*&amp;&amp;!file:node_modules/.bin//*&amp;&amp;!file:node_modules/async//*&amp;&amp;!file:node_modules/connect-mongodb//*&amp;&amp;!file:node_modules/express//*&amp;&amp;!file:node_modules/express-namespace//*&amp;&amp;!file:node_modules/grunt/docs//*&amp;&amp;!file:node_modules/grunt//*&amp;&amp;!file:node_modules/grunt-autoprefixer//*&amp;&amp;!file:node_modules/grunt-concurrent//*&amp;&amp;!file:node_modules/grunt-contrib-clean//*&amp;&amp;!file:node_modules/grunt-contrib-coffee//*&amp;&amp;!file:node_modules/grunt-contrib-compass//*&amp;&amp;!file:node_modules/grunt-contrib-concat//*&amp;&amp;!file:node_modules/grunt-contrib-copy//*&amp;&amp;!file:node_modules/grunt-contrib-cssmin//*&amp;&amp;!file:node_modules/grunt-contrib-htmlmin//*&amp;&amp;!file:node_modules/grunt-contrib-imagemin/*&amp;&amp;!file:node_modules/grunt-contrib-imagemin//*&amp;&amp;!file:node_modules/grunt-contrib-jshint//*&amp;&amp;!file:node_modules/grunt-contrib-uglify//*&amp;&amp;!file:node_modules/grunt-contrib-watch//*&amp;&amp;!file:node_modules/grunt-express-server//*&amp;&amp;!file:node_modules/grunt-google-cdn//*&amp;&amp;!file:node_modules/grunt-karma//*&amp;&amp;!file:node_modules/grunt-ngmin//*&amp;&amp;!file:node_modules/grunt-open//*&amp;&amp;!file:node_modules/grunt-rev//*&amp;&amp;!file:node_modules/grunt-svgmin//*&amp;&amp;!file:node_modules/grunt-usemin//*&amp;&amp;!file:node_modules/hjs//*&amp;&amp;!file:node_modules/jshint-stylish//*&amp;&amp;!file:node_modules/karma//*&amp;&amp;!file:node_modules/karma-chrome-launcher//*&amp;&amp;!file:node_modules/karma-coffee-preprocessor//*&amp;&amp;!file:node_modules/karma-firefox-launcher//*&amp;&amp;!file:node_modules/karma-html2js-preprocessor//*&amp;&amp;!file:node_modules/karma-jasmine//*&amp;&amp;!file:node_modules/karma-ng-html2js-preprocessor//*&amp;&amp;!file:node_modules/karma-ng-scenario//*&amp;&amp;!file:node_modules/karma-phantomjs-launcher//*&amp;&amp;!file:node_modules/karma-requirejs//*&amp;&amp;!file:node_modules/karma-script-launcher//*&amp;&amp;!file:node_modules/load-grunt-tasks//*&amp;&amp;!file:node_modules/mongodb//*&amp;&amp;!file:node_modules/mongoose//*&amp;&amp;!file:node_modules/time-grunt//*&amp;&amp;!file:dictionaries//*&amp;&amp;!file:inspectionProfiles//*&amp;&amp;!file:jsLinters//*&amp;&amp;!file:libraries//*&amp;&amp;!file:runConfigurations//*&amp;&amp;!file:selenium//*&amp;&amp;!file:.name&amp;&amp;!file:bower.json&amp;&amp;!file:web.iml&amp;&amp;!file:encodings.xml&amp;&amp;!file:Gruntfile.js&amp;&amp;!file:jsLibraryMappings.xml&amp;&amp;!file:misc.xml&amp;&amp;!file:modules.xml&amp;&amp;!file:Readme.md&amp;&amp;!file:vcs.xml&amp;&amp;!file:workspace.xml&amp;&amp;!file:node_modules/protractor//*" />
     <scope name="app" pattern="(file:lib/db//*||file:lib/models//*||file:lib/routes//*||file:lib/services//*||file:lib/session//*||file:lib/utilities//*||file:lib/views//*||file:public/scripts//*||file:public/styles//*||file:public/views//*||file:public/template/tabs//*||file:public/template/tooltip//*||file:server.js)&amp;&amp;!file:public/styles/vendor/angularUI//*&amp;&amp;!file:public/scripts/vendor/angularUI//*&amp;&amp;!file:public/scripts/vendor//*" />
-    <scope name="client" pattern="((file:public/fonts//*||file:public/images//*||file:public/scripts//*||file:public/styles/error.css||file:public/styles/main.css||file:public/styles/menubarOnline.css||file:public/styles/signin.css||file:public/styles/style.css||file:public/views/*||file:public/template/progressbar/*||file:public/template/tabs/*||file:public/template/tooltip/*||file:public/404.html||file:public/about.html||file:public/index.html||file:public/signinHelp.html)&amp;&amp;!file:public/styles/vendor/bootstrap//*&amp;&amp;!file:public/styles/vendor/fonts//*&amp;&amp;!file:public/scripts/vendor/angular//*&amp;&amp;!file:public/scripts/vendor/angular-animate//*&amp;&amp;!file:public/scripts/vendor/angular-cookies//*&amp;&amp;!file:public/scripts/vendor/angular-mocks//*&amp;&amp;!file:public/scripts/vendor/angular-resource//*&amp;&amp;!file:public/scripts/vendor/angular-route//*&amp;&amp;!file:public/scripts/vendor/angular-sanitize//*&amp;&amp;!file:public/scripts/vendor/angular-scenario//*&amp;&amp;!file:public/scripts/vendor/angular-ui//*&amp;&amp;!file:public/scripts/vendor/angular-ui/templates//*&amp;&amp;!file:public/scripts/vendor/angular-ui/templates/stylesheets//*&amp;&amp;!file:public/scripts/vendor/angularjs-placeholder-master//*&amp;&amp;!file:public/scripts/vendor/bootstrap/css//*&amp;&amp;!file:public/scripts/vendor/bootstrap/fonts//*&amp;&amp;!file:public/scripts/vendor/es5-shim//*&amp;&amp;!file:public/scripts/vendor/jquery//*&amp;&amp;!file:public/scripts/vendor/json3//*&amp;&amp;!file:public/scripts/vendor/json3/lib//*&amp;&amp;!file:public/scripts/vendor/ng-file-upload//*&amp;&amp;!file:public/scripts/vendor/sizzle//*&amp;&amp;!file:public/scripts/vendor/sizzle/dist//*&amp;&amp;!file:public/scripts/vendor/sizzle/tasks//*&amp;&amp;!file:public/scripts/vendor/sizzle/test//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/data//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/libs/qunit//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/unit//*&amp;&amp;!file:public/scripts/vendor/socket.io//*||file:public/template/typeahead//*)&amp;&amp;!file:public/scripts/vendor/angular-ui-router//*" />
+    <scope name="client" pattern="((file:public/fonts//*||file:public/images//*||file:public/scripts//*||file:public/styles/error.css||file:public/styles/main.css||file:public/styles/menubarOnline.css||file:public/styles/signin.css||file:public/styles/style.css||file:public/views/*||file:public/template/progressbar/*||file:public/template/tabs/*||file:public/template/tooltip/*||file:public/404.html||file:public/about.html||file:public/index.html||file:public/signinHelp.html)&amp;&amp;!file:public/styles/vendor/bootstrap//*&amp;&amp;!file:public/styles/vendor/fonts//*&amp;&amp;!file:public/scripts/vendor/angular//*&amp;&amp;!file:public/scripts/vendor/angular-animate//*&amp;&amp;!file:public/scripts/vendor/angular-cookies//*&amp;&amp;!file:public/scripts/vendor/angular-mocks//*&amp;&amp;!file:public/scripts/vendor/angular-resource//*&amp;&amp;!file:public/scripts/vendor/angular-route//*&amp;&amp;!file:public/scripts/vendor/angular-sanitize//*&amp;&amp;!file:public/scripts/vendor/angular-scenario//*&amp;&amp;!file:public/scripts/vendor/angular-ui//*&amp;&amp;!file:public/scripts/vendor/angular-ui/templates//*&amp;&amp;!file:public/scripts/vendor/angular-ui/templates/stylesheets//*&amp;&amp;!file:public/scripts/vendor/angularjs-placeholder-master//*&amp;&amp;!file:public/scripts/vendor/bootstrap/css//*&amp;&amp;!file:public/scripts/vendor/bootstrap/fonts//*&amp;&amp;!file:public/scripts/vendor/es5-shim//*&amp;&amp;!file:public/scripts/vendor/jquery//*&amp;&amp;!file:public/scripts/vendor/json3//*&amp;&amp;!file:public/scripts/vendor/json3/lib//*&amp;&amp;!file:public/scripts/vendor/ng-file-upload//*&amp;&amp;!file:public/scripts/vendor/sizzle//*&amp;&amp;!file:public/scripts/vendor/sizzle/dist//*&amp;&amp;!file:public/scripts/vendor/sizzle/tasks//*&amp;&amp;!file:public/scripts/vendor/sizzle/test//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/data//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/libs/qunit//*&amp;&amp;!file:public/scripts/vendor/sizzle/test/unit//*&amp;&amp;!file:public/scripts/vendor/socket.io//*||file:public/template/typeahead//*)&amp;&amp;!file:public/scripts/vendor/angular-ui-router//*&amp;&amp;!file:public/scripts/vendor/jtree//*&amp;&amp;!file:public/scripts/vendor/jtree/themes/default//*" />
     <scope name="server" pattern="file:lib/db/*||file:lib/routes/*||file:lib/services/*||file:lib/services/methods/*||file:lib/session/*||file:lib/store/*||file:lib/utilities/*||file:lib/views/*||file:public/scripts/app/schema.js||file:package.json||file:server.js||file:lib/model//*" />
   </component>
   <component name="ProjectFrameBounds">
@@ -377,6 +381,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -667,7 +693,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="options.lastSelected" value="project.scopes" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="TODO_SCOPE" value="Project Files" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -1241,7 +1267,11 @@
       <created>1395087823436</created>
       <updated>1395087823437</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="refactoring; added logoff and registration">
+      <created>1395095487144</created>
+      <updated>1395095487144</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1266,7 +1296,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="22" width="2505" height="1418" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33018124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1275,7 +1305,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34692308" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24890591" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.328905" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38538462" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34775087" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26651305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1322,7 +1352,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="readme update" />
     <MESSAGE value="person indexing and search; autocompletion" />
     <MESSAGE value="added tern tree algo" />
     <MESSAGE value="author autocompletion; db init scripts" />
@@ -1347,49 +1376,18 @@
     <MESSAGE value="refactored non-angularjs globals" />
     <MESSAGE value="consolidated stray client-side vars into dflGlobals" />
     <MESSAGE value="removed poetryMethods.js: parser generalized for all types of forms" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed poetryMethods.js: parser generalized for all types of forms" />
+    <MESSAGE value="refactoring; added logoff and registration" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring; added logoff and registration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/public/scripts/controllers/signupCtrl.js</url>
-          <line>38</line>
-          <option name="timeStamp" value="1662" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/public/scripts/controllers/signupCtrl.js</url>
-          <line>51</line>
-          <option name="timeStamp" value="1663" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/lib/db/mongoDbManager.js</url>
-          <line>523</line>
-          <option name="timeStamp" value="1669" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="1671" />
+      <option name="time" value="1680" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/store/storeManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="28" selection-start="2164" selection-end="2164" vertical-scroll-proportion="0.34144428" vertical-offset="0" max-vertical-offset="1274" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/angular/angular.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11915" column="0" selection-start="404351" selection-end="404351" vertical-scroll-proportion="0.0" vertical-offset="178468" max-vertical-offset="313185" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/template/accordion/accordion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="784" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/vendor/jtree/jstree.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="771" />
@@ -1430,16 +1428,11 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2850" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="27" selection-start="4516" selection-end="4516" vertical-scroll-proportion="0.2004717" vertical-offset="1080" max-vertical-offset="3915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/vendor/jtree/jstree.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="877" column="23" selection-start="27697" selection-end="27697" vertical-scroll-proportion="0.33291924" vertical-offset="12887" max-vertical-offset="87060" />
+        <state line="877" column="23" selection-start="27697" selection-end="27697" vertical-scroll-proportion="0.33291924" vertical-offset="12887" max-vertical-offset="87060">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
@@ -1534,29 +1527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/searchCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="9" selection-start="3251" selection-end="3251" vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="900">
-          <folding>
-            <marker date="1395015399000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/catalog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="90" selection-start="3272" selection-end="3272" vertical-scroll-proportion="-11.416667" vertical-offset="656" max-vertical-offset="3015">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="78" selection-start="4087" selection-end="4087" vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="4530">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/services/CatalogService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="9" selection-start="1822" selection-end="1822" vertical-scroll-proportion="0.5145119" vertical-offset="0" max-vertical-offset="1335">
@@ -1571,60 +1541,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="20" selection-start="3158" selection-end="3171" vertical-scroll-proportion="0.25273225" vertical-offset="1210" max-vertical-offset="19425">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/app/appModule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="10" selection-start="1922" selection-end="1922" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="930">
-          <folding>
-            <marker date="1395088714000" expanded="true" signature="-1:-1" placeholder="{&quot;controller&quot;: 'SignupCtrl'...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/dflDirectives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="1212" selection-end="1212" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="4125">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1395090850000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/signin.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="45" column="31" selection-start="1389" selection-end="1389" vertical-scroll-proportion="-13.076923" vertical-offset="335" max-vertical-offset="1530">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/signin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="21" selection-start="2231" selection-end="2416" vertical-scroll-proportion="-21.125" vertical-offset="198" max-vertical-offset="945">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/signinCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1484" selection-end="1484" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="975">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="25" selection-start="2490" selection-end="2490" vertical-scroll-proportion="-6.448718" vertical-offset="157" max-vertical-offset="900">
           <folding />
         </state>
       </provider>
@@ -1650,29 +1569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="526" column="0" selection-start="18704" selection-end="18704" vertical-scroll-proportion="-9.538462" vertical-offset="7327" max-vertical-offset="8760">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/signupCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="69" selection-start="1333" selection-end="1333" vertical-scroll-proportion="-3.2777777" vertical-offset="243" max-vertical-offset="960">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="31" selection-start="2515" selection-end="2515" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="855">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="24" selection-start="1130" selection-end="1130" vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="645">
@@ -1680,33 +1576,157 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
+    <entry file="file://$PROJECT_DIR$/lib/utilities/generalUtils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="25" selection-start="5724" selection-end="5724" vertical-scroll-proportion="-40.125" vertical-offset="777" max-vertical-offset="2025">
+        <state line="123" column="2" selection-start="4426" selection-end="4426" vertical-scroll-proportion="0.74860334" vertical-offset="875" max-vertical-offset="1770">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/utilities/generalUtils.js">
+    <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="4" selection-start="2431" selection-end="2431" vertical-scroll-proportion="0.33333334" vertical-offset="388" max-vertical-offset="1770">
+        <state line="187" column="46" selection-start="7367" selection-end="7367" vertical-scroll-proportion="0.29608938" vertical-offset="2540" max-vertical-offset="4215">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="526" column="0" selection-start="18704" selection-end="18704" vertical-scroll-proportion="-9.538462" vertical-offset="7327" max-vertical-offset="8760">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="24" selection-start="2014" selection-end="2014" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="2085">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/searchCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="31" selection-start="1515" selection-end="1515" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="25" selection-start="2490" selection-end="2490" vertical-scroll-proportion="-7.3974357" vertical-offset="83" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/editorCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5586592" vertical-offset="1395" max-vertical-offset="2835">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/configService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="3" selection-start="1663" selection-end="1663" vertical-scroll-proportion="0.7206704" vertical-offset="0" max-vertical-offset="895">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="11" selection-start="1549" selection-end="1549" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="19305">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/catalog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="78" selection-start="1405" selection-end="1405" vertical-scroll-proportion="-8.291667" vertical-offset="236" max-vertical-offset="2985">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/menubar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="54" selection-start="2718" selection-end="2718" vertical-scroll-proportion="-12.0" vertical-offset="105" max-vertical-offset="960">
+        <state line="23" column="8" selection-start="1143" selection-end="1146" vertical-scroll-proportion="-4.8" vertical-offset="105" max-vertical-offset="960">
           <folding>
             <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#3;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#4;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/users.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/directives/dflDirectives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="13" selection-start="3122" selection-end="3122" vertical-scroll-proportion="0.78080416" vertical-offset="223" max-vertical-offset="2100">
+        <state line="53" column="8" selection-start="1919" selection-end="1919" vertical-scroll-proportion="0.33252132" vertical-offset="522" max-vertical-offset="4125">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1395090850000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="0" selection-start="5872" selection-end="5872" vertical-scroll-proportion="-20.708334" vertical-offset="1273" max-vertical-offset="2070">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/appModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="6" selection-start="2512" selection-end="2512" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="41" selection-start="2102" selection-end="2102" vertical-scroll-proportion="0.0" vertical-offset="107" max-vertical-offset="4395">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/signupCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="31" selection-start="1721" selection-end="1721" vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="960">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/signinCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="48" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/signin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="34" selection-start="1179" selection-end="1179" vertical-scroll-proportion="-5.5" vertical-offset="100" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/sessionService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="25" selection-start="1935" selection-end="1935" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="39" selection-start="2835" selection-end="2835" vertical-scroll-proportion="0.46368715" vertical-offset="350" max-vertical-offset="1245">
           <folding />
         </state>
       </provider>
