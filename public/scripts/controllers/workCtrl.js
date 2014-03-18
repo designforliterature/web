@@ -177,6 +177,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
         });
     });
 
+    /* Drawer: a drawer UI object. TODO might be in a service if it is useful elsewhere */
     function Drawer(name) {
         this.snap = new Snap({element: document.getElementById(name)});
         this.toggle = function () {

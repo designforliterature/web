@@ -31,6 +31,29 @@
  */
 horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($compile, EditorSettings) {
 
+    /**
+     * Creates the document location HTML
+     * @param chunkInfo The chunk info
+     */
+    function makeDocumentLocation(chunkInfo, chain) {
+        if (!chain) {
+            chain = [];
+        }
+        if (chunkInfo) {
+            chain.splice(0, 0, chunkInfo.title);
+            return makeDocumentLocation(chunkInfo.parent, chain);
+        } else {
+            var location = '', len = chain.length;
+            for (var i in chain) {
+                location += chain[i];
+                if (i < len-1) {
+                    location += ' -> '
+                }
+            }
+            return location;
+        }
+    }
+
     var engine = {
 
         utils: {
@@ -83,6 +106,9 @@ horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($com
 
                 var contentElement = $('#editorContent')[0];
                 contentElement.innerHTML = makeText(chunkInfo.content);
+
+                var documentLocation = $('#documentLocation')[0];
+                documentLocation.innerHTML = makeDocumentLocation(chunkInfo);
             },
 
             /* A poem */
@@ -127,6 +153,9 @@ horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($com
                 var contentElement = $('#editorContent')[0];
                 var content = makeText(chunkInfo.content, EditorSettings.lineNumberingOn);
 
+                var documentLocation = $('#documentLocation')[0];
+                documentLocation.innerHTML = makeDocumentLocation(chunkInfo);
+
                 if (EditorSettings.lineNumberingOn) {
                     var html = '<table><tr><td style="vertical-align: top"><table><tr><td><D_T>' + chunkInfo.title + '</D_T></td></tr><tr><td style="vertical-align: top;">' + content.text + '</td><td style="vertical-align: top;">' + content.numbering + '</td></tr></table></td></tr></table>';
                     contentElement.innerHTML = html;
@@ -135,28 +164,6 @@ horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($com
                 }
             }
             },
-
-//        /**
-//         * Creates the HTML for the line numbers next to a verse.
-//         * @param lineCount The number of lines in the verse.
-//         * @param every The line numbers are rendered every interval specified by this number (default: 1).
-//         * @param start The starting line number (default: 1)
-//         * @returns {string}
-//         */
-//        makeLineNumbersHtml: function (lineCount, every, start) {
-//            var lineNumberingNode = EditorSettings.nodeNames.lineNumbering;
-//            var lineNumberNode = EditorSettings.nodeNames.lineNumber;
-//            var html = engine.makeNodeTag(lineNumberingNode);
-//            every = every || 1;
-//            start = start || 1;
-//            lineCount += start - 1;
-//            var number;
-//            for (number = (start || 1); number <= lineCount; number += 1) {
-//                html += engine.wrapNodeTag(lineNumberNode, (number % every) ? '&nbsp' : number);
-//            }
-//            html += engine.makeNodeTag(lineNumberingNode, true);
-//            return html;
-//        },
 
             /**
              *

@@ -342,7 +342,7 @@ div.errorMsg {
 
 #open-left {
     background: url(../images/open-menu-icon.png) center center no-repeat;
-    display: block;
+    display: inline-block;
     margin-left: 10px;
     width: 16px;
     height: 16px;
