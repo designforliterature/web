@@ -27,35 +27,18 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <table>
         <tr>
             <td class="editorToc">
-                <table>
+                <table style="border-collapse:collapse">
                     <tr>
-                        <td><b style="font-size: larger">Table of Contents</b></td>
+                        <td><div style="text-align: center"><button class="previousSection"></button><b> Table of Contents </b><button class="nextSection"></button></div></td>
+                    </tr>
+                    <tr style="text-align: center;border: 1px; border-style: solid;border-color: #00B7FF">
+                        <td>Section <input style="width:20px" ng-value="{{editor.pager.currentPage}}"/> of {{editor.pager.totalPages}}</td>
                     </tr>
                     <tr>
-                        <td>
+                        <td >
                             <div id="toc" class="editorTocTree"/>
                         </td>
                     </tr>
-                    <!--<tr>-->
-                    <!--<td>-->
-                    <!--<div>-->
-                    <!--<ng-label>Poem: {{editor.pager.currentPage}} / {{editor.pager.totalPages}} pages-->
-                    <!--</ng-label>-->
-                    <!--<div><i>Set Page:</i> <input ng-change="{{editor.pager.changePage()}}"-->
-                    <!--ng-model="editor.pager.currentPage"-->
-                    <!--id="pageSelector" style="width: 40px" type="text"/>-->
-                    <!--</div>-->
-                    <!--<button ng-click="editor.pager.setPage(editor.pager.currentPage - 1)">Previous Page-->
-                    <!--</button>-->
-                    <!--<button ng-click="editor.pager.setPage(editor.pager.currentPage + 1)">Next Page-->
-                    <!--</button>-->
-                    <!--</div>-->
-                    <!--</td>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                    <!--<button ng-click="searchToc('Poem 64')">Search</button>-->
-                    <!--<td style="width: 50px"><input id="tocSearch" placeholder="Search" type="text"/></td>-->
-                    <!--</tr>-->
                 </table>
             </td>
             <td style="vertical-align: top;">

@@ -107,12 +107,13 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
      * @param searchResultObj   The search result object
      * @param element   The HTML element to which the HTML must be added
      * @param attrs Attributes of the element
+     * @param index The index for the selected item in the ng-repeat array
      */
-    function displaySearchResultHTML(searchResultObj, element, attrs) {
+    function displaySearchResultHTML(searchResultObj, element, attrs, index) {
         var fieldSpecs = dflGlobals.catalogFieldSpecs,
             citationOrder = fieldSpecs.workType.specs[searchResultObj.workType].citationOrder,
             fieldName, fieldValue, haveAuthors = false,
-            html = '<div style="margin-top: .5em">';
+            html = (index === 0) ? '<div>' : '<div style="margin-top: -4px">';
         for (var i in citationOrder) {
             fieldName = citationOrder[i];
             fieldValue = searchResultObj[fieldName];
@@ -164,7 +165,7 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
         restrict: 'E', // matches only element dfl-cat-search-result only
         link: function (scope, element, attrs) {
             currScope = scope;
-            displaySearchResultHTML(scope.result.obj, element, attrs);
+            displaySearchResultHTML(scope.result.obj, element, attrs, scope.$index);
         }
     };
 });

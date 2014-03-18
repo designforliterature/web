@@ -135,6 +135,13 @@ div.errorMsg {
     color: red;
 }
 
+/* The catalog view */
+div.catalog {
+    font-size: 14px;
+    margin: 1em 1em 1em 1em;
+    width: 88%
+}
+
 textarea, input, select .catalogField {
     width: 300px;
     height: 2em;
@@ -144,11 +151,11 @@ textarea, input, select .catalogField {
 /* work.html */
 .editorContent {
     overflow-y: scroll;
-    /*width: auto;*/
-    height: 800px;
+    height: 850px;
     margin-left: .5em;
     border: 1px;
     border-style: solid;
+    border-color: #00B7FF;
     padding: 1em 1em 1em 1em;
     -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
     -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
@@ -156,25 +163,29 @@ textarea, input, select .catalogField {
 }
 
 .editorToc {
+    font-size: 10px;
+    background-color: #fdecab;
+    border: 1px;
+    border-style: solid;
+    border-color: #00B7FF;
+    height: 800px;
+}
+
+.editorTocTree {
     overflow-y: scroll;
     vertical-align: top;
     font-size: 10px;
     font-weight: bolder;
     background-color: #fdecab;
     padding: 1em 1em 1em 1em;
-    border: 1px;
-    border-style: solid;
-    width: auto;
     height: 800px;
+    width: auto;
     -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
     -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
     box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
-}
-
-.editorTocTree {
-    height: 350px;
     margin-top: 4px
 }
+
 /* END OF GLOBAL CSS */
 
 /* START OF SIGNIN FORM CSS */
@@ -245,4 +256,61 @@ div.signinBox {
 div.errorMsg {
     color: red;
 }
+
 /* END OF SIGNIN FORM CSS */
+
+/* START OF NAVIGATION CSS */
+.previousSection, .nextSection {
+    border: 1px solid #bbb;
+    border-top-color: #ccc;
+    border-bottom-color: #999;
+    background-image: url(../images/arrows.png);
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 22px;
+    /*position:absolute;*/
+    top: 0px;
+    cursor: pointer;
+    text-indent: -1000em;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.previousSection {
+    background-position: 0 0;
+    padding-left: 1em;
+    left: 10px;
+}
+
+.previousSection:hover {
+    background-position: -32px 0;
+}
+
+.previousSection:active {
+    background-position: -64px 0;
+}
+
+.previousSection:focus {
+    outline: 0;
+}
+
+.nextSection {
+    background-position: -96px 0;
+    padding-right: 1em;
+    right: 10px;
+}
+
+.nextSection:hover {
+    background-position: -128px 0;
+}
+
+.nextSection:active {
+    background-position: -160px 0;
+}
+
+.nextSection:focus {
+    outline: 0;
+}
+
+/* END OF NAVIGATION CSS */

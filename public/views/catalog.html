@@ -23,11 +23,9 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 <!--<div class="left-column" style="width: 12%">-->
 <!--<a onclick="document.location = 'index.html#/browse/';">Go Browse</a>-->
 <!--</div>-->
-<div id="catalog" style="margin: 1em 1em 1em 1em;width: 88%">
+<div id="catalog" class="catalog">
 
-    <!-- TODO one controller per accordion group? -->
-
-    <accordion style="font-size: large" close-others="catalog.openOneAtATime">
+    <accordion close-others="catalog.openOneAtATime">
 
         <accordion-group is-open="catalog.searchCatalogOpen" heading="Search">
             <div class="yellowBox">
@@ -41,7 +39,7 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 </form>
                 <div id="searchResults" style="display: none">
                     <dfl-cat-search-result ng-repeat="result in catalog.searchResults"></dfl-cat-search-result>
-                    <div id="searchMsg" style="margin-top: 1em"></div>
+                    <div id="searchMsg" style="margin-top: .5em"></div>
                 </div>
             </div>
         </accordion-group>
