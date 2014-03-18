@@ -85,9 +85,10 @@ div.headline {
 
 div.toplevelMenus {
     vertical-align: middle;
-    background-color: #fdecab;
+    background-color: white; /* #fdecab; */
     color: #00B7FF;
-    line-height: 3em;
+    margin-top: 4px; border: 1px; border-style: solid;
+    /*line-height: 3em;*/
     /*width: 768px; *//* iPad 1 width */
     padding: 2px 2px 2px 2px;
 
@@ -154,10 +155,10 @@ textarea, input, select .catalogField {
 }
 
 /* work.html */
-.editorContent {
+#editorContent {
     overflow-y: scroll;
     height: 850px;
-    margin-left: .5em;
+    /*margin-left: .5em;*/
     border: 1px;
     border-style: solid;
     border-color: #00B7FF;
@@ -170,11 +171,11 @@ textarea, input, select .catalogField {
 .editorToc {
     font-size: 10px;
     background-color: #fdecab;
-    border: 1px;
-    border-style: solid;
-    border-color: #00B7FF;
-    height: 800px;
-    width: 250px;
+    /*border: 1px;*/
+    /*border-style: solid;*/
+    /*border-color: #00B7FF;*/
+    height: 820px;
+    width: 220px;
 }
 
 .editorTocTree {
@@ -184,12 +185,24 @@ textarea, input, select .catalogField {
     font-weight: bolder;
     background-color: #fdecab;
     padding: 1em 1em 1em 1em;
-    height: 800px;
-    width: 250px;
+    height: 820px;
+    width: 220px;
     -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
     -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
     box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
     margin-top: 4px
+}
+
+#locationSpec {
+    vertical-align: top;
+    line-height: 16px;
+    background-color: #fdecab;
+}
+
+/* This is the breadcrumb readout */
+#documentLocation {
+    margin-left: 10px;
+    font-weight: bold
 }
 
 /* END OF GLOBAL CSS */
@@ -318,9 +331,8 @@ div.errorMsg {
 .nextSection:focus {
     outline: 0;
 }
+
 /* END OF NAVIGATION CSS */
-
-
 
 /* START OF SNAP CSS FOR TOC */
 .snapjs-right .snap-drawer-left {
@@ -335,11 +347,6 @@ div.errorMsg {
     display: none;
 }
 
-/* Show the "Drag" background  */
-/*#tocDrawer {*/
-    /*background: #BFC7D8 url(drag.png) center 75% no-repeat;*/
-/*}*/
-
 #open-left {
     background: url(../images/open-menu-icon.png) center center no-repeat;
     display: inline-block;
@@ -348,40 +355,11 @@ div.errorMsg {
     height: 16px;
 }
 
-/* Show the red "No Drag" box */
-/*#no-drag,*/
-/*#do-drag {*/
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*width: 50%;*/
-    /*height: 100px;*/
-    /*margin-left: -25%;*/
-    /*margin-top: -50px;*/
-    /*background: red;*/
-    /*color: #FFF;*/
-    /*text-align: center;*/
-    /*line-height: 100px;*/
-/*}*/
-/*#do-drag{*/
-    /*background: green;*/
-/*}*/
-
-/* Styles for fading out the drawer content  */
-/*.drawer-inner {*/
-    /*-webkit-transition: opacity 0.3s ease;*/
-    /*-moz-transition: opacity 0.3s ease;*/
-    /*-ms-transition: opacity 0.3s ease;*/
-    /*-o-transition: opacity 0.3s ease;*/
-    /*transition: opacity 0.3s ease;*/
-/*}*/
-
 .snapjs-expand-left .drawer-inner,
 .snapjs-expand-right .drawer-inner {
     opacity: 0;
 }
 
-/* Styles for the "Settings" demo */
 .opt {
     /*padding: 20px;*/
     /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/
@@ -408,11 +386,5 @@ div.errorMsg {
     background: white; /* #323949; */
     /*color: black; *//* #eee; */
 }
-
-/*.snap-drawer h3 {*/
-    /*font-size: 36px;*/
-    /*font-weight: normal;*/
-    /*margin: 15px;*/
-/*}*/
 
 /* END OF SNAP CSS FOR TOC */

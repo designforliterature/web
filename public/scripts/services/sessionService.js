@@ -47,7 +47,7 @@ horaceApp.service('SessionService', function ($timeout, $http, $state) {
                     dflGlobals.session.signedIn = false;
                     $("*[menu*='inSessionMenu']").css('display', 'none');
                     $("*[menu*='nonSessionMenu']").css('display', 'inline');
-                    if (!$state.is('work')) {
+                    if (!$state.is('work') && !$state.is('signup')) {
                         $state.go('signin');
                     }
                 }
