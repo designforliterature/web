@@ -130,20 +130,20 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
         $.ajax({ // TODO convert to $http call for consistency
             type: "GET",
             url: 'catalog/work/chunk?id=' + $scope.editor.id,
-            success: function (a, b) {
-                if (a.type === 'ack') {
-                    if (a.content) {
+            success: function (response) {
+                if (response.type === 'ack') {
+                    if (response.content) {
                         try {
                             $scope.editor.activateSettings(EditorSettings);
-                            $scope.editor.workDirectory = WorkDirectoryService.makeDirectory(a.content);
+                            $scope.editor.workDirectory = WorkDirectoryService.makeDirectory(response.content);
                             $scope.editor.pager.totalSections = $scope.editor.workDirectory.getSectionCount();
-                            $scope.editor.workTitle = a.content.workTitle;
+                            $scope.editor.workTitle = response.content.workTitle;
                             var jtreeData = [],
                                 jtreeToc = {
 //                                    plugins: ['search'],
                                     core: {multiple: false, data: jtreeData}
                                 };
-                            makeJtreeData(a.content.toc, jtreeData);
+                            makeJtreeData(response.content.toc, jtreeData);
 
 //                            var to = false;
 //                            $('#tocSearch').keyup(function () {
@@ -167,8 +167,8 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
 //                                console.info('Hover: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
                             });
                             // Set initial content TODO pick up "last location" from user history
-                            $scope.editor.workDirectory.getChunkInfo(a.content.id, function (err, chunkInfo) {
-                                $.jstree.reference('#toc').select_node(a.content.id);
+                            $scope.editor.workDirectory.getChunkInfo(response.content.id, function (err, chunkInfo) {
+                                $.jstree.reference('#toc').select_node(response.content.id);
                                 $scope.editor.setContent(chunkInfo);
                             });
                         } catch (error) {
@@ -176,10 +176,10 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
                         }
                     } else {
                         alert('no content'); // TODO handle this
-                        console.trace(a)
+                        console.trace(response)
                     }
                 } else { // TODO handle development error
-                    console.trace(a);
+                    console.trace(response);
                 }
             },
             error: function (err) {
@@ -188,11 +188,12 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
         });
     });
 
-    /* Drawer: a drawer UI object. TODO might be in a service if it is useful elsewhere */
+    /* Drawer: a drawer UI object. */
     function Drawer(name) {
         this.snap = new Snap({
-            element: $('#' + name)[0],
-            maxPosition: 200});
+            element: $('#' + name)[0],  // The element that has the contents of the drawer
+            maxPosition: 200 // Adjust this to close the gap between edge of drawer and content area
+        });
         this.toggle = function () {
             if(this.snap.state().state=="left" ){
                 this.snap.close();

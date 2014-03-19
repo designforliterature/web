@@ -59,11 +59,12 @@ horaceApp.service('SessionService', function ($timeout, $http, $state) {
     }
 
     // Check whether user is signed in every few seconds
-    var checkSessionStateTimeout = function () {
-        checkSessionState();
-        $timeout(checkSessionStateTimeout, 5000);
-    };
-    $timeout(checkSessionStateTimeout, 5000);
+    // TODO re-enable timeout when sessions become important
+//    var checkSessionStateTimeout = function () {
+//        checkSessionState();
+//        $timeout(checkSessionStateTimeout, 5000);
+//    };
+//    $timeout(checkSessionStateTimeout, 5000);
 
 
     return {
