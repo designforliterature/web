@@ -102,7 +102,6 @@ var work =
 
 horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams) {
 
-
     function makeJtreeData(toc, jtreeData) { // TODO deal with a huge outline // TODO make recursive for all levels
         for (var i in toc) {
             var chunk = toc[i],
@@ -112,6 +111,17 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
                 toplevelItem.children = [];
                 makeJtreeData(chunk.sections, toplevelItem.children);
             }
+        }
+    }
+
+    /**
+     * Selects the specified node and deselects all others.
+     * @param nodeId    The id of the node to select (corresponds to the chunk info id)
+     */
+    function selectTocNode (nodeId) {
+        if (nodeId) {
+            $.jstree.reference('#toc').deselect_all(true);
+            $.jstree.reference('#toc').select_node(nodeId);
         }
     }
 
@@ -126,6 +136,8 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
                         try {
                             $scope.editor.activateSettings(EditorSettings);
                             $scope.editor.workDirectory = WorkDirectoryService.makeDirectory(a.content);
+                            $scope.editor.pager.totalSections = $scope.editor.workDirectory.getSectionCount();
+                            $scope.editor.workTitle = a.content.workTitle;
                             var jtreeData = [],
                                 jtreeToc = {
 //                                    plugins: ['search'],
@@ -150,7 +162,6 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
                                 var chunkInfo = $scope.editor.workDirectory.getChunkInfo(data.node.id, function (err, chunkInfo) {
                                     $scope.editor.setContent(chunkInfo);
                                 });
-//                                console.info('Changed: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
                             });
                             $('#toc').on('hover_node.jstree', function (event, data) {
 //                                console.info('Hover: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
@@ -179,7 +190,9 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
 
     /* Drawer: a drawer UI object. TODO might be in a service if it is useful elsewhere */
     function Drawer(name) {
-        this.snap = new Snap({element: document.getElementById(name)});
+        this.snap = new Snap({
+            element: $('#' + name)[0],
+            maxPosition: 200});
         this.toggle = function () {
             if(this.snap.state().state=="left" ){
                 this.snap.close();
@@ -194,19 +207,93 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
         /* drawer: contains table of contents and perhaps other aids */
         drawer: new Drawer('tocDrawer'),
 
+        /* id: The id of the chunk to go to when this page is reached */
         id: $stateParams.id,
+
+        /* The currently layed out chunk */
+        currentChunkInfo: undefined,
+
+        /* The title of the currently selected work */
+        workTitle: undefined,
 
         /* Start pagination controls */
         pager: {
-            currentPage: 1,
-            totalPages: 10,
-            setPage: function (pageno) {
-                if (pageno > 0 && pageno <= $scope.editor.pager.totalPages) {
-                    $scope.editor.pager.currentPage = pageno;
+            currentSection: undefined,
+            totalSections: undefined,
+            setSection: function() {
+                var newPageNo = parseInt($('#currentSection')[0].value, 10);
+                if (newPageNo && newPageNo > 0 && newPageNo <= this.totalSections && newPageNo !== this.currentSection) {
+                    var currChunk = $scope.editor.currentChunkInfo,
+                        direction = (currChunk.index < newPageNo) ? 'nextSib' : 'prevSib';
+                    while (currChunk.index !== newPageNo) {
+                        currChunk = currChunk[direction];
+                    }
+                    selectTocNode(currChunk.id);
                 }
             },
-            changePage: function () {
-                var val = $('#pageSelector')[0].value;
+            /**
+             * Goes to the previous section at the same level
+             */
+            goPreviousSection: function () {
+                if ($scope.editor.currentChunkInfo.prevSib) {
+                    selectTocNode($scope.editor.currentChunkInfo.prevSib.id);
+                }
+            },
+            goPreviousChunk1: function (chunkInfo) {
+                if (chunkInfo.children) {
+                    this.goPreviousChunk1(chunkInfo.children[chunkInfo.children.length - 1]);
+                } else {
+                    selectTocNode(chunkInfo.id);
+                }
+            },
+            /**
+             * Goes to the chunk before the current one. This might
+             * mean going to a lower (child chunk) or higher (parent chunk) level.
+             */
+            goPreviousChunk: function (chunkInfo) {
+                if (!chunkInfo) {
+                    chunkInfo = $scope.editor.currentChunkInfo;
+                }
+                if (chunkInfo.prevSib) {
+                    if (chunkInfo.prevSib.children) {
+                        this.goPreviousChunk1(chunkInfo.prevSib.children[chunkInfo.prevSib.children.length - 1]);
+                    } else {
+                        selectTocNode(chunkInfo.prevSib.id);
+                    }
+                } else if (chunkInfo.parent) {
+                    selectTocNode(chunkInfo.parent.id);
+                }
+            },
+            /**
+             * Goes to the next section at the same level
+             */
+            goNextSection: function () {
+                if ($scope.editor.currentChunkInfo.nextSib) {
+                    selectTocNode($scope.editor.currentChunkInfo.nextSib.id);
+                }
+            },
+            goNextChunk1: function (fromChunkInfo) {
+                if (fromChunkInfo.parent) {
+                    if (fromChunkInfo.parent.nextSib) {
+                        selectTocNode(fromChunkInfo.parent.nextSib.id);
+                    } else {
+                        this.goNextChunk1(fromChunkInfo.parent);
+                    }
+                }
+            },
+            /**
+             * Goes to the chunk after the current one. This might
+             * mean going to a lower (child chunk) or higher (parent chunk) level.
+             */
+            goNextChunk: function () {
+                var children = $scope.editor.currentChunkInfo.children;
+                if (children) {
+                    selectTocNode(children[0].id);
+                } else if ($scope.editor.currentChunkInfo.nextSib) {
+                    this.goNextSection();
+                } else {
+                    this.goNextChunk1($scope.editor.currentChunkInfo);
+                }
             }
         },
         /* End pagination controls */
@@ -216,7 +303,10 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
         setContent: function (chunkInfo) {
             var layout = $scope.editor.engine.workTypeLayouts[chunkInfo.dataType];
             if (layout) {
-                layout(chunkInfo);
+                $scope.editor.pager.currentSection = chunkInfo.index;
+                $scope.editor.pager.totalSections = chunkInfo.siblingCount;
+                $scope.editor.currentChunkInfo = chunkInfo;
+                layout(chunkInfo, $scope.editor.workTitle);
             } else {
                 console.trace({type: 'fatal', msg: 'Invalid work chunk layout type "' + chunkInfo.dataType + '"'});
             }

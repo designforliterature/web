@@ -25,7 +25,8 @@
  Color Scheme:
  default font blue color: #00B7FF
  link color: #00B7FF
- annotation yellow: fdecab
+ primary yellow: #fdecab
+ darker yellow: #e1d297
  submit button color: #6b6dbb
  submit button color gradient:from(#88add7), to(#6b6dbb)
 */
@@ -170,7 +171,7 @@ textarea, input, select .catalogField {
 
 .editorToc {
     font-size: 10px;
-    background-color: #fdecab;
+    background-color: #e1d297;
     /*border: 1px;*/
     /*border-style: solid;*/
     /*border-color: #00B7FF;*/
@@ -183,7 +184,7 @@ textarea, input, select .catalogField {
     vertical-align: top;
     font-size: 10px;
     font-weight: bolder;
-    background-color: #fdecab;
+    background-color: #e1d297;
     padding: 1em 1em 1em 1em;
     height: 820px;
     width: 220px;
@@ -195,6 +196,7 @@ textarea, input, select .catalogField {
 
 #locationSpec {
     vertical-align: top;
+    font-weight: normal;
     line-height: 16px;
     background-color: #fdecab;
 }
@@ -384,7 +386,6 @@ div.errorMsg {
 
 .snap-drawer {
     background: white; /* #323949; */
-    /*color: black; *//* #eee; */
 }
 
 /* END OF SNAP CSS FOR TOC */

@@ -8,9 +8,11 @@
   <component name="ChangeListManager">
     <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/app.css" afterPath="$PROJECT_DIR$/public/styles/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/sessionService.js" afterPath="$PROJECT_DIR$/public/scripts/services/sessionService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/vendor/snap/snap.css" afterPath="$PROJECT_DIR$/public/styles/vendor/snap/snap.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/editorEngine2.js" afterPath="$PROJECT_DIR$/public/scripts/services/editorEngine2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/db/mongoDbManager.js" afterPath="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/work.html" afterPath="$PROJECT_DIR$/public/views/work.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/workDirectoryService.js" afterPath="$PROJECT_DIR$/public/scripts/services/workDirectoryService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -37,66 +39,8 @@
       <file leaf-file-name="app.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/styles/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="54" selection-start="2401" selection-end="2401" vertical-scroll-proportion="0.33576643" vertical-offset="1059" max-vertical-offset="5925">
+            <state line="198" column="24" selection-start="4886" selection-end="4886" vertical-scroll-proportion="0.37066975" vertical-offset="2649" max-vertical-offset="5940">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="25" selection-start="7507" selection-end="7507" vertical-scroll-proportion="-22.375" vertical-offset="1308" max-vertical-offset="2130">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menubar.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/menubar.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="39" selection-start="3330" selection-end="3330" vertical-scroll-proportion="-24.791666" vertical-offset="200" max-vertical-offset="1020">
-              <folding>
-                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#4;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#5;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="snap.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/styles/vendor/snap/snap.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="14" selection-start="710" selection-end="710" vertical-scroll-proportion="-8.115385" vertical-offset="389" max-vertical-offset="1185">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sessionService.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/services/sessionService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="64" selection-start="2317" selection-end="2317" vertical-scroll-proportion="0.0" vertical-offset="50" max-vertical-offset="945">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="work.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/work.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="25" selection-start="2254" selection-end="2254" vertical-scroll-proportion="-25.625" vertical-offset="195" max-vertical-offset="1470">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -104,7 +48,33 @@
       <file leaf-file-name="workCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="218" column="0" selection-start="9394" selection-end="9394" vertical-scroll-proportion="0.0" vertical-offset="2537" max-vertical-offset="4050">
+            <state line="159" column="0" selection-start="6956" selection-end="6956" vertical-scroll-proportion="-10.769231" vertical-offset="2105" max-vertical-offset="5700">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="work.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/work.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="13" selection-start="2700" selection-end="2700" vertical-scroll-proportion="-27.0" vertical-offset="207" max-vertical-offset="1005">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workDirectoryService.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/workDirectoryService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="12" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2070">
               <folding />
             </state>
           </provider>
@@ -113,12 +83,22 @@
       <file leaf-file-name="editorEngine2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="36" selection-start="1899" selection-end="1899" vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="4725">
+            <state line="157" column="32" selection-start="6389" selection-end="6405" vertical-scroll-proportion="-9.461538" vertical-offset="2109" max-vertical-offset="5040">
               <folding>
-                <marker date="1395183579000" expanded="false" signature="6446:6465" placeholder="..." />
-                <marker date="1395183579000" expanded="false" signature="6541:6561" placeholder="..." />
-                <marker date="1395183579000" expanded="false" signature="6599:6619" placeholder="..." />
+                <element signature="n#!!doc" expanded="true" />
+                <marker date="1395212717000" expanded="true" signature="6571:6590" placeholder="..." />
+                <marker date="1395212717000" expanded="true" signature="6666:6686" placeholder="..." />
+                <marker date="1395212717000" expanded="true" signature="6724:6744" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editorCtrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/editorCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="115" column="46" selection-start="4847" selection-end="4847" vertical-scroll-proportion="0.0" vertical-offset="1151" max-vertical-offset="2535">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -151,11 +131,7 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/views/menubarOffline.html" />
-        <option value="$PROJECT_DIR$/lib/services/CatalogService.js" />
-        <option value="$PROJECT_DIR$/scripts/init-db.js" />
         <option value="$PROJECT_DIR$/scripts/init-db-populate.js" />
-        <option value="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
         <option value="$PROJECT_DIR$/lib/routes/catalog.js" />
         <option value="$PROJECT_DIR$/public/views/signup.html" />
         <option value="$PROJECT_DIR$/lib/routes/users.js" />
@@ -196,11 +172,15 @@
         <option value="$PROJECT_DIR$/../../Snap.js-develop copy/demo/assets/demo.js" />
         <option value="$PROJECT_DIR$/../../Snap.js-develop copy/demo/apps/default.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/scripts/services/sessionService.js" />
+        <option value="$PROJECT_DIR$/public/styles/vendor/snap/snap.css" />
+        <option value="$PROJECT_DIR$/public/scripts/services/workDirectoryService.js" />
+        <option value="localhost:3000/index.html#/work/?id=3f949ed1-8b66-429c-89ee-49650960458b" />
+        <option value="$PROJECT_DIR$/public/views/work.html" />
+        <option value="localhost:3000/scripts/vendor/angular/angular.js" />
+        <option value="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/editorEngine2.js" />
-        <option value="$PROJECT_DIR$/public/scripts/services/sessionService.js" />
-        <option value="$PROJECT_DIR$/public/views/work.html" />
-        <option value="$PROJECT_DIR$/public/styles/vendor/snap/snap.css" />
         <option value="$PROJECT_DIR$/public/styles/app.css" />
       </list>
     </option>
@@ -447,6 +427,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="snap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jtree" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1327,7 +1333,11 @@
       <created>1395183718183</created>
       <updated>1395183718183</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="tweaked navigation">
+      <created>1395186523689</created>
+      <updated>1395186523689</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1352,16 +1362,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="22" width="2504" height="1418" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33018124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34615386" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24890591" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34615386" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24889247" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18727346" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28923076" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3123077" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34775087" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26651305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1408,7 +1418,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="chunk save &amp; TOC handling; generalized for any type of document&#10;" />
     <MESSAGE value="toc outliner" />
     <MESSAGE value="toc outliner&#10;" />
     <MESSAGE value="checkpoint on work dir&#10;" />
@@ -1433,14 +1442,15 @@
     <MESSAGE value="more navigation; better search result spacing" />
     <MESSAGE value="table of contents &amp; other aids in a drawer" />
     <MESSAGE value="write document location for contents and button to open/close TOC" />
-    <option name="LAST_COMMIT_MESSAGE" value="write document location for contents and button to open/close TOC" />
+    <MESSAGE value="tweaked navigation" />
+    <option name="LAST_COMMIT_MESSAGE" value="tweaked navigation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="1722" />
+      <option name="time" value="1762" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1484,7 +1494,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="36" selection-start="2198" selection-end="2198" vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="1170">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1492,13 +1502,6 @@
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/menubarCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="16" selection-start="1598" selection-end="1606" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="32" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4320">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
@@ -1517,12 +1520,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="20" selection-start="2233" selection-end="2233" vertical-scroll-proportion="-5.14" vertical-offset="343" max-vertical-offset="2955">
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#accordion-group#1;n#accordion#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#form#0;n#div#0;n#accordion-group#1;n#accordion#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#td#0;n#tr#0;n#table#0;n#div#1;n#form#0;n#div#0;n#accordion-group#1;n#accordion#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#accordion-group#1;n#accordion#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#accordion-group#0;n#accordion#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#accordion-group#1;n#accordion#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#form#0;n#div#0;n#accordion-group#1;n#accordion#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#1;n#td#0;n#tr#0;n#table#0;n#div#1;n#form#0;n#div#0;n#accordion-group#1;n#accordion#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#accordion-group#1;n#accordion#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1531,7 +1534,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="120" column="36" selection-start="4235" selection-end="4235" vertical-scroll-proportion="0.0" vertical-offset="1472" max-vertical-offset="4260">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1682,50 +1685,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="36" selection-start="1899" selection-end="1899" vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="4725">
-          <folding>
-            <marker date="1395183579000" expanded="false" signature="6446:6465" placeholder="..." />
-            <marker date="1395183579000" expanded="false" signature="6541:6561" placeholder="..." />
-            <marker date="1395183579000" expanded="false" signature="6599:6619" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="218" column="0" selection-start="9394" selection-end="9394" vertical-scroll-proportion="0.0" vertical-offset="2672" max-vertical-offset="4050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/sessionService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="64" selection-start="2317" selection-end="2317" vertical-scroll-proportion="0.0" vertical-offset="50" max-vertical-offset="945">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/work.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="25" selection-start="2254" selection-end="2254" vertical-scroll-proportion="-25.625" vertical-offset="195" max-vertical-offset="1470">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/styles/vendor/snap/snap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="14" selection-start="710" selection-end="710" vertical-scroll-proportion="-8.115385" vertical-offset="389" max-vertical-offset="1185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="123" column="25" selection-start="7507" selection-end="7507" vertical-scroll-proportion="-22.375" vertical-offset="1308" max-vertical-offset="2130">
@@ -1733,24 +1692,124 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/styles/vendor/snap/snap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="14" selection-start="710" selection-end="710" vertical-scroll-proportion="0.3275862" vertical-offset="315" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/menubar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="39" selection-start="3330" selection-end="3330" vertical-scroll-proportion="-24.791666" vertical-offset="200" max-vertical-offset="1020">
+        <state line="53" column="39" selection-start="3330" selection-end="3330" vertical-scroll-proportion="-26.958334" vertical-offset="148" max-vertical-offset="1020">
           <folding>
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#4;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#5;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#4;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#5;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="1" selection-start="1118" selection-end="1118" vertical-scroll-proportion="-11.083333" vertical-offset="64" max-vertical-offset="2775">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="296" column="17" selection-start="12373" selection-end="12379" vertical-scroll-proportion="0.77386934" vertical-offset="3524" max-vertical-offset="4320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/jtree/jstree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2239" column="66" selection-start="69707" selection-end="69715" vertical-scroll-proportion="-27.692308" vertical-offset="32865" max-vertical-offset="87060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="http://localhost:3000/index.html#/work/?id=3f949ed1-8b66-429c-89ee-49650960458b">
+      <provider selected="true" editor-type-id="httpFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="http://localhost:3000/scripts/vendor/angular/angular.js">
+      <provider selected="true" editor-type-id="httpFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/sessionService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="64" selection-start="2317" selection-end="2317" vertical-scroll-proportion="0.50230944" vertical-offset="0" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/editorCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="46" selection-start="4847" selection-end="4847" vertical-scroll-proportion="0.0" vertical-offset="1151" max-vertical-offset="2535">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="476" column="48" selection-start="16944" selection-end="16952" vertical-scroll-proportion="0.0" vertical-offset="6504" max-vertical-offset="8775">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/workDirectoryService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="12" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0" vertical-offset="24" max-vertical-offset="2070">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="0" selection-start="6956" selection-end="6956" vertical-scroll-proportion="-10.769231" vertical-offset="2105" max-vertical-offset="5700">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="32" selection-start="6389" selection-end="6405" vertical-scroll-proportion="-9.461538" vertical-offset="2109" max-vertical-offset="5040">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1395212717000" expanded="true" signature="6571:6590" placeholder="..." />
+            <marker date="1395212717000" expanded="true" signature="6666:6686" placeholder="..." />
+            <marker date="1395212717000" expanded="true" signature="6724:6744" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/work.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="13" selection-start="2700" selection-end="2700" vertical-scroll-proportion="-27.0" vertical-offset="207" max-vertical-offset="1005">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="54" selection-start="2401" selection-end="2401" vertical-scroll-proportion="0.33576643" vertical-offset="1059" max-vertical-offset="5925">
+        <state line="198" column="24" selection-start="4886" selection-end="4886" vertical-scroll-proportion="0.37066975" vertical-offset="2649" max-vertical-offset="5940">
           <folding />
         </state>
       </provider>

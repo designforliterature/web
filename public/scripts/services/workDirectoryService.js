@@ -8,21 +8,33 @@
  */
 horaceApp.service('WorkDirectoryService', function ($http) {
 
-    function ChunkInfo(id, dataType, title, parent, children) {
+    /**
+     * A chunk information record.
+     * @param id    The chunk id
+     * @param dataType  The type of chunk (e.g., Poem)
+     * @param title The chunk's title
+     * @param parent    The chunk's parent or null if it has none
+     * @param index    The chunk's 1-origin index (this is an index of the chunk amongst its siblings)
+     * @param siblingCount Number of siblings
+     * @constructor
+     */
+    function ChunkInfo(id, dataType, title, parent, index, siblingCount) {
         this.id = id;
+        this.index = index;
         this.dataType = dataType;
         this.title = title;
         this.parent = parent;
-        this.children = children;
+        this.siblingCount = siblingCount;
+        this.children = undefined;
     }
 
     function processToc(children, parent, toc, contentCache) {
         if (children && children.length !== 0) {
-            var i, chunk, lastChunk, chunkInfo;
-            for (i in children) {
+            var index, chunk, lastChunk, chunkInfo, siblingCount = children.length;
+            for (index in children) {
                 lastChunk = chunkInfo;
-                chunk = children[i];
-                chunkInfo = new ChunkInfo(chunk.id, chunk.dataType, chunk.title, parent);
+                chunk = children[index];
+                chunkInfo = new ChunkInfo(chunk.id, chunk.dataType, chunk.title, parent, (parseInt(index, 10) + 1), siblingCount);
                 if (lastChunk) {
                     chunkInfo.prevSib = lastChunk;
                     lastChunk.nextSib = chunkInfo;
@@ -80,6 +92,7 @@ horaceApp.service('WorkDirectoryService', function ($http) {
         /* cache: caches work contents and related information */
         this.toc = [];
         this.contentCache = {};
+        this.rootChunk = rootChunk;
         processToc(rootChunk.toc, null, this.toc, this.contentCache);
         setToplevelChunkContent(this.contentCache, rootChunk);
 
@@ -110,26 +123,10 @@ horaceApp.service('WorkDirectoryService', function ($http) {
             }
         };
 
-        /* Returns an array of children of specified chunk (empty array if there are none) */
-        this.getChunkChildrenInfo = function (id, chunkInfo) {
-
+        this.getSectionCount = function () {
+            return this.rootChunk.toc.length;
         };
-
-        /* Returns parent of specified chunk (null if chunk is the root) */
-        this.getChunkParentInfo = function (id, chunkInfo) {
-
-        };
-
-        this.nextChunkInfo = function (level, id, chunkInfo) {
-
-        };
-
-        this.previousChunkInfo = function (level, id, chunkInfo) {
-
-        };
-
         return this;
-
     };
 
     return {
