@@ -135,9 +135,9 @@ horaceApp.controller('EditorCtrl', function ($scope, EditorEngine, EditorSetting
                 var className;
                 var style;
                 var html = '';
-                for (className in settings.styles) {
-                    if (settings.styles.hasOwnProperty(className)) {
-                        style = settings.styles[className];
+                for (className in settings.styleSpecs) {
+                    if (settings.styleSpecs.hasOwnProperty(className)) {
+                        style = settings.styleSpecs[className];
                         html += style + ' ';
                     }
                 }

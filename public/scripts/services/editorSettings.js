@@ -25,13 +25,12 @@
 'use strict';
 
 /**
- * The editor's settings include the name of editor tags,
+ * The editor's settings for a user.
+ * These include the name of editor tags,
  * how the tags will be styled, and xpaths for finding
  * specific structures within the editor's DOM.
  */
 horaceApp.service('EditorSettings', ['$compile', function ($compile) {
-
-    var defaultContentWidth = "30em";
 
     return {
 
@@ -47,43 +46,10 @@ horaceApp.service('EditorSettings', ['$compile', function ($compile) {
         /* lineNumberingOn: if true, line numbering is on */
         lineNumberingOn: true,
 
-        nodeNames: {
-            /* Specify the names of the editor tags */
+        nodeNames: dflGlobals.annotation.nodeNames,
 
-            selectionStart: 'D_SS', /* Used to mark the beginning of a selection */
-            selectionEnd: 'D_SE', /* Used to mark the end of a selection */
-            selectionSpan: 'D_S', /* A span used to style a part of a selection */
+        styleSpecs: dflGlobals.annotation.styleSpecs
 
-            title: 'D_T', /* A title */
-            prose: 'D_R', /* A prose section */
-            paragraph: 'D_F', /* A paragraph */
-            poem: 'D_P',  /* A poem */
-            verse: 'D_V', /* A verse (e.g., in a poem) */
-            line: 'D_L', /* A line (e.g., in a verse) */
-            lineNumbering: 'D_N', /* Block containing line numbers for a poem or prose TODO get rid of this when browse.html and EditorEngine.js are deleted */
-            lineNumber: 'D_NL', /* A line number itself within a line number block TODO get rid of this when browse.html and EditorEngine.js are deleted*/
-            note: 'A_NOTE', /* Links in popup notes */
-            tooltip: 'D_T', /* A tooltip for a note */
-
-            // TODO highlighting method needs to be generalized (this is a stub)
-            yHilite: 'D_HY',  /* Yellow hilite class */
-            rHilite: 'D_HR' /* Light red hilite class */
-        },
-
-        styles: {
-            /* Specify the styles to use for each editor tag */
-            D_T: "D_T {display:block; font-weight:bold; font-size: larger}",
-            D_R: "D_R {display:block;}",
-            D_F: "D_F {display:block; width:" + defaultContentWidth + '}',
-            D_P: "D_P {display:block; width:" + defaultContentWidth + '}',
-            D_V: "D_V {display:block;}",
-            D_L: "D_L {display:block}",
-            D_N: "D_N {display:block;float:right;width:10em;text-align:left}", // TODO get rid of this when browse.html and EditorEngine.js are deleted
-            D_NL: "D_NL {display:block}", // TODO get rid of this when browse.html and EditorEngine.js are deleted
-            D_HY: ".D_HY {background-color: #ffff00}",
-            D_HR: ".D_HR {background-color: #ff767b}",
-            A_NOTE: "A.note {color:#3648FF;font-weight:bold}"
-        }
     };
 }
 ]);

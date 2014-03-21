@@ -25,82 +25,108 @@
 'use strict';
 
 
-var testAnnotation = {
-    name: 'Multi-hilite',
-    views: {
-        selection: [
-            {
-                note: {lang: 'en', text: 'Note the repetition: male/malae. <i>bellus</i> is a colloquial form of <i>bonus</i>. Catullus, like the <i>novi poetae</i>, is unafraid of diminutives and vernacular language. ' +
-                    '<br/>See: <a class="note" href="http://www.perseus.tufts.edu/hopper/morph?l=bellus&la=la" target="_blank">Perseus Latin Word Study Tool</a>'},
-                sids: [1, 2], // selector ids
-                method: 'sid', /* Find the text to hilite using the given sids */
-                css: {'class': 'D_HY'}
-            },
-            {
-                note: {lang: 'en', text: 'Note the repetition: bella/bellum. <i>bellus</i> is a colloquial form of <i>bonus</i>. Catullus, like the <i>novi poetae</i>, is unafraid of diminutives and vernacular language. ' +
-                    '<br/>See: <a class="note" href="http://www.perseus.tufts.edu/hopper/morph?l=bellus&la=la" target="_blank">Perseus Latin Word Study Tool</a>'},
-                sids: [3, 4], // selector ids
-                method: 'sid', /* Find the text to hilite using the given sids */
-                css: {'class': 'D_HR'}
-            }
-        ]
-    }, /* end views */
-    actions: {
-        hover: {
-            text: ''
+// TODO The following functions (before the controller is defined) should be moved into the editorEngine2 service
+
+/**
+ * Marks up the HTML for the selected text with the note selection nodes.
+ * @param selection   The text selection object (platform dependent!)
+ */
+function markupNoteSelection(params) {
+//        var container = document.createElement("div");
+    var startSel = document.createElement('D_SS'),
+        endSel = document.createElement('D_SE'),
+        sid = params.sid,
+        range = params.range;
+//            container.appendChild(range.cloneContents());
+    startSel.setAttribute('sid', sid);
+    endSel.setAttribute('sid', sid);
+    range.insertNode(startSel);
+    range.collapse();
+    range.insertNode(endSel);
+    console.info('INSERTED: sid ' + sid);
+}
+
+/**
+ * Used in a tree traversal
+ * @param node  The current node
+ * @returns {*} Returns the type of filter to use based on the node
+ */
+function tw_getNodeFilter(node) {
+    if (node.nodeType === Node.TEXT_NODE || node.nodeName === 'D_SS' || node.nodeName === 'D_SE') {
+        return NodeFilter.FILTER_ACCEPT;
+    }
+    return NodeFilter.FILTER_SKIP;
+}
+
+/**
+ * Walks the tree and collects the affected text nodes in an array in
+ * their order of occurrence. The specified applyFun is applied to
+ * the array. Collecting the array instead of applying the function
+ * to each text node allows applyFun to know which text node is last
+ * and to perform arbitrary operations that might require knowledge
+ * of other text nodes' content.
+ * Since an annotation can span across multiple elements (including partial ones)
+ * we must visit each text node in the span.
+ * @param tw    The tree walker
+ * @param applyFun A function to apply to each text node: it must accept
+ * two arguments: the text node and the info object.
+ * @param info An object containing information relevant to the applyFun.
+ * Walktree expects it to have a property named 'sid' with the sid whose
+ * text nodes are to be scanned.
+ * @return {number} The number of text nodes to which applyFun was applied
+ */
+function walkTree(tw, applyFun, info) {
+    var write = false,
+        sid = info.sid,
+        curr = tw.nextNode(),
+        textNodes = []; // text nodes in selection in order first to last
+    while (curr) {
+        if (curr.nodeName === 'D_SS' && curr.attributes.sid.nodeValue === sid) {
+            write = true; // we entered the selection range: now look for text nodes
+            // fall through to pick up next node
+        } else if (curr.nodeName === 'D_SE' && curr.attributes.sid.nodeValue === sid) {
+            applyFun(textNodes, info);
+            return textNodes.length; // leaving the selection range: we're done with its text nodes
         }
-    }, /* end actions */
-    context: {
-        parent: 'body'
-    } /* end context */
-};
+        if (write && curr.nodeType === Node.TEXT_NODE) {
+            textNodes.push(curr);
+        }
+        curr = tw.nextNode();
+    }
+    applyFun(textNodes, info);
+    return textNodes.length; // JIC
+}
 
-var work =
-{ content: "<D_P>" +
-    "        <D_V>" +
-    "        <D_L>Lugete, o Veneres Cupidinesque</D_L>" +
-    "        <D_L>et quantum est hominum venustiorum!</D_L>" +
-    "        <D_L>passer mortuus est meae puellae,</D_L>" +
-    "        <D_L>passer, deliciae meae puellae,</D_L>" +
-    "        <D_L>quem plus illa oculis suis amabat;</D_L>" +
-    "        <D_L>nam mellitus erat, suamque norat</D_L>" +
-    "        <D_L>ipsa tam bene quam puella matrem,</D_L>" +
-    "        <D_L>nec sese a gremio illius movebat,</D_L>" +
-    "        <D_L>sed circumsiliens modo huc modo illuc</D_L>" +
-    "        <D_L>ad solam dominam usque pipiabat.</D_L>" +
-    "        <D_L>qui nunc it per iter tenebricosum</D_L>" +
-    "       <D_L>illuc unde negant redire quemquam.</D_L>" +
-    "        <D_L>at vobis" +
-    "<d_ss sid='1'/>" +
-    "        male" +
-    "<d_se sid='1'/>" +
-    "        sit," +
-    "<d_ss sid='2'/>" +
-    "        malae" +
-    "<d_se sid='2'/>" +
-    "        tenebrae" +
-    "        </D_L>" +
-    "        <D_L>Orci, quae omnia" +
-    "<d_ss sid='3'/>" +
-    "        bella" +
-    "<d_se sid='3'/>" +
-    "        devoratis;" +
-    "</D_L>" +
-    "        <D_L>tam" +
-    "<d_ss sid='4'/>" +
-    "        bellum" +
-    "<d_se sid='4'/>" +
-    "        mihi passerem abstulistis." +
-    "</D_L>" +
-    "        <D_L>o factum male! o miselle passer!</D_L>" +
-    "        <D_L>tua nunc opera meae puellae</D_L>" +
-    "        <D_L>flendo turgiduli rubent ocelli.</D_L>" +
-    "</D_V>" +
-    "</D_P>",
-    type: 'Poem'
-};
+/**
+ * Highlights the text node and adds a note popup to it.
+ * Function suitable applyFun arg to walkTree.
+ * @param textNodes The text nodes
+ * @param info Information for hilighting (TODO: could have preferred styleSpecs, etc.)
+ */
+function highlightMethod(textNodes, info) {
+    for (var i in textNodes) {
+        var marker = document.createElement('D_S'), // TODO get it from dflGlobals
+            textNode = textNodes[i],
+            textParent = textNode.parentElement;
+        marker.setAttribute('class', 'D_HY'); // TODO get it from dflGlobals
+        textParent.replaceChild(marker, textNode);
+        marker.appendChild(textNode);
+    }
+}
 
-horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams) {
+/* Shows an annotation (by highliting and note popups): assumes normalized HTML */
+function showNote(sid) {
+    var info = {
+            sid: sid || getSid(),
+            popup: false    // show note popup, too?
+        },
+        tw = document.createTreeWalker($('#editorContent')[0], NodeFilter.SHOW_ALL, tw_getNodeFilter, false),
+        affectedTextNodeCount = walkTree(tw, highlightMethod, info);
+    console.info('Affected text nodes: ' + affectedTextNodeCount + ' info: ' + JSON.stringify(info));
+}
+
+
+horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams, $modal) {
 
     function makeJtreeData(toc, jtreeData) { // TODO deal with a huge outline // TODO make recursive for all levels
         for (var i in toc) {
@@ -115,13 +141,46 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
     }
 
     /**
+     * On mouseup in the content area with the alt key depressed,
+     * the user intends to create a note.
+     * @param e The event
+     */
+    $('#editorContent')[0].onmouseup = function (e) {
+        if (e.altKey) { // Option key creates a note
+            createNote(e);
+        }
+    };
+
+    /**
      * Selects the specified node and deselects all others.
      * @param nodeId    The id of the node to select (corresponds to the chunk info id)
      */
-    function selectTocNode (nodeId) {
+    function selectTocNode(nodeId) {
         if (nodeId) {
             $.jstree.reference('#toc').deselect_all(true);
             $.jstree.reference('#toc').select_node(nodeId);
+        }
+    }
+
+    /**
+     * Annotates a selection. Simple for now
+     * @param e The event object
+     */
+    function createNote(e) {
+        $('#editorContent')[0].normalize(); // get rid of empty and merge sibling text nodes
+        if (typeof window.getSelection != "undefined") {
+            var sel = window.getSelection(),
+                sid = "19"; // TODO variable!
+            if (sel.rangeCount) {
+                if (sel.isCollapsed) {
+                    console.info('nothing selected');
+                } else {
+//                    markupNoteSelection(sel); // if it were done immediately
+                    $scope.editor.openCreateNoteDialog(sid, sel);
+                }
+            }
+        } else {
+            alert('This browser is not supported')
         }
     }
 
@@ -144,18 +203,6 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
                                     core: {multiple: false, data: jtreeData}
                                 };
                             makeJtreeData(response.content.toc, jtreeData);
-
-//                            var to = false;
-//                            $('#tocSearch').keyup(function () {
-//                                if (to) {
-//                                    clearTimeout(to);
-//                                }
-//                                to = setTimeout(function () {
-//                                    var v = $('#tocSearch').val();
-//                                    var r = $('#toc').jstree(true).search(v);
-//                                    console.info(r);
-//                                }, 3000);
-//                            });
 
                             $('#toc').jstree(jtreeToc);
                             $('#toc').on('changed.jstree', function (event, data) {
@@ -188,25 +235,58 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
         });
     });
 
-    /* Drawer: a drawer UI object. */
-    function Drawer(name) {
+    /**
+     * Drawer: constructor for a drawer UI object.
+     * @param drawerId The id of the element that has the contents of the drawer
+     * @constructor
+     */
+    function Drawer(drawerId) {
         this.snap = new Snap({
-            element: $('#' + name)[0],  // The element that has the contents of the drawer
-            maxPosition: 200 // Adjust this to close the gap between edge of drawer and content area
+            element: $('#' + drawerId)[0],
+            disable: 'right',
+            tapToClose: false, // don't let snap take over mouse events
+            touchToDrag: false,
+            maxPosition: 220 // Adjust this to close the gap between edge of drawer and content area
         });
-        this.toggle = function () {
-            if(this.snap.state().state=="left" ){
-                this.snap.close();
-            } else {
-                this.snap.open('left');
-            }
-        }
+        /*  Toggles drawer (open/close) */
+        this.toggle =
+            function () {
+                if (this.snap.state().state == "left") {
+                    this.snap.close();
+                } else {
+                    this.snap.open('left');
+                }
+            };
     }
+
+    /* Drawer for the table of contents and other goodies */
+    var drawer = new Drawer('tocDrawer');
 
     $scope.editor = {
 
         /* drawer: contains table of contents and perhaps other aids */
-        drawer: new Drawer('tocDrawer'),
+        drawer: drawer,
+
+        editorMenu: {
+            openToc: {
+                title: 'Table of Contents',
+                method: function () {
+                    $scope.editor.drawer.toggle();
+                }
+            },
+            showNotes: {
+                title: 'Show Notes',
+                method: function () {
+                    showNote("19"); // TODO get actual sid
+                }
+            },
+            statistics: {
+                title: 'Statistics',
+                method: function () {
+                    alert('Statistics');
+                }
+            }
+        },
 
         /* id: The id of the chunk to go to when this page is reached */
         id: $stateParams.id,
@@ -221,7 +301,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
         pager: {
             currentSection: undefined,
             totalSections: undefined,
-            setSection: function() {
+            setSection: function () {
                 var newPageNo = parseInt($('#currentSection')[0].value, 10);
                 if (newPageNo && newPageNo > 0 && newPageNo <= this.totalSections && newPageNo !== this.currentSection) {
                     var currChunk = $scope.editor.currentChunkInfo,
@@ -321,15 +401,15 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
 
             function activateSettingStyles() {
                 var styles = $('#d_styles');
-                if (!styles || styles.length === 0) {
+                if (!styles || styles.length === 0) { // TODO just insert into DOM
                     throw {type: 'fatal', msg: 'Default styles (id d_styles) missing'};
                 }
                 var className;
                 var style;
                 var html = '';
-                for (className in settings.styles) {
-                    if (settings.styles.hasOwnProperty(className)) {
-                        style = settings.styles[className];
+                for (className in settings.styleSpecs) {
+                    if (settings.styleSpecs.hasOwnProperty(className)) {
+                        style = settings.styleSpecs[className];
                         html += style + ' ';
                     }
                 }
@@ -363,13 +443,56 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
             });
         }
     };
-    /* End of $scope.editor */
+    /* Editor specs in presentation order */
+    $scope.editor.editorMenu.list = [
+        $scope.editor.editorMenu.openToc,
+        $scope.editor.editorMenu.showNotes,
+        $scope.editor.editorMenu.statistics
+    ]
 
-// Set the editor engine to use
+    // Set the editor engine to use
     $scope.editor.engine = EditorEngine2;
 
-// Set the user preferences
+    // Set the user preferences
     $scope.editor.prefs = UserPrefs;
 
+    $scope.editor.openCreateNoteDialog = function (sid, selection) {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'views/createNoteDialog.html',
+            controller: CreateNoteDialogCtrl,
+            resolve: {
+                params: function () {
+                    return {
+                        sid: sid,
+                        selection: selection
+                    };
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+        }, function () {
+            console.info('Modal dismissed at: ' + new Date());
+        });
+    };
+
 });
-/* End EditCtrl */
+/* End WorkCtrl */
+
+
+var CreateNoteDialogCtrl = function ($scope, $modalInstance, params) {
+
+    params.range = params.selection.getRangeAt(0);
+    $scope.selection = params.selection.toString();
+    $scope.ok = function () {
+        markupNoteSelection(params);
+        showNote(params.sid)
+        $modalInstance.close(); // TODO can I pass something to close?
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+};

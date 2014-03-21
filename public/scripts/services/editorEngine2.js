@@ -35,13 +35,13 @@ horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($com
      * Creates the document location HTML
      * @param chunkInfo The chunk info
      */
-    function makeDocumentLocation(chunkInfo, workTitle, chain) {
+    function makeDocumentBreadcrum(chunkInfo, workTitle, chain) {
         if (!chain) {
             chain = [];
         }
         if (chunkInfo) {
             chain.splice(0, 0, chunkInfo.title);
-            return makeDocumentLocation(chunkInfo.parent, workTitle, chain);
+            return makeDocumentBreadcrum(chunkInfo.parent, workTitle, chain);
         } else {
             var location = workTitle ? ('<i>' + workTitle + '</i> > ') : '',
                 len = chain.length;
@@ -108,8 +108,8 @@ horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($com
                 var contentElement = $('#editorContent')[0];
                 contentElement.innerHTML = makeText(chunkInfo.content);
 
-                var documentLocation = $('#documentLocation')[0];
-                documentLocation.innerHTML = makeDocumentLocation(chunkInfo, workTitle);
+                var documentBreadcrumb = $('#documentBreadcrumb')[0];
+                documentBreadcrumb.innerHTML = makeDocumentBreadcrum(chunkInfo, workTitle);
             },
 
             /* A poem */
@@ -154,8 +154,8 @@ horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($com
                 var contentElement = $('#editorContent')[0];
                 var content = makeText(chunkInfo.content, EditorSettings.lineNumberingOn);
 
-                var documentLocation = $('#documentLocation')[0];
-                documentLocation.innerHTML = makeDocumentLocation(chunkInfo, workTitle);
+                var documentBreadcrumb = $('#documentBreadcrumb')[0];
+                documentBreadcrumb.innerHTML = makeDocumentBreadcrum(chunkInfo, workTitle);
 
                 if (EditorSettings.lineNumberingOn) {
                     var html = '<table><tr><td style="vertical-align: top"><table><tr><td><D_T>' + chunkInfo.title + '</D_T></td></tr><tr><td style="vertical-align: top;">' + content.text + '</td><td style="vertical-align: top;">' + content.numbering + '</td></tr></table></td></tr></table>';

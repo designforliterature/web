@@ -32,7 +32,10 @@
 
 // _debug controls whether debug printout is enabled or not. Use the function
 // dflGlobals.debug to print out statements at the bottom of any view.
-var _debug = false;
+var _debug = false,
+    defaultContentWidth = '30em';
+
+
 if (_debug) {
     $('#httpDebug').css('display', 'inline');
     $('#socketDebug').css('display', 'inline');
@@ -41,6 +44,7 @@ if (_debug) {
 /**
  * App globals independent of angularjs
  */
+/* START OF DFLGLOBALS */
 var dflGlobals = {
 
     /**
@@ -69,9 +73,60 @@ var dflGlobals = {
 
     session: {
         /**
-         * signedIn: true if user is currently signed in
+         * signedIn: true if user is currently signed in TODO might not need this
          */
         signedIn: false
+    },
+
+    /* annotation: config for annotations */
+    annotation: {
+        defaultContentWidth: "30em",
+
+        nodeNames: {
+            /* Specify the names of the editor tags */
+
+            selectionStart: 'D_SS', /* Used to mark the beginning of a selection */
+            selectionEnd: 'D_SE', /* Used to mark the end of a selection */
+            selectionSpan: 'D_S', /* A span used to style a part of a selection */
+
+            title: 'D_T', /* A title */
+            prose: 'D_R', /* A prose section */
+            paragraph: 'D_F', /* A paragraph */
+            poem: 'D_P',  /* A poem */
+            verse: 'D_V', /* A verse (e.g., in a poem) */
+            line: 'D_L', /* A line (e.g., in a verse) */
+            lineNumbering: 'D_N', /* Block containing line numbers for a poem or prose TODO get rid of this when browse.html and EditorEngine.js are deleted */
+            lineNumber: 'D_NL', /* A line number itself within a line number block TODO get rid of this when browse.html and EditorEngine.js are deleted*/
+            note: 'A_NOTE', /* Links in popup notes */
+            tooltip: 'D_T', /* A tooltip for a note */
+
+            // TODO highlighting method needs to be generalized (this is a stub)
+            yHilite: 'D_HY',  /* Yellow hilite class */
+            rHilite: 'D_HR' /* Light red hilite class */
+        },
+
+        styleSpecs: {
+            /* Specify the styleSpecs to use for each editor tag */
+            D_T: "D_T {display:block; font-weight:bold; font-size: larger}",
+            D_R: "D_R {display:block;}",
+            D_F: "D_F {display:block; width:" + defaultContentWidth + '}',
+            D_P: "D_P {display:block; width:" + defaultContentWidth + '}',
+            D_V: "D_V {display:block;}",
+            D_L: "D_L {display:block}",
+            D_N: "D_N {display:block;float:right;width:10em;text-align:left}", // TODO get rid of this when browse.html and EditorEngine.js are deleted
+            D_NL: "D_NL {display:block}", // TODO get rid of this when browse.html and EditorEngine.js are deleted
+            D_HY: ".D_HY {background-color: #ffff00}",
+            D_HR: ".D_HR {background-color: #ff767b}",
+            A_NOTE: "A.note {color:#3648FF;font-weight:bold}"
+        },
+
+        /* typeSpecs: key is the type id and value is the specification for that type */
+        typeSpecs: {
+            /* note: a simple note */
+            note: {
+                hilite: 'D_Y'
+            }
+        }
     },
 
     /**
@@ -914,6 +969,8 @@ var dflGlobals = {
         }
     }
 };
+/* END OF DFLGLOBALS */
+
 dflGlobals.contentFormats.options = [
     [dflGlobals.contentFormats.dflMarkdown, 'DFL Markdown'] // TODO i18n
 ];

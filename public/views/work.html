@@ -19,30 +19,36 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRA
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
-<!-- Editor styles dynamically added (depends on editor engine) -->
+<!-- Editor styleSpecs dynamically added (depends on editor engine) -->
 <style id='d_styles'>
 </style>
 
 <div style="margin-top: 4em" class="snap-drawers">
     <div class="snap-drawer snap-drawer-left">
+        <!-- The table of contents to initially appear in a closed drawer -->
         <div class="editorToc">
             <table>
+                <!-- Arrow navigation over TOC -->
                 <tr>
                     <td>
                         <div style="text-align: left">
-                            <!--<button class="previousSection" ng-click="editor.pager.goPreviousSection()"></button>-->
-                            <button  ng-click="editor.pager.goPreviousSection()">&lt;&lt;</button>
-                            <button  ng-click="editor.pager.goPreviousChunk()">&lt;</button>
+                            <button ng-click="editor.pager.goPreviousSection()">&lt;&lt;</button>
+                            <button ng-click="editor.pager.goPreviousChunk()">&lt;</button>
                             <b> Table of Contents </b>
                             <button ng-click="editor.pager.goNextChunk()">&gt;</button>
                             <button ng-click="editor.pager.goNextSection()">&gt;&gt;</button>
                         </div>
                     </td>
                 </tr>
-                <tr style="text-align: center;">
-                    <td>Section <input id="currentSection" style="width:20px" ng-blur="editor.pager.setSection()" ng-value="editor.pager.currentSection"/> of {{editor.pager.totalSections}}
+                <!-- Navigation info and user affordance to set the 'section' -->
+                <tr>
+                    <td style="font-weight:bold;padding-left: 4px">Section <input id="currentSection" style="width:20px"
+                                                                                  ng-blur="editor.pager.setSection()"
+                                                                                  ng-value="editor.pager.currentSection"/>
+                        of {{editor.pager.totalSections}}
                     </td>
                 </tr>
+                <!-- The TOC tree that allows the user to navigate the content -->
                 <tr>
                     <td>
                         <div id="toc" class="editorTocTree"/>
@@ -54,8 +60,26 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <div class="snap-drawer snap-drawer-right"></div>
 </div>
 
-<div style="margin-top: 4em;" id="tocDrawer" class="snap-content">
-    <div id="locationSpec"><a id="open-left" ng-click="editor.drawer.toggle()"></a><span
-            id="documentLocation"></span></div>
+<!-- The content and editing area -->
+<div id="tocDrawer" class="snap-content">
+    <!-- Editor content menubar -->
+    <div id="editorContentMenubar">
+        <!-- Toggles the navigation drawer -->
+        <a id="open-left" ng-click="editor.drawer.toggle()"></a>
+        <!-- Dropdown menu with editing and related options -->
+        <span class="dropdown">
+            <a  id="editContentMenu" class="dropdown-toggle"></a>
+            <ul class="dropdown-menu">
+                <li ng-repeat="choice in editor.editorMenu.list">
+                    <a ng-click="choice.method()">{{choice.title}}</a>
+                </li>
+            </ul>
+        </span>
+        <span id="documentBreadcrumb"></span>
+        <!--<span style="margin-right: 2em" id="documentMenus">-->
+           <!--<button ng-click="editor.openCreateNoteDialog()">Annotate</button>-->
+        <!--</span>-->
+    </div>
+    <!-- The content -->
     <div id="editorContent"/>
 </div>

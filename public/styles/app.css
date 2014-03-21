@@ -194,7 +194,7 @@ textarea, input, select .catalogField {
     margin-top: 4px
 }
 
-#locationSpec {
+#editorContentMenubar {
     vertical-align: top;
     font-weight: normal;
     line-height: 16px;
@@ -202,9 +202,14 @@ textarea, input, select .catalogField {
 }
 
 /* This is the breadcrumb readout */
-#documentLocation {
+#documentBreadcrumb {
     margin-left: 10px;
     font-weight: bold
+}
+
+/* The snap Table of Contents drawer */
+#tocDrawer {
+    margin-top: 4em;
 }
 
 /* END OF GLOBAL CSS */
@@ -349,8 +354,20 @@ div.errorMsg {
     display: none;
 }
 
+/* CSS for the icon for opening/closing the editor TOC+ drawer */
 #open-left {
+    background: url(../images/drawer.png) center center no-repeat;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+/* CSS for the dropdown icon for editor content menu */
+#editContentMenu {
     background: url(../images/open-menu-icon.png) center center no-repeat;
+    vertical-align: middle;
     display: inline-block;
     margin-left: 10px;
     width: 16px;
@@ -375,7 +392,7 @@ div.errorMsg {
     color: rgba(0, 0, 0, 0.6);
 }
 
-/* Default demo styles */
+/* Default demo styleSpecs */
 .snap-content {
     background: white; /* #BFC7D8; */
 }
