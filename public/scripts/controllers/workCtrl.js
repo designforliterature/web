@@ -25,107 +25,6 @@
 'use strict';
 
 
-// TODO The following functions (before the controller is defined) should be moved into the editorEngine2 service
-
-/**
- * Marks up the HTML for the selected text with the note selection nodes.
- * @param selection   The text selection object (platform dependent!)
- */
-function markupNoteSelection(params) {
-//        var container = document.createElement("div");
-    var startSel = document.createElement('D_SS'),
-        endSel = document.createElement('D_SE'),
-        sid = params.sid,
-        range = params.range;
-//            container.appendChild(range.cloneContents());
-    startSel.setAttribute('sid', sid);
-    endSel.setAttribute('sid', sid);
-    range.insertNode(startSel);
-    range.collapse();
-    range.insertNode(endSel);
-    console.info('INSERTED: sid ' + sid);
-}
-
-/**
- * Used in a tree traversal
- * @param node  The current node
- * @returns {*} Returns the type of filter to use based on the node
- */
-function tw_getNodeFilter(node) {
-    if (node.nodeType === Node.TEXT_NODE || node.nodeName === 'D_SS' || node.nodeName === 'D_SE') {
-        return NodeFilter.FILTER_ACCEPT;
-    }
-    return NodeFilter.FILTER_SKIP;
-}
-
-/**
- * Walks the tree and collects the affected text nodes in an array in
- * their order of occurrence. The specified applyFun is applied to
- * the array. Collecting the array instead of applying the function
- * to each text node allows applyFun to know which text node is last
- * and to perform arbitrary operations that might require knowledge
- * of other text nodes' content.
- * Since an annotation can span across multiple elements (including partial ones)
- * we must visit each text node in the span.
- * @param tw    The tree walker
- * @param applyFun A function to apply to each text node: it must accept
- * two arguments: the text node and the info object.
- * @param info An object containing information relevant to the applyFun.
- * Walktree expects it to have a property named 'sid' with the sid whose
- * text nodes are to be scanned.
- * @return {number} The number of text nodes to which applyFun was applied
- */
-function walkTree(tw, applyFun, info) {
-    var write = false,
-        sid = info.sid,
-        curr = tw.nextNode(),
-        textNodes = []; // text nodes in selection in order first to last
-    while (curr) {
-        if (curr.nodeName === 'D_SS' && curr.attributes.sid.nodeValue === sid) {
-            write = true; // we entered the selection range: now look for text nodes
-            // fall through to pick up next node
-        } else if (curr.nodeName === 'D_SE' && curr.attributes.sid.nodeValue === sid) {
-            applyFun(textNodes, info);
-            return textNodes.length; // leaving the selection range: we're done with its text nodes
-        }
-        if (write && curr.nodeType === Node.TEXT_NODE) {
-            textNodes.push(curr);
-        }
-        curr = tw.nextNode();
-    }
-    applyFun(textNodes, info);
-    return textNodes.length; // JIC
-}
-
-/**
- * Highlights the text node and adds a note popup to it.
- * Function suitable applyFun arg to walkTree.
- * @param textNodes The text nodes
- * @param info Information for hilighting (TODO: could have preferred styleSpecs, etc.)
- */
-function highlightMethod(textNodes, info) {
-    for (var i in textNodes) {
-        var marker = document.createElement('D_S'), // TODO get it from dflGlobals
-            textNode = textNodes[i],
-            textParent = textNode.parentElement;
-        marker.setAttribute('class', 'D_HY'); // TODO get it from dflGlobals
-        textParent.replaceChild(marker, textNode);
-        marker.appendChild(textNode);
-    }
-}
-
-/* Shows an annotation (by highliting and note popups): assumes normalized HTML */
-function showNote(sid) {
-    var info = {
-            sid: sid || getSid(),
-            popup: false    // show note popup, too?
-        },
-        tw = document.createTreeWalker($('#editorContent')[0], NodeFilter.SHOW_ALL, tw_getNodeFilter, false),
-        affectedTextNodeCount = walkTree(tw, highlightMethod, info);
-    console.info('Affected text nodes: ' + affectedTextNodeCount + ' info: ' + JSON.stringify(info));
-}
-
-
 horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams, $modal) {
 
     function makeJtreeData(toc, jtreeData) { // TODO deal with a huge outline // TODO make recursive for all levels
@@ -143,6 +42,9 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
     /**
      * On mouseup in the content area with the alt key depressed,
      * the user intends to create a note.
+     * Scheme:
+     * AltKey + mouseUp: create a simple note
+     * AltKey + Shift + mouseUp: create a more complex note: dialog brings up options
      * @param e The event
      */
     $('#editorContent')[0].onmouseup = function (e) {
@@ -175,7 +77,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
                 if (sel.isCollapsed) {
                     console.info('nothing selected');
                 } else {
-//                    markupNoteSelection(sel); // if it were done immediately
+//                    EditorEngine2.markupNoteSelection(sel); // if it were done immediately
                     $scope.editor.openCreateNoteDialog(sid, sel);
                 }
             }
@@ -268,22 +170,30 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
         drawer: drawer,
 
         editorMenu: {
+            // TODO should be a checkbox item: checked when drawer is opened.
             openToc: {
                 title: 'Table of Contents',
                 method: function () {
                     $scope.editor.drawer.toggle();
                 }
             },
+            // TODO showNotes and hideNotes should be a single checkbox menu item
             showNotes: {
                 title: 'Show Notes',
                 method: function () {
-                    showNote("19"); // TODO get actual sid
+                    EditorEngine2.showNote("19"); // TODO get actual sid
+                }
+            },
+            hideNotes: {
+                title: 'Hide Notes',
+                method: function () {
+                    alert('Hide Notes not implemented'); // TODO get actual sid
                 }
             },
             statistics: {
                 title: 'Statistics',
                 method: function () {
-                    alert('Statistics');
+                    alert('Statistics not implemented'); // TODO
                 }
             }
         },
@@ -447,6 +357,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
     $scope.editor.editorMenu.list = [
         $scope.editor.editorMenu.openToc,
         $scope.editor.editorMenu.showNotes,
+        $scope.editor.editorMenu.hideNotes,
         $scope.editor.editorMenu.statistics
     ]
 
@@ -482,13 +393,13 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
 /* End WorkCtrl */
 
 
-var CreateNoteDialogCtrl = function ($scope, $modalInstance, params) {
+var CreateNoteDialogCtrl = function ($scope, $modalInstance, params, EditorEngine2) {
 
-    params.range = params.selection.getRangeAt(0);
+    params.range = params.selection.getRangeAt(0); // range is not volatile, but selection is
     $scope.selection = params.selection.toString();
     $scope.ok = function () {
-        markupNoteSelection(params);
-        showNote(params.sid)
+        EditorEngine2.markupNoteSelection(params);
+        EditorEngine2.showNote(params.sid)
         $modalInstance.close(); // TODO can I pass something to close?
     };
 

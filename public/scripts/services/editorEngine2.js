@@ -57,39 +57,105 @@ horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($com
 
     var engine = {
 
-        utils: {
-            $compile: $compile
+        /**
+         * Used in a tree traversal
+         * @param node  The current node
+         * @returns {*} Returns the type of filter to use based on the node
+         */
+        tw_getNodeFilter: function (node) {
+            if (node.nodeType === Node.TEXT_NODE || node.nodeName === 'D_SS' || node.nodeName === 'D_SE') {
+                return NodeFilter.FILTER_ACCEPT;
+            }
+            return NodeFilter.FILTER_SKIP;
         },
 
-        viewMethods: {
-
-            // Highlights text for annotation
-            selection: function (scope, anno) {
-                function processSelection(selection, sid) {
-                    var claz = selection.css['class'];
-                    var style = selection.css.style;
-                    if (!claz && !style) {
-                        throw {type: 'fatal', msg: 'Annotation missing either class or style'};
-                    }
-                    var sels = engine.getSelectorById(anno, sid);
-                    if (sels) {
-                        engine.doProcessSelection(scope, anno, selection, sels[0], sels[1], claz, style);
-                    }
+        /**
+         * Walks the tree and collects the affected text nodes in an array in
+         * their order of occurrence. The specified applyFun is applied to
+         * the array. Collecting the array instead of applying the function
+         * to each text node allows applyFun to know which text node is last
+         * and to perform arbitrary operations that might require knowledge
+         * of other text nodes' content.
+         * Since an annotation can span across multiple elements (including partial ones)
+         * we must visit each text node in the span.
+         * @param tw    The tree walker
+         * @param applyFun A function to apply to each text node: it must accept
+         * two arguments: the text node and the info object.
+         * @param info An object containing information relevant to the applyFun.
+         * Walktree expects it to have a property named 'sid' with the sid whose
+         * text nodes are to be scanned.
+         * @return {number} The number of text nodes to which applyFun was applied
+         */
+        walkTree: function (tw, applyFun, info) {
+            var write = false,
+                sid = info.sid,
+                curr = tw.nextNode(),
+                textNodes = []; // text nodes in selection in order first to last
+            while (curr) {
+                if (curr.nodeName === 'D_SS' && curr.attributes.sid.nodeValue === sid) {
+                    write = true; // we entered the selection range: now look for text nodes
+                    // fall through to pick up next node
+                } else if (curr.nodeName === 'D_SE' && curr.attributes.sid.nodeValue === sid) {
+                    applyFun(textNodes, info);
+                    return textNodes.length; // leaving the selection range: we're done with its text nodes
                 }
-
-                var hiIndex;
-                var sidIndex;
-                var selCount = anno.views.selection.length;
-                for (hiIndex = 0; hiIndex < selCount; hiIndex += 1) {
-                    var selection = anno.views.selection[hiIndex];
-                    var sidCount = selection.sids.length;
-                    for (sidIndex = 0; sidIndex < sidCount; sidIndex += 1) {
-                        var sid = selection.sids[sidIndex];
-                        processSelection(selection, sid);
-                    }
+                if (write && curr.nodeType === Node.TEXT_NODE) {
+                    textNodes.push(curr);
                 }
+                curr = tw.nextNode();
+            }
+            applyFun(textNodes, info);
+            return textNodes.length; // JIC
+        },
+
+        /**
+         * Highlights the text node and adds a note popup to it.
+         * Function suitable applyFun arg to walkTree.
+         * @param textNodes The text nodes
+         */
+        highlightMethod: function (textNodes) {
+            for (var i in textNodes) {
+                var marker = document.createElement('D_S'), // TODO get it from dflGlobals
+                    textNode = textNodes[i],
+                    textParent = textNode.parentElement;
+                marker.setAttribute('class', 'D_HY'); // TODO get it from dflGlobals
+                textParent.replaceChild(marker, textNode);
+                marker.appendChild(textNode);
             }
         },
+
+        /**
+         * Marks up the HTML for the selected text with the note selection nodes.
+         * @param selection   The text selection object (platform dependent!)
+         */
+        markupNoteSelection: function (params) {
+//        var container = document.createElement("div");
+            var startSel = document.createElement('D_SS'), // TODO use definitions
+                endSel = document.createElement('D_SE'), // TODO use definitions
+                sid = params.sid,
+                range = params.range;
+//            container.appendChild(range.cloneContents());
+            startSel.setAttribute('sid', sid);
+            endSel.setAttribute('sid', sid);
+            range.insertNode(startSel);
+            range.collapse();
+            range.insertNode(endSel);
+            console.info('INSERTED: sid ' + sid);
+        },
+
+        /* Shows an annotation (by highliting and note popups): assumes normalized HTML */
+        showNote: function (sid) {
+            var info = {
+                    sid: sid,
+                    popup: false    // show note popup, too?
+                },
+                tw = document.createTreeWalker($('#editorContent')[0], NodeFilter.SHOW_ALL, engine.tw_getNodeFilter, false),
+                affectedTextNodeCount = engine.walkTree(tw, engine.highlightMethod, info);
+            console.info('Affected text nodes: ' + affectedTextNodeCount + ' info: ' + JSON.stringify(info));
+        },
+
+
+
         workTypeLayouts: {
 
             /* A prose section */
@@ -162,6 +228,45 @@ horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($com
                     contentElement.innerHTML = html;
                 } else {
                     contentElement.innerHtml = content.text;
+                }
+            }
+        },
+
+
+
+        /*** TODO OLD STUFF FOLLOWS: OBSOLETE IT! ***/
+
+
+        utils: {
+            $compile: $compile
+        },
+
+        viewMethods: {
+
+            // Highlights text for annotation
+            selection: function (scope, anno) {
+                function processSelection(selection, sid) {
+                    var claz = selection.css['class'];
+                    var style = selection.css.style;
+                    if (!claz && !style) {
+                        throw {type: 'fatal', msg: 'Annotation missing either class or style'};
+                    }
+                    var sels = engine.getSelectorById(anno, sid);
+                    if (sels) {
+                        engine.doProcessSelection(scope, anno, selection, sels[0], sels[1], claz, style);
+                    }
+                }
+
+                var hiIndex;
+                var sidIndex;
+                var selCount = anno.views.selection.length;
+                for (hiIndex = 0; hiIndex < selCount; hiIndex += 1) {
+                    var selection = anno.views.selection[hiIndex];
+                    var sidCount = selection.sids.length;
+                    for (sidIndex = 0; sidIndex < sidCount; sidIndex += 1) {
+                        var sid = selection.sids[sidIndex];
+                        processSelection(selection, sid);
+                    }
                 }
             }
         },
