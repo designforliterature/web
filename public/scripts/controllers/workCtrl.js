@@ -25,7 +25,7 @@
 'use strict';
 
 
-horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams, $modal) {
+horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams, $modal) {
 
     function makeJtreeData(toc, jtreeData) { // TODO deal with a huge outline // TODO make recursive for all levels
         for (var i in toc) {
@@ -77,7 +77,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
                 if (sel.isCollapsed) {
                     console.info('nothing selected');
                 } else {
-//                    EditorEngine2.markupNoteSelection(sel); // if it were done immediately
+//                    EditorEngine.markupNoteSelection(sel); // if it were done immediately
                     $scope.editor.openCreateNoteDialog(sid, sel);
                 }
             }
@@ -181,7 +181,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
             showNotes: {
                 title: 'Show Notes',
                 method: function () {
-                    EditorEngine2.showNote("19"); // TODO get actual sid
+                    EditorEngine.showNote("19"); // TODO get actual sid
                 }
             },
             hideNotes: {
@@ -362,7 +362,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
     ]
 
     // Set the editor engine to use
-    $scope.editor.engine = EditorEngine2;
+    $scope.editor.engine = EditorEngine;
 
     // Set the user preferences
     $scope.editor.prefs = UserPrefs;
@@ -393,13 +393,13 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine2, WorkDirectoryS
 /* End WorkCtrl */
 
 
-var CreateNoteDialogCtrl = function ($scope, $modalInstance, params, EditorEngine2) {
+var CreateNoteDialogCtrl = function ($scope, $modalInstance, params, EditorEngine) {
 
     params.range = params.selection.getRangeAt(0); // range is not volatile, but selection is
     $scope.selection = params.selection.toString();
     $scope.ok = function () {
-        EditorEngine2.markupNoteSelection(params);
-        EditorEngine2.showNote(params.sid)
+        EditorEngine.markupNoteSelection(params);
+        EditorEngine.showNote(params.sid)
         $modalInstance.close(); // TODO can I pass something to close?
     };
 

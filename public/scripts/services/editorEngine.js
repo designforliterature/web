@@ -29,7 +29,7 @@
  * This can be replaced by a different engine. The engine that will be
  * used (by default, this one) is selected by the EditorCtrl controller.
  */
-horaceApp.service('EditorEngine2', ['$compile', 'EditorSettings', function ($compile, EditorSettings) {
+horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($compile, EditorSettings) {
 
     /**
      * Creates the document location HTML
