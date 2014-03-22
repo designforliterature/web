@@ -194,13 +194,6 @@ textarea, input, select .catalogField {
     margin-top: 4px
 }
 
-#editorContentMenubar {
-    vertical-align: top;
-    font-weight: normal;
-    line-height: 16px;
-    background-color: #fdecab;
-}
-
 /* This is the breadcrumb readout */
 #documentBreadcrumb {
     margin-left: 10px;

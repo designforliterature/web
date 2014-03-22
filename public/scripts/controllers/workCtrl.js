@@ -169,22 +169,40 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
         /* drawer: contains table of contents and perhaps other aids */
         drawer: drawer,
 
+        /**
+         *  editorMenu: dropdown for content view.
+         *  IMPORTANT: update editorMenu.list (below) when adding items to this
+         */
         editorMenu: {
             // TODO should be a checkbox item: checked when drawer is opened.
             openToc: {
                 title: 'Table of Contents',
+                type: 'normal',
                 method: function () {
                     $scope.editor.drawer.toggle();
                 }
             },
+            /* Turns the contents into either a page or scroll view for the section.
+             * In page view, overflow goes into separate pages. Toc changes accordingly. */
+            scrollOrPage: {
+                title: 'Scroll View',
+                type: 'checkbox',
+                selected: true, // model
+                method: function () {
+                    alert('Scroll/Page View not implemented')
+                }
+            },
             hideNotes: {
-                title: 'Hide Notes',
+                title: 'Notes Hidden',
+                type: 'checkbox',
+                selected: false, // model
                 method: function () {
                     alert('Hide Notes not implemented'); // TODO get actual sid
                 }
             },
             printContent: {
                 title: 'Print Content',
+                type: 'normal',
                 method: function () { // print content DOM to console
                     var range = document.createRange(),
                         div = document.createElement('div');
@@ -195,6 +213,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
             },
             statistics: {
                 title: 'Statistics',
+                type: 'normal',
                 method: function () {
                     alert('Statistics not implemented'); // TODO
                 }
@@ -359,6 +378,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
     /* Editor specs in presentation order */
     $scope.editor.editorMenu.list = [
         $scope.editor.editorMenu.openToc,
+        $scope.editor.editorMenu.scrollOrPage,
         $scope.editor.editorMenu.hideNotes,
         $scope.editor.editorMenu.printContent,
         $scope.editor.editorMenu.statistics

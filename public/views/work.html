@@ -59,26 +59,29 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     </div>
     <div class="snap-drawer snap-drawer-right"></div>
 </div>
-
 <!-- The content and editing area -->
 <div id="tocDrawer" class="snap-content">
     <!-- Editor content menubar -->
-    <div id="editorContentMenubar">
+    <div>
         <!-- Toggles the navigation drawer -->
         <a id="open-left" ng-click="editor.drawer.toggle()"></a>
         <!-- Dropdown menu with editing and related options -->
         <span class="dropdown">
             <a id="editContentMenu" class="dropdown-toggle"></a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" style="width: 10em; font-size: small">
                 <li ng-repeat="choice in editor.editorMenu.list">
-                    <a ng-click="choice.method()">{{choice.title}}</a>
+                    <a ng-if="choice.type === 'normal'" ng-click="choice.method()">{{choice.title}}</a>
+                    <div style="white-space: nowrap;" ng-if="choice.type === 'checkbox'">
+                        <input id="_{{choice.title}}" type="checkbox" ng-model="choice.selected"
+                               ng-change="choice.method()">
+                        <label for="_{{choice.title}}"
+                               style="margin-left: -21em;margin-top: -10px;font-size:small;font-weight: normal">{{choice.title}}</label>
+                    </div>
+                    <!--<div ng-if="choice.type === 'checkbox'"><input type="checkbox" ng-model="choice.selected" ng-change="choice.method()">{{choice.title}}</div>-->
                 </li>
             </ul>
         </span>
         <span id="documentBreadcrumb"></span>
-        <!--<span style="margin-right: 2em" id="documentMenus">-->
-           <!--<button ng-click="editor.openCreateNoteDialog()">Annotate</button>-->
-        <!--</span>-->
     </div>
     <!-- The content -->
     <div id="editorContent"/>
