@@ -166,6 +166,17 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
 
     $scope.editor = {
 
+        contentMenuItems: [
+        {"id": 1, "name": "TOC", "type": 'normal'},
+        {"id": 2, "name": "Page View", "type": 'checkbox'},
+        {"id": 3, "name": "Notes Hidden", "type": 'checkbox'},
+        {"id": 4, "name": "Statistics", "type": 'normal'},
+        {"id": 5, "name": "Printout (dbg)", "type": 'normal'}
+        ],
+
+        preselected: {contentMenuItems: [2]},
+        selected_items: [],
+
         /* drawer: contains table of contents and perhaps other aids */
         drawer: drawer,
 

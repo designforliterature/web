@@ -277,3 +277,51 @@ horaceApp.directive('signinField', function () {
         }
     };
 });
+
+
+// TODO put template into a file?
+// TODO allow only certain items in the model to be checked
+horaceApp.directive('dropdownMenu', function () {
+    return {
+        restrict: 'E',
+        scope: {
+            model: '=',
+            options: '=',
+            pre_selected: '=preSelected'
+        },
+        template: "<div class='btn-group' data-ng-class='{open: open}'>" +
+//            "<button class='btn btn-small'>Select</button>" +
+            "<button  style='background-color: white' class='btn btn-small dropdown-toggle' data-ng-click='open=!open;openDropdown()'><img src='../images/open-menu-icon.png'/></button>" +
+            "<ul class='dropdown-menu' aria-labelledby='dropdownMenu'>" +
+//            "<li class='divider'></li>" +
+            "<li data-ng-repeat='option in options'> <a data-ng-click='setSelection()'>{{option.name}}<span data-ng-class='isSelected(option.id)'></span></a></li>" +
+            "</ul>" +
+            "</div>",
+        controller: function ($scope) {
+
+            $scope.openDropdown = function () {
+                $scope.selected_items = [];
+                for (var i = 0; i < $scope.pre_selected.length; i++) {
+                    $scope.selected_items.push($scope.pre_selected[i].id);
+                }
+            };
+            $scope.setSelection = function () {
+                if (this.option.type === 'checkbox') {
+                    var id = this.option.id;
+                    if (_.contains($scope.model, id)) {
+                        $scope.model = _.without($scope.model, id);
+                    } else {
+                        $scope.model.push(id);
+                    }
+                    return false;
+                }
+            };
+            $scope.isSelected = function (id) {
+                if (_.contains($scope.model, id)) {
+                    return 'glyphicon glyphicon-ok pull-right';
+                }
+                return false;
+            }
+        }
+    }
+});

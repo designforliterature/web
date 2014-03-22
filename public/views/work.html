@@ -65,22 +65,7 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <div>
         <!-- Toggles the navigation drawer -->
         <a id="open-left" ng-click="editor.drawer.toggle()"></a>
-        <!-- Dropdown menu with editing and related options -->
-        <span class="dropdown">
-            <a id="editContentMenu" class="dropdown-toggle"></a>
-            <ul class="dropdown-menu" style="width: 10em; font-size: small">
-                <li ng-repeat="choice in editor.editorMenu.list">
-                    <a ng-if="choice.type === 'normal'" ng-click="choice.method()">{{choice.title}}</a>
-                    <div style="white-space: nowrap;" ng-if="choice.type === 'checkbox'">
-                        <input id="_{{choice.title}}" type="checkbox" ng-model="choice.selected"
-                               ng-change="choice.method()">
-                        <label for="_{{choice.title}}"
-                               style="margin-left: -21em;margin-top: -10px;font-size:small;font-weight: normal">{{choice.title}}</label>
-                    </div>
-                    <!--<div ng-if="choice.type === 'checkbox'"><input type="checkbox" ng-model="choice.selected" ng-change="choice.method()">{{choice.title}}</div>-->
-                </li>
-            </ul>
-        </span>
+        <dropdown-menu pre-selected="editor.preselected.contentMenuItems" model="editor.selected_items" options="editor.contentMenuItems"></dropdown-menu>
         <span id="documentBreadcrumb"></span>
     </div>
     <!-- The content -->
