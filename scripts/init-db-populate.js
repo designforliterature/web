@@ -25,6 +25,7 @@ personCol.insert({fullName: 'Aesop', description: "Aesop (b. 620 BCE), creator o
 personCol.insert({fullName: 'Homer', description: 'Homer is a 20th century cartoon character, member of the Simpson family'});
 
 personCol.insert({fullName: 'Merrill, Elmer Truesdell', description: 'Late Rich Professor of Latin in Wesleyan University'});
+personCol.insert({fullName: 'Kleiman, Ruben', description: 'Hubby'});
 //personCol.insert({fullName: '', description: ''});
 
 

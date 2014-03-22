@@ -341,6 +341,35 @@ div.errorMsg {
 
 /* END OF NAVIGATION CSS */
 
+/* A very simple, text-only (no HTML) tooltip */
+/*.simpleTooltip{*/
+    /*display: inline;*/
+    /*position: relative;*/
+/*}*/
+/*.simpleTooltip:hover:after{*/
+    /*background: #333;*/
+    /*background: rgba(0,0,0,.8);*/
+    /*border-radius: 5px;*/
+    /*bottom: 26px;*/
+    /*color: #fff;*/
+    /*content: attr(note); *//* the attribute for the tooltip string */
+    /*left: 20%;*/
+    /*padding: 5px 15px;*/
+    /*position: absolute;*/
+    /*z-index: 98;*/
+    /*width: 220px;*/
+/*}*/
+/*.simpleTooltip:hover:before{*/
+    /*border: solid;*/
+    /*border-color: #333 transparent;*/
+    /*border-width: 6px 6px 0 6px;*/
+    /*bottom: 20px;*/
+    /*content: "";*/
+    /*left: 50%;*/
+    /*position: absolute;*/
+    /*z-index: 99;*/
+/*}*/
+
 /* START OF SNAP CSS FOR TOC */
 .snapjs-right .snap-drawer-left {
     /* Show "Left" drawer for the "Right" drawer  */
@@ -367,6 +396,14 @@ div.errorMsg {
 /* CSS for the dropdown icon for editor content menu */
 #editContentMenu {
     background: url(../images/open-menu-icon.png) center center no-repeat;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+#normalMenu {
     vertical-align: middle;
     display: inline-block;
     margin-left: 10px;

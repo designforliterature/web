@@ -3,9 +3,23 @@
 </div>
 <div class="modal-body">
     <div style="font-style: italic;font-weight: bold;font-size: larger">Your selection:</div>
-    <textarea style="width: 40em;height: 6em" disabled="true" readonly="true" wrap="soft">{{selection}}</textarea>
-    <hr/>
-    <textarea id="note" style="width: 40em;height: 6em" placeholder="Your note" autofocus="true"></textarea>
+    <textarea style="width: 40em;height: 6em" disabled="true" readonly="true"
+              wrap="soft">{{createNote.selection}}</textarea>
+    <div>
+        <span>
+            <input style="position:inherit;width: 10px" id='popupCheckbox' type="checkbox" ng-model="createNote.useTooltip" >
+            <label for="popupCheckbox">Show Note In Popup</label>
+        </span>
+        <span style="margin-left: 10px">
+            <select ng-disabled="!createNote.useTooltip || $('#note')[0].value === ''"
+                    ng-model="createNote.tooltipPlacement"
+                    ng-options="c.name for c in createNote.tooltipPlacements"></select>
+        </span>
+    </div>
+    <div>
+        <textarea id="note" style="width: 40em;height: 6em" placeholder="Your note" autofocus="true"></textarea>
+    </div>
+
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" ng-click="ok()">Create Note</button>

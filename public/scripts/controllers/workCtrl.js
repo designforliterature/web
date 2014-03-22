@@ -177,17 +177,20 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
                     $scope.editor.drawer.toggle();
                 }
             },
-            // TODO showNotes and hideNotes should be a single checkbox menu item
-            showNotes: {
-                title: 'Show Notes',
-                method: function () {
-                    EditorEngine.showNote("19"); // TODO get actual sid
-                }
-            },
             hideNotes: {
                 title: 'Hide Notes',
                 method: function () {
                     alert('Hide Notes not implemented'); // TODO get actual sid
+                }
+            },
+            printContent: {
+                title: 'Print Content',
+                method: function () { // print content DOM to console
+                    var range = document.createRange(),
+                        div = document.createElement('div');
+                    range.selectNodeContents($('#editorContent')[0]);
+                    div.appendChild(range.cloneContents());
+                    console.info(div);
                 }
             },
             statistics: {
@@ -356,8 +359,8 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
     /* Editor specs in presentation order */
     $scope.editor.editorMenu.list = [
         $scope.editor.editorMenu.openToc,
-        $scope.editor.editorMenu.showNotes,
         $scope.editor.editorMenu.hideNotes,
+        $scope.editor.editorMenu.printContent,
         $scope.editor.editorMenu.statistics
     ]
 
@@ -369,25 +372,30 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
 
     $scope.editor.openCreateNoteDialog = function (sid, selection) {
 
-        var modalInstance = $modal.open({
-            templateUrl: 'views/createNoteDialog.html',
-            controller: CreateNoteDialogCtrl,
-            resolve: {
-                params: function () {
-                    return {
-                        sid: sid,
-                        selection: selection
-                    };
-                }
-            }
-        });
+        if (selection.toString() !== '\n') {
 
-        modalInstance.result.then(function (selectedItem) {
-            $scope.selected = selectedItem;
-        }, function () {
-            console.info('Modal dismissed at: ' + new Date());
-        });
-    };
+            var modalInstance = $modal.open({
+                templateUrl: 'views/createNoteDialog.html',
+                controller: CreateNoteDialogCtrl,
+                resolve: {
+                    params: function () {
+                        return {
+                            sid: sid,
+                            selection: selection,
+                            scope: $scope // The content's scope
+                        };
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                $scope.selected = selectedItem;
+            }, function () {
+                console.info('Modal dismissed at: ' + new Date());
+            });
+        }
+        ;
+    }
 
 });
 /* End WorkCtrl */
@@ -395,12 +403,34 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
 
 var CreateNoteDialogCtrl = function ($scope, $modalInstance, params, EditorEngine) {
 
-    params.range = params.selection.getRangeAt(0); // range is not volatile, but selection is
-    $scope.selection = params.selection.toString();
+    var tooltipPlacements = [ // Menu of possible tooltip placements
+        {name: 'Top', code: 'top'},
+        {name: 'Bottom', code: 'bottom'},
+        {name: 'Left', code: 'left'},
+        {name: 'Right', code: 'right'}
+    ];
+
+    // TODO gather scope vars as members of a single scope var
+    $scope.createNote = {
+        selection: params.selection.toString(),
+        useTooltip: true, // whether tooltips should be used
+        tooltipPlacements: tooltipPlacements,
+        tooltipPlacement: tooltipPlacements[0] // user-selected tooltip placement
+    };
+
+    // Pass the range, which is not volatile, but selection might be (pass a clone, maybe?)
+    params.range = params.selection.rangeCount && params.selection.getRangeAt(0);
+
     $scope.ok = function () {
+        params.tooltip = $scope.createNote.useTooltip;
+        params.tooltipPlacement = ($scope.createNote.tooltipPlacement && $scope.createNote.tooltipPlacement.code);
+        params.note = $('#note')[0].value;
+        console.info('NOTE: ' + params.note);
+        // Marks up the selection (persistent)
         EditorEngine.markupNoteSelection(params);
-        EditorEngine.showNote(params.sid)
-        $modalInstance.close(); // TODO can I pass something to close?
+        // Creates highlights, popups, etc. (non-persistent)
+        EditorEngine.showNote(params)
+        $modalInstance.close();
     };
 
     $scope.cancel = function () {

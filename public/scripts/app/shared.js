@@ -92,22 +92,24 @@ var dflGlobals = {
             title: 'D_T', /* A title */
             prose: 'D_R', /* A prose section */
             paragraph: 'D_F', /* A paragraph */
-            poem: 'D_P',  /* A poem */
+            poem: 'D_P', /* A poem */
             verse: 'D_V', /* A verse (e.g., in a poem) */
             line: 'D_L', /* A line (e.g., in a verse) */
             lineNumbering: 'D_N', /* Block containing line numbers for a poem or prose TODO get rid of this when browse.html and EditorEngine.js are deleted */
             lineNumber: 'D_NL', /* A line number itself within a line number block TODO get rid of this when browse.html and EditorEngine.js are deleted*/
             note: 'A_NOTE', /* Links in popup notes */
-            tooltip: 'D_T', /* A tooltip for a note */
+            tooltip: 'D_TT', /* A complex (HTML) tooltip for a note */
 
             // TODO highlighting method needs to be generalized (this is a stub)
-            yHilite: 'D_HY',  /* Yellow hilite class */
+            yHilite: 'D_HY', /* Yellow hilite class */
             rHilite: 'D_HR' /* Light red hilite class */
         },
 
         styleSpecs: {
             /* Specify the styleSpecs to use for each editor tag */
             D_T: "D_T {display:block; font-weight:bold; font-size: larger}",
+            D_TT: "D_T {display:block;}",
+            // TODO D_TT
             D_R: "D_R {display:block;}",
             D_F: "D_F {display:block; width:" + defaultContentWidth + '}',
             D_P: "D_P {display:block; width:" + defaultContentWidth + '}',

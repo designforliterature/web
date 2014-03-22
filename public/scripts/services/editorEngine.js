@@ -80,15 +80,15 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
          * we must visit each text node in the span.
          * @param tw    The tree walker
          * @param applyFun A function to apply to each text node: it must accept
-         * two arguments: the text node and the info object.
-         * @param info An object containing information relevant to the applyFun.
+         * two arguments: the text node and the params object.
+         * @param params An object containing information relevant to the applyFun.
          * Walktree expects it to have a property named 'sid' with the sid whose
          * text nodes are to be scanned.
          * @return {number} The number of text nodes to which applyFun was applied
          */
-        walkTree: function (tw, applyFun, info) {
+        walkTree: function (tw, applyFun, params) {
             var write = false,
-                sid = info.sid,
+                sid = params.sid,
                 curr = tw.nextNode(),
                 textNodes = []; // text nodes in selection in order first to last
             while (curr) {
@@ -96,7 +96,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                     write = true; // we entered the selection range: now look for text nodes
                     // fall through to pick up next node
                 } else if (curr.nodeName === 'D_SE' && curr.attributes.sid.nodeValue === sid) {
-                    applyFun(textNodes, info);
+                    applyFun(textNodes, params);
                     return textNodes.length; // leaving the selection range: we're done with its text nodes
                 }
                 if (write && curr.nodeType === Node.TEXT_NODE) {
@@ -104,7 +104,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 }
                 curr = tw.nextNode();
             }
-            applyFun(textNodes, info);
+            applyFun(textNodes, params);
             return textNodes.length; // JIC
         },
 
@@ -112,18 +112,55 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
          * Highlights the text node and adds a note popup to it.
          * Function suitable applyFun arg to walkTree.
          * @param textNodes The text nodes
+         * @param params Parameters for this operation
          */
-        highlightMethod: function (textNodes) {
+//        highlightMethod: function (textNodes, params) {
+//            for (var i in textNodes) {
+//                var textNode = textNodes[i];
+//                var marker = document.createElement(EditorSettings.nodeNames.selectionSpan);
+//                marker.setAttribute('style', 'background-color: #ffff00');
+//                var textParent = textNode.parentElement;
+//                var tooltip;
+//                if (params.tooltip && params.note && params.note.length !== 0) { // Add a tooltip for the note
+//                    tooltip = document.createElement('a');
+////                    tooltip.setAttribute('tooltip-html-unsafe', params.note); // TODO sanitize note (allow people to use dflMarkdown language)
+//                    tooltip.setAttribute('href', '#');
+//                    tooltip.setAttribute('tooltip', params.note);
+////                    tooltip.setAttribute('tooltip-trigger', 'click');
+//                }
+//                textParent.replaceChild(marker, textNode);
+//                if (tooltip) {
+//                    marker.appendChild(tooltip);
+//                    tooltip.appendChild(textNode);
+//                } else {
+//                    marker.appendChild(textNode);
+//                }
+//
+//                // Recompile content for DOM changes to take effect
+//                var ajs = engine.utils.$compile(textParent);
+//                ajs(params.scope);
+//            }
+//        },
+        highlightMethod: function (textNodes, params) {
             for (var i in textNodes) {
-                var marker = document.createElement('D_S'), // TODO get it from dflGlobals
-                    textNode = textNodes[i],
-                    textParent = textNode.parentElement;
-                marker.setAttribute('class', 'D_HY'); // TODO get it from dflGlobals
+                var textNode = textNodes[i];
+                var marker = document.createElement(EditorSettings.nodeNames.selectionSpan);
+                marker.setAttribute('style', 'background-color: #ffff00');
+                var textParent = textNode.parentElement;
+                var tooltip = params.tooltip && params.note && params.note.length !== 0;
+                if (tooltip) {
+                    marker.setAttribute('tooltip-html-unsafe', params.note); // TODO sanitize note (allow people to use dflMarkdown language)
+                    marker.setAttribute('tooltip-placement', (params.tooltipPlacement || 'top'));
+//                    tooltip.setAttribute('tooltip-trigger', 'click');
+                }
                 textParent.replaceChild(marker, textNode);
                 marker.appendChild(textNode);
+
+                // Recompile content for DOM changes to take effect
+                var ajs = engine.utils.$compile(textParent);
+                ajs(params.scope);
             }
         },
-
         /**
          * Marks up the HTML for the selected text with the note selection nodes.
          * @param selection   The text selection object (platform dependent!)
@@ -144,16 +181,11 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
         },
 
         /* Shows an annotation (by highliting and note popups): assumes normalized HTML */
-        showNote: function (sid) {
-            var info = {
-                    sid: sid,
-                    popup: false    // show note popup, too?
-                },
-                tw = document.createTreeWalker($('#editorContent')[0], NodeFilter.SHOW_ALL, engine.tw_getNodeFilter, false),
-                affectedTextNodeCount = engine.walkTree(tw, engine.highlightMethod, info);
-            console.info('Affected text nodes: ' + affectedTextNodeCount + ' info: ' + JSON.stringify(info));
+        showNote: function (params) {
+            var tw = document.createTreeWalker($('#editorContent')[0], NodeFilter.SHOW_ALL, engine.tw_getNodeFilter, false),
+                affectedTextNodeCount = engine.walkTree(tw, engine.highlightMethod, params);
+            console.info('Affected text nodes: ' + affectedTextNodeCount);
         },
-
 
 
         workTypeLayouts: {
@@ -231,7 +263,6 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 }
             }
         },
-
 
 
         /*** TODO OLD STUFF FOLLOWS: OBSOLETE IT! ***/

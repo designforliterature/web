@@ -46,8 +46,10 @@ horaceApp.service('EditorSettings', ['$compile', function ($compile) {
         /* lineNumberingOn: if true, line numbering is on */
         lineNumberingOn: true,
 
+        /* nodeNames: names of special nodes used to mark content */
         nodeNames: dflGlobals.annotation.nodeNames,
 
+        /* styleSpecs: TODO */
         styleSpecs: dflGlobals.annotation.styleSpecs
 
     };
