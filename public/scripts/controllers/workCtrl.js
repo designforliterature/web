@@ -165,70 +165,64 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
     var drawer = new Drawer('tocDrawer');
 
     $scope.editor = {
-
-        contentMenuItems: [
-        {"id": 1, "name": "TOC", "type": 'normal'},
-        {"id": 2, "name": "Page View", "type": 'checkbox'},
-        {"id": 3, "name": "Notes Hidden", "type": 'checkbox'},
-        {"id": 4, "name": "Statistics", "type": 'normal'},
-        {"id": 5, "name": "Printout (dbg)", "type": 'normal'}
-        ],
-
-        preselected: {contentMenuItems: [2]},
-        selected_items: [],
+//
 
         /* drawer: contains table of contents and perhaps other aids */
         drawer: drawer,
 
-        /**
-         *  editorMenu: dropdown for content view.
-         *  IMPORTANT: update editorMenu.list (below) when adding items to this
-         */
-        editorMenu: {
-            // TODO should be a checkbox item: checked when drawer is opened.
-            openToc: {
-                title: 'Table of Contents',
-                type: 'normal',
-                method: function () {
-                    $scope.editor.drawer.toggle();
+        contentEditorMenu: {
+            /**
+             *  editorMenu: dropdown for content view.
+             *  IMPORTANT: update editorMenu.list (below) when adding items to this
+             */
+            editorMenu: {
+                openToc: {
+                    title: 'TOC',
+                    type: 'normal',
+                    onSelect: function () {
+                        $scope.editor.drawer.toggle();
+                    }
+                },
+                /* Turns the contents into either a page or scroll view for the section.
+                 * In page view, overflow goes into separate pages. Toc changes accordingly. */
+                scrollOrPage: {
+                    title: 'Scroll View',
+                    type: 'checkbox',
+                    selected: true, // model (initial state)
+                    onSelect: function () {
+                        alert('Scroll/Page View not implemented. Selected = ' + this.selected)
+                    }
+                },
+                hideNotes: {
+                    title: 'Notes Hidden',
+                    type: 'checkbox',
+                    selected: false, // model (initial state)
+                    onSelect: function () {
+                        alert('Hide Notes not implemented'); // TODO get actual sid
+                    }
+                },
+                printContent: {
+                    title: 'Print Content',
+                    type: 'normal',
+                    onSelect: function () { // print content DOM to console
+                        var range = document.createRange(),
+                            div = document.createElement('div');
+                        range.selectNodeContents($('#editorContent')[0]);
+                        div.appendChild(range.cloneContents());
+                        console.info(div);
+                    }
+                },
+                statistics: {
+                    title: 'Statistics',
+                    type: 'normal',
+                    onSelect: function () {
+                        alert('Statistics not implemented'); // TODO
+                    }
                 }
             },
-            /* Turns the contents into either a page or scroll view for the section.
-             * In page view, overflow goes into separate pages. Toc changes accordingly. */
-            scrollOrPage: {
-                title: 'Scroll View',
-                type: 'checkbox',
-                selected: true, // model
-                method: function () {
-                    alert('Scroll/Page View not implemented')
-                }
-            },
-            hideNotes: {
-                title: 'Notes Hidden',
-                type: 'checkbox',
-                selected: false, // model
-                method: function () {
-                    alert('Hide Notes not implemented'); // TODO get actual sid
-                }
-            },
-            printContent: {
-                title: 'Print Content',
-                type: 'normal',
-                method: function () { // print content DOM to console
-                    var range = document.createRange(),
-                        div = document.createElement('div');
-                    range.selectNodeContents($('#editorContent')[0]);
-                    div.appendChild(range.cloneContents());
-                    console.info(div);
-                }
-            },
-            statistics: {
-                title: 'Statistics',
-                type: 'normal',
-                method: function () {
-                    alert('Statistics not implemented'); // TODO
-                }
-            }
+
+            // TODO the following is not used but they are required by dropdownMenu directive
+            selected_items: []
         },
 
         /* id: The id of the chunk to go to when this page is reached */
@@ -387,12 +381,12 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
         }
     };
     /* Editor specs in presentation order */
-    $scope.editor.editorMenu.list = [
-        $scope.editor.editorMenu.openToc,
-        $scope.editor.editorMenu.scrollOrPage,
-        $scope.editor.editorMenu.hideNotes,
-        $scope.editor.editorMenu.printContent,
-        $scope.editor.editorMenu.statistics
+    $scope.editor.contentEditorMenu.list = [
+        $scope.editor.contentEditorMenu.editorMenu.openToc,
+        $scope.editor.contentEditorMenu.editorMenu.scrollOrPage,
+        $scope.editor.contentEditorMenu.editorMenu.hideNotes,
+        $scope.editor.contentEditorMenu.editorMenu.printContent,
+        $scope.editor.contentEditorMenu.editorMenu.statistics
     ]
 
     // Set the editor engine to use

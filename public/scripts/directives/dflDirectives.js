@@ -281,12 +281,31 @@ horaceApp.directive('signinField', function () {
 
 // TODO put template into a file?
 // TODO allow only certain items in the model to be checked
+/**
+ * dropdownMenu: provides a dropdown menu whose menu items may include check boxes.
+ * Sample use:
+ *
+ *         <dropdown-menu pre-selected="preselectedMenuItems" model="selectedMenuItems"
+ *              menu-items="menuItems"></dropdown-menu>
+ *
+ * The parent controller in this example contains a list of menu item objects in
+ * $scope.menuItems. Selected items that have a dropbox property are internally
+ * kept in the parent controller's $scope.selectedMenuItems. Finally, any
+ * checkbox menu items that should be preselected the first time the menu appears
+ * should be in the parent controller's preselectedMenuItems.
+ *
+ * The parent controller's menuItems object should be an array
+ * with a set of menu item objects, each of which must have a `title` field
+ * containing the menu's title (this is also used to uniquely identify the menu),
+ * and optionally a function named 'onSelect' that will be called after
+ * the corresponding menu item is selected by the user.
+ */
 horaceApp.directive('dropdownMenu', function () {
     return {
         restrict: 'E',
         scope: {
-            model: '=',
-            options: '=',
+            model: '=', // for checkbox menu items, we keep them here when they are checked
+            menuItems: '=', // the list of menu item objects
             pre_selected: '=preSelected'
         },
         template: "<div class='btn-group' data-ng-class='{open: open}'>" +
@@ -294,33 +313,32 @@ horaceApp.directive('dropdownMenu', function () {
             "<button  style='background-color: white' class='btn btn-small dropdown-toggle' data-ng-click='open=!open;openDropdown()'><img src='../images/open-menu-icon.png'/></button>" +
             "<ul class='dropdown-menu' aria-labelledby='dropdownMenu'>" +
 //            "<li class='divider'></li>" +
-            "<li data-ng-repeat='option in options'> <a data-ng-click='setSelection()'>{{option.name}}<span data-ng-class='isSelected(option.id)'></span></a></li>" +
+            "<li data-ng-repeat='menuItem in menuItems'> <a data-ng-click='setSelection()'>{{menuItem.title}}<span data-ng-class='isSelected(menuItem.title)'></span></a></li>" +
             "</ul>" +
             "</div>",
         controller: function ($scope) {
-
             $scope.openDropdown = function () {
-                $scope.selected_items = [];
-                for (var i = 0; i < $scope.pre_selected.length; i++) {
-                    $scope.selected_items.push($scope.pre_selected[i].id);
-                }
+                // do nothing
             };
             $scope.setSelection = function () {
-                if (this.option.type === 'checkbox') {
-                    var id = this.option.id;
-                    if (_.contains($scope.model, id)) {
-                        $scope.model = _.without($scope.model, id);
+                var selected = true;
+                if (this.menuItem.type === 'checkbox') {
+                    if (_.contains($scope.model, this.menuItem.title)) {
+                        $scope.model = _.without($scope.model, this.menuItem.title);
+                        selected = false;
                     } else {
-                        $scope.model.push(id);
+                        $scope.model.push(this.menuItem.title);
                     }
-                    return false;
+                } else {
+                    selected = true;
+                }
+                if (typeof this.menuItem.onSelect === 'function') {
+                    this.menuItem.selected = selected;
+                    this.menuItem.onSelect();
                 }
             };
-            $scope.isSelected = function (id) {
-                if (_.contains($scope.model, id)) {
-                    return 'glyphicon glyphicon-ok pull-right';
-                }
-                return false;
+            $scope.isSelected = function (title) {
+                return (_.contains($scope.model, title)) && 'glyphicon glyphicon-ok pull-right';
             }
         }
     }
