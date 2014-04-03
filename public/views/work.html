@@ -14,6 +14,7 @@
 
 <!-- Drawer with navigation aids -->
 <div style="margin-top: 4em" class="snap-drawers">
+
     <div class="snap-drawer snap-drawer-left">
         <!-- The table of contents to initially appear in a closed drawer -->
         <div class="editorTocControls">
@@ -26,9 +27,9 @@
                 <button ng-click="editor.pager.goNextSection()">&gt;&gt;</button>
             </div>
             <!-- Navigation info and user affordance to set the 'section' -->
-            <div style="font-weight:bold;padding-left: 4px">Section <input id="currentSection" style="width:20px"
-                                                                          ng-blur="editor.pager.setSection()"
-                                                                          ng-value="editor.pager.currentSection"/>
+            <div style="font-weight:bold;padding-left: 4px">Section <input id="currentSection" style="width:3em"
+                                                                           ng-keyup="editor.pager.setSection()"
+                                                                           ng-value="editor.pager.currentSection"/>
                 of {{editor.pager.totalSections}}
             </div>
 
@@ -50,5 +51,9 @@
         <span id="documentBreadcrumb"></span>
     </div>
     <!-- The content -->
-    <div id="editorContent"/>
+    <div id="editorContent">
+        <div style="position: absolute;top:10px;z-index: 1" ng-include="license.html"></div>
+        </div>
+
+
 </div>

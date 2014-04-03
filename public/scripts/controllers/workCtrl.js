@@ -226,7 +226,12 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
             currentSection: undefined,
             totalSections: undefined,
             setSection: function () {
-                var newPageNo = parseInt($('#currentSection')[0].value, 10);
+                var newPageNo;
+                try {
+                    newPageNo = parseInt($('#currentSection')[0].value, 10);
+                } catch (err) {
+                    return; // ignore
+                }
                 if (newPageNo && newPageNo > 0 && newPageNo <= this.totalSections && newPageNo !== this.currentSection) {
                     var currChunk = $scope.editor.currentChunkInfo,
                         direction = (currChunk.index < newPageNo) ? 'nextSib' : 'prevSib';

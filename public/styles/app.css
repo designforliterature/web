@@ -160,7 +160,6 @@ textarea, input, select .catalogField {
     font-size: 10px;
     background-color: #e1d297;
     text-align: center;
-    /*height: 84em;*/
     width: 216px;
 }
 
@@ -176,7 +175,6 @@ textarea, input, select .catalogField {
     /*-moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);*/
     /*-webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);*/
     /*box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);*/
-    /*margin-top: 8px;*/
 }
 
 /* This is the breadcrumb readout */
@@ -221,18 +219,13 @@ div.signinBox {
 
 .signinField {
     margin-top: .5em;
-    /*height: 24px;*/
     width: 10em;
-    /*font-size: 16px;*/
     vertical-align: middle;
 }
 
 .signupField {
     margin-top: .5em;
-    /*height: 24px;*/
     width: 80%;
-    /*width: 7em;*/
-    /*font-size: 16px;*/
     vertical-align: middle;
 }
 
