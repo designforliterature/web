@@ -1,25 +1,13 @@
 <!DOCTYPE html>
 <!--
- The MIT License (MIT)
-
- Copyright (c) 2014 Ruben Kleiman
-
- Permission is hereby granted, free of charge, to any person obtaining a copy of
- this software and associated documentation files (the "Software"), to deal in
- the Software without restriction, including without limitation the rights to
- use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- the Software, and to permit persons to whom the Software is furnished to do so,
- subject to the following conditions:
-
- The above copyright notice and this permission notice shall be included in all
- copies or substantial portions of the Software.
-
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+/*
+ * Copyright (c) 2014 Ruben Kleiman under Creative Commons Attribution-ShareAlike 4.0 International License.
+ *
+ * This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a letter
+ * to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+ *
+ */
 -->
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -56,44 +44,47 @@ Note: Using <% and %> as Hogan delimiters instead of mustaches (mustaches reserv
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="styles/vendor/bootstrap/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="styles/vendor/snap/snap.css" type="text/css" />
-    <link rel='stylesheet' href='scripts/vendor/jtree/themes/default/style.min.css' type="text/css" />
+    <link rel="stylesheet" href="styles/vendor/bootstrap/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="styles/vendor/snap/snap.css" type="text/css"/>
+    <link rel='stylesheet' href='scripts/vendor/jtree/themes/default/style.min.css' type="text/css"/>
 
-    <script src="scripts/vendor/jquery/jquery.min.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/vendor/snap/snap.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/vendor/ng-file-upload/angular-file-upload-shim.min.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/vendor/angular/angular.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/vendor/ng-file-upload/angular-file-upload.min.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/vendor/angular-ui-router/angular-ui-router.min.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/vendor/angular-animate/angular-animate.min.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/vendor/angular-ui/angular-ui.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/vendor/angular-ui/ui-bootstrap.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/vendor/socket.io/socket.io.min.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/vendor/jtree/jstree.min.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/vendor/underscore-min.js" type="text/javascript" charset="utf-8" ></script>
+    <script src="scripts/vendor/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/vendor/snap/snap.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/vendor/ng-file-upload/angular-file-upload-shim.min.js" type="text/javascript"
+            charset="utf-8"></script>
+    <script src="scripts/vendor/angular/angular.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/vendor/ng-file-upload/angular-file-upload.min.js" type="text/javascript"
+            charset="utf-8"></script>
+    <script src="scripts/vendor/angular-ui-router/angular-ui-router.min.js" type="text/javascript"
+            charset="utf-8"></script>
+    <script src="scripts/vendor/angular-animate/angular-animate.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/vendor/angular-ui/angular-ui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/vendor/angular-ui/ui-bootstrap.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/vendor/socket.io/socket.io.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/vendor/jtree/jstree.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/vendor/underscore-min.js" type="text/javascript" charset="utf-8"></script>
     <!-- End vendor scripts ----------------------------------------------------------- -->
 
     <!-- Start application scripts --------------------------------------------------- -->
     <!-- TODO on first released version, consolidate all app js into a single min file -->
-    <script src="scripts/app/appModule.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/app/shared.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/services/configService.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/services/sessionService.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/services/notificationService.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/services/socketsService.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/services/workDirectoryService.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/services/editorEngine.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/services/editorSettings.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/services/userPrefs.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/directives/dflDirectives.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/controllers/appCtrl.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/controllers/menubarCtrl.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/controllers/signinCtrl.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/controllers/signupCtrl.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/controllers/workCtrl.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/controllers/searchCtrl.js" type="text/javascript" charset="utf-8" ></script>
-    <script src="scripts/controllers/catalogCtrl.js" type="text/javascript" charset="utf-8" ></script>
+    <script src="scripts/app/appModule.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/app/shared.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/services/configService.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/services/sessionService.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/services/notificationService.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/services/socketsService.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/services/workDirectoryService.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/services/editorEngine.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/services/editorSettings.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/services/userPrefs.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/directives/dflDirectives.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/controllers/appCtrl.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/controllers/menubarCtrl.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/controllers/signinCtrl.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/controllers/signupCtrl.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/controllers/workCtrl.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/controllers/searchCtrl.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/controllers/catalogCtrl.js" type="text/javascript" charset="utf-8"></script>
     <!-- End application scripts ----------------------------------------------------- -->
 
     <!-- Start application styles --------------------------------------------------- -->
@@ -118,15 +109,17 @@ Note: Using <% and %> as Hogan delimiters instead of mustaches (mustaches reserv
 <body ng-app="horaceApp">
 
 <div ng-controller="AppCtrl">
-<!--<button style="margin: 10px 10px 10px 10px" ng-click="app.serverStatus()">Server Status (dbg)</button>-->
+    <!--<button style="margin: 10px 10px 10px 10px" ng-click="app.serverStatus()">Server Status (dbg)</button>-->
 
     <div ng-include="app.menubar"></div>
 
     <div ui-view></div>
 
+    <div ng-include="app.license"></div>
+
 </div>
 
-<!-- Websocket messages from transactions for debugging only -->
+<!-- Websocket messages from transactions debugging  -->
 <div id="socketDebug" style="display: none">Socket Debug</div>
 <!-- Http response message debugging -->
 <div id="httpDebug" style="display: none">Http Debug</div>

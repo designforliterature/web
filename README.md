@@ -1,15 +1,17 @@
 # Design for Literature
-##### The MIT License (MIT)
-##### Copyright (c) 2014 Ruben Kleiman
+##### Copyright (c) 2014 Ruben Kleiman under Creative Commons Attribution-ShareAlike 4.0 International License.
+##### This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
+##### To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a letter
+##### to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
 
 ![Design For Literature](public/images/dfl-icon-250.png "Design For Literature")
 
 Currently working on the first version (0.1.0). Aiming for a demo of some of the
 features by April 7, 2014. (See *Roadmap*, below.)
 
-About this project: http://designforliterature.com or <info@designforliterature.com>.
+Information about this project: http://designforliterature.com or <info@designforliterature.com>.
 
-To contact Ruben Kleiman: <rk@post.harvard.edu>.
+To contact Ruben Kleiman: <rk@designforliterature.com> or <rk@post.harvard.edu>.
 
 ## Single-Machine, Development Installation
 

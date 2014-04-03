@@ -1,25 +1,12 @@
 /*
- The MIT License (MIT)
+ * Copyright (c) 2014 Ruben Kleiman under Creative Commons Attribution-ShareAlike 4.0 International License.
+ *
+ * This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a letter
+ * to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+ *
+ */
 
- Copyright (c) 2013 Ruben Kleiman
-
- Permission is hereby granted, free of charge, to any person obtaining a copy of
- this software and associated documentation files (the "Software"), to deal in
- the Software without restriction, including without limitation the rights to
- use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- the Software, and to permit persons to whom the Software is furnished to do so,
- subject to the following conditions:
-
- The above copyright notice and this permission notice shall be included in all
- copies or substantial portions of the Software.
-
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
 
 /*
  Color Scheme:
@@ -35,6 +22,7 @@
 html,
 body {
     font-family: sans-serif;
+    width: 100em;
     margin: 0;
     padding-left: 5px;
     padding-right: 5px;
@@ -159,40 +147,36 @@ textarea, input, select .catalogField {
 /* work.html */
 #editorContent {
     overflow-y: scroll;
-    height: 850px;
-    /*margin-left: .5em;*/
-    border: 1px;
-    border-style: solid;
-    border-color: #00B7FF;
+    width: 100em;
+    height: 58em;
+    border-top: 1px solid black;
     padding: 1em 1em 1em 1em;
     -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
     -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
     box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
 }
 
-.editorToc {
+.editorTocControls {
     font-size: 10px;
     background-color: #e1d297;
-    /*border: 1px;*/
-    /*border-style: solid;*/
-    /*border-color: #00B7FF;*/
-    height: 820px;
-    width: 220px;
+    text-align: center;
+    /*height: 84em;*/
+    width: 216px;
 }
 
 .editorTocTree {
-    overflow-y: scroll;
+    overflow-y: auto;
     vertical-align: top;
     font-size: 10px;
     font-weight: bolder;
-    background-color: #e1d297;
+    background-color: #d4c58a;
     padding: 1em 1em 1em 1em;
-    height: 820px;
-    width: 220px;
-    -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
-    -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
-    box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
-    margin-top: 4px
+    height: 80em;
+    width: 216px; /* measurement must match new Snap's (drawer) maxPosition option */
+    /*-moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);*/
+    /*-webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);*/
+    /*box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);*/
+    /*margin-top: 8px;*/
 }
 
 /* This is the breadcrumb readout */
