@@ -10,6 +10,7 @@
 // CLIENT (SOME SHARED WITH SERVER) --------------------------------------------------------------------------------
 
 'use strict';
+
 /**
  * This file contains definitions, specifications, and globals used by the client.
  * Eventually, many of these will come from the server, but for initial development
@@ -130,9 +131,9 @@ var dflGlobals = {
     },
 
     /**
-     * horaApp.dfUtils: utilities outside of angularjs
+     * General utilities
      */
-    dfUtils: {
+    utils: {
 
         /**
          * insertSort: insertion sort for array of objects. Ranking
@@ -148,6 +149,33 @@ var dflGlobals = {
                     array[j + 1] = array[j];
                 array[j + 1] = other;
             }
+        },
+
+
+        /**
+         * Escapes XML-style markup and optionally checks the length of the text.
+         * If specified object is an array, each object is in the array is recursively sanitized.
+         * If it is a js object, each subobject is recursively sanitized.
+         * Any other type of object is simply returned.
+         * @param obj An object.
+         * @returns {Array} Returns the same array, sanitized.
+         * @throws Error if there's an attempt to insert a function
+         */
+        sanitizeObject: function (obj) {
+            var type = (typeof obj);
+            if (type === 'string') {
+                return obj.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            } else if (type === 'boolean' || type === 'number' || type === 'function' || type === 'undefined') {
+                return obj;
+            } else if (type === 'function') {
+                throw {type: 'error', msg: 'Invalid insertion of function'};
+            } else {
+                var index;
+                for (index in obj) {
+                    obj[index] = sanitizeObject(obj[index]);
+                }
+                return obj;
+            }
         }
     },
 
@@ -156,6 +184,9 @@ var dflGlobals = {
         dflMarkdown: 'dflMarkdown'
     },
 
+    /**
+     * Unique ids for fields. Most of them are for the catalog metadata right now.
+     */
     fieldIds: {
         id: '_id',
         workType: 'workType',
@@ -994,7 +1025,7 @@ function makeWorkTypesPresentationOrder() {
         }
         presentationArray.push(item);
     }
-    dflGlobals.dfUtils.insertSort(presentationArray, 'rank'); // change to quick if specs get larger
+    dflGlobals.utils.insertSort(presentationArray, 'rank'); // change to quick if specs get larger
 
     return presentationArray;
 }

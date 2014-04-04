@@ -30,13 +30,13 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
      * On mouseup in the content area with the alt key depressed,
      * the user intends to create a note.
      * Scheme:
-     * AltKey + mouseUp: create a simple note
-     * AltKey + Shift + mouseUp: create a more complex note: dialog brings up options
+     * Option (PCs: AltKey) + mouseUp: create a simple note
+     * TODO Option (PCs: AltKey) + Shift + mouseUp: create a more complex note: dialog brings up options
      * @param e The event
      */
     $('#editorContent')[0].onmouseup = function (e) {
         if (e.altKey) { // Option key creates a note
-            createNote(e);
+           makeNote(e);
         }
     };
 
@@ -55,7 +55,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
      * Annotates a selection. Simple for now
      * @param e The event object
      */
-    function createNote(e) {
+    function makeNote(e) {
         $('#editorContent')[0].normalize(); // get rid of empty and merge sibling text nodes
         if (typeof window.getSelection != "undefined") {
             var sel = window.getSelection(),
@@ -65,7 +65,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
                     console.info('nothing selected');
                 } else {
 //                    EditorEngine.markupNoteSelection(sel); // if it were done immediately
-                    $scope.editor.openCreateNoteDialog(sid, sel);
+                    $scope.editor.openMakeNoteDialog(sid, sel);
                 }
             }
         } else {
@@ -346,32 +346,33 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
             }
 
             activateSettingStyles();
-        },
+        }
 
         // stub function to do a test annotation
-        test: function () {
-            var viewMethName;
-            for (viewMethName in testAnnotation.views) {
-                if (testAnnotation.views.hasOwnProperty(viewMethName)) {
-                    var viewMeth = $scope.editor.engine.viewMethods[viewMethName];
-                    if (viewMeth) {
-                        viewMeth($scope, testAnnotation);
-                    } else {
-                        throw {type: 'fatal', msg: 'No view method named "' + viewMethName + '"'};
-                    }
-                }
-            }
-        },
+//        test: function () {
+//            var viewMethName;
+//            for (viewMethName in testAnnotation.views) {
+//                if (testAnnotation.views.hasOwnProperty(viewMethName)) {
+//                    var viewMeth = $scope.editor.engine.viewMethods[viewMethName];
+//                    if (viewMeth) {
+//                        viewMeth($scope, testAnnotation);
+//                    } else {
+//                        throw {type: 'fatal', msg: 'No view method named "' + viewMethName + '"'};
+//                    }
+//                }
+//            }
+//        },
 
-        // stub function to clear all annotation views
-        clearAnnotationViews: function () {
-            $(EditorSettings.nodeNames.selectionSpan).each(function (i) {
-                var child = $(this)[0].firstChild;
-                $(this).replaceWith(child);
-
-            });
-        }
+//        // stub function to clear all annotation views
+//        clearAnnotationViews: function () {
+//            $(EditorSettings.nodeNames.selectionSpan).each(function (i) {
+//                var child = $(this)[0].firstChild;
+//                $(this).replaceWith(child);
+//
+//            });
+//        }
     };
+
     /* Editor specs in presentation order */
     $scope.editor.contentEditorMenu.list = [
         $scope.editor.contentEditorMenu.editorMenu.openToc,
@@ -387,13 +388,13 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
     // Set the user preferences
     $scope.editor.prefs = UserPrefs;
 
-    $scope.editor.openCreateNoteDialog = function (sid, selection) {
+    $scope.editor.openMakeNoteDialog = function (sid, selection) {
 
         if (selection.toString() !== '\n') {
 
             var modalInstance = $modal.open({
-                templateUrl: 'views/createNoteDialog.html',
-                controller: CreateNoteDialogCtrl,
+                templateUrl: 'views/makeNoteDialog.html',
+                controller: MakeNoteDialogCtrl,
                 resolve: {
                     params: function () {
                         return {
@@ -418,9 +419,10 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
 /* End WorkCtrl */
 
 
-var CreateNoteDialogCtrl = function ($scope, $modalInstance, params, EditorEngine) {
+var MakeNoteDialogCtrl = function ($scope, $modalInstance, params, EditorEngine) {
 
     var tooltipPlacements = [ // Menu of possible tooltip placements
+        {name: 'None', code: 'none'},
         {name: 'Top', code: 'top'},
         {name: 'Bottom', code: 'bottom'},
         {name: 'Left', code: 'left'},
@@ -428,9 +430,8 @@ var CreateNoteDialogCtrl = function ($scope, $modalInstance, params, EditorEngin
     ];
 
     // TODO gather scope vars as members of a single scope var
-    $scope.createNote = {
+    $scope.makeNote = {
         selection: params.selection.toString(),
-        useTooltip: true, // whether tooltips should be used
         tooltipPlacements: tooltipPlacements,
         tooltipPlacement: tooltipPlacements[0] // user-selected tooltip placement
     };
@@ -439,14 +440,14 @@ var CreateNoteDialogCtrl = function ($scope, $modalInstance, params, EditorEngin
     params.range = params.selection.rangeCount && params.selection.getRangeAt(0);
 
     $scope.ok = function () {
-        params.tooltip = $scope.createNote.useTooltip;
-        params.tooltipPlacement = ($scope.createNote.tooltipPlacement && $scope.createNote.tooltipPlacement.code);
-        params.note = $('#note')[0].value;
-        console.info('NOTE: ' + params.note);
-        // Marks up the selection (persistent)
+        params.tooltip = ($scope.makeNote.tooltipPlacement.code && ($scope.makeNote.tooltipPlacement.code !== 'none')) ? $scope.makeNote.tooltipPlacement.code : undefined;
+        params.text = $('#note')[0].value;
+        console.info('NOTE: ' + params.text);
+        EditorEngine.saveNote(params);
+        // Marks up the text selection
         EditorEngine.markupNoteSelection(params);
-        // Creates highlights, popups, etc. (non-persistent)
-        EditorEngine.showNote(params)
+        // Enables highlighting and popups
+        EditorEngine.enableNote(params)
         $modalInstance.close();
     };
 

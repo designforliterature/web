@@ -22,13 +22,13 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
      * Creates the document location HTML
      * @param chunkInfo The chunk info
      */
-    function makeDocumentBreadcrum(chunkInfo, workTitle, chain) {
+    function makeDocumentBreadcrumb(chunkInfo, workTitle, chain) {
         if (!chain) {
             chain = [];
         }
         if (chunkInfo) {
             chain.splice(0, 0, chunkInfo.title);
-            return makeDocumentBreadcrum(chunkInfo.parent, workTitle, chain);
+            return makeDocumentBreadcrumb(chunkInfo.parent, workTitle, chain);
         } else {
             var location = workTitle ? ('<i>' + workTitle + '</i> > ') : '',
                 len = chain.length;
@@ -42,6 +42,9 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
         }
     }
 
+    /**
+     * This is a plugin engine.
+     */
     var engine = {
 
         /**
@@ -95,49 +98,15 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
             return textNodes.length; // JIC
         },
 
-        /**
-         * Highlights the text node and adds a note popup to it.
-         * Function suitable applyFun arg to walkTree.
-         * @param textNodes The text nodes
-         * @param params Parameters for this operation
-         */
-//        highlightMethod: function (textNodes, params) {
-//            for (var i in textNodes) {
-//                var textNode = textNodes[i];
-//                var marker = document.createElement(EditorSettings.nodeNames.selectionSpan);
-//                marker.setAttribute('style', 'background-color: #ffff00');
-//                var textParent = textNode.parentElement;
-//                var tooltip;
-//                if (params.tooltip && params.note && params.note.length !== 0) { // Add a tooltip for the note
-//                    tooltip = document.createElement('a');
-////                    tooltip.setAttribute('tooltip-html-unsafe', params.note); // TODO sanitize note (allow people to use dflMarkdown language)
-//                    tooltip.setAttribute('href', '#');
-//                    tooltip.setAttribute('tooltip', params.note);
-////                    tooltip.setAttribute('tooltip-trigger', 'click');
-//                }
-//                textParent.replaceChild(marker, textNode);
-//                if (tooltip) {
-//                    marker.appendChild(tooltip);
-//                    tooltip.appendChild(textNode);
-//                } else {
-//                    marker.appendChild(textNode);
-//                }
-//
-//                // Recompile content for DOM changes to take effect
-//                var ajs = engine.utils.$compile(textParent);
-//                ajs(params.scope);
-//            }
-//        },
-        highlightMethod: function (textNodes, params) {
+        highlightMethod: function (textNodes, note) {
             for (var i in textNodes) {
                 var textNode = textNodes[i];
                 var marker = document.createElement(EditorSettings.nodeNames.selectionSpan);
                 marker.setAttribute('style', 'background-color: #ffff00');
                 var textParent = textNode.parentElement;
-                var tooltip = params.tooltip && params.note && params.note.length !== 0;
-                if (tooltip) {
-                    marker.setAttribute('tooltip-html-unsafe', params.note); // TODO sanitize note (allow people to use dflMarkdown language)
-                    marker.setAttribute('tooltip-placement', (params.tooltipPlacement || 'top'));
+                if (note.tooltip) {
+                    marker.setAttribute('tooltip-html-unsafe', note.text); // TODO sanitize note (allow people to use dflMarkdown language)
+                    marker.setAttribute('tooltip-placement', note.tooltip);
 //                    tooltip.setAttribute('tooltip-trigger', 'click');
                 }
                 textParent.replaceChild(marker, textNode);
@@ -145,19 +114,19 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
 
                 // Recompile content for DOM changes to take effect
                 var ajs = engine.utils.$compile(textParent);
-                ajs(params.scope);
+                ajs(note.scope);
             }
         },
         /**
          * Marks up the HTML for the selected text with the note selection nodes.
-         * @param selection   The text selection object (platform dependent!)
+         * @param note Note parameters.
          */
-        markupNoteSelection: function (params) {
+        markupNoteSelection: function (note) {
 //        var container = document.createElement("div");
             var startSel = document.createElement('D_SS'), // TODO use definitions
                 endSel = document.createElement('D_SE'), // TODO use definitions
-                sid = params.sid,
-                range = params.range;
+                sid = note.sid,
+                range = note.range;
 //            container.appendChild(range.cloneContents());
             startSel.setAttribute('sid', sid);
             endSel.setAttribute('sid', sid);
@@ -167,13 +136,23 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
             console.info('INSERTED: sid ' + sid);
         },
 
-        /* Shows an annotation (by highliting and note popups): assumes normalized HTML */
-        showNote: function (params) {
+        /**
+         * Enables a note by highliting and adding optional popups. Assumes normalized HTML.
+         * @param note Note parameters.
+         */
+        enableNote: function (note) {
             var tw = document.createTreeWalker($('#editorContent')[0], NodeFilter.SHOW_ALL, engine.tw_getNodeFilter, false),
-                affectedTextNodeCount = engine.walkTree(tw, engine.highlightMethod, params);
+                affectedTextNodeCount = engine.walkTree(tw, engine.highlightMethod, note);
             console.info('Affected text nodes: ' + affectedTextNodeCount);
         },
 
+        /**
+         * Saves or updates a note.
+         * @param note    Note parameters.
+         */
+        saveNote: function (note) {
+
+        },
 
         workTypeLayouts: {
 
@@ -193,7 +172,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 $('#editorContent')[0].innerHTML = makeText(chunkInfo.content);
 
                 var documentBreadcrumb = $('#documentBreadcrumb')[0];
-                documentBreadcrumb.innerHTML = makeDocumentBreadcrum(chunkInfo, workTitle);
+                documentBreadcrumb.innerHTML = makeDocumentBreadcrumb(chunkInfo, workTitle);
             },
 
             /* A poem */
@@ -238,7 +217,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 var content = makeText(chunkInfo.content, EditorSettings.lineNumberingOn);
 
                 var documentBreadcrumb = $('#documentBreadcrumb')[0];
-                documentBreadcrumb.innerHTML = makeDocumentBreadcrum(chunkInfo, workTitle);
+                documentBreadcrumb.innerHTML = makeDocumentBreadcrumb(chunkInfo, workTitle);
 
                 if (EditorSettings.lineNumberingOn) {
                     var html = '<table><tr><td style="vertical-align: top"><table><tr><td><D_T>' + chunkInfo.title + '</D_T></td></tr><tr><td style="vertical-align: top;">' + content.text + '</td><td style="vertical-align: top;">' + content.numbering + '</td></tr></table></td></tr></table>';
@@ -348,6 +327,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
          Walks the tree of the annotation's context and processes a single sid in a selection.
 
          @param scope The scope from some controller
+         @param tw The tree walker
          @param anno The annotation
          @param selection The selection
          @param startSel The d_ss element starting the selection's sid fragment

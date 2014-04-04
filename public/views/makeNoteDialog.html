@@ -9,21 +9,18 @@
  */
 -->
 <div class="modal-header">
-    <h3>Create Note</h3>
+    <h3>Make Note</h3>
 </div>
 <div class="modal-body">
-    <div style="font-style: italic;font-weight: bold;font-size: larger">Your selection:</div>
+    <div style="font-weight: bold;">Selected Text</div>
     <textarea style="width: 40em;height: 6em" disabled="true" readonly="true"
-              wrap="soft">{{createNote.selection}}</textarea>
+              wrap="soft">{{makeNote.selection}}</textarea>
     <div>
-        <span>
-            <input style="position:inherit;width: 10px" id='popupCheckbox' type="checkbox" ng-model="createNote.useTooltip" >
-            <label for="popupCheckbox">Show Note In Popup</label>
-        </span>
+        <span style="font-weight: bold;">Tool tip: </span>
         <span style="margin-left: 10px">
-            <select ng-disabled="!createNote.useTooltip || $('#note')[0].value === ''"
-                    ng-model="createNote.tooltipPlacement"
-                    ng-options="c.name for c in createNote.tooltipPlacements"></select>
+            <select ng-disabled="$('#note')[0].value === ''"
+                    ng-model="makeNote.tooltipPlacement"
+                    ng-options="c.name for c in makeNote.tooltipPlacements"></select>
         </span>
     </div>
     <div>
@@ -32,6 +29,6 @@
 
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">Create Note</button>
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
     <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 </div>

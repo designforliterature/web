@@ -265,7 +265,7 @@ horaceApp.directive('signinField', function () {
 });
 
 
-// TODO put template into a file?
+
 // TODO allow only certain items in the model to be checked
 /**
  * dropdownMenu: provides a dropdown menu whose menu items may include check boxes.
@@ -294,7 +294,7 @@ horaceApp.directive('dropdownMenu', function () {
             menuItems: '=', // the list of menu item objects
             pre_selected: '=preSelected'
         },
-        template: "<div class='btn-group' data-ng-class='{open: open}'>" +
+        template: "<div class='btn-group' data-ng-class='{open: open}'>" + // TODO put template into a file?
 //            "<button class='btn btn-small'>Select</button>" +
             "<button  style='background-color: white' class='btn btn-small dropdown-toggle' data-ng-click='open=!open;openDropdown()'><img src='../images/open-menu-icon.png'/></button>" +
             "<ul class='dropdown-menu' aria-labelledby='dropdownMenu'>" +
