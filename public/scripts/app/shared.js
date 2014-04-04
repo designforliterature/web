@@ -165,16 +165,18 @@ var dflGlobals = {
             var type = (typeof obj);
             if (type === 'string') {
                 return obj.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            } else if (type === 'boolean' || type === 'number' || type === 'function' || type === 'undefined') {
+            } else if (type === 'boolean' || type === 'number' || type === 'undefined') {
                 return obj;
             } else if (type === 'function') {
                 throw {type: 'error', msg: 'Invalid insertion of function'};
-            } else {
+            } else if (type === 'object') {
                 var index;
                 for (index in obj) {
                     obj[index] = sanitizeObject(obj[index]);
                 }
                 return obj;
+            } else {
+                return undefined;
             }
         }
     },

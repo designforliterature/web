@@ -12,7 +12,7 @@
 'use strict';
 
 
-horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams, $modal) {
+horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationService, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams, $modal) {
 
     function makeJtreeData(toc, jtreeData) { // TODO deal with a huge outline // TODO make recursive for all levels
         for (var i in toc) {
@@ -347,30 +347,6 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
 
             activateSettingStyles();
         }
-
-        // stub function to do a test annotation
-//        test: function () {
-//            var viewMethName;
-//            for (viewMethName in testAnnotation.views) {
-//                if (testAnnotation.views.hasOwnProperty(viewMethName)) {
-//                    var viewMeth = $scope.editor.engine.viewMethods[viewMethName];
-//                    if (viewMeth) {
-//                        viewMeth($scope, testAnnotation);
-//                    } else {
-//                        throw {type: 'fatal', msg: 'No view method named "' + viewMethName + '"'};
-//                    }
-//                }
-//            }
-//        },
-
-//        // stub function to clear all annotation views
-//        clearAnnotationViews: function () {
-//            $(EditorSettings.nodeNames.selectionSpan).each(function (i) {
-//                var child = $(this)[0].firstChild;
-//                $(this).replaceWith(child);
-//
-//            });
-//        }
     };
 
     /* Editor specs in presentation order */
@@ -400,7 +376,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
                         return {
                             sid: sid,
                             selection: selection,
-                            scope: $scope // The content's scope
+                            workControllerScope: $scope // The work controller's scope
                         };
                     }
                 }
@@ -419,7 +395,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, WorkDirectorySe
 /* End WorkCtrl */
 
 
-var MakeNoteDialogCtrl = function ($scope, $modalInstance, params, EditorEngine) {
+var MakeNoteDialogCtrl = function ($scope, $modalInstance, params, EditorEngine, AnnotationService) {
 
     var tooltipPlacements = [ // Menu of possible tooltip placements
         {name: 'None', code: 'none'},
@@ -443,7 +419,9 @@ var MakeNoteDialogCtrl = function ($scope, $modalInstance, params, EditorEngine)
         params.tooltip = ($scope.makeNote.tooltipPlacement.code && ($scope.makeNote.tooltipPlacement.code !== 'none')) ? $scope.makeNote.tooltipPlacement.code : undefined;
         params.text = $('#note')[0].value;
         console.info('NOTE: ' + params.text);
-        EditorEngine.saveNote(params);
+        params.chunkInfo = params.workControllerScope.editor.currentChunkInfo; // convenience
+        AnnotationService.saveNote(params);
+        console.info(x);
         // Marks up the text selection
         EditorEngine.markupNoteSelection(params);
         // Enables highlighting and popups

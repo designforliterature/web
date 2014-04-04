@@ -105,7 +105,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 marker.setAttribute('style', 'background-color: #ffff00');
                 var textParent = textNode.parentElement;
                 if (note.tooltip) {
-                    marker.setAttribute('tooltip-html-unsafe', note.text); // TODO sanitize note (allow people to use dflMarkdown language)
+                    marker.setAttribute('tooltip-html-unsafe', dflGlobals.utils.sanitizeObject(note.text)); // TODO sanitize note (allow people to use dflMarkdown language)
                     marker.setAttribute('tooltip-placement', note.tooltip);
 //                    tooltip.setAttribute('tooltip-trigger', 'click');
                 }
@@ -114,7 +114,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
 
                 // Recompile content for DOM changes to take effect
                 var ajs = engine.utils.$compile(textParent);
-                ajs(note.scope);
+                ajs(note.workControllerScope);
             }
         },
         /**
@@ -144,14 +144,6 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
             var tw = document.createTreeWalker($('#editorContent')[0], NodeFilter.SHOW_ALL, engine.tw_getNodeFilter, false),
                 affectedTextNodeCount = engine.walkTree(tw, engine.highlightMethod, note);
             console.info('Affected text nodes: ' + affectedTextNodeCount);
-        },
-
-        /**
-         * Saves or updates a note.
-         * @param note    Note parameters.
-         */
-        saveNote: function (note) {
-
         },
 
         workTypeLayouts: {
