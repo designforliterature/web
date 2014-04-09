@@ -24,7 +24,7 @@ horaceApp.service('EditorSettings', ['$compile', function ($compile) {
         xpaths: {
             /* Specify xpath elements for finding editor structures. Each is an array of xpath expressions.  */
 
-            findSelectors: ['//D_SS', '//D_SE'] /* Used to search for selectors */
+            findSelectors: ['//' + dflGlobals.annotation.nodeNames.selectionStart, '//' + dflGlobals.annotation.nodeNames.selectionEnd] /* Used to search for selectors */
         },
 
         /* everyNLines: every how many lines to number presented text */

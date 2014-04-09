@@ -53,7 +53,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
          * @returns {*} Returns the type of filter to use based on the node
          */
         tw_getNodeFilter: function (node) {
-            if (node.nodeType === Node.TEXT_NODE || node.nodeName === 'D_SS' || node.nodeName === 'D_SE') {
+            if (node.nodeType === Node.TEXT_NODE || node.nodeName === dflGlobals.annotation.nodeNames.selectionStart || node.nodeName === dflGlobals.annotation.nodeNames.selectionEnd) {
                 return NodeFilter.FILTER_ACCEPT;
             }
             return NodeFilter.FILTER_SKIP;
@@ -72,20 +72,20 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
          * @param applyFun A function to apply to each text node: it must accept
          * two arguments: the text node and the params object.
          * @param params An object containing information relevant to the applyFun.
-         * Walktree expects it to have a property named 'sid' with the sid whose
+         * Walktree expects it to have the selection id property with the sid whose
          * text nodes are to be scanned.
          * @return {number} The number of text nodes to which applyFun was applied
          */
         walkTree: function (tw, applyFun, params) {
             var write = false,
-                sid = params.sid,
+                sid = params[dflGlobals.annotation.attributeNames.selectionId],
                 curr = tw.nextNode(),
                 textNodes = []; // text nodes in selection in order first to last
             while (curr) {
-                if (curr.nodeName === 'D_SS' && curr.attributes.sid.nodeValue === sid) {
+                if (curr.nodeName === dflGlobals.annotation.nodeNames.selectionStart && curr.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue === sid) {
                     write = true; // we entered the selection range: now look for text nodes
                     // fall through to pick up next node
-                } else if (curr.nodeName === 'D_SE' && curr.attributes.sid.nodeValue === sid) {
+                } else if (curr.nodeName === dflGlobals.annotation.nodeNames.selectionEnd && curr.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue === sid) {
                     applyFun(textNodes, params);
                     return textNodes.length; // leaving the selection range: we're done with its text nodes
                 }
@@ -105,7 +105,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 marker.setAttribute('style', 'background-color: #ffff00');
                 var textParent = textNode.parentElement;
                 if (note.tooltip) {
-                    marker.setAttribute('tooltip-html-unsafe', dflGlobals.utils.sanitizeObject(note.text)); // TODO sanitize note (allow people to use dflMarkdown language)
+                    marker.setAttribute('tooltip-html-unsafe', dflGlobals.utils.sanitizeObject(note.text));
                     marker.setAttribute('tooltip-placement', note.tooltip);
 //                    tooltip.setAttribute('tooltip-trigger', 'click');
                 }
@@ -122,14 +122,12 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
          * @param note Note parameters.
          */
         markupNoteSelection: function (note) {
-//        var container = document.createElement("div");
-            var startSel = document.createElement('D_SS'), // TODO use definitions
-                endSel = document.createElement('D_SE'), // TODO use definitions
-                sid = note.sid,
+            var startSel = document.createElement(dflGlobals.annotation.nodeNames.selectionStart),
+                endSel = document.createElement(dflGlobals.annotation.nodeNames.selectionEnd),
+                sid = note[dflGlobals.annotation.attributeNames.selectionId],
                 range = note.range;
-//            container.appendChild(range.cloneContents());
-            startSel.setAttribute('sid', sid);
-            endSel.setAttribute('sid', sid);
+            startSel.setAttribute(dflGlobals.annotation.attributeNames.selectionId, sid);
+            endSel.setAttribute(dflGlobals.annotation.attributeNames.selectionId, sid);
             range.insertNode(startSel);
             range.collapse();
             range.insertNode(endSel);
@@ -272,7 +270,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
             var count = EditorSettings.xpaths.findSelectors.length;
             for (index = 0; index < count; index += 1) {
                 var i = EditorSettings.xpaths.findSelectors[index];
-                i = i + "[@sid='" + sid + "']";
+                i = i + "[@" + dflGlobals.annotation.attributeNames.selectionId + "='" + sid + "']";
                 var iter = evaluator.evaluate(i, document.documentElement, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
                 var s = iter.iterateNext();
                 while (s) {
@@ -287,16 +285,16 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
         },
 
         /*
-         Navigates the DOM starting at the specified d_se element
-         until it finds the corresponding d_se element. All text
+         Navigates the DOM starting at the specified selection-end element
+         until it finds the corresponding selection-end element. All text
          in between the two elements is is surrounded by span elements,
          as necessary, with the specified class and/or style.
 
          * @param scope The scope from some controller
          @param anno The annotation
          @param selection The selection
-         @param startSel The d_ss element starting the selection
-         @param endSel The d_se element ending the selection
+         @param startSel The selection-start element starting the selection
+         @param endSel The selection-end element ending the selection
          @param claz An optional CSS class to apply to the span element surrounding the
          text enclosed by the selection. May be null.
          @param style An optional style to apply to the span element. May be null.
@@ -308,9 +306,8 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 throw {type: 'fatal', msg: 'Invalid context "' + context.parent + '"'};
             }
             root = root[0];
-            var sid = startSel.attributes.sid.nodeValue;
-//            console.log('startSel=' + startSel + ' root=' + root + 'sid=' + sid);
-            var nodeFilter = null; // TODO one that ignores anything besides text, D_SS, D_SE nodes
+            var sid = startSel.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue;
+            var nodeFilter = null; // TODO one that ignores anything besides text, selection-start, selection-end nodes
             var tw = document.createTreeWalker(root, NodeFilter.SHOW_ALL, engine.SelectorNodeFilter, false);
             engine.processSelectionSid(scope, tw, anno, selection, startSel, endSel, sid, claz, style);
         },
@@ -322,8 +319,8 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
          @param tw The tree walker
          @param anno The annotation
          @param selection The selection
-         @param startSel The d_ss element starting the selection's sid fragment
-         @param endSel The d_se element ending the selection's sid fragment
+         @param startSel The selection-start element starting the selection's sid fragment
+         @param endSel The selection-end element ending the selection's sid fragment
          @param sid The sid of the [start and end] selection elements.
          @param claz Optional CSS class to employ
          @param style Optional CSS style to employ
@@ -332,9 +329,9 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
             var write = false;
             var curr = tw.nextNode();
             while (curr) {
-                if (curr.nodeName === EditorSettings.nodeNames.selectionStart && curr.attributes.sid.nodeValue === sid) {
+                if (curr.nodeName === EditorSettings.nodeNames.selectionStart && curr.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue === sid) {
                     write = true; // we entered the selection range
-                } else if (curr.nodeName === EditorSettings.nodeNames.selectionEnd && curr.attributes.sid.nodeValue === sid) {
+                } else if (curr.nodeName === EditorSettings.nodeNames.selectionEnd && curr.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue === sid) {
                     return; // leaving the selection range
                 }
                 if (write && curr.nodeType === Node.TEXT_NODE) {
@@ -387,7 +384,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
 
         /**
          * Class SelectorNodeFilter is a NodeFilter that filters out
-         * a node if it is not a text node, or a D_SS or D_SE element.
+         * a node if it is not a text node, or a selection-start or selection-end element.
          */
         SelectorNodeFilter: function (node) {
             if (node.nodeType === Node.TEXT_NODE || node.nodeName === EditorSettings.nodeNames.selectionStart || node.nodeName === EditorSettings.nodeNames.selectionEnd) {

@@ -67,7 +67,12 @@ var dflGlobals = {
 
     /* annotation: config for annotations */
     annotation: {
+
         defaultContentWidth: "30em",
+
+        attributeNames: {
+            selectionId: 'sid' /* The selection id attribute name */
+        },
 
         nodeNames: {
             /* Specify the names of the editor tags */

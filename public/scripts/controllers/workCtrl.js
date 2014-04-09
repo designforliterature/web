@@ -59,13 +59,13 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
         $('#editorContent')[0].normalize(); // get rid of empty and merge sibling text nodes
         if (typeof window.getSelection != "undefined") {
             var sel = window.getSelection(),
-                sid = "19"; // TODO variable!
+                chunkInfo = $scope.editor.currentChunkInfo;
             if (sel.rangeCount) {
                 if (sel.isCollapsed) {
                     console.info('nothing selected');
                 } else {
-//                    EditorEngine.markupNoteSelection(sel); // if it were done immediately
-                    $scope.editor.openMakeNoteDialog(sid, sel);
+                    chunkInfo.maxSid += 1;
+                    $scope.editor.openMakeNoteDialog(chunkInfo.maxSid.toString(), sel);
                 }
             }
         } else {
@@ -152,7 +152,15 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
     var drawer = new Drawer('tocDrawer');
 
     $scope.editor = {
-//
+
+        /* id: The id of the chunk to go to when this page is reached */
+        id: $stateParams.id,
+
+        /* The currently layed out chunk */
+        currentChunkInfo: undefined,
+
+        /* The title of the currently selected work */
+        workTitle: undefined,
 
         /* drawer: contains table of contents and perhaps other aids */
         drawer: drawer,
@@ -211,15 +219,6 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
             // TODO the following is not used but they are required by dropdownMenu directive
             selected_items: []
         },
-
-        /* id: The id of the chunk to go to when this page is reached */
-        id: $stateParams.id,
-
-        /* The currently layed out chunk */
-        currentChunkInfo: undefined,
-
-        /* The title of the currently selected work */
-        workTitle: undefined,
 
         /* Start pagination controls */
         pager: {
@@ -373,11 +372,12 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
                 controller: MakeNoteDialogCtrl,
                 resolve: {
                     params: function () {
-                        return {
-                            sid: sid,
+                        var p =  {
                             selection: selection,
                             workControllerScope: $scope // The work controller's scope
                         };
+                        p[dflGlobals.annotation.attributeNames.selectionId] = sid;
+                        return p;
                     }
                 }
             });
@@ -416,16 +416,20 @@ var MakeNoteDialogCtrl = function ($scope, $modalInstance, params, EditorEngine,
     params.range = params.selection.rangeCount && params.selection.getRangeAt(0);
 
     $scope.ok = function () {
-        params.tooltip = ($scope.makeNote.tooltipPlacement.code && ($scope.makeNote.tooltipPlacement.code !== 'none')) ? $scope.makeNote.tooltipPlacement.code : undefined;
-        params.text = $('#note')[0].value;
-        console.info('NOTE: ' + params.text);
-        params.chunkInfo = params.workControllerScope.editor.currentChunkInfo; // convenience
-        AnnotationService.saveNote(params);
-        console.info(x);
-        // Marks up the text selection
-        EditorEngine.markupNoteSelection(params);
-        // Enables highlighting and popups
-        EditorEngine.enableNote(params)
+        try {
+            params.tooltip = ($scope.makeNote.tooltipPlacement.code && ($scope.makeNote.tooltipPlacement.code !== 'none')) ? $scope.makeNote.tooltipPlacement.code : undefined;
+            params.text = $('#note')[0].value;
+            console.info('NOTE: ' + params.text);
+            params.chunkInfo = params.workControllerScope.editor.currentChunkInfo; // convenience
+            AnnotationService.saveNote(params, function (response) {
+                // Marks up the text selection
+                EditorEngine.markupNoteSelection(params);
+                // Enables highlighting and popups
+                EditorEngine.enableNote(params)
+            });
+        } catch (err) {
+            alert('Error: ' + err); // TODO
+        }
         $modalInstance.close();
     };
 
