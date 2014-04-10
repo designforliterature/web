@@ -113,20 +113,16 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
         getCanonicalChunkContent: function (tw) {
             var currNode = tw.nextNode(),
                 textSegment = '',
+                inEmptyLine = false,
                 chunkContent = [];
 
             function useNode(node) {
                 var nodeName = currNode.nodeName;
-                if (currNode.nodeType === Node.TEXT_NODE) {
-                    var t = currNode.nodeValue;
-                    console.info(t);
-                }
-                var val = (nodeName === dflGlobals.annotation.nodeNames.selectionStart ||
+                return (nodeName === dflGlobals.annotation.nodeNames.selectionStart ||
                     nodeName === dflGlobals.annotation.nodeNames.selectionEnd ||
                     nodeName === dflGlobals.annotation.nodeNames.line ||
                     nodeName === dflGlobals.annotation.nodeNames.emptyLine ||
-                    currNode.nodeType === Node.TEXT_NODE); // not text node
-                return val
+                    currNode.nodeType === Node.TEXT_NODE)
             }
 
             while (currNode) {
@@ -134,22 +130,31 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                     var nodeName = currNode.nodeName,
                         nodeType = currNode.nodeType;
                     if (nodeType === Node.TEXT_NODE) {
-                        textSegment += currNode.nodeValue;
+                        if (inEmptyLine) {
+                            chunkContent.push('');
+                            inEmptyLine = false;
+                        } else {
+                            textSegment += currNode.nodeValue;
+                        }
                     } else if (nodeName === dflGlobals.annotation.nodeNames.selectionStart) {
                         textSegment += dflGlobals.utils.makeStartElement(currNode.nodeName, currNode.attributes);
                         textSegment += dflGlobals.utils.makeEndElement(currNode.nodeName);
                     } else if (nodeName === dflGlobals.annotation.nodeNames.selectionEnd) {
                         textSegment += dflGlobals.utils.makeStartElement(currNode.nodeName, currNode.attributes); // TODO might be ok to be in form <d_ss sid="1"/> instead of <d_ss sid="1"></d_ss>
                         textSegment += dflGlobals.utils.makeEndElement(currNode.nodeName);
-                    } else if (nodeName === dflGlobals.annotation.nodeNames.line ||
-                        nodeName === dflGlobals.annotation.nodeNames.emptyLine) {
-                        if (textSegment && textSegment.length !== 0) {
+                    } else if (nodeName === dflGlobals.annotation.nodeNames.line) {
+                        if (textSegment.length !== 0) {
                             chunkContent.push(textSegment);
                             textSegment = '';
                         }
+                    } else if (nodeName === dflGlobals.annotation.nodeNames.emptyLine) {
+                        inEmptyLine = true;
                     }
                 }
                 currNode = tw.nextNode();
+            }
+            if (textSegment.length !== 0) {
+                chunkContent.push(textSegment);
             }
 
             return chunkContent;
@@ -367,12 +372,12 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 var root =  $('#linedContentElement')[0] || $('#editorContent')[0],
                     html = root.innerHTML,
                     nodeFilter = null,
-                    tw = document.createTreeWalker(root, NodeFilter.SHOW_ALL, nodeFilter, false),
+                    tw = document.createTreeWalker(root, NodeFilter.SHOW_ALL, nodeFilter, true),
                     canonicalizedChunkContent = engine.getCanonicalChunkContent(tw);
 
-                // TODO 1. getCanonicalChunkContent misses the last line of the poem
-                // TODO 2. set chunkInfo.content with the array
-                // TODO 3. set the cached chunk's content with the array
+//                console.info(root.innerHTML);
+                // TODO set chunkInfo.content with the array
+                // TODO  set the cached chunk's content with the array
                 console.info(canonicalizedChunkContent);
             }
         },
@@ -463,10 +468,9 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
             if (!root) {
                 throw {type: 'fatal', msg: 'Invalid context "' + context.parent + '"'};
             }
-            root = root[0];
             var sid = startSel.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue;
             var nodeFilter = null; // TODO one that ignores anything besides text, selection-start, selection-end nodes
-            var tw = document.createTreeWalker(root, NodeFilter.SHOW_ALL, engine.SelectorNodeFilter, false);
+            var tw = document.createTreeWalker(root[0], NodeFilter.SHOW_ALL, engine.SelectorNodeFilter, false);
             engine.processSelectionSid(scope, tw, anno, selection, startSel, endSel, sid, claz, style);
         },
 

@@ -7,13 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/annotationService.js" afterPath="$PROJECT_DIR$/public/scripts/services/annotationService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/catalog.js" afterPath="$PROJECT_DIR$/lib/routes/catalog.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/editorEngine.js" afterPath="$PROJECT_DIR$/public/scripts/services/editorEngine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/db/mongoDbManager.js" afterPath="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test-content/poem.txt" afterPath="$PROJECT_DIR$/test-content/poem.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/app/shared.js" afterPath="$PROJECT_DIR$/public/scripts/app/shared.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -58,13 +52,22 @@
       <file leaf-file-name="editorEngine.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="375" column="56" selection-start="18428" selection-end="18428" vertical-scroll-proportion="0.5840708" vertical-offset="5097" max-vertical-offset="8760">
+            <state line="379" column="24" selection-start="18456" selection-end="18456" vertical-scroll-proportion="0.44911504" vertical-offset="5279" max-vertical-offset="8820">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <marker date="1397107053000" expanded="true" signature="16423:16442" placeholder="..." />
-                <marker date="1397107053000" expanded="true" signature="16776:16796" placeholder="..." />
-                <marker date="1397107053000" expanded="true" signature="16834:16854" placeholder="..." />
+                <marker date="1397108558000" expanded="true" signature="16597:16616" placeholder="..." />
+                <marker date="1397108558000" expanded="true" signature="16950:16970" placeholder="..." />
+                <marker date="1397108558000" expanded="true" signature="17008:17028" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DOMTraversalAndRange.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMTraversalAndRange.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="83" column="28" selection-start="1553" selection-end="1553" vertical-scroll-proportion="0.0" vertical-offset="944" max-vertical-offset="3555">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1212,7 +1215,11 @@
       <created>1397078456685</created>
       <updated>1397078456685</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="exporter canonicalizes rendered HTML into chunk content format&#10;">
+      <created>1397107112854</created>
+      <updated>1397107112854</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1237,7 +1244,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="22" width="2503" height="1418" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1246,7 +1253,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3430769" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24889247" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25745368" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2830769" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2830769" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34775087" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26651305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1293,7 +1300,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="refactoring; added logoff and registration" />
     <MESSAGE value="changed uses of $location with ui-route's $state" />
     <MESSAGE value="added menubar controller" />
     <MESSAGE value="bug fixes; smoother session management" />
@@ -1318,21 +1324,22 @@
     <MESSAGE value="refactored annotation creation codebase" />
     <MESSAGE value="annotation service" />
     <MESSAGE value="adding make note transaction" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding make note transaction" />
+    <MESSAGE value="exporter canonicalizes rendered HTML into chunk content format&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="exporter canonicalizes rendered HTML into chunk content format&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/public/scripts/services/editorEngine.js</url>
-          <line>375</line>
+          <line>380</line>
           <option name="timeStamp" value="1896" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="1897" />
+      <option name="time" value="1905" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1588,13 +1595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMTraversalAndRange.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="3555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/sandbox.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="6" selection-start="992" selection-end="992" vertical-scroll-proportion="0.5299786" vertical-offset="0" max-vertical-offset="934">
@@ -1637,14 +1637,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMTraversalAndRange.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="28" selection-start="1553" selection-end="1553" vertical-scroll-proportion="0.0" vertical-offset="944" max-vertical-offset="3555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="375" column="56" selection-start="18428" selection-end="18428" vertical-scroll-proportion="0.5840708" vertical-offset="5097" max-vertical-offset="8760">
+        <state line="379" column="24" selection-start="18456" selection-end="18456" vertical-scroll-proportion="0.44911504" vertical-offset="5279" max-vertical-offset="8820">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1397107053000" expanded="true" signature="16423:16442" placeholder="..." />
-            <marker date="1397107053000" expanded="true" signature="16776:16796" placeholder="..." />
-            <marker date="1397107053000" expanded="true" signature="16834:16854" placeholder="..." />
+            <marker date="1397108558000" expanded="true" signature="16597:16616" placeholder="..." />
+            <marker date="1397108558000" expanded="true" signature="16950:16970" placeholder="..." />
+            <marker date="1397108558000" expanded="true" signature="17008:17028" placeholder="..." />
           </folding>
         </state>
       </provider>
