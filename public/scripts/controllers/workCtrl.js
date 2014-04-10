@@ -436,18 +436,25 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
 var MakeNoteDialogCtrl = function ($scope, $modalInstance, note, EditorEngine, AnnotationService) {
 
     var tooltipPlacements = [ // Menu of possible tooltip placements
-        {name: 'None', code: 'none'},
-        {name: 'Top', code: 'top'},
-        {name: 'Bottom', code: 'bottom'},
-        {name: 'Left', code: 'left'},
-        {name: 'Right', code: 'right'}
-    ];
+            {name: 'None', code: 'none'}, // default: no tooltip
+            {name: 'Top', code: 'top'},
+            {name: 'Bottom', code: 'bottom'},
+            {name: 'Left', code: 'left'},
+            {name: 'Right', code: 'right'}
+        ],
+        tooltipMethods = [ // Menu of possible enabling methods for tooltip
+            {name: 'Hover', code: null}, // default: enable tooltip when pointer hovers over text
+            {name: 'Click', code: 'click'}
+//            {name: 'Focus', code: 'blur'}
+        ];
 
-    // TODO gather scope vars as members of a single scope var
     $scope.makeNote = {
         selection: note.selection.toString(),
+        text: '', // Model for the note's text
         tooltipPlacements: tooltipPlacements,
-        tooltipPlacement: tooltipPlacements[0] // user-selected tooltip placement
+        tooltipPlacement: tooltipPlacements[0], // user-selected tooltip placement
+        tooltipMethods: tooltipMethods,
+        tooltipMethod: tooltipMethods[0] // user-selected tooltip method
     };
 
     // Pass the range, which is not volatile, but selection might be (pass a clone, maybe?)
@@ -455,13 +462,12 @@ var MakeNoteDialogCtrl = function ($scope, $modalInstance, note, EditorEngine, A
 
     $scope.ok = function () {
         try {
-            note.tooltip = ($scope.makeNote.tooltipPlacement.code && ($scope.makeNote.tooltipPlacement.code !== 'none')) ? $scope.makeNote.tooltipPlacement.code : undefined;
-            note.text = $('#note')[0].value;
-            console.info('NOTE: ' + note.text);
+            note.tooltipPlacement = $scope.makeNote.tooltipPlacement.code; // ($scope.makeNote.tooltipPlacement.code && ($scope.makeNote.tooltipPlacement.code !== 'none')) ? $scope.makeNote.tooltipPlacement.code : undefined;
+            note.tooltipMethod = $scope.makeNote.tooltipMethod.code;
+            note.text = $scope.makeNote.text;
             note.chunkInfo = note.workControllerScope.editor.currentChunkInfo; // convenience
 
             note.workControllerScope.editor.saveNote(note);
-
         } catch (err) {
             alert('Error: ' + err); // TODO
         }

@@ -16,15 +16,20 @@
     <textarea style="width: 40em;height: 6em" disabled="true" readonly="true"
               wrap="soft">{{makeNote.selection}}</textarea>
     <div style="margin-bottom: 4px;margin-top: 12px">
-        <span style="font-weight: bold;">Tool tip: </span>
+        <span style="font-weight: bold;">Tooltip: </span>
         <span style="margin-left: 10px">
-            <select ng-disabled="$('#note')[0].value === ''"
+            <select ng-disabled="makeNote.text.length === 0"
                     ng-model="makeNote.tooltipPlacement"
                     ng-options="c.name for c in makeNote.tooltipPlacements"></select>
         </span>
+        <span style="margin-left: 10px">
+            <select ng-disabled="makeNote.text.length === 0"
+                    ng-model="makeNote.tooltipMethod"
+                    ng-options="c.name for c in makeNote.tooltipMethods"></select>
+        </span>
     </div>
     <div>
-        <textarea id="note" style="width: 40em;height: 6em" placeholder="Your note" autofocus="true"></textarea>
+        <textarea ng-model="makeNote.text" style="width: 40em;height: 6em" placeholder="Enter note" autofocus="true"></textarea>
     </div>
 
 </div>

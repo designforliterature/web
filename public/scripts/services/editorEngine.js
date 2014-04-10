@@ -113,7 +113,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
         getCanonicalChunkContent: function (tw) {
             var currNode = tw.nextNode(),
                 textSegment = '',
-                inEmptyLine = false,
+                insideEmptyLine = false,
                 chunkContent = [];
 
             function useNode(node) {
@@ -130,17 +130,15 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                     var nodeName = currNode.nodeName,
                         nodeType = currNode.nodeType;
                     if (nodeType === Node.TEXT_NODE) {
-                        if (inEmptyLine) {
+                        if (insideEmptyLine) {
                             chunkContent.push('');
-                            inEmptyLine = false;
+                            insideEmptyLine = false;
                         } else {
                             textSegment += currNode.nodeValue;
                         }
-                    } else if (nodeName === dflGlobals.annotation.nodeNames.selectionStart) {
+                    } else if (nodeName === dflGlobals.annotation.nodeNames.selectionStart ||
+                        nodeName === dflGlobals.annotation.nodeNames.selectionEnd) {  // TODO might be ok to be in form <d_ss sid="1"/> instead of <d_ss sid="1"></d_ss>
                         textSegment += dflGlobals.utils.makeStartElement(currNode.nodeName, currNode.attributes);
-                        textSegment += dflGlobals.utils.makeEndElement(currNode.nodeName);
-                    } else if (nodeName === dflGlobals.annotation.nodeNames.selectionEnd) {
-                        textSegment += dflGlobals.utils.makeStartElement(currNode.nodeName, currNode.attributes); // TODO might be ok to be in form <d_ss sid="1"/> instead of <d_ss sid="1"></d_ss>
                         textSegment += dflGlobals.utils.makeEndElement(currNode.nodeName);
                     } else if (nodeName === dflGlobals.annotation.nodeNames.line) {
                         if (textSegment.length !== 0) {
@@ -148,7 +146,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                             textSegment = '';
                         }
                     } else if (nodeName === dflGlobals.annotation.nodeNames.emptyLine) {
-                        inEmptyLine = true;
+                        insideEmptyLine = true; // empty line precisely contains a space
                     }
                 }
                 currNode = tw.nextNode();
@@ -166,16 +164,18 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 var marker = document.createElement(EditorSettings.nodeNames.selectionSpan);
                 marker.setAttribute('style', 'background-color: #ffff00');
                 var textParent = textNode.parentElement;
-                if (note.tooltip) {
+                if (note.tooltipPlacement) {
                     marker.setAttribute('tooltip-html-unsafe', dflGlobals.utils.sanitizeObject(note.text));
-                    marker.setAttribute('tooltip-placement', note.tooltip);
-//                    tooltip.setAttribute('tooltip-trigger', 'click');
+                    marker.setAttribute('tooltip-placement', note.tooltipPlacement);
+                    if (note.tooltipMethod) { // default is hover
+                        marker.setAttribute('tooltip-trigger', note.tooltipMethod);
+                    }
                 }
                 textParent.replaceChild(marker, textNode);
                 marker.appendChild(textNode);
 
                 // Recompile content for DOM changes to take effect
-                var ajs = engine.utils.$compile(textParent);
+                var ajs = $compile(textParent);
                 ajs(note.workControllerScope);
             }
         },
@@ -205,7 +205,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
         },
 
         /**
-         * Enables a note by highliting and adding optional popups. Assumes normalized HTML.
+         * Enables a note presentation by highliting and adding optional popups. Assumes normalized HTML.
          * @param note Note parameters.
          */
         enableNote: function (note) {
@@ -245,59 +245,12 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
             /* A poem */
             Poem: function (chunkInfo, workTitle) {
 
-//                function makeText(lines, doNumber) { // TODO take out of inlined position
-//
-//                    var text = dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.poem),
-//                        numbering = '', everyNLines = (EditorSettings.everyNLines || 1),
-//                        lineCount = 0,
-//                        openVerse = true,
-//                        verseStartTag = dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.verse),
-//                        verseEndTag = dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.verse),
-//                        lineStartTag = dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.line),
-//                        lineEndTag = dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.line);
-//
-//                    // Returns a line number HTML or an empty line
-//                    function makeNumber(lineNumber) {
-//                        if (lineNumber) {
-//                            lineNumber = (lineNumber % everyNLines !== 0) ? '&nbsp;' : lineNumber;
-//                        } else {
-//                            lineNumber = '&nbsp;';
-//                        }
-//                        return lineStartTag + lineNumber + lineEndTag;
-//                    }
-//
-//                    text += verseStartTag;
-//                    for (var lineNo in lines) {
-//                        var item = lines[lineNo];
-//                        if (lineNo === 0 || item.length === 0) {
-//                            text += openVerse ? verseEndTag : verseStartTag;
-//                            openVerse = !openVerse;
-//                            if (doNumber) {
-//                                numbering += makeNumber()
-//                            }
-//                            item = '&nbsp;';
-//                        } else if (doNumber) {
-//                            numbering += makeNumber(lineCount += 1);
-//                        }
-//                        text += lineStartTag + item + lineEndTag;
-//                    }
-//                    if (openVerse) {
-//                        text += verseEndTag;
-//                    }
-//                    text += dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.poem);
-//
-//                    return {text: text, numbering: numbering};
-//                }
-
                 function makeText(lines, doNumber) { // TODO take out of inlined position
 
                     var text = dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.poem),
                         numbering = '', everyNLines = (EditorSettings.everyNLines || 1),
                         lineCount = 0,
                         emptyLine = dflGlobals.annotation.special.emptyLine,
-//                        openVerse = true,
-//                        verseStartTag = dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.verse),
-//                        verseEndTag = dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.verse),
                         lineStartTag = dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.line),
                         lineEndTag = dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.line);
 
@@ -377,206 +330,203 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
 
 //                console.info(root.innerHTML);
                 // TODO set chunkInfo.content with the array
-                // TODO  set the cached chunk's content with the array
+                // TODO set the cached chunk's content with the array
                 console.info(canonicalizedChunkContent);
             }
-        },
-
-        /*** TODO OLD STUFF FOLLOWS: OBSOLETE IT! ***/
-
-
-        utils: {
-            $compile: $compile
-        },
-
-        viewMethods: {
-
-            // Highlights text for annotation
-            selection: function (scope, anno) {
-                function processSelection(selection, sid) {
-                    var claz = selection.css['class'];
-                    var style = selection.css.style;
-                    if (!claz && !style) {
-                        throw {type: 'fatal', msg: 'Annotation missing either class or style'};
-                    }
-                    var sels = engine.getSelectorById(anno, sid);
-                    if (sels) {
-                        engine.doProcessSelection(scope, anno, selection, sels[0], sels[1], claz, style);
-                    }
-                }
-
-                var hiIndex;
-                var sidIndex;
-                var selCount = anno.views.selection.length;
-                for (hiIndex = 0; hiIndex < selCount; hiIndex += 1) {
-                    var selection = anno.views.selection[hiIndex];
-                    var sidCount = selection.sids.length;
-                    for (sidIndex = 0; sidIndex < sidCount; sidIndex += 1) {
-                        var sid = selection.sids[sidIndex];
-                        processSelection(selection, sid);
-                    }
-                }
-            }
-        },
-
-        /**
-         *
-         * @param anno  An annotation object
-         * @param sid The annotation selector id
-         * @returns Returns an array whose elements are, in order, the start and corresponding end selector.
-         *          Returns null if the selector pair was not found.
-         */
-        getSelectorById: function (anno, sid) { // TODO could cache
-            var evaluator = new XPathEvaluator();
-            var selector = [];
-            var index;
-            var count = EditorSettings.xpaths.findSelectors.length;
-            for (index = 0; index < count; index += 1) {
-                var i = EditorSettings.xpaths.findSelectors[index];
-                i = i + "[@" + dflGlobals.annotation.attributeNames.selectionId + "='" + sid + "']";
-                var iter = evaluator.evaluate(i, document.documentElement, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
-                var s = iter.iterateNext();
-                while (s) {
-                    selector.push(s);
-                    s = iter.iterateNext();
-                }
-            }
-            if (selector.length === 2) {
-                return selector;
-            }
-            return null;
-        },
-
-        /*
-         Navigates the DOM starting at the specified selection-end element
-         until it finds the corresponding selection-end element. All text
-         in between the two elements is is surrounded by span elements,
-         as necessary, with the specified class and/or style.
-
-         * @param scope The scope from some controller
-         @param anno The annotation
-         @param selection The selection
-         @param startSel The selection-start element starting the selection
-         @param endSel The selection-end element ending the selection
-         @param claz An optional CSS class to apply to the span element surrounding the
-         text enclosed by the selection. May be null.
-         @param style An optional style to apply to the span element. May be null.
-         */
-        doProcessSelection: function (scope, anno, selection, startSel, endSel, claz, style) {
-            var context = anno.context;
-            var root = document.getElementsByTagName(context.parent);
-            if (!root) {
-                throw {type: 'fatal', msg: 'Invalid context "' + context.parent + '"'};
-            }
-            var sid = startSel.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue;
-            var nodeFilter = null; // TODO one that ignores anything besides text, selection-start, selection-end nodes
-            var tw = document.createTreeWalker(root[0], NodeFilter.SHOW_ALL, engine.SelectorNodeFilter, false);
-            engine.processSelectionSid(scope, tw, anno, selection, startSel, endSel, sid, claz, style);
-        },
-
-        /*
-         Walks the tree of the annotation's context and processes a single sid in a selection.
-
-         @param scope The scope from some controller
-         @param tw The tree walker
-         @param anno The annotation
-         @param selection The selection
-         @param startSel The selection-start element starting the selection's sid fragment
-         @param endSel The selection-end element ending the selection's sid fragment
-         @param sid The sid of the [start and end] selection elements.
-         @param claz Optional CSS class to employ
-         @param style Optional CSS style to employ
-         */
-        processSelectionSid: function (scope, tw, anno, selection, startSel, endSel, sid, claz, style) {
-            var write = false;
-            var curr = tw.nextNode();
-            while (curr) {
-                if (curr.nodeName === EditorSettings.nodeNames.selectionStart && curr.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue === sid) {
-                    write = true; // we entered the selection range
-                } else if (curr.nodeName === EditorSettings.nodeNames.selectionEnd && curr.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue === sid) {
-                    return; // leaving the selection range
-                }
-                if (write && curr.nodeType === Node.TEXT_NODE) {
-                    engine.writeSelectionDom(scope, curr, selection, claz, style);
-                }
-                curr = tw.nextNode();
-            }
-
-            if (selection.note) { // Is there a note attached to this sid
-                // TODO incomplete
-            }
-        },
-
-        /**
-         * Applies the CSS hilite style to the node (typically a text node)
-         *
-         * @param scope The scope from some controller
-         * @param node  The text node (TODO handle img etc...).
-         * @param selection The selection
-         * @param claz Optional class to apply
-         * @param style Optional local style to apply
-         */
-        writeSelectionDom: function (scope, node, selection, claz, style) {
-            var hilite = document.createElement(EditorSettings.nodeNames.selectionSpan);
-            if (claz) {
-                hilite.setAttribute('class', claz);
-            }
-            if (style) {
-                hilite.setAttribute('style', style);
-            }
-            var textParent = node.parentElement;
-            var tooltip;
-            if (selection.note) { // Add a tooltip for the note
-                tooltip = document.createElement(EditorSettings.nodeNames.tooltip);
-                tooltip.setAttribute('tooltip-html-unsafe', selection.note.text);
-                tooltip.setAttribute('tooltip-trigger', 'click');
-            }
-            textParent.replaceChild(hilite, node);
-            if (tooltip) {
-                hilite.appendChild(tooltip);
-                tooltip.appendChild(node);
-            } else {
-                hilite.appendChild(node);
-            }
-
-            // Recompile content for DOM changes to take effect
-            var ajs = engine.utils.$compile(textParent);
-            ajs(scope);
-        },
-
-        /**
-         * Class SelectorNodeFilter is a NodeFilter that filters out
-         * a node if it is not a text node, or a selection-start or selection-end element.
-         */
-        SelectorNodeFilter: function (node) {
-            if (node.nodeType === Node.TEXT_NODE || node.nodeName === EditorSettings.nodeNames.selectionStart || node.nodeName === EditorSettings.nodeNames.selectionEnd) {
-                return NodeFilter.FILTER_ACCEPT;
-            }
-            return NodeFilter.FILTER_SKIP;
-        },
-
-        /** TODO move to utilities
-         * Creates an XML node element tag.
-         * @param nodeName Name of the node
-         * @param terminating    If true, then this is a terminating tag.
-         * @returns {string} The tag element
-         */
-        makeNodeTag: function (nodeName, terminating) {
-            if (terminating) {
-                return '</' + nodeName + '>';
-            }
-            return '<' + nodeName + '>';
-        },
-
-        /** TODO move to utilities TODO maybe use document.createElement if more efficient
-         * Wraps the body text with the specified node name.
-         * @param nodeName  The name of the node
-         * @param body  The text to wrap
-         * @returns {string} The wrapped body
-         */
-        wrapNodeTag: function (nodeName, body) {
-            return '<' + nodeName + '>' + body + '</' + nodeName + '>';
         }
+
+//               utils: {
+//            $compile: $compile
+//        },
+//
+//        viewMethods: {
+//
+//            // Highlights text for annotation
+//            selection: function (scope, anno) {
+//                function processSelection(selection, sid) {
+//                    var claz = selection.css['class'];
+//                    var style = selection.css.style;
+//                    if (!claz && !style) {
+//                        throw {type: 'fatal', msg: 'Annotation missing either class or style'};
+//                    }
+//                    var sels = engine.getSelectorById(anno, sid);
+//                    if (sels) {
+//                        engine.doProcessSelection(scope, anno, selection, sels[0], sels[1], claz, style);
+//                    }
+//                }
+//
+//                var hiIndex;
+//                var sidIndex;
+//                var selCount = anno.views.selection.length;
+//                for (hiIndex = 0; hiIndex < selCount; hiIndex += 1) {
+//                    var selection = anno.views.selection[hiIndex];
+//                    var sidCount = selection.sids.length;
+//                    for (sidIndex = 0; sidIndex < sidCount; sidIndex += 1) {
+//                        var sid = selection.sids[sidIndex];
+//                        processSelection(selection, sid);
+//                    }
+//                }
+//            }
+//        },
+//
+//        /**
+//         *
+//         * @param anno  An annotation object
+//         * @param sid The annotation selector id
+//         * @returns Returns an array whose elements are, in order, the start and corresponding end selector.
+//         *          Returns null if the selector pair was not found.
+//         */
+//        getSelectorById: function (anno, sid) { // TODO could cache
+//            var evaluator = new XPathEvaluator();
+//            var selector = [];
+//            var index;
+//            var count = EditorSettings.xpaths.findSelectors.length;
+//            for (index = 0; index < count; index += 1) {
+//                var i = EditorSettings.xpaths.findSelectors[index];
+//                i = i + "[@" + dflGlobals.annotation.attributeNames.selectionId + "='" + sid + "']";
+//                var iter = evaluator.evaluate(i, document.documentElement, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+//                var s = iter.iterateNext();
+//                while (s) {
+//                    selector.push(s);
+//                    s = iter.iterateNext();
+//                }
+//            }
+//            if (selector.length === 2) {
+//                return selector;
+//            }
+//            return null;
+//        },
+//
+//        /*
+//         Navigates the DOM starting at the specified selection-end element
+//         until it finds the corresponding selection-end element. All text
+//         in between the two elements is is surrounded by span elements,
+//         as necessary, with the specified class and/or style.
+//
+//         * @param scope The scope from some controller
+//         @param anno The annotation
+//         @param selection The selection
+//         @param startSel The selection-start element starting the selection
+//         @param endSel The selection-end element ending the selection
+//         @param claz An optional CSS class to apply to the span element surrounding the
+//         text enclosed by the selection. May be null.
+//         @param style An optional style to apply to the span element. May be null.
+//         */
+//        doProcessSelection: function (scope, anno, selection, startSel, endSel, claz, style) {
+//            var context = anno.context;
+//            var root = document.getElementsByTagName(context.parent);
+//            if (!root) {
+//                throw {type: 'fatal', msg: 'Invalid context "' + context.parent + '"'};
+//            }
+//            var sid = startSel.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue;
+//            var nodeFilter = null; // TODO one that ignores anything besides text, selection-start, selection-end nodes
+//            var tw = document.createTreeWalker(root[0], NodeFilter.SHOW_ALL, engine.SelectorNodeFilter, false);
+//            engine.processSelectionSid(scope, tw, anno, selection, startSel, endSel, sid, claz, style);
+//        },
+//
+//        /*
+//         Walks the tree of the annotation's context and processes a single sid in a selection.
+//
+//         @param scope The scope from some controller
+//         @param tw The tree walker
+//         @param anno The annotation
+//         @param selection The selection
+//         @param startSel The selection-start element starting the selection's sid fragment
+//         @param endSel The selection-end element ending the selection's sid fragment
+//         @param sid The sid of the [start and end] selection elements.
+//         @param claz Optional CSS class to employ
+//         @param style Optional CSS style to employ
+//         */
+//        processSelectionSid: function (scope, tw, anno, selection, startSel, endSel, sid, claz, style) {
+//            var write = false;
+//            var curr = tw.nextNode();
+//            while (curr) {
+//                if (curr.nodeName === EditorSettings.nodeNames.selectionStart && curr.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue === sid) {
+//                    write = true; // we entered the selection range
+//                } else if (curr.nodeName === EditorSettings.nodeNames.selectionEnd && curr.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue === sid) {
+//                    return; // leaving the selection range
+//                }
+//                if (write && curr.nodeType === Node.TEXT_NODE) {
+//                    engine.writeSelectionDom(scope, curr, selection, claz, style);
+//                }
+//                curr = tw.nextNode();
+//            }
+//
+//            if (selection.note) { // Is there a note attached to this sid
+//                // TODO incomplete
+//            }
+//        },
+//
+//        /**
+//         * Applies the CSS hilite style to the node (typically a text node)
+//         *
+//         * @param scope The scope from some controller
+//         * @param node  The text node (TODO handle img etc...).
+//         * @param selection The selection
+//         * @param claz Optional class to apply
+//         * @param style Optional local style to apply
+//         */
+//        writeSelectionDom: function (scope, node, selection, claz, style) {
+//            var hilite = document.createElement(EditorSettings.nodeNames.selectionSpan);
+//            if (claz) {
+//                hilite.setAttribute('class', claz);
+//            }
+//            if (style) {
+//                hilite.setAttribute('style', style);
+//            }
+//            var textParent = node.parentElement;
+//            var tooltip;
+//            if (selection.note) { // Add a tooltip for the note
+//                tooltip = document.createElement(EditorSettings.nodeNames.tooltip);
+//                tooltip.setAttribute('tooltip-html-unsafe', selection.note.text);
+//                tooltip.setAttribute('tooltip-trigger', 'click');
+//            }
+//            textParent.replaceChild(hilite, node);
+//            if (tooltip) {
+//                hilite.appendChild(tooltip);
+//                tooltip.appendChild(node);
+//            } else {
+//                hilite.appendChild(node);
+//            }
+//
+//            // Recompile content for DOM changes to take effect
+//            var ajs = engine.utils.$compile(textParent);
+//            ajs(scope);
+//        },
+//
+//        /**
+//         * Class SelectorNodeFilter is a NodeFilter that filters out
+//         * a node if it is not a text node, or a selection-start or selection-end element.
+//         */
+//        SelectorNodeFilter: function (node) {
+//            if (node.nodeType === Node.TEXT_NODE || node.nodeName === EditorSettings.nodeNames.selectionStart || node.nodeName === EditorSettings.nodeNames.selectionEnd) {
+//                return NodeFilter.FILTER_ACCEPT;
+//            }
+//            return NodeFilter.FILTER_SKIP;
+//        },
+//
+//        /** TODO move to utilities
+//         * Creates an XML node element tag.
+//         * @param nodeName Name of the node
+//         * @param terminating    If true, then this is a terminating tag.
+//         * @returns {string} The tag element
+//         */
+//        makeNodeTag: function (nodeName, terminating) {
+//            if (terminating) {
+//                return '</' + nodeName + '>';
+//            }
+//            return '<' + nodeName + '>';
+//        },
+//
+//        /** TODO move to utilities TODO maybe use document.createElement if more efficient
+//         * Wraps the body text with the specified node name.
+//         * @param nodeName  The name of the node
+//         * @param body  The text to wrap
+//         * @returns {string} The wrapped body
+//         */
+//        wrapNodeTag: function (nodeName, body) {
+//            return '<' + nodeName + '>' + body + '</' + nodeName + '>';
+//        }
     };
     return engine;
 }]);
