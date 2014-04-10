@@ -20,7 +20,7 @@ var conn = new Mongo('localhost:21191'),
     sessionDb = conn.getDB('session'),
 
     sessionCol = sessionDb.getCollection('sessions'),
-    workCol = worksDb.getCollection('work'),
+    workCol = worksDb.getCollection('works'),
     personCol = worksDb.getCollection('person'),
     catalogCol = worksDb.getCollection('catalog'),
     userCol = usersDb.getCollection('user'),

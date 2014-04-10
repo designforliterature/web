@@ -12,16 +12,16 @@
 'use strict';
 
 
-horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationService, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams, $modal) {
+horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationService, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams, $modal, $http) {
 
     function makeJtreeData(toc, jtreeData) { // TODO deal with a huge outline // TODO make recursive for all levels
         for (var i in toc) {
             var chunk = toc[i],
                 toplevelItem = {id: chunk.id, icon: false, text: chunk.title};
             jtreeData.push(toplevelItem);
-            if (chunk.sections && chunk.sections.length !== 0) {
+            if (chunk.children && chunk.children.length !== 0) {
                 toplevelItem.children = [];
-                makeJtreeData(chunk.sections, toplevelItem.children);
+                makeJtreeData(chunk.children, toplevelItem.children);
             }
         }
     }
@@ -36,7 +36,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
      */
     $('#editorContent')[0].onmouseup = function (e) {
         if (e.altKey) { // Option key creates a note
-           makeNote(e);
+            makeNote(e);
         }
     };
 
@@ -75,16 +75,17 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
 
     /* Execute after document loads */
     $scope.$on('$viewContentLoaded', function () { // TODO this only works for poems now
-        $.ajax({ // TODO convert to $http call for consistency
-            type: "GET",
-            url: 'catalog/work/chunk?id=' + $scope.editor.id,
-            success: function (response) {
+        $http.get('catalog/work/chunk', {
+            params: {
+                id: $scope.editor.id
+            }
+        }).success(function (response) {
                 if (response.type === 'ack') {
                     if (response.content) {
                         try {
                             $scope.editor.activateSettings(EditorSettings);
-                            $scope.editor.workDirectory = WorkDirectoryService.makeDirectory(response.content);
-                            $scope.editor.pager.totalSections = $scope.editor.workDirectory.getSectionCount();
+                            $scope.editor.workDirectory = new WorkDirectoryService.Directory(response.content);
+                            $scope.editor.pager.rootChidrenCount = $scope.editor.workDirectory.getRootChildrenCount();
                             $scope.editor.workTitle = response.content.workTitle;
                             var jtreeData = [],
                                 jtreeToc = {
@@ -117,11 +118,9 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
                 } else { // TODO handle development error
                     console.trace(response);
                 }
-            },
-            error: function (err) {
-                console.trace(err); // TODO handle real error
-            }
-        });
+            }).error(function (error) {
+                console.trace(error); // TODO handle real error
+            });
     });
 
     /**
@@ -223,7 +222,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
         /* Start pagination controls */
         pager: {
             currentSection: undefined,
-            totalSections: undefined,
+            rootChidrenCount: undefined,
             setSection: function () {
                 var newPageNo;
                 try {
@@ -231,7 +230,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
                 } catch (err) {
                     return; // ignore
                 }
-                if (newPageNo && newPageNo > 0 && newPageNo <= this.totalSections && newPageNo !== this.currentSection) {
+                if (newPageNo && newPageNo > 0 && newPageNo <= this.rootChidrenCount && newPageNo !== this.currentSection) {
                     var currChunk = $scope.editor.currentChunkInfo,
                         direction = (currChunk.index < newPageNo) ? 'nextSib' : 'prevSib';
                     while (currChunk.index !== newPageNo) {
@@ -318,7 +317,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
             if (layout) {
                 // Set the location in the TOC navigator
                 $scope.editor.pager.currentSection = chunkInfo.index;
-                $scope.editor.pager.totalSections = chunkInfo.siblingCount;
+                $scope.editor.pager.rootChidrenCount = chunkInfo.siblingCount;
                 $scope.editor.currentChunkInfo = chunkInfo;
                 // Layout the HTML text
                 layout(chunkInfo, $scope.editor.workTitle);

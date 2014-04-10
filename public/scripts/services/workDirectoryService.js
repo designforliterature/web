@@ -56,7 +56,7 @@ horaceApp.service('WorkDirectoryService', function ($http) {
                         parent.children.push(chunkInfo);
                     }
                 }
-                processToc(chunk.sections, chunkInfo, toc, contentCache);
+                processToc(chunk.children, chunkInfo, toc, contentCache);
             }
         }
     }
@@ -66,9 +66,9 @@ horaceApp.service('WorkDirectoryService', function ($http) {
         if (cacheInfo) {
             if (chunk.data && chunk.data.length !== 0) {
                 cacheInfo.content = chunk.data;
-                if (chunk.sections && chunk.sections.length !== 0) { // use children instead of sections in store/server
-                    for (var i in chunk.sections) {
-                        setToplevelChunkContent(cache, chunk.sections[i]);
+                if (chunk.children && chunk.children.length !== 0) { // use children instead of children in store/server
+                    for (var i in chunk.children) {
+                        setToplevelChunkContent(cache, chunk.children[i]);
                     }
                 }
             }
@@ -87,20 +87,26 @@ horaceApp.service('WorkDirectoryService', function ($http) {
     }
 
     /**
-     * makeDirectory: creates a work directory
+     * Directory: constructor for a work directory.
+     * The directory caches the work during the session.
+     * TODO: add cache item expiration policy (default every minute? user preference settable between 1 minute to 1 hour)
+     * TODO: experiment with making this the model for presentation layer (might be a bit complicated maintenance-wise
+     *       to combine cache and ng triggers)
      * @param rootChunk  The root (first) chunk of a work.
      */
-    var makeDirectory = function (rootChunk) {
+    var Directory = function (rootChunk) {
 
         if (!rootChunk || !rootChunk.toc) {
             throw 'root chunk missing or without TOC';
         }
 
-        /* cache: caches work contents and related information */
         this.toc = [];
-        this.contentCache = {};
+        this.contentCache = {}; // TODO replace with real cache or use memcached server or the like
         this.rootChunk = rootChunk;
+
+        // Fill up the cache
         processToc(rootChunk.toc, null, this.toc, this.contentCache);
+
         setToplevelChunkContent(this.contentCache, rootChunk);
 
         /**
@@ -110,15 +116,15 @@ horaceApp.service('WorkDirectoryService', function ($http) {
          * @returns {*} A ChunkInfo object or null if there's no chunk for the id.
          */
         this.getChunkInfo = function (id, callback) {
-            var cache = this.contentCache,
-            chunkInfo = cache[id];
-            if (chunkInfo && !chunkInfo.content) {
-                var rootChunk = getRootChunkInfo(chunkInfo);
+            var contentCache = this.contentCache, // dynamic scope
+                chunkInfo = contentCache[id];
+            if (chunkInfo && !chunkInfo.content) { // TODO when real cache, new case should handle expiration (e.g., no chunkInfo)
+                var rootChunkInfo = getRootChunkInfo(chunkInfo);
                 $http.get('/catalog/work/chunk',
-                    { params: { id: rootChunk.id}})
+                    { params: { id: rootChunkInfo.id}})
                     .success(function (res) {
                         if (res.content) {
-                            setToplevelChunkContent(cache, res.content);
+                            setToplevelChunkContent(contentCache, res.content);
                         }
                         callback(null, chunkInfo);
                     })
@@ -130,13 +136,13 @@ horaceApp.service('WorkDirectoryService', function ($http) {
             }
         };
 
-        this.getSectionCount = function () {
+        this.getRootChildrenCount = function () {
             return this.rootChunk.toc.length;
         };
         return this;
     };
 
     return {
-        makeDirectory: makeDirectory
+        Directory: Directory
     };
 });
