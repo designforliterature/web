@@ -35,7 +35,7 @@ horaceApp.service('WorkDirectoryService', function ($http) {
         this.children = undefined;
     }
 
-    function processToc(children, parent, toc, contentCache) {
+    function initializeToc(children, parent, toc, contentCache) {
         if (children && children.length !== 0) {
             var index, chunk, lastChunk, chunkInfo, siblingCount = children.length;
             for (index in children) {
@@ -56,24 +56,25 @@ horaceApp.service('WorkDirectoryService', function ($http) {
                         parent.children.push(chunkInfo);
                     }
                 }
-                processToc(chunk.children, chunkInfo, toc, contentCache);
+                initializeToc(chunk.children, chunkInfo, toc, contentCache);
             }
         }
     }
 
-    function setToplevelChunkContent(cache, chunk) {
+    function setChunkContent(cache, chunk) {
+        console.info('setting contents for ' + chunk.title + ' chunk id ' + chunk.id);
         var cacheInfo = cache[chunk.id];
         if (cacheInfo) {
             if (chunk.data && chunk.data.length !== 0) {
                 cacheInfo.content = chunk.data;
-                if (chunk.children && chunk.children.length !== 0) { // use children instead of children in store/server
+                if (chunk.children && chunk.children.length !== 0) {
                     for (var i in chunk.children) {
-                        setToplevelChunkContent(cache, chunk.children[i]);
+                        setChunkContent(cache, chunk.children[i]);
                     }
                 }
             }
-        } else {
-            console.trace('Missing chunk info for chunk id ' + id); // TODO handle this development error
+        } else { // TODO handle this development error or cache miss when it's a real cache
+            console.trace('Missing chunk info for chunk id ' + id);
         }
     }
 
@@ -104,10 +105,8 @@ horaceApp.service('WorkDirectoryService', function ($http) {
         this.contentCache = {}; // TODO replace with real cache or use memcached server or the like
         this.rootChunk = rootChunk;
 
-        // Fill up the cache
-        processToc(rootChunk.toc, null, this.toc, this.contentCache);
-
-        setToplevelChunkContent(this.contentCache, rootChunk);
+        initializeToc(rootChunk.toc, null, this.toc, this.contentCache);
+//        setChunkContent(this.contentCache, rootChunk);
 
         /**
          * getChunkInfo: returns chunk info (with content--if any) for the given chunk id
@@ -124,7 +123,7 @@ horaceApp.service('WorkDirectoryService', function ($http) {
                     { params: { id: rootChunkInfo.id}})
                     .success(function (res) {
                         if (res.content) {
-                            setToplevelChunkContent(contentCache, res.content);
+                            setChunkContent(contentCache, res.content);
                         }
                         callback(null, chunkInfo);
                     })
@@ -136,9 +135,13 @@ horaceApp.service('WorkDirectoryService', function ($http) {
             }
         };
 
+        /**
+         * @returns {number} Returns number of root children in the table of contents.
+         */
         this.getRootChildrenCount = function () {
             return this.rootChunk.toc.length;
         };
+
         return this;
     };
 
