@@ -35,7 +35,7 @@ horaceApp.service('WorkDirectoryService', function ($http) {
         this.children = undefined;
     }
 
-    function initializeToc(children, parent, toc, contentCache) {
+    function initializeToc(children, parent, toc, chunkInfoCache) {
         if (children && children.length !== 0) {
             var index, chunk, lastChunk, chunkInfo, siblingCount = children.length;
             for (index in children) {
@@ -46,7 +46,7 @@ horaceApp.service('WorkDirectoryService', function ($http) {
                     chunkInfo.prevSib = lastChunk;
                     lastChunk.nextSib = chunkInfo;
                 }
-                contentCache[chunkInfo.id] = chunkInfo; // make an entry
+                chunkInfoCache.set(chunkInfo); // set entry
                 if (!parent) {
                     toc.push(chunkInfo);
                 } else {
@@ -56,25 +56,25 @@ horaceApp.service('WorkDirectoryService', function ($http) {
                         parent.children.push(chunkInfo);
                     }
                 }
-                initializeToc(chunk.children, chunkInfo, toc, contentCache);
+                initializeToc(chunk.children, chunkInfo, toc, chunkInfoCache);
             }
         }
     }
 
-    function setChunkContent(cache, chunk) {
+    function addChunkToCache(chunkInfoCache, chunk) {
         console.info('setting contents for ' + chunk.title + ' chunk id ' + chunk.id);
-        var cacheInfo = cache[chunk.id];
-        if (cacheInfo) {
+        var chunkInfo = chunkInfoCache.get(chunk.id);
+        if (chunkInfo) {
             if (chunk.data && chunk.data.length !== 0) {
-                cacheInfo.content = chunk.data;
+                chunkInfo.content = chunk.data;
                 if (chunk.children && chunk.children.length !== 0) {
                     for (var i in chunk.children) {
-                        setChunkContent(cache, chunk.children[i]);
+                        addChunkToCache(chunkInfoCache, chunk.children[i]);
                     }
                 }
             }
         } else { // TODO handle this development error or cache miss when it's a real cache
-            console.trace('Missing chunk info for chunk id ' + id);
+            console.trace('Missing chunk info for chunk id ' + chunk.i);
         }
     }
 
@@ -88,9 +88,27 @@ horaceApp.service('WorkDirectoryService', function ($http) {
     }
 
     /**
+     * Caches chunk info instances.
+     * TODO replace with real cache
+     * TODO: add cache item expiration policy (default every minute? user preference settable between 1 minute to 1 hour)
+     * @constructor
+     */
+    var ChunkInfoCache = function () {
+        this.cache = {};
+        this.get = function (chunkId) {
+            return this.cache[chunkId];
+        };
+        this.set = function (chunkInfo) {
+            this.cache[chunkInfo.id] = chunkInfo;
+        };
+        this.remove = function (chunkId) {
+            delete this.cache[chunkId];
+        };
+    };
+
+    /**
      * Directory: constructor for a work directory.
      * The directory caches the work during the session.
-     * TODO: add cache item expiration policy (default every minute? user preference settable between 1 minute to 1 hour)
      * TODO: experiment with making this the model for presentation layer (might be a bit complicated maintenance-wise
      *       to combine cache and ng triggers)
      * @param rootChunk  The root (first) chunk of a work.
@@ -102,11 +120,11 @@ horaceApp.service('WorkDirectoryService', function ($http) {
         }
 
         this.toc = [];
-        this.contentCache = {}; // TODO replace with real cache or use memcached server or the like
+        this.chunkInfoCache = new ChunkInfoCache();
         this.rootChunk = rootChunk;
 
-        initializeToc(rootChunk.toc, null, this.toc, this.contentCache);
-//        setChunkContent(this.contentCache, rootChunk);
+        initializeToc(rootChunk.toc, null, this.toc, this.chunkInfoCache);
+//        addChunkToCache(this.chunkInfoCache, rootChunk);
 
         /**
          * getChunkInfo: returns chunk info (with content--if any) for the given chunk id
@@ -115,15 +133,15 @@ horaceApp.service('WorkDirectoryService', function ($http) {
          * @returns {*} A ChunkInfo object or null if there's no chunk for the id.
          */
         this.getChunkInfo = function (id, callback) {
-            var contentCache = this.contentCache, // dynamic scope
-                chunkInfo = contentCache[id];
+            var chunkInfoCache = this.chunkInfoCache, // dynamic scope
+                chunkInfo = chunkInfoCache.get(id);
             if (chunkInfo && !chunkInfo.content) { // TODO when real cache, new case should handle expiration (e.g., no chunkInfo)
                 var rootChunkInfo = getRootChunkInfo(chunkInfo);
                 $http.get('/catalog/work/chunk',
                     { params: { id: rootChunkInfo.id}})
                     .success(function (res) {
                         if (res.content) {
-                            setChunkContent(contentCache, res.content);
+                            addChunkToCache(chunkInfoCache, res.content);
                         }
                         callback(null, chunkInfo);
                     })

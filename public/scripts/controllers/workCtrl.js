@@ -74,7 +74,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
     }
 
     /* Execute after document loads */
-    $scope.$on('$viewContentLoaded', function () { // TODO this only works for poems now
+    $scope.$on('$viewContentLoaded', function () {
         $http.get('catalog/work/chunk', {
             params: {
                 id: $scope.editor.id
