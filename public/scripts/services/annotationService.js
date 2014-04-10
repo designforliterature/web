@@ -39,9 +39,18 @@ horaceApp.service('AnnotationService', ['$http', function ($http) {
          * @param callback A callback
          */
         saveNote: function (note, callback) {
-            console.info(note);
-            var response = {};
-            callback(response);
+            note = {
+                chunkId: note.id,
+                text: note.text, // TODO ensure that this is an array of text and that the ONLY markup it contains is D_SS and D_SE
+                sid: note.sid
+            };
+            $http.put('catalog/chunk/save', note).success(function (res) {
+                console.info(res);
+                callback(null, res);
+            }).error(function (error) {
+                    console.info(error);
+                    callback(error);
+                });
         },
 
         /**

@@ -10,6 +10,13 @@ doctis, Iuppiter, et laboriosis!
 quare habe tibi quidquid hoc libelli
 qualecumque, quod, o patrona virgo,
 plus uno maneat perenne saeclo.
+
+this is the second verse of the
+poem that we just created.
+There is nothing better
+in the world
+than an open poem
+that gives us pleasure.
 #!! Prose | The Giving
 Catullus gives his book to his friend, the historian Cornelius.
 #!! Prose | The Comparison

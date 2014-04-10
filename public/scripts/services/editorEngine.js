@@ -15,6 +15,13 @@
  * The editor engine is the API for manipulating the edited DOM structure.
  * This can be replaced by a different engine. The engine that will be
  * used (by default, this one) is selected by the EditorCtrl controller.
+ *
+ * The editor engine must assume the following conventions:
+ *
+ * The element id = 'editorContent' corresponds to the content element when line numbering is not used.
+ * The element id = 'linedContentElement' corresponds to the actual content element when line numbering is used.
+ *    One should first check for the linedContentElement: if it's absent, use the editorContent element.
+ * The optional element id = 'documentBreadcrumb' is the location where a document breadcrumb should be rendered.
  */
 horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($compile, EditorSettings) {
 
@@ -60,9 +67,9 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
         },
 
         /**
-         * Walks the tree and collects the affected text nodes in an array in
+         * Walks the tree and collects the affected text nodes within the specified selection sid in an array in
          * their order of occurrence. The specified applyFun is applied to
-         * the array. Collecting the array instead of applying the function
+         * the array of text nodes. Collecting the array instead of applying the function
          * to each text node allows applyFun to know which text node is last
          * and to perform arbitrary operations that might require knowledge
          * of other text nodes' content.
@@ -76,26 +83,76 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
          * text nodes are to be scanned.
          * @return {number} The number of text nodes to which applyFun was applied
          */
-        walkTree: function (tw, applyFun, params) {
+        walkSelectionTextNodes: function (tw, applyFun, params) {
             var write = false,
                 sid = params[dflGlobals.annotation.attributeNames.selectionId],
-                curr = tw.nextNode(),
+                currNode = tw.nextNode(),
                 textNodes = []; // text nodes in selection in order first to last
-            while (curr) {
-                if (curr.nodeName === dflGlobals.annotation.nodeNames.selectionStart && curr.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue === sid) {
+            while (currNode) {
+                if (currNode.nodeName === dflGlobals.annotation.nodeNames.selectionStart && currNode.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue === sid) {
                     write = true; // we entered the selection range: now look for text nodes
                     // fall through to pick up next node
-                } else if (curr.nodeName === dflGlobals.annotation.nodeNames.selectionEnd && curr.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue === sid) {
+                } else if (currNode.nodeName === dflGlobals.annotation.nodeNames.selectionEnd && currNode.attributes[dflGlobals.annotation.attributeNames.selectionId].nodeValue === sid) {
                     applyFun(textNodes, params);
                     return textNodes.length; // leaving the selection range: we're done with its text nodes
                 }
-                if (write && curr.nodeType === Node.TEXT_NODE) {
-                    textNodes.push(curr);
+                if (write && currNode.nodeType === Node.TEXT_NODE) {
+                    textNodes.push(currNode);
                 }
-                curr = tw.nextNode();
+                currNode = tw.nextNode();
             }
             applyFun(textNodes, params);
             return textNodes.length; // JIC
+        },
+
+        /**
+         * Walk the DOM and pick out the canonical chunk content from
+         * its HTML representation.
+         * @param tw    The tree walker.
+         */
+        getCanonicalChunkContent: function (tw) {
+            var currNode = tw.nextNode(),
+                textSegment = '',
+                chunkContent = [];
+
+            function useNode(node) {
+                var nodeName = currNode.nodeName;
+                if (currNode.nodeType === Node.TEXT_NODE) {
+                    var t = currNode.nodeValue;
+                    console.info(t);
+                }
+                var val = (nodeName === dflGlobals.annotation.nodeNames.selectionStart ||
+                    nodeName === dflGlobals.annotation.nodeNames.selectionEnd ||
+                    nodeName === dflGlobals.annotation.nodeNames.line ||
+                    nodeName === dflGlobals.annotation.nodeNames.emptyLine ||
+                    currNode.nodeType === Node.TEXT_NODE); // not text node
+                return val
+            }
+
+            while (currNode) {
+                if (useNode(currNode)) {
+                    var nodeName = currNode.nodeName,
+                        nodeType = currNode.nodeType;
+                    if (nodeType === Node.TEXT_NODE) {
+                        textSegment += currNode.nodeValue;
+                    } else if (nodeName === dflGlobals.annotation.nodeNames.selectionStart) {
+                        textSegment += dflGlobals.utils.makeStartElement(currNode.nodeName, currNode.attributes);
+                        textSegment += dflGlobals.utils.makeEndElement(currNode.nodeName);
+                    } else if (nodeName === dflGlobals.annotation.nodeNames.selectionEnd) {
+                        textSegment += dflGlobals.utils.makeStartElement(currNode.nodeName, currNode.attributes); // TODO might be ok to be in form <d_ss sid="1"/> instead of <d_ss sid="1"></d_ss>
+                        textSegment += dflGlobals.utils.makeEndElement(currNode.nodeName);
+                    } else if (nodeName === dflGlobals.annotation.nodeNames.line ||
+                        nodeName === dflGlobals.annotation.nodeNames.emptyLine) {
+                        if (textSegment && textSegment.length !== 0) {
+                            chunkContent.push(textSegment);
+                            textSegment = '';
+                        }
+                    }
+                }
+                currNode = tw.nextNode();
+            }
+
+            return chunkContent;
         },
 
         highlightMethod: function (textNodes, note) {
@@ -119,18 +176,26 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
         },
         /**
          * Marks up the HTML for the selected text with the note selection nodes.
+         * It also marks up the chunk information itself.
          * @param note Note parameters.
+         * @param exporter Content exporter to use
          */
-        markupNoteSelection: function (note) {
+        markupNoteSelection: function (note, exporter) {
             var startSel = document.createElement(dflGlobals.annotation.nodeNames.selectionStart),
                 endSel = document.createElement(dflGlobals.annotation.nodeNames.selectionEnd),
                 sid = note[dflGlobals.annotation.attributeNames.selectionId],
                 range = note.range;
+
+            // Mark up selection
             startSel.setAttribute(dflGlobals.annotation.attributeNames.selectionId, sid);
             endSel.setAttribute(dflGlobals.annotation.attributeNames.selectionId, sid);
             range.insertNode(startSel);
             range.collapse();
             range.insertNode(endSel);
+
+            // Export selection HTML into canonical chunk format
+            exporter(note.chunkInfo);
+
             console.info('INSERTED: sid ' + sid);
         },
 
@@ -140,10 +205,15 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
          */
         enableNote: function (note) {
             var tw = document.createTreeWalker($('#editorContent')[0], NodeFilter.SHOW_ALL, engine.tw_getNodeFilter, false),
-                affectedTextNodeCount = engine.walkTree(tw, engine.highlightMethod, note);
+                affectedTextNodeCount = engine.walkSelectionTextNodes(tw, engine.highlightMethod, note);
             console.info('Affected text nodes: ' + affectedTextNodeCount);
         },
 
+        /**
+         * Functions keyed by work type that lay out the chunk's text in HTML.
+         * @param chunkInfo The chunk info object for the text being layed out
+         * @param workTitle The title of the work
+         */
         workTypeLayouts: {
 
             /* A prose section */
@@ -162,15 +232,69 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 $('#editorContent')[0].innerHTML = makeText(chunkInfo.content);
 
                 var documentBreadcrumb = $('#documentBreadcrumb')[0];
-                documentBreadcrumb.innerHTML = makeDocumentBreadcrumb(chunkInfo, workTitle);
+                if (documentBreadcrumb) {
+                    documentBreadcrumb.innerHTML = makeDocumentBreadcrumb(chunkInfo, workTitle);
+                }
             },
 
             /* A poem */
             Poem: function (chunkInfo, workTitle) {
 
-                function makeText(lines, doNumber) {
+//                function makeText(lines, doNumber) { // TODO take out of inlined position
+//
+//                    var text = dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.poem),
+//                        numbering = '', everyNLines = (EditorSettings.everyNLines || 1),
+//                        lineCount = 0,
+//                        openVerse = true,
+//                        verseStartTag = dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.verse),
+//                        verseEndTag = dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.verse),
+//                        lineStartTag = dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.line),
+//                        lineEndTag = dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.line);
+//
+//                    // Returns a line number HTML or an empty line
+//                    function makeNumber(lineNumber) {
+//                        if (lineNumber) {
+//                            lineNumber = (lineNumber % everyNLines !== 0) ? '&nbsp;' : lineNumber;
+//                        } else {
+//                            lineNumber = '&nbsp;';
+//                        }
+//                        return lineStartTag + lineNumber + lineEndTag;
+//                    }
+//
+//                    text += verseStartTag;
+//                    for (var lineNo in lines) {
+//                        var item = lines[lineNo];
+//                        if (lineNo === 0 || item.length === 0) {
+//                            text += openVerse ? verseEndTag : verseStartTag;
+//                            openVerse = !openVerse;
+//                            if (doNumber) {
+//                                numbering += makeNumber()
+//                            }
+//                            item = '&nbsp;';
+//                        } else if (doNumber) {
+//                            numbering += makeNumber(lineCount += 1);
+//                        }
+//                        text += lineStartTag + item + lineEndTag;
+//                    }
+//                    if (openVerse) {
+//                        text += verseEndTag;
+//                    }
+//                    text += dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.poem);
+//
+//                    return {text: text, numbering: numbering};
+//                }
 
-                    var text = '<D_P>', numbering = '', everyNLines = (EditorSettings.everyNLines || 1), lineCount = 0, openVerse = true;
+                function makeText(lines, doNumber) { // TODO take out of inlined position
+
+                    var text = dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.poem),
+                        numbering = '', everyNLines = (EditorSettings.everyNLines || 1),
+                        lineCount = 0,
+                        emptyLine = dflGlobals.annotation.special.emptyLine,
+//                        openVerse = true,
+//                        verseStartTag = dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.verse),
+//                        verseEndTag = dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.verse),
+                        lineStartTag = dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.line),
+                        lineEndTag = dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.line);
 
                     // Returns a line number HTML or an empty line
                     function makeNumber(lineNumber) {
@@ -179,28 +303,26 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                         } else {
                             lineNumber = '&nbsp;';
                         }
-                        return '<D_L>' + lineNumber + '</D_L>';
+                        return lineStartTag + lineNumber + lineEndTag;
                     }
 
-                    text += '<D_V>';
+//                    text += verseStartTag;
                     for (var lineNo in lines) {
                         var item = lines[lineNo];
                         if (lineNo === 0 || item.length === 0) {
-                            text += openVerse ? '</D_V>' : '<D_V>';
-                            openVerse = !openVerse;
-                            if (doNumber) {
+                            if (doNumber) { // don't count empty lines
                                 numbering += makeNumber()
                             }
                             item = '&nbsp;';
+                            text += emptyLine;
                         } else if (doNumber) {
-                            numbering += makeNumber(lineCount += 1);
+                            lineCount += 1;
+                            numbering += makeNumber(lineCount);
+                            text += lineStartTag + item + lineEndTag;
                         }
-                        text += '<D_L>' + item + '</D_L>';
                     }
-                    if (openVerse) {
-                        text += '</D_V>';
-                    }
-                    text += '</D_P>';
+                    text += dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.poem);
+
                     return {text: text, numbering: numbering};
                 }
 
@@ -210,7 +332,11 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 documentBreadcrumb.innerHTML = makeDocumentBreadcrumb(chunkInfo, workTitle);
 
                 if (EditorSettings.lineNumberingOn) {
-                    var html = '<table><tr><td style="vertical-align: top"><table><tr><td><D_T>' + chunkInfo.title + '</D_T></td></tr><tr><td style="vertical-align: top;">' + content.text + '</td><td style="vertical-align: top;">' + content.numbering + '</td></tr></table></td></tr></table>';
+                    var html = '<table><tr><td style="vertical-align: top"><table><tr><td>' +
+                        dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.title)
+                        + chunkInfo.title +
+                        dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.title)
+                        + '</td></tr><tr><td id="linedContentElement" style="vertical-align: top;">' + content.text + '</td><td style="vertical-align: top;">' + content.numbering + '</td></tr></table></td></tr></table>';
                     $('#editorContent')[0].innerHTML = html;
                 } else {
                     $('#editorContent')[0].innerHtml = content.text;
@@ -218,6 +344,38 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
             }
         },
 
+        /**
+         * Exports the HTML content into its corresponding chunk content format.
+         * This is the converse of the layout method.
+         * @return {Array} Returns an array of text objects that represents the
+         * chunk's content.
+         */
+        workTypeExporters: {
+
+            Prose: function () {
+                // TODO
+                alert('not implemented');
+                console.trace('not implemented');
+            },
+
+            /**
+             * Exports the HTML version of them poem into the canonical chunk format.
+             * @param chunkInfo
+             * @constructor
+             */
+            Poem: function (chunkInfo) {
+                var root =  $('#linedContentElement')[0] || $('#editorContent')[0],
+                    html = root.innerHTML,
+                    nodeFilter = null,
+                    tw = document.createTreeWalker(root, NodeFilter.SHOW_ALL, nodeFilter, false),
+                    canonicalizedChunkContent = engine.getCanonicalChunkContent(tw);
+
+                // TODO 1. getCanonicalChunkContent misses the last line of the poem
+                // TODO 2. set chunkInfo.content with the array
+                // TODO 3. set the cached chunk's content with the array
+                console.info(canonicalizedChunkContent);
+            }
+        },
 
         /*** TODO OLD STUFF FOLLOWS: OBSOLETE IT! ***/
 

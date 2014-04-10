@@ -85,8 +85,9 @@ var dflGlobals = {
             prose: 'D_R', /* A prose section */
             paragraph: 'D_F', /* A paragraph */
             poem: 'D_P', /* A poem */
-            verse: 'D_V', /* A verse (e.g., in a poem) */
+//            verse: 'D_V', /* A verse (e.g., in a poem) */
             line: 'D_L', /* A line (e.g., in a verse) */
+            emptyLine: 'D_I', /* An empty line (e.g., separating verses) */
             lineNumbering: 'D_N', /* Block containing line numbers for a poem or prose TODO get rid of this when browse.html and EditorEngine.js are deleted */
             lineNumber: 'D_NL', /* A line number itself within a line number block TODO get rid of this when browse.html and EditorEngine.js are deleted*/
             note: 'A_NOTE', /* Links in popup notes */
@@ -97,6 +98,14 @@ var dflGlobals = {
             rHilite: 'D_HR' /* Light red hilite class */
         },
 
+        /**
+         * Special markup
+         */
+        special: {
+            /* marks an empty line (e.g., between verses in a poem, paragraphs in prose). */
+            emptyLine: '<D_I>&nbsp;</D_I>'
+        },
+
         styleSpecs: {
             /* Specify the styleSpecs to use for each editor tag */
             D_T: "D_T {display:block; font-weight:bold; font-size: larger}",
@@ -105,8 +114,9 @@ var dflGlobals = {
             D_R: "D_R {display:block;}",
             D_F: "D_F {display:block; width:" + defaultContentWidth + '}',
             D_P: "D_P {display:block; width:" + defaultContentWidth + '}',
-            D_V: "D_V {display:block;}",
+//            D_V: "D_V {display:block;}",
             D_L: "D_L {display:block}",
+            D_I: "D_I {display:block; visibility: hidden}",
             D_N: "D_N {display:block;float:right;width:10em;text-align:left}", // TODO get rid of this when browse.html and EditorEngine.js are deleted
             D_NL: "D_NL {display:block}", // TODO get rid of this when browse.html and EditorEngine.js are deleted
             D_HY: ".D_HY {background-color: #ffff00}",
@@ -139,6 +149,25 @@ var dflGlobals = {
      * General utilities
      */
     utils: {
+
+        makeStartElement: function (name, attributes) {
+            var el = '<' + name,
+                attr;
+            if (attributes) {
+                var count = attributes.length;
+                for (var i=0; i<count;i += 1) {
+                    var a = attributes[i];
+                    var name = a.name;
+                    var val = a.nodeValue;
+                    el += ' ' + name + '="' + val + '"';
+                }
+            }
+            return el + '>';
+        },
+
+        makeEndElement: function (name) {
+            return '</' + name + '>';
+        },
 
         /**
          * insertSort: insertion sort for array of objects. Ranking
