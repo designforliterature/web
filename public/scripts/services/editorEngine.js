@@ -147,6 +147,10 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                         }
                     } else if (nodeName === dflGlobals.annotation.nodeNames.emptyLine) {
                         insideEmptyLine = true; // empty line precisely contains a space
+                        if (textSegment.length !== 0) {
+                            chunkContent.push(textSegment);
+                            textSegment = '';
+                        }
                     }
                 }
                 currNode = tw.nextNode();
