@@ -1,13 +1,13 @@
 # Design for Literature
-##### Copyright (c) 2014 Ruben Kleiman under Creative Commons Attribution-ShareAlike 4.0 International License.
-##### This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
-##### To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a letter
-##### to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+Copyright (c) 2014 Ruben Kleiman under Creative Commons Attribution-ShareAlike 4.0 International License.
+This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
+To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a letter
+to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
 
 ![Design For Literature](public/images/dfl-icon-250.png "Design For Literature")
 
-Currently working on the first version (0.1.0). Aiming for a demo of some of the
-features by April 7, 2014. (See *Roadmap*, below.)
+Currently working on the first version (0.1.0). Demo of some of the
+features now available (April 7, 2014). (See *Roadmap*, below.)
 
 Information about this project: http://designforliterature.com or <info@designforliterature.com>.
 
@@ -108,7 +108,7 @@ Github repository to provide transparency to and facilitate
 communication with collaborators.
 
 ## Roadmap
-- `April 7, 2014`: Demo milestone (see Demo Wishlist, below) (with an update available every other week thereafter).
+- `April 7, 2014`: [Done] Demo milestone (see Demo Wishlist, below) (with an update available every other week thereafter).
 - `Date TBD`: First release: 0.1.0
 - `Date TBD`: Lemma Service Integration. The lemma service provides lemma lookups for Design for Literature clients. The lemma service is implemented as a Finnagle/Scala server and
 may be found at https://github.com/rubenkleiman/lemma-service.
@@ -124,7 +124,7 @@ The first release is gated by volunteers and/or funding resources.
 - Search catalog (done)
 - Read content and navigate it with table of contents (done)
 - Sign-in and signup (done)
-- Annotate content -- simple and complex annotation, citation, dictionary lookup
+- Annotate content and persist notes (done)
 - libraries with permissions, users, catalogs and content copies, etc.
   (not necessary for demo but would be nice: libraries are distributed (library comm protocol))
 
