@@ -11,7 +11,7 @@
 // fewer resources and make progress. Eventually, search would be handled by a Apache SOLR service.
 
 // mongodb js script for initializing db with dummy data
-// To run: mongo --port 21191  init-db-populate.js
+// To run: mongo --port 21191 db_methods.js init-db.js init-db-populate.js
 
 var conn = new Mongo('localhost:21191'),
 
