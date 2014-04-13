@@ -77,22 +77,22 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
     $scope.$on('$viewContentLoaded', function () {
         $http.get('catalog/work/chunk', {
             params: {
-                id: $scope.editor.id
+                id: $scope.editor.currentChunkId
             }
         }).success(function (response) {
                 if (response.type === 'ack') {
-                    if (response.content) {
+                    if (response.chunk) {
                         try {
                             $scope.editor.activateSettings(EditorSettings);
-                            $scope.editor.workDirectory = new WorkDirectoryService.Directory(response.content);
-                            $scope.editor.pager.rootChidrenCount = $scope.editor.workDirectory.getRootChildrenCount();
-                            $scope.editor.workTitle = response.content.workTitle;
+                            $scope.editor.workDirectory = new WorkDirectoryService.Directory(response.chunk);
+                            $scope.editor.pager.rootChidrenCount = $scope.editor.workDirectory.getRootChunksCount();
+                            $scope.editor.workTitle = response.chunk.workTitle;
                             var jtreeData = [],
                                 jtreeToc = {
 //                                    plugins: ['search'],
                                     core: {multiple: false, data: jtreeData}
                                 };
-                            makeJtreeData(response.content.toc, jtreeData);
+                            makeJtreeData(response.chunk.toc, jtreeData);
 
                             $('#toc').jstree(jtreeToc);
                             $('#toc').on('changed.jstree', function (event, data) {
@@ -100,20 +100,19 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
                                     $scope.editor.setContent(chunkInfo);
                                 });
                             });
-                            $('#toc').on('hover_node.jstree', function (event, data) {
-//                                console.info('Hover: ' + JSON.stringify(data.node.text) + ' id: ' + data.node.id);
-                            });
+//                            $('#toc').on('hover_node.jstree', function (event, data) {
+//                            });
                             // Set initial content TODO pick up "last location" from user history
-                            $scope.editor.workDirectory.getChunkInfo(response.content.id, function (err, chunkInfo) {
-                                $.jstree.reference('#toc').select_node(response.content.id);
+                            $scope.editor.workDirectory.getChunkInfo(response.chunk.id, function (err, chunkInfo) {
+                                $.jstree.reference('#toc').select_node(response.chunk.id);
                                 $scope.editor.setContent(chunkInfo);
                             });
                         } catch (error) {
                             console.trace(error.message, error.stack); // TODO handle this
                         }
                     } else {
-                        alert('no content'); // TODO handle this
                         console.trace(response)
+                        alert('no content'); // TODO handle this
                     }
                 } else { // TODO handle development error
                     console.trace(response);
@@ -152,8 +151,8 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
 
     $scope.editor = {
 
-        /* id: The id of the chunk to go to when this page is reached */
-        id: $stateParams.id,
+        /* currentChunkId: The id of the chunk to go to when this page is reached */
+        currentChunkId: $stateParams.id,
 
         /* The currently layed out chunk */
         currentChunkInfo: undefined,
@@ -327,21 +326,6 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
         },
 
         /**
-         * Exports the HTML content into a canonical chunk representation of the content.
-         * chunkInfo.content is modified with the new content array.
-         * The chunk representation for the content's only XML markup
-         * are the selection start/end tags. All other XML markup is stripped out.
-         */
-        exportContent: function (chunkInfo) {
-            var exporter = $scope.editor.engine.workTypeExporters[chunkInfo.dataType];
-            if (exporter) {
-                exporter(chunkInfo);
-            } else {
-                console.trace({type: 'fatal', msg: 'Invald work chunk export type "' + chunkInfo.dataType + '"'});
-            }
-        },
-
-        /**
          * Activates settings. Removes current settings.
          * @param settings The editor's settings object.
          */
@@ -417,13 +401,14 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
     $scope.editor.saveNote = function (note) {
 
         // Marks up the content
-        EditorEngine.markupNoteSelection(note, note.workControllerScope.editor.exportContent);
+        EditorEngine.markupNoteSelection(note);
 
-        AnnotationService.saveNote(note, function (error, response) {
-            // TODO will need to erconcie on error
+        AnnotationService.saveNote(note, function (error, chunk) {
             if (!error) {
                 // Enables highlighting and popups
                 EditorEngine.enableNote(note)
+            } else {
+                // TODO will need to reconcile on error & try again using a new sid provided by the response
             }
         });
     };
@@ -445,7 +430,14 @@ var MakeNoteDialogCtrl = function ($scope, $modalInstance, note, EditorEngine, A
             {name: 'Hover', code: null}, // default: enable tooltip when pointer hovers over text
             {name: 'Click', code: 'click'}
 //            {name: 'Focus', code: 'blur'}
-        ];
+        ],
+        noteTypes = [ // Menu of note types TODO use typeahead from server instead of menu
+            {name: 'Comment', code: 'comment'},
+            {name: 'Translation', code: 'translation'},
+            {name: 'Paraphrase', code: 'paraphrase'},
+            {name: 'Syntax', code: 'syntax'},
+            {name: 'Meaning', code: 'meaning'}
+        ]
 
     $scope.makeNote = {
         selection: note.selection.toString(),
@@ -453,7 +445,10 @@ var MakeNoteDialogCtrl = function ($scope, $modalInstance, note, EditorEngine, A
         tooltipPlacements: tooltipPlacements,
         tooltipPlacement: tooltipPlacements[0], // user-selected tooltip placement
         tooltipMethods: tooltipMethods,
-        tooltipMethod: tooltipMethods[0] // user-selected tooltip method
+        tooltipMethod: tooltipMethods[0], // user-selected tooltip method
+        types: noteTypes,
+        type: noteTypes[0],
+        hiliteColor: 'ffff00'
     };
 
     // Pass the range, which is not volatile, but selection might be (pass a clone, maybe?)
@@ -461,12 +456,18 @@ var MakeNoteDialogCtrl = function ($scope, $modalInstance, note, EditorEngine, A
 
     $scope.ok = function () {
         try {
-            note.tooltipPlacement = $scope.makeNote.tooltipPlacement.code; // ($scope.makeNote.tooltipPlacement.code && ($scope.makeNote.tooltipPlacement.code !== 'none')) ? $scope.makeNote.tooltipPlacement.code : undefined;
-            note.tooltipMethod = $scope.makeNote.tooltipMethod.code;
-            note.text = $scope.makeNote.text;
-            note.chunkInfo = note.workControllerScope.editor.currentChunkInfo; // convenience
+            if ($scope.makeNote.text) {
+                note.tooltipPlacement = $scope.makeNote.tooltipPlacement.code; // ($scope.makeNote.tooltipPlacement.code && ($scope.makeNote.tooltipPlacement.code !== 'none')) ? $scope.makeNote.tooltipPlacement.code : undefined;
+                note.tooltipMethod = $scope.makeNote.tooltipMethod.code;
+                note.type = $scope.makeNote.type.code;
+                note.hiliteColor = $scope.makeNote.hiliteColor,
+                note.text = $scope.makeNote.text;
+                note.chunkInfo = note.workControllerScope.editor.currentChunkInfo; // convenience
 
-            note.workControllerScope.editor.saveNote(note);
+                note.workControllerScope.editor.saveNote(note);
+            } else {
+                // do nothing
+            }
         } catch (err) {
             alert('Error: ' + err); // TODO
         }

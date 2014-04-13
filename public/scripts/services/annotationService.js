@@ -22,7 +22,7 @@ horaceApp.service('AnnotationService', ['$http', function ($http) {
     return {
 
         /**
-         * Creates or updates a note.
+         * Creates a note.
          * Steps:
          * 1. For each annotated chunk, this function's client will create a selection id greater
          *    than the current selection id for a chunk.
@@ -39,31 +39,44 @@ horaceApp.service('AnnotationService', ['$http', function ($http) {
          * @param callback A callback
          */
         saveNote: function (note, callback) {
-            note = {
-                chunkId: note.id,
-                text: note.text, // TODO ensure that this is an array of text and that the ONLY markup it contains is D_SS and D_SE
-                sid: note.sid
-            };
-            $http.put('catalog/chunk/save', note).success(function (res) {
-                console.info(res);
-                callback(null, res);
-            }).error(function (error) {
-                    console.info(error);
+            $http.post('note', {
+                note: {
+                    chunkId: note.chunkInfo.id,
+                    contentArray: note.chunkInfo.content,
+                    text: note.text,
+                    sid: note.sid,
+                    tooltipMethod: note.tooltipMethod,
+                    tooltipPlacement: note.tooltipPlacement,
+                    type: note.type,
+                    hiliteColor: note.hiliteColor || 'ffff00'
+                }
+            })
+                .success(function (res) {
+                    if (res.type === 'ack' && res.updated) {
+                        callback(null, res.chunk);
+                    } else if (!res.updated) {
+                        console.trace('Failed to update');
+                    } else {
+                        console.trace('expected ACK from server. Error: ' + JSON.stringify(res));
+                    }
+                })
+                .error(function (error) {
                     callback(error);
+                    console.trace(error);
                 });
         },
 
         /**
          * Returns a single note.
          */
-        getNote: function () {
+        getNote: function (chunkId, sid) {
 
         },
 
         /**
          * Returns all notes for a specified chunk.
          */
-        getNotes: function () {
+        getNotes: function (chunkId) {
 
         }
 

@@ -106,11 +106,11 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
         },
 
         /**
-         * Walk the DOM and pick out the canonical chunk content from
+         * For a poem, walk the DOM and pick out the canonical chunk content from
          * its HTML representation.
          * @param tw    The tree walker.
          */
-        getCanonicalChunkContent: function (tw) {
+        getPoemCanonicalChunkContent: function (tw) {
             var currNode = tw.nextNode(),
                 textSegment = '',
                 insideEmptyLine = false,
@@ -137,7 +137,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                             textSegment += currNode.nodeValue;
                         }
                     } else if (nodeName === dflGlobals.annotation.nodeNames.selectionStart ||
-                        nodeName === dflGlobals.annotation.nodeNames.selectionEnd) {  // TODO might be ok to be in form <d_ss sid="1"/> instead of <d_ss sid="1"></d_ss>
+                        nodeName === dflGlobals.annotation.nodeNames.selectionEnd) {
                         textSegment += dflGlobals.utils.makeStartElement(currNode.nodeName, currNode.attributes);
                         textSegment += dflGlobals.utils.makeEndElement(currNode.nodeName);
                     } else if (nodeName === dflGlobals.annotation.nodeNames.line) {
@@ -162,7 +162,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
             for (var i in textNodes) {
                 var textNode = textNodes[i];
                 var marker = document.createElement(EditorSettings.nodeNames.selectionSpan);
-                marker.setAttribute('style', 'background-color: #ffff00');
+                marker.setAttribute('style', 'background-color: #' + note.hiliteColor || 'ffff00');
                 var textParent = textNode.parentElement;
                 if (note.tooltipPlacement) {
                     marker.setAttribute('tooltip-html-unsafe', dflGlobals.utils.sanitizeObject(note.text));
@@ -176,20 +176,29 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
 
                 // Recompile content for DOM changes to take effect
                 var ajs = $compile(textParent);
-                ajs(note.workControllerScope);
+                ajs(note.workControllerScope || $scope.editor);
             }
         },
         /**
          * Marks up the HTML for the selected text with the note selection nodes.
          * It also marks up the chunk information itself.
-         * @param note Note parameters.
-         * @param exporter Content exporter to use
+         *
+         * Converts the HTML content into the canonical chunk content array representation and
+         * sets it in the corresponding chunk info object.
+         * The chunk representation for the content's only XML markup
+         * are the selection start/end tags. All other XML markup is stripped out.
+         * @param note Note object.
          */
-        markupNoteSelection: function (note, exporter) {
+        markupNoteSelection: function (note) {
             var startSel = document.createElement(dflGlobals.annotation.nodeNames.selectionStart),
                 endSel = document.createElement(dflGlobals.annotation.nodeNames.selectionEnd),
                 sid = note[dflGlobals.annotation.attributeNames.selectionId],
-                range = note.range;
+                range = note.range,
+                canonicalizer = engine.workTypeCanonicalizers[note.chunkInfo.dataType];
+
+            if (!canonicalizer) {
+                console.trace({type: 'fatal', msg: 'Invald work chunk export type "' + note.chunkInfo.dataType + '"'});
+            }
 
             // Mark up selection
             startSel.setAttribute(dflGlobals.annotation.attributeNames.selectionId, sid);
@@ -198,8 +207,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
             range.collapse();
             range.insertNode(endSel);
 
-            // Export selection HTML into canonical chunk format
-            exporter(note.chunkInfo);
+            canonicalizer(note.chunkInfo);
 
             console.info('INSERTED: sid ' + sid);
         },
@@ -224,17 +232,17 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
             /* A prose section */
             Prose: function (chunkInfo, workTitle) {
                 function makeText(items) {
-                    var text = '<D_R>', i;
+                    var text = dflGlobals.annotation.nodeNames.prose, i;
                     if (chunkInfo.title) {
-                        text += '<D_T>' + chunkInfo.title + '</D_T>';
+                        text += dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.title) + chunkInfo.title + dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.title);
                     }
                     for (var i in items) {
-                        text += '<D_F>' + items[i] + '</D_F>';
+                        text += dflGlobals.utils.makeStartElement(dflGlobals.annotation.nodeNames.paragraph) + items[i] + dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.paragraph);
                     }
-                    return text + '</D_R>';
+                    return text + dflGlobals.utils.makeEndElement(dflGlobals.annotation.nodeNames.prose);
                 }
 
-                $('#editorContent')[0].innerHTML = makeText(chunkInfo.content);
+                $('#editorContent')[0].innerHTML = makeText(chunkInfo.getContentArray());
 
                 var documentBreadcrumb = $('#documentBreadcrumb')[0];
                 if (documentBreadcrumb) {
@@ -284,7 +292,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                     return {text: text, numbering: numbering};
                 }
 
-                var content = makeText(chunkInfo.content, EditorSettings.lineNumberingOn);
+                var content = makeText(chunkInfo.getContentArray(), EditorSettings.lineNumberingOn);
 
                 var documentBreadcrumb = $('#documentBreadcrumb')[0];
                 documentBreadcrumb.innerHTML = makeDocumentBreadcrumb(chunkInfo, workTitle);
@@ -303,34 +311,30 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
         },
 
         /**
-         * Exports the HTML content into its corresponding chunk content format.
+         * Canonicalizes the HTML content into its corresponding chunk content format.
          * This is the converse of the layout method.
          * @return {Array} Returns an array of text objects that represents the
          * chunk's content.
          */
-        workTypeExporters: {
+        workTypeCanonicalizers: {
 
             Prose: function () {
                 // TODO
-                alert('not implemented');
                 console.trace('not implemented');
             },
 
             /**
-             * Exports the HTML version of them poem into the canonical chunk format.
+             * Canonicalizes the HTML version of the poem and updates the chunk info object with it.
              * @param chunkInfo
              * @constructor
              */
             Poem: function (chunkInfo) {
                 var root =  $('#linedContentElement')[0] || $('#editorContent')[0],
-                    html = root.innerHTML,
                     nodeFilter = null,
                     tw = document.createTreeWalker(root, NodeFilter.SHOW_ALL, nodeFilter, true),
-                    canonicalizedChunkContent = engine.getCanonicalChunkContent(tw);
-                chunkInfo.content = canonicalizedChunkContent;
-                // TODO set chunkInfo.content with the array
-                // TODO set the cached chunk's content with the array
-                console.info(canonicalizedChunkContent);
+                    canonicalizedContentArray = engine.getPoemCanonicalChunkContent(tw);
+                chunkInfo.setContentArray(canonicalizedContentArray);
+                console.info(canonicalizedContentArray);
             }
         }
     };

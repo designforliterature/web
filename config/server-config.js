@@ -23,7 +23,7 @@ module.exports = function (env) {
                     slaveOk: false,
                     fsync: true
                 },
-                dbNames: ["users", "session", "works"],
+                dbNames: ["users", "session", "works", "notes"],
                 sessionDb: "session",
                 verbose: true
             },
@@ -51,7 +51,7 @@ module.exports = function (env) {
                     slaveOk: false,
                     fsync: true
                 },
-                dbNames: ["users", "session", "works"],
+                dbNames: ["users", "session", "works", "notes"],
                 sessionDb: "session",
                 verbose: true
             },
@@ -79,7 +79,7 @@ module.exports = function (env) {
                     slaveOk: false,
                     fsync: true
                 },
-                dbNames: ["users", "session", "works"],
+                dbNames: ["users", "session", "works", "notes"],
                 sessionDb: "session",
                 verbose: true
             },

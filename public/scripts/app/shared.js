@@ -85,13 +85,11 @@ var dflGlobals = {
             prose: 'D_R', /* A prose section */
             paragraph: 'D_F', /* A paragraph */
             poem: 'D_P', /* A poem */
-//            verse: 'D_V', /* A verse (e.g., in a poem) */
             line: 'D_L', /* A line (e.g., in a verse) */
             emptyLine: 'D_I', /* An empty line (e.g., separating verses) */
             lineNumbering: 'D_N', /* Block containing line numbers for a poem or prose TODO get rid of this when browse.html and EditorEngine.js are deleted */
             lineNumber: 'D_NL', /* A line number itself within a line number block TODO get rid of this when browse.html and EditorEngine.js are deleted*/
             note: 'A_NOTE', /* Links in popup notes */
-            tooltip: 'D_TT', /* A complex (HTML) tooltip for a note */
 
             // TODO highlighting method needs to be generalized (this is a stub)
             yHilite: 'D_HY', /* Yellow hilite class */
@@ -109,12 +107,9 @@ var dflGlobals = {
         styleSpecs: {
             /* Specify the styleSpecs to use for each editor tag */
             D_T: "D_T {display:block; font-weight:bold; font-size: larger}",
-            D_TT: "D_T {display:block;}",
-            // TODO D_TT
             D_R: "D_R {display:block;}",
             D_F: "D_F {display:block; width:" + defaultContentWidth + '}',
             D_P: "D_P {display:block; width:" + defaultContentWidth + '}',
-//            D_V: "D_V {display:block;}",
             D_L: "D_L {display:block}",
             D_I: "D_I {display:block; visibility: hidden}",
             D_N: "D_N {display:block;float:right;width:10em;text-align:left}", // TODO get rid of this when browse.html and EditorEngine.js are deleted
@@ -257,7 +252,6 @@ var dflGlobals = {
      *    url := content is specified by an url in the catalog item
      *    ... := TBD
      * rank: An integer denoting display order (presentation)
-     // TODO see workType in catalogService.js (nodejs)
      TODO i18n for work type names
      */
     workTypeSpecs: {

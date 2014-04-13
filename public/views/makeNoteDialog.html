@@ -16,8 +16,14 @@
     <textarea style="width: 40em;height: 6em" disabled="true" readonly="true"
               wrap="soft">{{makeNote.selection}}</textarea>
     <div style="margin-bottom: 4px;margin-top: 12px">
-        <span style="font-weight: bold;">Tooltip: </span>
-        <span style="margin-left: 10px">
+        <span style="font-weight: bold;">Type: </span>
+        <span style="margin-left: 4px">
+            <select ng-disabled="makeNote.text.length === 0"
+                    ng-model="makeNote.type"
+                    ng-options="c.name for c in makeNote.types"></select>
+        </span>
+        <span style="margin-left: 10px;font-weight: bold;">Tooltip: </span>
+        <span style="margin-left: 4px">
             <select ng-disabled="makeNote.text.length === 0"
                     ng-model="makeNote.tooltipPlacement"
                     ng-options="c.name for c in makeNote.tooltipPlacements"></select>
@@ -27,6 +33,7 @@
                     ng-model="makeNote.tooltipMethod"
                     ng-options="c.name for c in makeNote.tooltipMethods"></select>
         </span>
+        <input type="hidden" ng-model="makeNote.hiliteColor"/> <!-- TODO add color wheel -->
     </div>
     <div>
         <textarea ng-model="makeNote.text" style="width: 40em;height: 6em" placeholder="Enter note" autofocus="true"></textarea>
