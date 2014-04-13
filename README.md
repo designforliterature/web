@@ -174,9 +174,8 @@ or some other client-facing mechanism.
 
 ### Database
 
-Values all stored as strings for now to simplify migration to other DBs
-and to use DBs as plugins. To facilitate prototyping the first version,
-we're now using `MongoDB` and will migrate to `HBase` or `Cassandra` at a later time.
+To facilitate prototyping the first version, we're now using `MongoDB` and
+will migrate to `HBase` or `Cassandra` at a later time.
 
 ### Backend
 
