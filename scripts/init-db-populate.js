@@ -17,7 +17,8 @@ var conn = new Mongo('localhost:21191'),
 
     userCol = usersDb.getCollection('user'),
     personCol = worksDb.getCollection('person'),
-    publisherCol = worksDb.getCollection('publisher');
+    publisherCol = worksDb.getCollection('publisher'),
+    worksCol = worksDb.getCollection('works');
 
 userCol.insert({username: 'Ruben', password: 'Tsukiko1!'});
 

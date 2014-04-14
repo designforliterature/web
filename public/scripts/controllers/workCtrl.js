@@ -65,7 +65,15 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
                     console.info('nothing selected');
                 } else {
                     chunkInfo.maxSid += 1;
-                    $scope.editor.openMakeNoteDialog(chunkInfo.maxSid.toString(), sel);
+                    $scope.editor.getNoteTypes(undefined, function (err, noteTypes) {
+                        if (err) {
+                            console.trace(err); // TODO
+                        } else {
+                            $scope.editor.noteTypes = noteTypes; // TODO tmp cache
+                            $scope.editor.openMakeNoteDialog(chunkInfo.maxSid.toString(), sel);
+                        }
+                    });
+
                 }
             }
         } else {
@@ -75,6 +83,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
 
     /* Execute after document loads */
     $scope.$on('$viewContentLoaded', function () {
+
         $http.get('catalog/work/chunk', {
             params: {
                 id: $scope.editor.currentChunkId
@@ -349,6 +358,33 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
             }
 
             activateSettingStyles();
+        },
+
+        /**
+         * Returns an array of note types.
+         * @param input Characters in the note type's name. All note types
+         * are returned when input is undefined.
+         * @param callback
+         * @returns {*|Error}
+         */
+        getNoteTypes: function (input, callback) {
+            return $http.get('/note/type/json', {
+                params: {
+                    input: input
+                }
+            })
+                .success(function (res) {
+                    if (res.type === 'ack') {
+                        callback(null, res.types);
+                    } else {
+                        console.trace(res); // TODO
+                        callback('error getting note types');
+                    }
+                })
+                .error(function (error) {
+                    console.trace(error); // TODO
+                    callback('error getting note types');
+                });
         }
     };
 
@@ -417,7 +453,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
 /* End WorkCtrl */
 
 
-var MakeNoteDialogCtrl = function ($scope, $modalInstance, note, EditorEngine, AnnotationService) {
+var MakeNoteDialogCtrl = function ($scope, $http, $modalInstance, note, EditorEngine, AnnotationService) {
 
     var tooltipPlacements = [ // Menu of possible tooltip placements
             {name: 'None', code: 'none'}, // default: no tooltip
@@ -430,14 +466,7 @@ var MakeNoteDialogCtrl = function ($scope, $modalInstance, note, EditorEngine, A
             {name: 'Hover', code: null}, // default: enable tooltip when pointer hovers over text
             {name: 'Click', code: 'click'}
 //            {name: 'Focus', code: 'blur'}
-        ],
-        noteTypes = [ // Menu of note types TODO use typeahead from server instead of menu
-            {name: 'Comment', code: 'comment'},
-            {name: 'Translation', code: 'translation'},
-            {name: 'Paraphrase', code: 'paraphrase'},
-            {name: 'Syntax', code: 'syntax'},
-            {name: 'Meaning', code: 'meaning'}
-        ]
+        ];
 
     $scope.makeNote = {
         selection: note.selection.toString(),
@@ -446,9 +475,13 @@ var MakeNoteDialogCtrl = function ($scope, $modalInstance, note, EditorEngine, A
         tooltipPlacement: tooltipPlacements[0], // user-selected tooltip placement
         tooltipMethods: tooltipMethods,
         tooltipMethod: tooltipMethods[0], // user-selected tooltip method
-        types: noteTypes,
-        type: noteTypes[0],
-        hiliteColor: 'ffff00'
+        types: note.workControllerScope.editor.noteTypes,
+        type: note.workControllerScope.editor.noteTypes[0],
+        hiliteColor: 'ffff00',
+
+        selectedNoteType: function (noteType, $model, $label, fieldName) {
+            $scope.makeNote.type = noteType;
+        }
     };
 
     // Pass the range, which is not volatile, but selection might be (pass a clone, maybe?)
@@ -457,10 +490,10 @@ var MakeNoteDialogCtrl = function ($scope, $modalInstance, note, EditorEngine, A
     $scope.ok = function () {
         try {
             if ($scope.makeNote.text) {
-                note.tooltipPlacement = $scope.makeNote.tooltipPlacement.code; // ($scope.makeNote.tooltipPlacement.code && ($scope.makeNote.tooltipPlacement.code !== 'none')) ? $scope.makeNote.tooltipPlacement.code : undefined;
+                note.tooltipPlacement = $scope.makeNote.tooltipPlacement.code;
                 note.tooltipMethod = $scope.makeNote.tooltipMethod.code;
                 note.type = $scope.makeNote.type.code;
-                note.hiliteColor = $scope.makeNote.hiliteColor,
+                note.hiliteColor = $scope.makeNote.hiliteColor;
                 note.text = $scope.makeNote.text;
                 note.chunkInfo = note.workControllerScope.editor.currentChunkInfo; // convenience
 

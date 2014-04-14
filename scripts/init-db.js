@@ -26,15 +26,10 @@ var conn = new Mongo('localhost:21191'),
     userCol = usersDb.getCollection('user'),
     publisherCol = worksDb.getCollection('publisher');
 
-// Clear collections
-sessionCol.remove();
-workCol.remove();
-personCol.remove();
-catalogCol.remove();
-userCol.remove();
-publisherCol.remove();
-
-catalogCol.dropIndexes();
+// Clear DB
+usersDb.dropDatabase();
+sessionDb.dropDatabase();
+worksDb.dropDatabase();
 
 // Index a catalog item. DB: works, COLLECTION: catalog
 catalogCol.ensureIndex({'title': 'text', 'authors.keywords': 'text', 'subjects.keywords': 'text', 'publisher.name': 'text'}, {
@@ -48,7 +43,6 @@ catalogCol.ensureIndex({'title': 'text', 'authors.keywords': 'text', 'subjects.k
 });
 
 // Index a person. DB: works, COLLECTION: person
-personCol.dropIndexes();
 /**
  * person fields:
  * _id: the record id (uuid.v4)
@@ -63,8 +57,6 @@ personCol.ensureIndex({fullName: 'text', altNames: 'text'}, {
 
 
 // Index publishers
-publisherCol.dropIndexes();
-
 publisherCol.ensureIndex({companyName: 'text', imprints: 'text'}, {
     name: "publisher_search"
 });

@@ -33,9 +33,18 @@
                     ng-model="makeNote.tooltipMethod"
                     ng-options="c.name for c in makeNote.tooltipMethods"></select>
         </span>
-        <input type="hidden" ng-model="makeNote.hiliteColor"/> <!-- TODO add color wheel -->
+        <!--<input style="margin-top: 1em"-->
+               <!--type="text"-->
+               <!--ng-model="asyncSelected"-->
+               <!--placeholder="Enter note type"-->
+               <!--typeahead="type.name for type in makeNote.getNoteType(undefined, $viewValue)"-->
+               <!--typeahead-on-select="makeNote.selectedNoteType($item, $model, $label)"-->
+               <!--typeahead-editable="true"-->
+               <!--typeahead-min-length="0"-->
+               <!--typeahead-loading="loadingLocations">-->
+        <!--<i style="margin-left: 5px" ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>-->
     </div>
-    <div>
+    <div style="margin-top: 1em">
         <textarea ng-model="makeNote.text" style="width: 40em;height: 6em" placeholder="Enter note" autofocus="true"></textarea>
     </div>
 

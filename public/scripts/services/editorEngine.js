@@ -276,7 +276,6 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                         return lineStartTag + lineNumber + lineEndTag;
                     }
 
-//                    text += verseStartTag;
                     for (var lineNo in lines) {
                         var item = lines[lineNo];
                         if (lineNo === 0 || item.length === 0) {
