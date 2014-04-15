@@ -55,8 +55,9 @@ horaceApp.service('AnnotationService', ['$http', function ($http) {
                     if (res.type === 'ack' && res.updated) {
                         callback(null, res.chunk);
                     } else if (!res.updated) {
-                        console.trace('Chunk not found. Failed to update note "' + note.text || 'unknown text' + '"');
+                        console.trace('SIDs out of sync with server. Failed to update note "' + note.text || 'unknown text' + '"');
                     } else {
+
                         console.trace('expected ACK from server. Error: ' + JSON.stringify(res));
                     }
                 })

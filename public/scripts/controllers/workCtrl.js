@@ -59,18 +59,18 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
         $('#editorContent')[0].normalize(); // get rid of empty and merge sibling text nodes
         if (typeof window.getSelection != "undefined") {
             var sel = window.getSelection(),
-                chunkInfo = $scope.editor.currentChunkInfo;
+                chunkInfo = $scope.editorModel.currentChunkInfo;
             if (sel.rangeCount) {
                 if (sel.isCollapsed) {
                     console.info('nothing selected');
                 } else {
                     chunkInfo.maxSid += 1;
-                    $scope.editor.getNoteTypes(undefined, function (err, noteTypes) {
+                    $scope.editorModel.getNoteTypes(undefined, function (err, noteTypes) {
                         if (err) {
                             console.trace(err); // TODO
                         } else {
-                            $scope.editor.noteTypes = noteTypes; // TODO tmp cache
-                            $scope.editor.openMakeNoteDialog(chunkInfo.maxSid.toString(), sel);
+                            $scope.editorModel.noteTypes = noteTypes; // TODO tmp cache
+                            $scope.editorModel.openMakeNoteDialog(chunkInfo.maxSid.toString(), sel);
                         }
                     });
 
@@ -86,16 +86,16 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
 
         $http.get('catalog/work/chunk', {
             params: {
-                id: $scope.editor.currentChunkId
+                id: $scope.editorModel.currentChunkId
             }
         }).success(function (response) {
                 if (response.type === 'ack') {
                     if (response.chunk) {
                         try {
-                            $scope.editor.activateSettings(EditorSettings);
-                            $scope.editor.workDirectory = new WorkDirectoryService.Directory(response.chunk);
-                            $scope.editor.pager.rootChidrenCount = $scope.editor.workDirectory.getRootChunksCount();
-                            $scope.editor.workTitle = response.chunk.workTitle;
+                            $scope.editorModel.activateSettings(EditorSettings);
+                            $scope.editorModel.workDirectory = new WorkDirectoryService.Directory(response.chunk);
+                            $scope.editorModel.pager.rootChidrenCount = $scope.editorModel.workDirectory.getRootChunksCount();
+                            $scope.editorModel.workTitle = response.chunk.workTitle;
                             var jtreeData = [],
                                 jtreeToc = {
 //                                    plugins: ['search'],
@@ -105,16 +105,16 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
 
                             $('#toc').jstree(jtreeToc);
                             $('#toc').on('changed.jstree', function (event, data) {
-                                var chunkInfo = $scope.editor.workDirectory.getChunkInfo(data.node.id, function (err, chunkInfo) {
-                                    $scope.editor.setContent(chunkInfo);
+                                var chunkInfo = $scope.editorModel.workDirectory.getChunkInfo(data.node.id, function (err, chunkInfo) {
+                                    $scope.editorModel.setContent(chunkInfo);
                                 });
                             });
 //                            $('#toc').on('hover_node.jstree', function (event, data) {
 //                            });
                             // Set initial content TODO pick up "last location" from user history
-                            $scope.editor.workDirectory.getChunkInfo(response.chunk.id, function (err, chunkInfo) {
+                            $scope.editorModel.workDirectory.getChunkInfo(response.chunk.id, function (err, chunkInfo) {
                                 $.jstree.reference('#toc').select_node(response.chunk.id);
-                                $scope.editor.setContent(chunkInfo);
+                                $scope.editorModel.setContent(chunkInfo);
                             });
                         } catch (error) {
                             console.trace(error.message, error.stack); // TODO handle this
@@ -158,7 +158,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
     /* Drawer for the table of contents and other goodies */
     var drawer = new Drawer('tocDrawer');
 
-    $scope.editor = {
+    $scope.editorModel = {
 
         /* currentChunkId: The id of the chunk to go to when this page is reached */
         currentChunkId: $stateParams.id,
@@ -182,7 +182,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
                     title: 'TOC',
                     type: 'normal',
                     onSelect: function () {
-                        $scope.editor.drawer.toggle();
+                        $scope.editorModel.drawer.toggle();
                     }
                 },
                 /* Turns the contents into either a page or scroll view for the section.
@@ -239,7 +239,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
                     return; // ignore
                 }
                 if (newPageNo && newPageNo > 0 && newPageNo <= this.rootChidrenCount && newPageNo !== this.currentSection) {
-                    var currChunk = $scope.editor.currentChunkInfo,
+                    var currChunk = $scope.editorModel.currentChunkInfo,
                         direction = (currChunk.index < newPageNo) ? 'nextSib' : 'prevSib';
                     while (currChunk.index !== newPageNo) {
                         currChunk = currChunk[direction];
@@ -251,8 +251,8 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
              * Goes to the previous section at the same level
              */
             goPreviousSection: function () {
-                if ($scope.editor.currentChunkInfo.prevSib) {
-                    selectTocNode($scope.editor.currentChunkInfo.prevSib.id);
+                if ($scope.editorModel.currentChunkInfo.prevSib) {
+                    selectTocNode($scope.editorModel.currentChunkInfo.prevSib.id);
                 }
             },
             goPreviousChunk1: function (chunkInfo) {
@@ -268,7 +268,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
              */
             goPreviousChunk: function (chunkInfo) {
                 if (!chunkInfo) {
-                    chunkInfo = $scope.editor.currentChunkInfo;
+                    chunkInfo = $scope.editorModel.currentChunkInfo;
                 }
                 if (chunkInfo.prevSib) {
                     if (chunkInfo.prevSib.children) {
@@ -284,8 +284,8 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
              * Goes to the next section at the same level
              */
             goNextSection: function () {
-                if ($scope.editor.currentChunkInfo.nextSib) {
-                    selectTocNode($scope.editor.currentChunkInfo.nextSib.id);
+                if ($scope.editorModel.currentChunkInfo.nextSib) {
+                    selectTocNode($scope.editorModel.currentChunkInfo.nextSib.id);
                 }
             },
             goNextChunk1: function (fromChunkInfo) {
@@ -302,13 +302,13 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
              * mean going to a lower (child chunk) or higher (parent chunk) level.
              */
             goNextChunk: function () {
-                var children = $scope.editor.currentChunkInfo.children;
+                var children = $scope.editorModel.currentChunkInfo.children;
                 if (children) {
                     selectTocNode(children[0].id);
-                } else if ($scope.editor.currentChunkInfo.nextSib) {
+                } else if ($scope.editorModel.currentChunkInfo.nextSib) {
                     this.goNextSection();
                 } else {
-                    this.goNextChunk1($scope.editor.currentChunkInfo);
+                    this.goNextChunk1($scope.editorModel.currentChunkInfo);
                 }
             }
         },
@@ -321,14 +321,14 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
          * @param chunkInfo The chunk information
          */
         setContent: function (chunkInfo) {
-            var layout = $scope.editor.engine.workTypeLayouts[chunkInfo.dataType];
+            var layout = $scope.editorModel.engine.workTypeLayouts[chunkInfo.dataType];
             if (layout) {
                 // Set the location in the TOC navigator
-                $scope.editor.pager.currentSection = chunkInfo.index;
-                $scope.editor.pager.rootChidrenCount = chunkInfo.siblingCount;
-                $scope.editor.currentChunkInfo = chunkInfo;
+                $scope.editorModel.pager.currentSection = chunkInfo.index;
+                $scope.editorModel.pager.rootChidrenCount = chunkInfo.siblingCount;
+                $scope.editorModel.currentChunkInfo = chunkInfo;
                 // Layout the HTML text
-                layout(chunkInfo, $scope.editor.workTitle);
+                layout(chunkInfo, $scope.editorModel.workTitle);
             } else {
                 console.trace({type: 'fatal', msg: 'Invalid work chunk layout type "' + chunkInfo.dataType + '"'});
             }
@@ -389,21 +389,21 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
     };
 
     /* Editor specs in presentation order */
-    $scope.editor.contentEditorMenu.list = [
-        $scope.editor.contentEditorMenu.editorMenu.openToc,
-        $scope.editor.contentEditorMenu.editorMenu.scrollOrPage,
-        $scope.editor.contentEditorMenu.editorMenu.hideNotes,
-        $scope.editor.contentEditorMenu.editorMenu.printContent,
-        $scope.editor.contentEditorMenu.editorMenu.statistics
+    $scope.editorModel.contentEditorMenu.list = [
+        $scope.editorModel.contentEditorMenu.editorMenu.openToc,
+        $scope.editorModel.contentEditorMenu.editorMenu.scrollOrPage,
+        $scope.editorModel.contentEditorMenu.editorMenu.hideNotes,
+        $scope.editorModel.contentEditorMenu.editorMenu.printContent,
+        $scope.editorModel.contentEditorMenu.editorMenu.statistics
     ]
 
     // Set the editor engine to use
-    $scope.editor.engine = EditorEngine;
+    $scope.editorModel.engine = EditorEngine;
 
     // Set the user preferences
-    $scope.editor.prefs = UserPrefs;
+    $scope.editorModel.prefs = UserPrefs;
 
-    $scope.editor.openMakeNoteDialog = function (sid, selection) {
+    $scope.editorModel.openMakeNoteDialog = function (sid, selection) {
 
         if (selection.toString() !== '\n') {
 
@@ -434,7 +434,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
      * Saves (or updates) the note.
      * @param note  The note
      */
-    $scope.editor.saveNote = function (note) {
+    $scope.editorModel.saveNote = function (note) {
 
         // Marks up the content
         EditorEngine.markupNoteSelection(note);
@@ -468,19 +468,19 @@ var MakeNoteDialogCtrl = function ($scope, $http, $modalInstance, note, EditorEn
 //            {name: 'Focus', code: 'blur'}
         ];
 
-    $scope.makeNote = {
+    $scope.makeNoteModel = {
         selection: note.selection.toString(),
         text: '', // Model for the note's text
         tooltipPlacements: tooltipPlacements,
         tooltipPlacement: tooltipPlacements[0], // user-selected tooltip placement
         tooltipMethods: tooltipMethods,
         tooltipMethod: tooltipMethods[0], // user-selected tooltip method
-        types: note.workControllerScope.editor.noteTypes,
-        type: note.workControllerScope.editor.noteTypes[0],
+        types: note.workControllerScope.editorModel.noteTypes,
+        type: note.workControllerScope.editorModel.noteTypes[0],
         hiliteColor: 'ffff00',
 
         selectedNoteType: function (noteType, $model, $label, fieldName) {
-            $scope.makeNote.type = noteType;
+            $scope.makeNoteModel.type = noteType;
         }
     };
 
@@ -489,15 +489,15 @@ var MakeNoteDialogCtrl = function ($scope, $http, $modalInstance, note, EditorEn
 
     $scope.ok = function () {
         try {
-            if ($scope.makeNote.text) {
-                note.tooltipPlacement = $scope.makeNote.tooltipPlacement.code;
-                note.tooltipMethod = $scope.makeNote.tooltipMethod.code;
-                note.type = $scope.makeNote.type.code;
-                note.hiliteColor = $scope.makeNote.hiliteColor;
-                note.text = $scope.makeNote.text;
-                note.chunkInfo = note.workControllerScope.editor.currentChunkInfo; // convenience
+            if ($scope.makeNoteModel.text) {
+                note.tooltipPlacement = $scope.makeNoteModel.tooltipPlacement.code;
+                note.tooltipMethod = $scope.makeNoteModel.tooltipMethod.code;
+                note.type = $scope.makeNoteModel.type.code;
+                note.hiliteColor = $scope.makeNoteModel.hiliteColor;
+                note.text = $scope.makeNoteModel.text;
+                note.chunkInfo = note.workControllerScope.editorModel.currentChunkInfo; // convenience
 
-                note.workControllerScope.editor.saveNote(note);
+                note.workControllerScope.editorModel.saveNote(note);
             } else {
                 // do nothing
             }

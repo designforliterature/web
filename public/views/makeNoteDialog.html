@@ -14,38 +14,38 @@
 <div class="modal-body">
     <div style="font-weight: bold;">Selected Text</div>
     <textarea style="width: 40em;height: 6em" disabled="true" readonly="true"
-              wrap="soft">{{makeNote.selection}}</textarea>
+              wrap="soft">{{makeNoteModel.selection}}</textarea>
     <div style="margin-bottom: 4px;margin-top: 12px">
         <span style="font-weight: bold;">Type: </span>
         <span style="margin-left: 4px">
-            <select ng-disabled="makeNote.text.length === 0"
-                    ng-model="makeNote.type"
-                    ng-options="c.name for c in makeNote.types"></select>
-        </span>
-        <span style="margin-left: 10px;font-weight: bold;">Tooltip: </span>
-        <span style="margin-left: 4px">
-            <select ng-disabled="makeNote.text.length === 0"
-                    ng-model="makeNote.tooltipPlacement"
-                    ng-options="c.name for c in makeNote.tooltipPlacements"></select>
-        </span>
-        <span style="margin-left: 10px">
-            <select ng-disabled="makeNote.text.length === 0"
-                    ng-model="makeNote.tooltipMethod"
-                    ng-options="c.name for c in makeNote.tooltipMethods"></select>
+            <select ng-disabled="makeNoteModel.text.length === 0"
+                    ng-model="makeNoteModel.type"
+                    ng-options="c.name for c in makeNoteModel.types"></select>
         </span>
         <!--<input style="margin-top: 1em"-->
-               <!--type="text"-->
-               <!--ng-model="asyncSelected"-->
-               <!--placeholder="Enter note type"-->
-               <!--typeahead="type.name for type in makeNote.getNoteType(undefined, $viewValue)"-->
-               <!--typeahead-on-select="makeNote.selectedNoteType($item, $model, $label)"-->
-               <!--typeahead-editable="true"-->
-               <!--typeahead-min-length="0"-->
-               <!--typeahead-loading="loadingLocations">-->
+        <!--type="text"-->
+        <!--ng-model="asyncSelected"-->
+        <!--placeholder="Enter note type"-->
+        <!--typeahead="type.name for type in makeNoteModel.getNoteType(undefined, $viewValue)"-->
+        <!--typeahead-on-select="makeNoteModel.selectedNoteType($item, $model, $label)"-->
+        <!--typeahead-editable="true"-->
+        <!--typeahead-min-length="0"-->
+        <!--typeahead-loading="loadingLocations">-->
         <!--<i style="margin-left: 5px" ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>-->
+        <span style="margin-left: 10px;font-weight: bold;">Tooltip: </span>
+        <span style="margin-left: 4px">
+            <select ng-disabled="makeNoteModel.text.length === 0"
+                    ng-model="makeNoteModel.tooltipPlacement"
+                    ng-options="c.name for c in makeNoteModel.tooltipPlacements"></select>
+        </span>
+        <span style="margin-left: 10px">
+            <select ng-disabled="makeNoteModel.text.length === 0"
+                    ng-model="makeNoteModel.tooltipMethod"
+                    ng-options="c.name for c in makeNoteModel.tooltipMethods"></select>
+        </span>
     </div>
     <div style="margin-top: 1em">
-        <textarea ng-model="makeNote.text" style="width: 40em;height: 6em" placeholder="Enter note" autofocus="true"></textarea>
+        <textarea ng-model="makeNoteModel.text" style="width: 40em;height: 6em" placeholder="Enter note" autofocus="true"></textarea>
     </div>
 
 </div>

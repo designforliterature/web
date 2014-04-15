@@ -168,7 +168,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 var marker = document.createElement(EditorSettings.nodeNames.selectionSpan);
                 marker.setAttribute('style', 'background-color: #' + note.hiliteColor || 'ffff00');
                 var textParent = textNode.parentElement;
-                if (note.tooltipPlacement) {
+                if (note.tooltipPlacement && note.tooltipPlacement !== 'none') {
                     marker.setAttribute('tooltip-html-unsafe', dflGlobals.utils.sanitizeObject(note.text));
                     marker.setAttribute('tooltip-placement', note.tooltipPlacement);
                     if (note.tooltipMethod) { // default is hover
@@ -180,7 +180,7 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
 
                 // Recompile content for DOM changes to take effect
                 var ajs = $compile(textParent);
-                ajs(note.workControllerScope || $scope.editor);
+                ajs(note.workControllerScope || $scope.editorModel);
             }
         },
         /**
@@ -298,7 +298,9 @@ horaceApp.service('EditorEngine', ['$compile', 'EditorSettings', function ($comp
                 var content = makeText(chunkInfo.getContentArray(), EditorSettings.lineNumberingOn);
 
                 var documentBreadcrumb = $('#documentBreadcrumb')[0];
-                documentBreadcrumb.innerHTML = makeDocumentBreadcrumb(chunkInfo, workTitle);
+                if (documentBreadcrumb) {
+                    documentBreadcrumb.innerHTML = makeDocumentBreadcrumb(chunkInfo, workTitle);
+                }
 
                 if (EditorSettings.lineNumberingOn) {
                     var html = '<table><tr><td style="vertical-align: top"><table><tr><td>' +

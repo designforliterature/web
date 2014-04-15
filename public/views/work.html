@@ -20,17 +20,17 @@
         <div class="editorTocControls">
             <!-- Arrow navigation over TOC -->
             <div>
-                <button ng-click="editor.pager.goPreviousSection()">&lt;&lt;</button>
-                <button ng-click="editor.pager.goPreviousChunk()">&lt;</button>
+                <button ng-click="editorModel.pager.goPreviousSection()">&lt;&lt;</button>
+                <button ng-click="editorModel.pager.goPreviousChunk()">&lt;</button>
                 <b> Table of Contents </b>
-                <button ng-click="editor.pager.goNextChunk()">&gt;</button>
-                <button ng-click="editor.pager.goNextSection()">&gt;&gt;</button>
+                <button ng-click="editorModel.pager.goNextChunk()">&gt;</button>
+                <button ng-click="editorModel.pager.goNextSection()">&gt;&gt;</button>
             </div>
             <!-- Navigation info and user affordance to set the 'section' -->
             <div style="font-weight:bold;padding-left: 4px">Section <input id="currentSection" style="width:3em"
-                                                                           ng-keyup="editor.pager.setSection()"
-                                                                           ng-value="editor.pager.currentSection"/>
-                of {{editor.pager.rootChidrenCount}}
+                                                                           ng-keyup="editorModel.pager.setSection()"
+                                                                           ng-value="editorModel.pager.currentSection"/>
+                of {{editorModel.pager.rootChidrenCount}}
             </div>
 
         </div>
@@ -45,9 +45,9 @@
     <!-- Editor content menubar -->
     <div>
         <!-- Toggles the navigation drawer -->
-        <a id="open-left" ng-click="editor.drawer.toggle()"></a>
-        <dropdown-menu model="editor.contentEditorMenu.selected_items"
-                       menu-items="editor.contentEditorMenu.list"></dropdown-menu>
+        <a id="open-left" ng-click="editorModel.drawer.toggle()"></a>
+        <dropdown-menu model="editorModel.contentEditorMenu.selected_items"
+                       menu-items="editorModel.contentEditorMenu.list"></dropdown-menu>
         <span id="documentBreadcrumb"></span>
     </div>
     <!-- The content -->

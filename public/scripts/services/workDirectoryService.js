@@ -16,7 +16,6 @@ horaceApp.service('WorkDirectoryService', function ($http) {
     /**
      * A chunk information record.
      * @param id    The chunk id
-     * @param maxSid    Maximum selection id
      * @param dataType  The type of chunk (e.g., Poem)
      * @param title The chunk's title
      * @param parent    The chunk's parent or null if it has none
@@ -24,9 +23,9 @@ horaceApp.service('WorkDirectoryService', function ($http) {
      * @param siblingCount Number of siblings
      * @constructor
      */
-    function ChunkInfo(id, maxSid, dataType, title, parent, index, siblingCount) {
+    function ChunkInfo(id, dataType, title, parent, index, siblingCount) {
         this.id = id;
-        this.maxSid = maxSid;
+        this.maxSid = undefined;
         this.index = index;
         this.dataType = dataType;
         this.title = title;
@@ -62,7 +61,7 @@ horaceApp.service('WorkDirectoryService', function ($http) {
             for (index in children) {
                 lastChunk = chunkInfo;
                 chunk = children[index];
-                chunkInfo = new ChunkInfo(chunk.id, (chunk.maxSid || 0), chunk.dataType, chunk.title, parent, (parseInt(index, 10) + 1), siblingCount);
+                chunkInfo = new ChunkInfo(chunk.id, chunk.dataType, chunk.title, parent, (parseInt(index, 10) + 1), siblingCount);
                 if (lastChunk) {
                     chunkInfo.prevSib = lastChunk;
                     lastChunk.nextSib = chunkInfo;
@@ -91,6 +90,8 @@ horaceApp.service('WorkDirectoryService', function ($http) {
         console.info('setting contents for ' + chunk.title + ' chunk id ' + chunk.id);
         var chunkInfo = chunkInfoCache.get(chunk.id);
         if (chunkInfo) {
+            chunkInfo.maxSid = chunk.maxSid || 0;
+            chunkInfo.notes = chunk.notes || {};
             if (chunk.data && chunk.data.length !== 0) {
                 chunkInfo.setContentArray(chunk.data);
                 if (chunk.children && chunk.children.length !== 0) {

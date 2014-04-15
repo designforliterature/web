@@ -6,15 +6,13 @@
     <option name="CUSTOM_SCOPE_NAME" value="web" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="readme update&#10;">
+    <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/annotationService.js" afterPath="$PROJECT_DIR$/public/scripts/services/annotationService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/catalog.js" afterPath="$PROJECT_DIR$/lib/routes/catalog.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/editorEngine.js" afterPath="$PROJECT_DIR$/public/scripts/services/editorEngine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/init-db-populate.js" afterPath="$PROJECT_DIR$/scripts/init-db-populate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/init-db.js" afterPath="$PROJECT_DIR$/scripts/init-db.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/makeNoteDialog.html" afterPath="$PROJECT_DIR$/public/views/makeNoteDialog.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/work.html" afterPath="$PROJECT_DIR$/public/views/work.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/services/workService.js" afterPath="$PROJECT_DIR$/lib/services/workService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/workDirectoryService.js" afterPath="$PROJECT_DIR$/public/scripts/services/workDirectoryService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -41,40 +39,32 @@
       <file leaf-file-name="makeNoteDialog.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/makeNoteDialog.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="62" selection-start="1024" selection-end="1024" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="900">
+            <state line="48" column="10" selection-start="2474" selection-end="2474" vertical-scroll-proportion="-9.230769" vertical-offset="0" max-vertical-offset="900">
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#1;n#div#1;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#3;n#div#1;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#4;n#div#1;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#div#2;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workCtrl.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="78" column="34" selection-start="4932" selection-end="4932" vertical-scroll-proportion="-9.291667" vertical-offset="947" max-vertical-offset="2025">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workCtrl.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="50" selection-start="3170" selection-end="3170" vertical-scroll-proportion="0.0" vertical-offset="651" max-vertical-offset="7665">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="init-db.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/init-db.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="23" selection-start="1364" selection-end="1364" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="init-db-populate.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/init-db-populate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="43" selection-start="837" selection-end="837" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2985">
+            <state line="323" column="0" selection-start="13411" selection-end="13411" vertical-scroll-proportion="0.33257142" vertical-offset="4554" max-vertical-offset="7770">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -82,28 +72,62 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="annotationService.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dflDirectives.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/directives/dflDirectives.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="35" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0" vertical-offset="219" max-vertical-offset="4935">
+              <folding>
+                <marker date="1396567980000" expanded="false" signature="3333:3349" placeholder="..." />
+                <marker date="1396567980000" expanded="false" signature="12010:12033" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editorEngine.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="297" column="0" selection-start="14507" selection-end="14507" vertical-scroll-proportion="-10.692307" vertical-offset="4072" max-vertical-offset="5205">
+              <folding>
+                <marker date="1397524827000" expanded="false" signature="14945:14964" placeholder="..." />
+                <marker date="1397524827000" expanded="false" signature="15298:15318" placeholder="..." />
+                <marker date="1397524827000" expanded="false" signature="15356:15376" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="catalog.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/catalog.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="130" column="61" selection-start="8767" selection-end="8767" vertical-scroll-proportion="-9.416667" vertical-offset="1724" max-vertical-offset="2790">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="work.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/work.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="40" selection-start="1070" selection-end="1070" vertical-scroll-proportion="-7.2" vertical-offset="0" max-vertical-offset="960">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workDirectoryService.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/workDirectoryService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="89" column="0" selection-start="3481" selection-end="3481" vertical-scroll-proportion="-10.884615" vertical-offset="947" max-vertical-offset="3210">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="annotationService.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/services/annotationService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="115" selection-start="2623" selection-end="2623" vertical-scroll-proportion="0.53021663" vertical-offset="285" max-vertical-offset="1260">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="catalog.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="235" column="32" selection-start="8725" selection-end="8726" vertical-scroll-proportion="-12.153846" vertical-offset="3104" max-vertical-offset="4635">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workService.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/services/workService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="18" selection-start="833" selection-end="833" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
+            <state line="57" column="67" selection-start="2575" selection-end="2575" vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="1275">
               <folding />
             </state>
           </provider>
@@ -113,15 +137,6 @@
         <entry file="file://$PROJECT_DIR$/lib/store/storeManager.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="43" column="16" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mongoDbManager.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="542" column="25" selection-start="19134" selection-end="19134" vertical-scroll-proportion="0.0" vertical-offset="9158" max-vertical-offset="10035">
               <folding />
             </state>
           </provider>
@@ -185,8 +200,6 @@
         <option value="$PROJECT_DIR$/public/scripts/services/editorSettings.js" />
         <option value="$PROJECT_DIR$/test-content/poem.txt" />
         <option value="$PROJECT_DIR$/public/sandbox.html" />
-        <option value="$PROJECT_DIR$/public/views/work.html" />
-        <option value="$PROJECT_DIR$/public/scripts/services/workDirectoryService.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/lib/services/CatalogService.js" />
         <option value="$PROJECT_DIR$/public/scripts/app/shared.js" />
@@ -197,15 +210,17 @@
         <option value="$PROJECT_DIR$/scripts/db_methods.js" />
         <option value="$PROJECT_DIR$/scripts/start_db.sh" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/public/scripts/services/editorEngine.js" />
         <option value="$PROJECT_DIR$/lib/routes/catalog.js" />
         <option value="$PROJECT_DIR$/lib/services/workService.js" />
         <option value="localhost:3000/scripts/vendor/angular/angular.js" />
-        <option value="$PROJECT_DIR$/public/views/makeNoteDialog.html" />
-        <option value="$PROJECT_DIR$/public/scripts/services/annotationService.js" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
         <option value="$PROJECT_DIR$/scripts/init-db-populate.js" />
         <option value="$PROJECT_DIR$/scripts/init-db.js" />
+        <option value="$PROJECT_DIR$/public/scripts/services/annotationService.js" />
+        <option value="$PROJECT_DIR$/public/views/makeNoteDialog.html" />
+        <option value="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
+        <option value="$PROJECT_DIR$/public/views/work.html" />
+        <option value="$PROJECT_DIR$/public/scripts/services/editorEngine.js" />
+        <option value="$PROJECT_DIR$/public/scripts/services/workDirectoryService.js" />
       </list>
     </option>
   </component>
@@ -408,6 +423,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directives" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1341,7 +1360,11 @@
       <created>1397431582043</created>
       <updated>1397431582043</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="note types; drop dbs on db_init">
+      <created>1397514719162</created>
+      <updated>1397514719162</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1366,15 +1389,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="589" y="22" width="1717" height="1418" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872504" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872504" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2296467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25153846" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24889247" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1615566" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30491552" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3053846" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34775087" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26651305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1382,7 +1406,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937598" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3031652" sideWeight="0.600624" order="2" side_tool="false" content_ui="combo" />
@@ -1422,7 +1445,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="simple, easy multilevel TOC navigation; drawers clean-up" />
     <MESSAGE value="simple, easy multilevel TOC navigation; drawers clean-up&#10;" />
     <MESSAGE value="generalized traversal; annotation insertion &amp; highlighting; note creation dialog; more cleanup &amp; generalization" />
     <MESSAGE value="refactored some WorkCtrl methods into EditorEngine service" />
@@ -1447,22 +1469,25 @@
     <MESSAGE value="readme edits" />
     <MESSAGE value="update db startup instructions" />
     <MESSAGE value="readme update" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme update" />
+    <MESSAGE value="note types; drop dbs on db_init" />
+    <option name="LAST_COMMIT_MESSAGE" value="note types; drop dbs on db_init" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js</url>
+          <line>323</line>
+          <option name="timeStamp" value="1997" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="1985" />
+      <option name="time" value="1998" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/dflDirectives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="268" column="0" selection-start="10452" selection-end="10511" vertical-scroll-proportion="0.0" vertical-offset="3690" max-vertical-offset="5040" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/app.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="415" column="29" selection-start="8463" selection-end="8463" vertical-scroll-proportion="0.9458399" vertical-offset="5020" max-vertical-offset="6315" />
@@ -1531,13 +1556,6 @@
         <state line="0" column="120658" selection-start="120658" selection-end="120658" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="787" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/work.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="34" selection-start="1693" selection-end="1693" vertical-scroll-proportion="0.3939394" vertical-offset="168" max-vertical-offset="960">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/socketsService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="19" selection-start="926" selection-end="926" vertical-scroll-proportion="0.33333334" vertical-offset="28" max-vertical-offset="2550" />
@@ -1551,11 +1569,6 @@
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="62" column="103" selection-start="2387" selection-end="2391" vertical-scroll-proportion="0.37331536" vertical-offset="653" max-vertical-offset="1395" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="47" selection-start="4737" selection-end="4737" vertical-scroll-proportion="0.0" vertical-offset="948" max-vertical-offset="2025" />
       </provider>
     </entry>
     <entry file="http://localhost:3000/catalog/work/chunk?id=f01e45bf-ce79-407e-8c4b-5daf8728e1d4">
@@ -1576,11 +1589,6 @@
     <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection/core.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="667" column="6" selection-start="23473" selection-end="23473" vertical-scroll-proportion="0.0" vertical-offset="9664" max-vertical-offset="10980" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/workDirectoryService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="60" selection-start="630" selection-end="630" vertical-scroll-proportion="-2.5445206" vertical-offset="2424" max-vertical-offset="3300" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/routes/index.js">
@@ -1621,13 +1629,6 @@
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="277" column="0" selection-start="13596" selection-end="13596" vertical-scroll-proportion="0.0" vertical-offset="3269" max-vertical-offset="5175">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/services/personService.js">
@@ -1682,13 +1683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/catalog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="172" selection-start="10472" selection-end="10472" vertical-scroll-proportion="-14.25" vertical-offset="1863" max-vertical-offset="2790">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="http://localhost:3000/scripts/vendor/angular/angular.js">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
@@ -1715,29 +1709,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/makeNoteDialog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="62" selection-start="1024" selection-end="1024" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="900">
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#3;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#4;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="542" column="25" selection-start="19134" selection-end="19134" vertical-scroll-proportion="0.0" vertical-offset="9158" max-vertical-offset="10035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="50" selection-start="3170" selection-end="3170" vertical-scroll-proportion="0.0" vertical-offset="651" max-vertical-offset="7665">
           <folding />
         </state>
       </provider>
@@ -1753,15 +1727,87 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="43" selection-start="837" selection-end="837" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2985">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/annotationService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="115" selection-start="2623" selection-end="2623" vertical-scroll-proportion="0.53021663" vertical-offset="285" max-vertical-offset="1260">
+        <state line="57" column="67" selection-start="2575" selection-end="2575" vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="1275">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/makeNoteDialog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="10" selection-start="2474" selection-end="2474" vertical-scroll-proportion="-9.230769" vertical-offset="0" max-vertical-offset="900">
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#3;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#4;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="34" selection-start="4932" selection-end="4932" vertical-scroll-proportion="-9.291667" vertical-offset="947" max-vertical-offset="2025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/directives/dflDirectives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="35" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0" vertical-offset="219" max-vertical-offset="4935">
+          <folding>
+            <marker date="1396567980000" expanded="false" signature="3333:3349" placeholder="..." />
+            <marker date="1396567980000" expanded="false" signature="12010:12033" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/catalog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="61" selection-start="8767" selection-end="8767" vertical-scroll-proportion="-9.416667" vertical-offset="1724" max-vertical-offset="2790">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/work.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="40" selection-start="1070" selection-end="1070" vertical-scroll-proportion="-7.2" vertical-offset="0" max-vertical-offset="960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="297" column="0" selection-start="14507" selection-end="14507" vertical-scroll-proportion="-10.692307" vertical-offset="4072" max-vertical-offset="5205">
+          <folding>
+            <marker date="1397524827000" expanded="false" signature="14945:14964" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15298:15318" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15356:15376" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/workDirectoryService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="0" selection-start="3481" selection-end="3481" vertical-scroll-proportion="-10.884615" vertical-offset="947" max-vertical-offset="3210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="323" column="0" selection-start="13411" selection-end="13411" vertical-scroll-proportion="0.33257142" vertical-offset="4554" max-vertical-offset="7770">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
