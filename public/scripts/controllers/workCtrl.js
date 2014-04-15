@@ -27,6 +27,33 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
     }
 
     /**
+     * Returns an array of note types.
+     * @param input Characters in the note type's name. All note types
+     * are returned when input is undefined.
+     * @param callback
+     * @returns {*|Error}
+     */
+    function getNoteTypes(input, callback) {
+        return $http.get('/note/type/json', {
+            params: {
+                input: input
+            }
+        })
+            .success(function (res) {
+                if (res.type === 'ack') {
+                    callback(null, res.types);
+                } else {
+                    console.trace(res); // TODO
+                    callback('error getting note types');
+                }
+            })
+            .error(function (error) {
+                console.trace(error); // TODO
+                callback('error getting note types');
+            });
+    }
+
+    /**
      * On mouseup in the content area with the alt key depressed,
      * the user intends to create a note.
      * Scheme:
@@ -65,15 +92,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
                     console.info('nothing selected');
                 } else {
                     chunkInfo.maxSid += 1;
-                    $scope.editorModel.getNoteTypes(undefined, function (err, noteTypes) {
-                        if (err) {
-                            console.trace(err); // TODO
-                        } else {
-                            $scope.editorModel.noteTypes = noteTypes; // TODO tmp cache
-                            $scope.editorModel.openMakeNoteDialog(chunkInfo.maxSid.toString(), sel);
-                        }
-                    });
-
+                    $scope.editorModel.openMakeNoteDialog(chunkInfo.maxSid.toString(), sel);
                 }
             }
         } else {
@@ -129,6 +148,15 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
             }).error(function (error) {
                 console.trace(error); // TODO handle real error
             });
+
+        getNoteTypes(undefined, function (err, noteTypes) {
+            if (err) {
+                console.trace(err); // TODO
+            } else {
+                $scope.editorModel.noteTypes = noteTypes; // TODO tmp cache
+                $scope.editorModel.noteType = noteTypes[0];
+            }
+        });
     });
 
     /**
@@ -358,33 +386,6 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
             }
 
             activateSettingStyles();
-        },
-
-        /**
-         * Returns an array of note types.
-         * @param input Characters in the note type's name. All note types
-         * are returned when input is undefined.
-         * @param callback
-         * @returns {*|Error}
-         */
-        getNoteTypes: function (input, callback) {
-            return $http.get('/note/type/json', {
-                params: {
-                    input: input
-                }
-            })
-                .success(function (res) {
-                    if (res.type === 'ack') {
-                        callback(null, res.types);
-                    } else {
-                        console.trace(res); // TODO
-                        callback('error getting note types');
-                    }
-                })
-                .error(function (error) {
-                    console.trace(error); // TODO
-                    callback('error getting note types');
-                });
         }
     };
 

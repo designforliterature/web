@@ -48,6 +48,10 @@
         <a id="open-left" ng-click="editorModel.drawer.toggle()"></a>
         <dropdown-menu model="editorModel.contentEditorMenu.selected_items"
                        menu-items="editorModel.contentEditorMenu.list"></dropdown-menu>
+        <span style="margin-left: 4px">
+            <select ng-model="editorModel.noteType"
+                    ng-options="n.name for n in editorModel.noteTypes"></select>
+        </span>
         <span id="documentBreadcrumb"></span>
     </div>
     <!-- The content -->
