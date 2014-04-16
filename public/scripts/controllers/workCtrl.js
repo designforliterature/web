@@ -14,7 +14,7 @@
 
 horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationService, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams, $modal, $http) {
 
-    function makeJtreeData(toc, jtreeData) { // TODO deal with a huge outline // TODO make recursive for all levels
+    function makeJtreeData(toc, jtreeData) { // TODO deal with a huge outline
         for (var i in toc) {
             var chunk = toc[i],
                 toplevelItem = {id: chunk.id, icon: false, text: chunk.title};
@@ -149,12 +149,24 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
                 console.trace(error); // TODO handle real error
             });
 
+        /**
+         * Get note types from server. Each note type object
+         * contains the following properties:
+         * name: the display name for the note type
+         * code: the note type's identifier
+         */
         getNoteTypes(undefined, function (err, noteTypes) {
             if (err) {
                 console.trace(err); // TODO
             } else {
+//                var t = [];
+//                for (var i in noteTypes) {
+//                    var type = noteTypes[i];
+//                    t.push({value: type.code, name: type.name, code: type.code});
+//                }
                 $scope.editorModel.noteTypes = noteTypes; // TODO tmp cache
                 $scope.editorModel.noteType = noteTypes[0];
+                $scope.editorModel.selectedNoteTypes = [noteTypes[0]]; // note types that should be visible TODO get from user prefs
             }
         });
     });
@@ -453,8 +465,11 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
 });
 /* End WorkCtrl */
 
+var UserPreferencesDialogCtrl = function ($scope, $modalInstance) {
 
-var MakeNoteDialogCtrl = function ($scope, $http, $modalInstance, note, EditorEngine, AnnotationService) {
+};
+
+var MakeNoteDialogCtrl = function ($scope, $modalInstance, note) {
 
     var tooltipPlacements = [ // Menu of possible tooltip placements
             {name: 'None', code: 'none'}, // default: no tooltip
