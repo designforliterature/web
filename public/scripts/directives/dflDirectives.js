@@ -151,7 +151,7 @@ horaceApp.directive('dflCatSearchResult', function ($state) {
         restrict: 'E', // matches only element dfl-cat-search-result only
         link: function (scope, element, attrs) {
             currScope = scope;
-            displaySearchResultHTML(scope.result.obj, element, attrs, scope.$index);
+            displaySearchResultHTML(scope.result, element, attrs, scope.$index);
         }
     };
 });

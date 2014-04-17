@@ -36,6 +36,7 @@ personCol.insert({fullName: 'Homer', description: 'Homer is a 20th century carto
 
 personCol.insert({fullName: 'Merrill, Elmer Truesdell', description: 'Late Rich Professor of Latin in Wesleyan University'});
 personCol.insert({fullName: 'Kleiman, Ruben', description: 'Hubby'});
+personCol.insert({fullName: 'Darío, Ruben', description: 'Poet'});
 //personCol.insert({fullName: '', description: ''});
 
 
