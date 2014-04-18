@@ -7,52 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/ext/nan.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/t.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/.travis.yml" afterPath="$PROJECT_DIR$/node_modules/mongodb/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/Readme.md" afterPath="$PROJECT_DIR$/node_modules/mongodb/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/admin.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/admin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection/aggregation.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection/aggregation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/base.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/binary.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/binary.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/binding.gyp" afterPath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/binding.gyp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/ext/bson.cc" afterPath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/ext/bson.cc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/bson.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/bson.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/builderror.log" afterPath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/builderror.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/kerberos/builderror.log" afterPath="$PROJECT_DIR$/node_modules/mongodb/node_modules/kerberos/builderror.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/gridfs/chunk.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/gridfs/chunk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/command_cursor.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/command_cursor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection/commands.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection/commands.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/connection.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/connection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/connection_pool.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/connection_pool.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection/core.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection/core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/cursor.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/cursor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/db.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/db.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/commands/db_command.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/commands/db_command.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/directives/dflDirectives.js" afterPath="$PROJECT_DIR$/public/scripts/directives/dflDirectives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/gridfs/gridstore.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/gridfs/gridstore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/repl_set/ha.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/repl_set/ha.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/index.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/ext/index.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/ext/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/init-db-populate.js" afterPath="$PROJECT_DIR$/scripts/init-db-populate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/services/CatalogService.js" afterPath="$PROJECT_DIR$/lib/services/CatalogService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/db/mongoDbManager.js" afterPath="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/mongo_client.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/mongo_client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/auth/mongodb_cr.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/auth/mongodb_cr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/mongos.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/mongos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/objectid.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/objectid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/package.json" afterPath="$PROJECT_DIR$/node_modules/mongodb/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/package.json" afterPath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/repl_set/strategies/ping_strategy.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/repl_set/strategies/ping_strategy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection/query.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection/query.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/commands/query_command.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/commands/query_command.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/gridfs/readstream.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/gridfs/readstream.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/repl_set/repl_set.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/repl_set/repl_set.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/scope.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/scope.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/server.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/server_capabilities.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/server_capabilities.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/repl_set/strategies/statistics_strategy.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/repl_set/strategies/statistics_strategy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/utils.js" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/utils.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -79,7 +35,7 @@
       <file leaf-file-name="searchCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/controllers/searchCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1471" selection-end="1471" vertical-scroll-proportion="0.0" vertical-offset="25" max-vertical-offset="900">
+            <state line="38" column="0" selection-start="1471" selection-end="1471" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1005">
               <folding />
             </state>
           </provider>
@@ -88,7 +44,7 @@
       <file leaf-file-name="catalogCtrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="248" column="0" selection-start="9976" selection-end="9976" vertical-scroll-proportion="0.0" vertical-offset="3240" max-vertical-offset="4320">
+            <state line="248" column="0" selection-start="9976" selection-end="9976" vertical-scroll-proportion="0.0" vertical-offset="3720" max-vertical-offset="4425">
               <folding />
             </state>
           </provider>
@@ -97,7 +53,7 @@
       <file leaf-file-name="mongoDbManager.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="228" column="40" selection-start="6851" selection-end="6851" vertical-scroll-proportion="0.29828572" vertical-offset="3054" max-vertical-offset="9660">
+            <state line="239" column="8" selection-start="7499" selection-end="7499" vertical-scroll-proportion="0.709236" vertical-offset="2858" max-vertical-offset="9735">
               <folding />
             </state>
           </provider>
@@ -106,10 +62,8 @@
       <file leaf-file-name="CatalogService.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/services/CatalogService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="26" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="1065">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="38" column="22" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.0" vertical-offset="23" max-vertical-offset="900">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,7 +80,7 @@
       <file leaf-file-name="catalog.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="206" column="0" selection-start="7595" selection-end="7595" vertical-scroll-proportion="0.0" vertical-offset="2698" max-vertical-offset="4635">
+            <state line="199" column="35" selection-start="7318" selection-end="7318" vertical-scroll-proportion="0.0" vertical-offset="2592" max-vertical-offset="4635">
               <folding />
             </state>
           </provider>
@@ -170,7 +124,6 @@
         <option value="$PROJECT_DIR$/public/scripts/services/editorSettings.js" />
         <option value="$PROJECT_DIR$/test-content/poem.txt" />
         <option value="$PROJECT_DIR$/public/sandbox.html" />
-        <option value="$PROJECT_DIR$/lib/services/CatalogService.js" />
         <option value="$PROJECT_DIR$/public/scripts/app/shared.js" />
         <option value="$PROJECT_DIR$/config/server-config.js" />
         <option value="$PROJECT_DIR$/lib/store/storeManager.js" />
@@ -210,6 +163,7 @@
         <option value="localhost:3000/scripts/vendor/angular/angular.js" />
         <option value="$PROJECT_DIR$/public/scripts/directives/dflDirectives.js" />
         <option value="$PROJECT_DIR$/scripts/init-db-populate.js" />
+        <option value="$PROJECT_DIR$/lib/services/CatalogService.js" />
         <option value="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
       </list>
     </option>
@@ -276,6 +230,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -606,7 +561,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -681,6 +635,14 @@
       <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -691,23 +653,15 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -1374,7 +1328,11 @@
       <created>1397761409180</created>
       <updated>1397761409180</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="new driver for mongodb 1.6; using find for text search instead of command&#10;">
+      <created>1397767464425</created>
+      <updated>1397767464425</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1399,26 +1357,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="616" y="22" width="1717" height="1418" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872504" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872504" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25076923" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24889247" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2606132" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3053846" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30491552" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34775087" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26651305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32846153" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25076923" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3031652" sideWeight="0.600624" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937598" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3031652" sideWeight="0.600624" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1436,9 +1394,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24889247" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2606132" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937598" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3031652" sideWeight="0.600624" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26651305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3031652" sideWeight="0.600624" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937598" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1455,7 +1413,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Popup option for notes with arbitrary placement" />
     <MESSAGE value="view menu with checkbox" />
     <MESSAGE value="added directive to handle contents dropdown" />
     <MESSAGE value="added directive to handle contents dropdown&#10;" />
@@ -1480,14 +1437,15 @@
     <MESSAGE value="show note type drop down on editor page" />
     <MESSAGE value="taming ui-multicombo" />
     <MESSAGE value="mongodb 2.6 params" />
-    <option name="LAST_COMMIT_MESSAGE" value="mongodb 2.6 params" />
+    <MESSAGE value="new driver for mongodb 1.6; using find for text search instead of command&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="new driver for mongodb 1.6; using find for text search instead of command&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="2028" />
+      <option name="time" value="2030" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1645,16 +1603,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/vendor/ui-multicombo/ui-multicombo.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="21" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="2790">
-          <folding />
-        </state>
+        <state line="37" column="21" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="2790" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/run-webserver.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="-1.8" vertical-offset="0" max-vertical-offset="135">
-          <folding />
-        </state>
+        <state line="3" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="-1.8" vertical-offset="0" max-vertical-offset="135" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/init-db.js">
@@ -1666,76 +1620,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="12" selection-start="1381" selection-end="1381" vertical-scroll-proportion="0.44469783" vertical-offset="105" max-vertical-offset="8010">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
+        <state line="33" column="12" selection-start="1381" selection-end="1381" vertical-scroll-proportion="0.44469783" vertical-offset="105" max-vertical-offset="8010" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="55" selection-start="3450" selection-end="3450" vertical-scroll-proportion="0.56858146" vertical-offset="445" max-vertical-offset="2025">
-          <folding />
-        </state>
+        <state line="62" column="55" selection-start="3450" selection-end="3450" vertical-scroll-proportion="0.56858146" vertical-offset="445" max-vertical-offset="2025" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="424" column="50" selection-start="8798" selection-end="8798" vertical-scroll-proportion="0.8460661" vertical-offset="5618" max-vertical-offset="6495">
-          <folding />
-        </state>
+        <state line="424" column="50" selection-start="8798" selection-end="8798" vertical-scroll-proportion="0.8460661" vertical-offset="5618" max-vertical-offset="6495" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/work.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="178" selection-start="2608" selection-end="2608" vertical-scroll-proportion="0.6951934" vertical-offset="187" max-vertical-offset="1110">
-          <folding />
-        </state>
+        <state line="52" column="178" selection-start="2608" selection-end="2608" vertical-scroll-proportion="0.6951934" vertical-offset="187" max-vertical-offset="1110" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/start_db.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="38" selection-start="308" selection-end="308" vertical-scroll-proportion="0.15845071" vertical-offset="0" max-vertical-offset="852">
-          <folding />
-        </state>
+        <state line="9" column="38" selection-start="308" selection-end="308" vertical-scroll-proportion="0.15845071" vertical-offset="0" max-vertical-offset="852" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1272">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1272" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="30" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1395">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="23" column="30" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1395" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/utilities/generalUtils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="62" column="12" selection-start="2417" selection-end="2417" vertical-scroll-proportion="0.33257142" vertical-offset="534" max-vertical-offset="1785">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/services/CatalogService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="26" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="1065">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/search/searchManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="28" selection-start="916" selection-end="916" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
           <folding />
         </state>
       </provider>
@@ -1752,22 +1672,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="0" selection-start="7595" selection-end="7595" vertical-scroll-proportion="0.0" vertical-offset="2698" max-vertical-offset="4635">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/directives/dflDirectives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="6" selection-start="5889" selection-end="5889" vertical-scroll-proportion="-0.15429235" vertical-offset="2353" max-vertical-offset="6300">
-          <folding>
-            <marker date="1397763372000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1397763372000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1397763372000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="155" column="6" selection-start="5889" selection-end="5889" vertical-scroll-proportion="-0.15429235" vertical-offset="2353" max-vertical-offset="6300" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/searchCtrl.js">
@@ -1786,14 +1693,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/init-db-populate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="22" selection-start="3541" selection-end="3541" vertical-scroll-proportion="0.53944314" vertical-offset="135" max-vertical-offset="2895">
+        <state line="47" column="22" selection-start="3541" selection-end="3541" vertical-scroll-proportion="0.53944314" vertical-offset="135" max-vertical-offset="2895" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="199" column="35" selection-start="7318" selection-end="7318" vertical-scroll-proportion="0.0" vertical-offset="2592" max-vertical-offset="4635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/search/searchManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="28" selection-start="916" selection-end="916" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/services/CatalogService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="22" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.0" vertical-offset="23" max-vertical-offset="900">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="40" selection-start="6851" selection-end="6851" vertical-scroll-proportion="0.29828572" vertical-offset="3054" max-vertical-offset="9660">
+        <state line="239" column="8" selection-start="7499" selection-end="7499" vertical-scroll-proportion="0.709236" vertical-offset="2858" max-vertical-offset="9735">
           <folding />
         </state>
       </provider>
