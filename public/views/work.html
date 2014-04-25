@@ -41,25 +41,21 @@
 </div>
 
 <!-- The content and editing area -->
-<div id="tocDrawer" class="snap-content">
+<div id="drawerEditorContent" class="snap-content">
+
     <!-- Editor content menubar -->
     <div>
-        <!-- Toggles the navigation drawer -->
+        <!-- Editing menus and breadcrumb -->
         <a id="open-left" ng-click="editorModel.drawer.toggle()"></a>
         <dropdown-menu model="editorModel.contentEditorMenu.selected_items"
                        menu-items="editorModel.contentEditorMenu.list"></dropdown-menu>
 
-        <span id="documentBreadcrumb"></span>
-        <span style="vertical-align: middle;font-size: 10px;font-weight: bold" ui-mcombo-choices="editorModel.noteTypes" ui-mcombo-selected="editorModel.selectedNoteTypes"></span>
-        <!--<ul>-->
-            <!--<li ng-repeat="choice in editorModel.selectedNoteTypes">{{choice.text}}</li>-->
-        <!--</ul>-->
+        <span id="documentBreadcrumb" />
 
-        <!--<span style="margin-left: 4px">-->
-            <!--<select ng-model="editorModel.noteType"-->
-                    <!--ng-options="n.name for n in editorModel.noteTypes"></select>-->
-        <!--</span>-->
+        <span style="margin-left: 20px;font-weight: bold">Notes: </span>
+        <span id="foobar" style="height:20px;vertical-align: middle;font-size: 10px;font-weight: bold" ui-mcombo-choices="editorModel.noteTypes" ui-mcombo-selected="editorModel.selectedNoteTypes"></span>
     </div>
+
     <!-- The content -->
     <div id="editorContent">
         <div style="position: absolute;top:10px;z-index: 1" ng-include="license.html"></div>

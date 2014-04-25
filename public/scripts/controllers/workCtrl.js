@@ -12,7 +12,7 @@
 'use strict';
 
 
-horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationService, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams, $modal, $http) {
+horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationService, WorkDirectoryService, EditorSettings, UserPrefs, $stateParams, $modal, $http, $compile) {
 
     function makeJtreeData(toc, jtreeData) { // TODO deal with a huge outline
         for (var i in toc) {
@@ -159,14 +159,9 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
             if (err) {
                 console.trace(err); // TODO
             } else {
-//                var t = [];
-//                for (var i in noteTypes) {
-//                    var type = noteTypes[i];
-//                    t.push({value: type.code, name: type.name, code: type.code});
-//                }
-                $scope.editorModel.noteTypes = noteTypes; // TODO tmp cache
                 $scope.editorModel.noteType = noteTypes[0];
-                $scope.editorModel.selectedNoteTypes = [noteTypes[0]]; // note types that should be visible TODO get from user prefs
+                $scope.editorModel.selectedNoteTypes = [noteTypes[0]]; // TODO get from user prefs
+                $scope.editorModel.noteTypes = noteTypes.slice(1); // TODO tmp cache
             }
         });
     });
@@ -196,7 +191,7 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
     }
 
     /* Drawer for the table of contents and other goodies */
-    var drawer = new Drawer('tocDrawer');
+    var drawer = new Drawer('drawerEditorContent');
 
     $scope.editorModel = {
 
@@ -240,7 +235,13 @@ horaceApp.controller('WorkCtrl', function ($scope, EditorEngine, AnnotationServi
                     type: 'checkbox',
                     selected: false, // model (initial state)
                     onSelect: function () {
-                        alert('Hide Notes not implemented'); // TODO get actual sid
+                        var count = $scope.editorModel.selectedNoteTypes.length, i;
+                        for (i=0;i<count;i += 1) {
+                            $scope.editorModel.noteTypes.push($scope.editorModel.selectedNoteTypes[i]);
+                        }
+                        $scope.editorModel.selectedNoteTypes = [];
+                        var compiled = $compile($('#foobar')[0]);
+                        compiled($scope);
                     }
                 },
                 printContent: {

@@ -176,11 +176,6 @@ horaceApp.controller('CatalogCtrl', function ($scope, $http, $timeout, $upload) 
             notify: dflGlobals.defaultNotify /* eventually part of user prefs */
         },
 
-//        /* goBrowse: Go browse TODO unfinished */
-//        goBrowse: function () {
-//            document.location = 'index.html#/browse/';
-//        },
-
         /* saveMetadata: creates or updates a catalog item's metadata using a form */
         saveMetadata: function () {
 
