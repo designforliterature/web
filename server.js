@@ -25,7 +25,7 @@ var express = require('express'),
     routes = require('./lib/routes'),
     session = require('./lib/session'),
     cookieParser,
-    appUtils = require('./lib/utilities/generalUtils.js'),
+    generalUtils = require('./lib/utilities/generalUtils.js'),
 
     app = express(),
     httpServer = require('http').createServer(app),
@@ -52,7 +52,6 @@ app.configure(function () {
     app.set('db', db); // Our wrapper to the DB implementation
     app.set('routes', routes); // Our router
     app.set('session', session); // Our session management
-    app.set('appUtils', appUtils); // Our app's utilities
     app.set('views', path.join(__dirname, 'lib/views'));  // Our app's views
     app.set('view engine', 'hjs'); // The HJS engine
     app.use(express.favicon(__dirname + '/app/images/favicon.ico'));
@@ -64,12 +63,12 @@ app.configure(function () {
     db.use(app, function (err) { // First initialize our DB wrapper
         if (err) {
             console.error(err);
-            throw {type: 'fatal', msg: 'DB not created: ' + err};
+            throw new generalUtils.DFLCondition('fatal', 'DB not created: ' + err);
         } else {
             routes.use(app, function (err) { // Then initialize the router, which relies on our DB being initialized
                 if (err) {
                     console.error(err);
-                    throw {type: 'fatal', msg: 'Routes not created: ' + err};
+                    throw new generalUtils.DFLCondition('fatal', 'Routes not created: ' + err);
                 }
             });
 
