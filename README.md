@@ -11,7 +11,7 @@ features now available (April 7, 2014). (See *Roadmap*, below.)
 
 Information about this project: http://designforliterature.com or <info@designforliterature.com>.
 
-To contact Ruben Kleiman: <rk@designforliterature.com> or <rk@post.harvard.edu>.
+To contact Ruben Kleiman: <rk@designforliterature.com>
 
 ## Single-Machine, Development Installation
 
@@ -31,32 +31,32 @@ The target architecture is based on various services and clients: All services
 communicate via HTTP or through the Queue Service
 
 #### Client
-This is an HTML5/CSS3/JS/ANGULARJS client for browsers. As much processing as possible
-is delegated to it.
+This is an HTML5/CSS3/JS/ANGULARJS client for browsers.
 
 #### Web Server
-This is a NODEJS/EXPRESS service. It handles basic client
+A NODEJS/EXPRESS service. It handles basic client
 processing (templates, data translation, user authentication, etc.)
 
 #### Exchange Service
 Services requests by external APIs and parties, permitting the
-APIs among the DFL services to develop independently of existing "standards."
+APIs among the DFL services to develop independently of other standards.
 
 #### Queue Service
-This is a persistent, distributed queue (probably Kafka) through which
+A persistent, distributed queue (probably Kafka) through which
 various services delegate work.
 
 #### Search Service
-This will probably be a SOLR/Lucene service. The service will
-handle indexing and search for catalogs and for content. It picks
+A search and indexing  service for catalogs and for content. It picks
 up requests either through HTTP or from the Queue Service.
+Though in the reference model this is currently implemented via MongoDB Text Search,
+this will probably be a SOLR/Lucene service.
 
 #### Content Service
-This service stores and retrieves catalog metadata or content. It picks up requests
-from the Queue Service and HTTP.
+Stores and retrieves catalog metadata or content.
 
 #### Lemma Service
-Handles storage and provision of lexicon look-ups by clients.
+Handles storage and provision of lexicon look-ups by clients
+for various Indoeuropean languages.
 
 #### Exchange Service
 Provides RDF and other APIs conforming to external parties
