@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Starts the database
+# Starts the MongoDB database
 
 # This assumes that your PATH will access the mongodb command
 # and that you have created the database directory /data/db (you can

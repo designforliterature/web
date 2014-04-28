@@ -7,30 +7,60 @@
  *
  */
 
-/* To tweak V8:
- *  node --v8-options
- */
 
 /**
- * web app entry point.
+ * Web server entry point.
+ *
+ * Installation: see README.md
+ *
+ * Configuration: The server's configuration is specified in ./config/server-config.js
+ *
+ * Startup:
+ *   1. Ensure DB is running (./scripts/start_db.js)
+ *   2. Start node server (./scripts/run-webserver.js)
+ *
+ * To tweak V8 engine: node --v8-options
  */
+
 "use strict";
 
-var express = require('express'),
-    path = require('path'),
-    sessionSockets,
+var
+// We use the express wrapper for REST and modularity of APIs
+    express = require('express'),
+
+// Websockets used for real-time interactions and notifications
     io = require('socket.io'),
 
+// Make websockets session-aware
+    sessionSockets,
+
+// Path context
+    path = require('path'),
+
+// The database plugin. Here, we use MongoDB
     db = require('./lib/db/mongoDbManager.js'),
+
+// The REST endpoints
     routes = require('./lib/routes'),
+
+// Activate the express wrapper [after routes are available]
+    app = express(),
+
+// The persistent (DB-based) session manager
     session = require('./lib/session'),
+
     cookieParser,
+
+// Our application's utilties, including error wrappers
     generalUtils = require('./lib/utilities/generalUtils.js'),
 
-    app = express(),
+// The http server
     httpServer = require('http').createServer(app),
+
+// Environment variables for node context
     env = app.get('env'),
 
+// Our application server's configuration information for the current environment.
     config = require('./config/server-config.js')(env);
 
 console.info('Environment: %s\nLocation: %s\nConfiguration:\n',
@@ -44,14 +74,12 @@ app.configure(function () {
             showStack: true
         }));
     }
-    app.use(express.bodyParser());
+    app.use(express.bodyParser()); // Parse body params, etc.
     app.use(express.methodOverride());
 //    app.use(express.logger());
-    app.set('dirname', __dirname); // Root directory name
-    app.set('config', config); // Our app's configuration object
-    app.set('db', db); // Our wrapper to the DB implementation
-    app.set('routes', routes); // Our router
-    app.set('session', session); // Our session management
+    app.set('config', config); // Provide the app's configuration object
+    app.set('db', db); // Provide DB handle
+    app.set('session', session); // Provide session management handle
     app.set('views', path.join(__dirname, 'lib/views'));  // Our app's views
     app.set('view engine', 'hjs'); // The HJS engine
     app.use(express.favicon(__dirname + '/app/images/favicon.ico'));
@@ -64,8 +92,8 @@ app.configure(function () {
         if (err) {
             console.error(err);
             throw new generalUtils.DFLCondition('fatal', 'DB not created: ' + err);
-        } else {
-            routes.use(app, function (err) { // Then initialize the router, which relies on our DB being initialized
+        } else { // Then initialize the router, which relies on our DB being initialized
+            routes.use(app, function (err) {
                 if (err) {
                     console.error(err);
                     throw new generalUtils.DFLCondition('fatal', 'Routes not created: ' + err);
