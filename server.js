@@ -90,13 +90,11 @@ app.configure(function () {
     app.use(express['static'](path.join(__dirname, 'public'))); // Configure our app's static page server
     db.use(app, function (err) { // First initialize our DB wrapper
         if (err) {
-            console.error(err);
-            throw new generalUtils.DFLCondition('fatal', 'DB not created: ' + err);
+            throw err;
         } else { // Then initialize the router, which relies on our DB being initialized
             routes.use(app, function (err) {
                 if (err) {
-                    console.error(err);
-                    throw new generalUtils.DFLCondition('fatal', 'Routes not created: ' + err);
+                    throw err;
                 }
             });
 
@@ -111,4 +109,3 @@ var port = config.rest.port || process.env.DFL_SERVER_PORT || 80;
 // Start the server
 httpServer.listen(port);
 console.info('HTTP server listening on port %d, environment=%s', port, env);
-
