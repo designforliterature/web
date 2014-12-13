@@ -6,13 +6,14 @@
     <option name="CUSTOM_SCOPE_NAME" value="web" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="refactored and solidied error handling&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Node_js_Dependencies_for_web.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Node_js_Dependencies_for_web.xml" />
+    <list default="true" id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/vendor/angular-snap/angular-snap-only.css.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
     <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,19 +33,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="mongoDbManager.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
+      <file leaf-file-name="workCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="3" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9960">
+            <state vertical-scroll-proportion="0.0" vertical-offset="6720" max-vertical-offset="7920">
+              <caret line="455" column="32" selection-start-line="455" selection-start-column="32" selection-end-line="455" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server.js">
+      <file leaf-file-name="work.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/work.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="0" selection-start="3740" selection-end="3740" vertical-scroll-proportion="0.8289624" vertical-offset="773" max-vertical-offset="1650">
+            <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1050">
+              <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="annotationService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/annotationService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1275">
+              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appModule.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/app/appModule.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="855">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="840">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editorSettings.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/editorSettings.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="645">
+              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editorEngine.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2142273" vertical-offset="2138" max-vertical-offset="5205">
+              <caret line="167" column="77" selection-start-line="167" selection-start-column="77" selection-end-line="167" selection-end-column="77" />
+              <folding>
+                <marker date="1397524827000" expanded="false" signature="14945:14964" placeholder="..." />
+                <marker date="1397524827000" expanded="false" signature="15298:15318" placeholder="..." />
+                <marker date="1397524827000" expanded="false" signature="15356:15376" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="813" max-vertical-offset="2025">
+              <caret line="80" column="34" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shared.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="21585">
+              <caret line="81" column="12" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -75,62 +152,11 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/public/scripts/app/appModule.js" root0="SKIP_INSPECTION" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="changedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/config/server-config.js" />
-        <option value="$PROJECT_DIR$/test-content/poem-mod.txt" />
-        <option value="$PROJECT_DIR$/scripts/db_methods.js" />
-        <option value="$PROJECT_DIR$/scripts/init-db.js" />
-        <option value="$PROJECT_DIR$/public/scripts/services/annotationService.js" />
-        <option value="$PROJECT_DIR$/public/views/makeNoteDialog.html" />
-        <option value="$PROJECT_DIR$/public/scripts/services/editorEngine.js" />
-        <option value="$PROJECT_DIR$/public/scripts/services/workDirectoryService.js" />
-        <option value="$PROJECT_DIR$/public/styles/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
-        <option value="$PROJECT_DIR$/public/styles/vendor/ui-multiselect/ui-multiselect.css" />
-        <option value="$PROJECT_DIR$/public/scripts/vendor/ui-multiselect/ui-multiselect.js" />
-        <option value="$PROJECT_DIR$/public/template/ui-multiselect.html" />
-        <option value="$PROJECT_DIR$/public/test/test-ui-multiple/demo.js" />
-        <option value="$PROJECT_DIR$/public/test/test-ui-multiple/demo.css" />
-        <option value="$PROJECT_DIR$/public/test/test-ui-multiple/ui-multiselect.js" />
-        <option value="$PROJECT_DIR$/public/test/test-ui-multiple/events.js" />
-        <option value="$PROJECT_DIR$/public/test/test-ui-multiple/ui-multiselect.css" />
-        <option value="$PROJECT_DIR$/public/test/test-ui-multiple/ui-multiselect.html" />
-        <option value="$PROJECT_DIR$/public/test/test-ui-multiple/demo.html" />
-        <option value="$PROJECT_DIR$/public/test/test-ui-multicombo/bootstrap.css" />
-        <option value="$PROJECT_DIR$/public/test/test-ui-multicombo/ui-multicombo.css" />
-        <option value="$PROJECT_DIR$/public/test/test-ui-multicombo/ui-multicombo.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/public/test/test-ui-multicombo/demo.html" />
-        <option value="$PROJECT_DIR$/public/scripts/vendor/ui-multicombo/ui-multicombo.js" />
-        <option value="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/index.js" />
-        <option value="localhost:3000/scripts/vendor/angular/angular.js" />
-        <option value="$PROJECT_DIR$/public/scripts/directives/dflDirectives.js" />
-        <option value="$PROJECT_DIR$/scripts/init-db-populate.js" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js" />
-        <option value="$PROJECT_DIR$/public/styles/vendor/ui-multicombo/ui-multicombo.css" />
-        <option value="$PROJECT_DIR$/public/styles/app.css" />
-        <option value="$PROJECT_DIR$/public/views/work.html" />
-        <option value="$PROJECT_DIR$/public/scripts/controllers/workCtrl.js" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/scripts/start_db.sh" />
-        <option value="$PROJECT_DIR$/lib/store/storeManager.js" />
-        <option value="$PROJECT_DIR$/lib/session/index.js" />
-        <option value="$PROJECT_DIR$/lib/model/schema.js" />
-        <option value="$PROJECT_DIR$/lib/routes/sockets.js" />
-        <option value="$PROJECT_DIR$/lib/routes/users.js" />
-        <option value="$PROJECT_DIR$/lib/services/workService.js" />
-        <option value="$PROJECT_DIR$/lib/services/CatalogService.js" />
-        <option value="$PROJECT_DIR$/lib/routes/catalog.js" />
-        <option value="$PROJECT_DIR$/lib/routes/index.js" />
-        <option value="$PROJECT_DIR$/lib/utilities/generalUtils.js" />
-        <option value="$PROJECT_DIR$/lib/db/mongoDbManager.js" />
-        <option value="$PROJECT_DIR$/lib/routes/sys.js" />
-        <option value="$PROJECT_DIR$/lib/search/searchManager.js" />
-        <option value="$PROJECT_DIR$/lib/services/personService.js" />
-        <option value="$PROJECT_DIR$/server.js" />
-      </list>
-    </option>
+  <component name="JsGruntFileManager">
+    <initial>false</initial>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
   </component>
   <component name="NamedScopeManager">
     <scope name="app" pattern="((file:lib/models//*||file:lib/routes//*||file:lib/services//*||file:lib/session//*||file:lib/utilities//*||file:lib/views//*||file:public/scripts//*||file:public/styles//*||file:public/views//*||file:public/template/tabs//*||file:public/template/tooltip//*||file:server.js)&amp;&amp;!file:public/styles/vendor/angularUI//*&amp;&amp;!file:public/scripts/vendor/angularUI//*&amp;&amp;!file:public/scripts/vendor//*||file:lib/db//*)&amp;&amp;!file:.idea//*||file:lib/model/schema.js||file:lib/search/searchManager.js||file:lib/store/storeManager.js||file:public/about.html||file:public/index.html||file:public/signinHelp.html||file:public/404.html||file:public/robots.txt||file:public/template/accordion/accordion-group.html||file:public/template/accordion/accordion.html||file:public/template/progressbar/bar.html||file:public/template/progressbar/progress.html||file:public/template/pagination/pager.html||file:public/template/pagination/pagination.html||file:public/template/typeahead/typeahead-match.html||file:public/template/typeahead/typeahead-popup.html||file:scripts/init-db-populate.js||file:scripts/init-db.js" />
@@ -138,10 +164,10 @@
     <scope name="server" pattern="file:lib/db/*||file:lib/routes/*||file:lib/services/*||file:lib/services/methods/*||file:lib/session/*||file:lib/store/*||file:lib/utilities/*||file:lib/views/*||file:public/scripts/app/schema.js||file:package.json||file:server.js||file:lib/model//*" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="616" />
+    <option name="x" value="636" />
     <option name="y" value="22" />
-    <option name="width" value="1717" />
-    <option name="height" value="1418" />
+    <option name="width" value="1567" />
+    <option name="height" value="1380" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -182,7 +208,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -222,6 +248,280 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test-text-selection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test-jtree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sizzle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sizzle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -240,7 +540,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
+              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -285,6 +585,8 @@
     <property name="LayoutCode.rearrangeEntriesJSON" value="false" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
     <property name="LayoutCode.rearrangeEntriesCSS" value="false" />
+    <property name="editorconfig.notification" value="Applied .editorconfig settings" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -305,7 +607,7 @@
       <recent name="$PROJECT_DIR$/public/test-text-selection" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.server.js JavaScript">
+  <component name="RunManager" selected="Node.js.server.js">
     <configuration default="false" name="test.html" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" temporary="true" uri="http://localhost:63342/web/public/test/test-text-selection/test-text-selection.html">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
@@ -315,18 +617,40 @@
       <envs>
         <env name="DFL_SERVER_PORT" value="3000" />
       </envs>
-      <browser start="true" name="Chrome" url="http://localhost:3000/index.html" with-js-debugger="true" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" start="true" with-js-debugger="true" url="http://localhost:3000/index.html" />
       <RunnerSettings RunnerId="NodeJS.debug" />
       <RunnerSettings RunnerId="NodeJS.run" />
       <ConfigurationWrapper RunnerId="NodeJS.debug" />
       <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
-      <browser start="false" url="" with-js-debugger="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" />
+      <option name="executablePath" />
+      <option name="filePath" />
       <method />
     </configuration>
     <configuration default="false" name="server.js JavaScript" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" uri="http://localhost:3000/index.html">
@@ -339,680 +663,1000 @@
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.test.html" />
       <item index="2" class="java.lang.String" itemvalue="Node.js.server.js" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.server.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SpellCheckerSettings" BundledDictionaries="4" BundledDictionary0="jetbrains.dic" BundledDictionary1="english.dic" BundledDictionary2="less.dic" BundledDictionary3="css.dic" Folders="0" Dictionaries="0" />
   <component name="StructureViewFactory">
     <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
   </component>
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  <component name="SvnConfiguration" myUseAcceleration="nothing">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="34fe100a-3868-4462-bc09-7260d92943e7" name="Default" comment="" />
       <created>1383943093706</created>
+      <option name="number" value="Default" />
       <updated>1383943093706</updated>
     </task>
     <task id="LOCAL-00001" summary="First dev checkin.">
       <created>1386468481904</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
       <updated>1386468481904</updated>
     </task>
     <task id="LOCAL-00002" summary="First dev checkin.">
       <created>1386633129542</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
       <updated>1386633129542</updated>
     </task>
     <task id="LOCAL-00003" summary="First dev checkin.">
       <created>1386633528913</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
       <updated>1386633528913</updated>
     </task>
     <task id="LOCAL-00004" summary="First dev checkin.">
       <created>1386634237154</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
       <updated>1386634237154</updated>
     </task>
     <task id="LOCAL-00005" summary="First dev checkin.">
       <created>1386634295614</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
       <updated>1386634295614</updated>
     </task>
     <task id="LOCAL-00006" summary="First dev checkin.">
       <created>1386634528983</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
       <updated>1386634528983</updated>
     </task>
     <task id="LOCAL-00007" summary="First dev checkin.">
       <created>1386635289093</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
       <updated>1386635289093</updated>
     </task>
     <task id="LOCAL-00008" summary="First dev checkin.">
       <created>1386635976149</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
       <updated>1386635976149</updated>
     </task>
     <task id="LOCAL-00009" summary="First dev checkin.">
       <created>1386640227509</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
       <updated>1386640227509</updated>
     </task>
     <task id="LOCAL-00010" summary="editor controller and service">
       <created>1389209484899</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
       <updated>1389209484899</updated>
     </task>
     <task id="LOCAL-00011" summary="editor controller and service&#10;">
       <created>1389233438406</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
       <updated>1389233438406</updated>
     </task>
     <task id="LOCAL-00012" summary="Added (1) note popups, and (2) verse line numbering.">
       <created>1389333607761</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
       <updated>1389333607761</updated>
     </task>
     <task id="LOCAL-00013" summary="cataloger for poems; poem/verse raw text parsing into internal structure; uploader for raw text">
       <created>1389684560978</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
       <updated>1389684560978</updated>
     </task>
     <task id="LOCAL-00014" summary="refactored editor engine, settings; added socket.io capability; systematized app tagging mechanism">
       <created>1390166710861</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
       <updated>1390166710861</updated>
     </task>
     <task id="LOCAL-00015" summary="sharing js between node.js and client; definitions cleanup">
       <created>1390174944665</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
       <updated>1390174944665</updated>
     </task>
     <task id="LOCAL-00016" summary="errorSocket communicates errors between client and server; tidied-up catalog and isolated catalog import/export methods">
       <created>1390355971816</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
       <updated>1390355971816</updated>
     </task>
     <task id="LOCAL-00017" summary="added notification system for push info from server">
       <created>1390526531831</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
       <updated>1390526531831</updated>
     </task>
     <task id="LOCAL-00018" summary="Added transaction service (websocket). Refactored notifications and config service.">
       <created>1390875869906</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
       <updated>1390875869906</updated>
     </task>
     <task id="LOCAL-00019" summary="websocket state saved in session object; socket handling session-specific.">
       <created>1390955324101</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
       <updated>1390955324101</updated>
     </task>
     <task id="LOCAL-00020" summary="simplified socket management; upgraded versions">
       <created>1391207433388</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
       <updated>1391207433388</updated>
     </task>
     <task id="LOCAL-00021" summary="Added store layer to wrap db; separated saving catalog from data submissions; homogenized error and operation return hierarchy and callback methods">
       <created>1391488104090</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
       <updated>1391488104090</updated>
     </task>
     <task id="LOCAL-00022" summary="changed submitter into catalog page (a center for find, browse, submit, and related operations), and factored out js into controller.">
       <created>1391561895853</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
       <updated>1391561895853</updated>
     </task>
     <task id="LOCAL-00023" summary="added catalog search API; cleaned up">
       <created>1392173547805</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
       <updated>1392173547805</updated>
     </task>
     <task id="LOCAL-00024" summary="added local jquery lib">
       <created>1392175262421</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
       <updated>1392175262421</updated>
     </task>
     <task id="LOCAL-00025" summary="search checkin">
       <created>1392245615511</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
       <updated>1392245615511</updated>
     </task>
     <task id="LOCAL-00026" summary="catalog ui; refactoring">
       <created>1392430709607</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
       <updated>1392430709607</updated>
     </task>
     <task id="LOCAL-00027" summary="safety checkin">
       <created>1392769818685</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
       <updated>1392769818685</updated>
     </task>
     <task id="LOCAL-00028" summary="appCtrl.js is now the global (highest level) controller for the app. Responsible for reseting state on page reloads, etc.">
       <created>1392923840410</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
       <updated>1392923840410</updated>
     </task>
     <task id="LOCAL-00029" summary="Updated to latest angular and angular-ui.">
       <created>1392948666330</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
       <updated>1392948666330</updated>
     </task>
     <task id="LOCAL-00030" summary="Catalog UI enhancements">
       <created>1392960226269</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
       <updated>1392960226269</updated>
     </task>
     <task id="LOCAL-00031" summary="separating catalog versions client/server">
       <created>1393018388397</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
       <updated>1393018388397</updated>
     </task>
     <task id="LOCAL-00032" summary="generalized catalog ui. cleanups.">
       <created>1393115812980</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
       <updated>1393115812980</updated>
     </task>
     <task id="LOCAL-00033" summary="readme">
       <created>1393118945119</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
       <updated>1393118945119</updated>
     </task>
     <task id="LOCAL-00034" summary="catalog field specs">
       <created>1393145569274</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
       <updated>1393145569274</updated>
     </task>
     <task id="LOCAL-00035" summary="placeholder directive">
       <created>1393145862081</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
       <updated>1393145862081</updated>
     </task>
     <task id="LOCAL-00036" summary="added .idea project setup">
       <created>1393183392152</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
       <updated>1393183392152</updated>
     </task>
     <task id="LOCAL-00037" summary="specs for each field in context of work type; more data-driven validation">
       <created>1393198020150</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
       <updated>1393198020150</updated>
     </task>
     <task id="LOCAL-00038" summary="search catalog">
       <created>1393208226973</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
       <updated>1393208226973</updated>
     </task>
     <task id="LOCAL-00039" summary="Basic earch workflow running.">
       <created>1393214049288</created>
+      <option name="number" value="00039" />
+      <option name="project" value="LOCAL" />
       <updated>1393214049288</updated>
     </task>
     <task id="LOCAL-00040" summary="presenting search results">
       <created>1393217735222</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
       <updated>1393217735222</updated>
     </task>
     <task id="LOCAL-00041" summary="more search ui; typeahead lookup of publisher addresses&#10;">
       <created>1393292900602</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
       <updated>1393292900602</updated>
     </task>
     <task id="LOCAL-00042" summary="validators and xformers autogenerated">
       <created>1393320965441</created>
+      <option name="number" value="00042" />
+      <option name="project" value="LOCAL" />
       <updated>1393320965441</updated>
     </task>
     <task id="LOCAL-00043" summary="debug infra; consolidated directives">
       <created>1393364370542</created>
+      <option name="number" value="00043" />
+      <option name="project" value="LOCAL" />
       <updated>1393364370542</updated>
     </task>
     <task id="LOCAL-00044" summary="field descriptors extended&#10;">
       <created>1393388828441</created>
+      <option name="number" value="00044" />
+      <option name="project" value="LOCAL" />
       <updated>1393388828441</updated>
     </task>
     <task id="LOCAL-00045" summary="field subspecs; search result directive">
       <created>1393404550427</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
       <updated>1393404550427</updated>
     </task>
     <task id="LOCAL-00046" summary="New icons and search fixups">
       <created>1393468154348</created>
+      <option name="number" value="00046" />
+      <option name="project" value="LOCAL" />
       <updated>1393468154348</updated>
     </task>
     <task id="LOCAL-00047" summary="Content upload&#10;">
       <created>1393489328948</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
       <updated>1393489328948</updated>
     </task>
     <task id="LOCAL-00048" summary="node modules&#10;">
       <created>1393549222950</created>
+      <option name="number" value="00048" />
+      <option name="project" value="LOCAL" />
       <updated>1393549222950</updated>
     </task>
     <task id="LOCAL-00049" summary="node modules&#10;">
       <created>1393549310608</created>
+      <option name="number" value="00049" />
+      <option name="project" value="LOCAL" />
       <updated>1393549310608</updated>
     </task>
     <task id="LOCAL-00050" summary="node modules&#10;">
       <created>1393549524329</created>
+      <option name="number" value="00050" />
+      <option name="project" value="LOCAL" />
       <updated>1393549524329</updated>
     </task>
     <task id="LOCAL-00051" summary="node modules&#10;">
       <created>1393549672702</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
       <updated>1393549672702</updated>
     </task>
     <task id="LOCAL-00052" summary="node modules&#10;">
       <created>1393550201638</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
       <updated>1393550201638</updated>
     </task>
     <task id="LOCAL-00053" summary="node modules&#10;">
       <created>1393550432282</created>
+      <option name="number" value="00053" />
+      <option name="project" value="LOCAL" />
       <updated>1393550432282</updated>
     </task>
     <task id="LOCAL-00054" summary="node modules&#10;">
       <created>1393550532899</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
       <updated>1393550532899</updated>
     </task>
     <task id="LOCAL-00055" summary="node modules&#10;">
       <created>1393551782317</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
       <updated>1393551782318</updated>
     </task>
     <task id="LOCAL-00056" summary="node modules&#10;">
       <created>1393552462881</created>
+      <option name="number" value="00056" />
+      <option name="project" value="LOCAL" />
       <updated>1393552462881</updated>
     </task>
     <task id="LOCAL-00057" summary="poetry contents upload and update from raw file">
       <created>1393567255171</created>
+      <option name="number" value="00057" />
+      <option name="project" value="LOCAL" />
       <updated>1393567255172</updated>
     </task>
     <task id="LOCAL-00058" summary="poetry contents upload and update from raw file (2)&#10;">
       <created>1393568210689</created>
+      <option name="number" value="00058" />
+      <option name="project" value="LOCAL" />
       <updated>1393568210689</updated>
     </task>
     <task id="LOCAL-00059" summary="db startup script enables text indexing">
       <created>1393621712932</created>
+      <option name="number" value="00059" />
+      <option name="project" value="LOCAL" />
       <updated>1393621712932</updated>
     </task>
     <task id="LOCAL-00060" summary="some work on content chunking for poetry">
       <created>1393642816989</created>
+      <option name="number" value="00060" />
+      <option name="project" value="LOCAL" />
       <updated>1393642816989</updated>
     </task>
     <task id="LOCAL-00061" summary="some work on content chunking for poetry&#10;">
       <created>1393649886755</created>
+      <option name="number" value="00061" />
+      <option name="project" value="LOCAL" />
       <updated>1393649886755</updated>
     </task>
     <task id="LOCAL-00062" summary="improved stack trace on errors">
       <created>1393708905156</created>
+      <option name="number" value="00062" />
+      <option name="project" value="LOCAL" />
       <updated>1393708905156</updated>
     </task>
     <task id="LOCAL-00063" summary="fixed typo">
       <created>1393709616605</created>
+      <option name="number" value="00063" />
+      <option name="project" value="LOCAL" />
       <updated>1393709616605</updated>
     </task>
     <task id="LOCAL-00064" summary="git ignore mod">
       <created>1393710416746</created>
+      <option name="number" value="00064" />
+      <option name="project" value="LOCAL" />
       <updated>1393710416746</updated>
     </task>
     <task id="LOCAL-00065" summary="ui work: catalog field enable/disable; edit button; some refactoring">
       <created>1393725330318</created>
+      <option name="number" value="00065" />
+      <option name="project" value="LOCAL" />
       <updated>1393725330319</updated>
     </task>
     <task id="LOCAL-00066" summary="pretty print results">
       <created>1393886057465</created>
+      <option name="number" value="00066" />
+      <option name="project" value="LOCAL" />
       <updated>1393886057465</updated>
     </task>
     <task id="LOCAL-00067" summary="added icons; shared.js cleanup">
       <created>1393898245551</created>
+      <option name="number" value="00067" />
+      <option name="project" value="LOCAL" />
       <updated>1393898245551</updated>
     </task>
     <task id="LOCAL-00068" summary="adding dynamic routing to editor/reader">
       <created>1393920615778</created>
+      <option name="number" value="00068" />
+      <option name="project" value="LOCAL" />
       <updated>1393920615778</updated>
     </task>
     <task id="LOCAL-00069" summary="Changed to ui-router for greater flexibility">
       <created>1393975823398</created>
+      <option name="number" value="00069" />
+      <option name="project" value="LOCAL" />
       <updated>1393975823398</updated>
     </task>
     <task id="LOCAL-00070" summary="Fetch work from search result&#10;">
       <created>1393986459183</created>
+      <option name="number" value="00070" />
+      <option name="project" value="LOCAL" />
       <updated>1393986459183</updated>
     </task>
     <task id="LOCAL-00071" summary="Presentating a work">
       <created>1393999029724</created>
+      <option name="number" value="00071" />
+      <option name="project" value="LOCAL" />
       <updated>1393999029724</updated>
     </task>
     <task id="LOCAL-00072" summary="More pretty printing; search result directive delegates to controller.&#10;">
       <created>1394010984239</created>
+      <option name="number" value="00072" />
+      <option name="project" value="LOCAL" />
       <updated>1394010984239</updated>
     </task>
     <task id="LOCAL-00073" summary="readme update">
       <created>1394011617356</created>
+      <option name="number" value="00073" />
+      <option name="project" value="LOCAL" />
       <updated>1394011617356</updated>
     </task>
     <task id="LOCAL-00074" summary="readme update&#10;">
       <created>1394012287800</created>
+      <option name="number" value="00074" />
+      <option name="project" value="LOCAL" />
       <updated>1394012287800</updated>
     </task>
     <task id="LOCAL-00075" summary="readme update&#10;">
       <created>1394012325390</created>
+      <option name="number" value="00075" />
+      <option name="project" value="LOCAL" />
       <updated>1394012325390</updated>
     </task>
     <task id="LOCAL-00076" summary="readme update&#10;">
       <created>1394012493010</created>
+      <option name="number" value="00076" />
+      <option name="project" value="LOCAL" />
       <updated>1394012493010</updated>
     </task>
     <task id="LOCAL-00077" summary="readme update&#10;">
       <created>1394014011641</created>
+      <option name="number" value="00077" />
+      <option name="project" value="LOCAL" />
       <updated>1394014011641</updated>
     </task>
     <task id="LOCAL-00078" summary="readme update&#10;">
       <created>1394014098145</created>
+      <option name="number" value="00078" />
+      <option name="project" value="LOCAL" />
       <updated>1394014098145</updated>
     </task>
     <task id="LOCAL-00079" summary="db content&#10;">
       <created>1394059154063</created>
+      <option name="number" value="00079" />
+      <option name="project" value="LOCAL" />
       <updated>1394059154064</updated>
     </task>
     <task id="LOCAL-00080" summary="added search manager (separate from store) to isolate search">
       <created>1394137242693</created>
+      <option name="number" value="00080" />
+      <option name="project" value="LOCAL" />
       <updated>1394137242693</updated>
     </task>
     <task id="LOCAL-00081" summary="docs">
       <created>1394144763939</created>
+      <option name="number" value="00081" />
+      <option name="project" value="LOCAL" />
       <updated>1394144763939</updated>
     </task>
     <task id="LOCAL-00082" summary="readme update">
       <created>1394151254449</created>
+      <option name="number" value="00082" />
+      <option name="project" value="LOCAL" />
       <updated>1394151254449</updated>
     </task>
     <task id="LOCAL-00083" summary="person indexing and search; autocompletion">
       <created>1394330145167</created>
+      <option name="number" value="00083" />
+      <option name="project" value="LOCAL" />
       <updated>1394330145167</updated>
     </task>
     <task id="LOCAL-00084" summary="added tern tree algo">
       <created>1394330199876</created>
+      <option name="number" value="00084" />
+      <option name="project" value="LOCAL" />
       <updated>1394330199876</updated>
     </task>
     <task id="LOCAL-00085" summary="author autocompletion; db init scripts">
       <created>1394412316805</created>
+      <option name="number" value="00085" />
+      <option name="project" value="LOCAL" />
       <updated>1394412316805</updated>
     </task>
     <task id="LOCAL-00086" summary="typos">
       <created>1394413877488</created>
+      <option name="number" value="00086" />
+      <option name="project" value="LOCAL" />
       <updated>1394413877488</updated>
     </task>
     <task id="LOCAL-00087" summary="citations using Chicago Manual of Style; work presentation UI, work storage, pagination; added Merrill's Catullus text">
       <created>1394530992168</created>
+      <option name="number" value="00087" />
+      <option name="project" value="LOCAL" />
       <updated>1394530992168</updated>
     </task>
     <task id="LOCAL-00088" summary="page controls">
       <created>1394574605441</created>
+      <option name="number" value="00088" />
+      <option name="project" value="LOCAL" />
       <updated>1394574605441</updated>
     </task>
     <task id="LOCAL-00089" summary="mongodb mgr">
       <created>1394575264441</created>
+      <option name="number" value="00089" />
+      <option name="project" value="LOCAL" />
       <updated>1394575264441</updated>
     </task>
     <task id="LOCAL-00090" summary="mongodb mgr&#10;">
       <created>1394575297209</created>
+      <option name="number" value="00090" />
+      <option name="project" value="LOCAL" />
       <updated>1394575297209</updated>
     </task>
     <task id="LOCAL-00091" summary="mongodb mgr&#10;">
       <created>1394575404516</created>
+      <option name="number" value="00091" />
+      <option name="project" value="LOCAL" />
       <updated>1394575404516</updated>
     </task>
     <task id="LOCAL-00092" summary="mongodb mgr&#10;">
       <created>1394575510434</created>
+      <option name="number" value="00092" />
+      <option name="project" value="LOCAL" />
       <updated>1394575510434</updated>
     </task>
     <task id="LOCAL-00093" summary="mongodb mgr&#10;">
       <created>1394575949233</created>
+      <option name="number" value="00093" />
+      <option name="project" value="LOCAL" />
       <updated>1394575949233</updated>
     </task>
     <task id="LOCAL-00094" summary="mongodb mgr&#10;">
       <created>1394581872576</created>
+      <option name="number" value="00094" />
+      <option name="project" value="LOCAL" />
       <updated>1394581872576</updated>
     </task>
     <task id="LOCAL-00095" summary="mongodb mgr&#10;">
       <created>1394582000912</created>
+      <option name="number" value="00095" />
+      <option name="project" value="LOCAL" />
       <updated>1394582000912</updated>
     </task>
     <task id="LOCAL-00096" summary="chunk save &amp; TOC handling">
       <created>1394667009270</created>
+      <option name="number" value="00096" />
+      <option name="project" value="LOCAL" />
       <updated>1394667009270</updated>
     </task>
     <task id="LOCAL-00097" summary="chunk save &amp; TOC handling; generalized for any type of document&#10;">
       <created>1394687629731</created>
+      <option name="number" value="00097" />
+      <option name="project" value="LOCAL" />
       <updated>1394687629731</updated>
     </task>
     <task id="LOCAL-00098" summary="toc outliner">
       <created>1394749618909</created>
+      <option name="number" value="00098" />
+      <option name="project" value="LOCAL" />
       <updated>1394749618909</updated>
     </task>
     <task id="LOCAL-00099" summary="toc outliner&#10;">
       <created>1394749656094</created>
+      <option name="number" value="00099" />
+      <option name="project" value="LOCAL" />
       <updated>1394749656094</updated>
     </task>
     <task id="LOCAL-00100" summary="toc outliner&#10;">
       <created>1394749666285</created>
+      <option name="number" value="00100" />
+      <option name="project" value="LOCAL" />
       <updated>1394749666285</updated>
     </task>
     <task id="LOCAL-00101" summary="checkpoint on work dir&#10;">
       <created>1394851222850</created>
+      <option name="number" value="00101" />
+      <option name="project" value="LOCAL" />
       <updated>1394851222850</updated>
     </task>
     <task id="LOCAL-00102" summary="angular-animate checkin">
       <created>1394851278155</created>
+      <option name="number" value="00102" />
+      <option name="project" value="LOCAL" />
       <updated>1394851278155</updated>
     </task>
     <task id="LOCAL-00103" summary="line numbering">
       <created>1394931910164</created>
+      <option name="number" value="00103" />
+      <option name="project" value="LOCAL" />
       <updated>1394931910164</updated>
     </task>
     <task id="LOCAL-00104" summary="toplevel menu; parser fixes">
       <created>1395002474815</created>
+      <option name="number" value="00104" />
+      <option name="project" value="LOCAL" />
       <updated>1395002474815</updated>
     </task>
     <task id="LOCAL-00105" summary="update README">
       <created>1395002930764</created>
+      <option name="number" value="00105" />
+      <option name="project" value="LOCAL" />
       <updated>1395002930764</updated>
     </task>
     <task id="LOCAL-00106" summary="update README&#10;">
       <created>1395003057325</created>
+      <option name="number" value="00106" />
+      <option name="project" value="LOCAL" />
       <updated>1395003057325</updated>
     </task>
     <task id="LOCAL-00107" summary="separate search controller">
       <created>1395005015607</created>
+      <option name="number" value="00107" />
+      <option name="project" value="LOCAL" />
       <updated>1395005015607</updated>
     </task>
     <task id="LOCAL-00108" summary="signin goes to catalog; search box added to toplevel menu">
       <created>1395015203348</created>
+      <option name="number" value="00108" />
+      <option name="project" value="LOCAL" />
       <updated>1395015203348</updated>
     </task>
     <task id="LOCAL-00109" summary="rename fun">
       <created>1395015489203</created>
+      <option name="number" value="00109" />
+      <option name="project" value="LOCAL" />
       <updated>1395015489203</updated>
     </task>
     <task id="LOCAL-00110" summary="refactored non-angularjs globals">
       <created>1395016808297</created>
+      <option name="number" value="00110" />
+      <option name="project" value="LOCAL" />
       <updated>1395016808297</updated>
     </task>
     <task id="LOCAL-00111" summary="consolidated stray client-side vars into dflGlobals">
       <created>1395086744438</created>
+      <option name="number" value="00111" />
+      <option name="project" value="LOCAL" />
       <updated>1395086744438</updated>
     </task>
     <task id="LOCAL-00112" summary="removed poetryMethods.js: parser generalized for all types of forms">
       <created>1395087823436</created>
+      <option name="number" value="00112" />
+      <option name="project" value="LOCAL" />
       <updated>1395087823437</updated>
     </task>
     <task id="LOCAL-00113" summary="refactoring; added logoff and registration">
       <created>1395095487144</created>
+      <option name="number" value="00113" />
+      <option name="project" value="LOCAL" />
       <updated>1395095487144</updated>
     </task>
     <task id="LOCAL-00114" summary="changed uses of $location with ui-route's $state">
       <created>1395105399436</created>
+      <option name="number" value="00114" />
+      <option name="project" value="LOCAL" />
       <updated>1395105399436</updated>
     </task>
     <task id="LOCAL-00115" summary="added menubar controller">
       <created>1395112292663</created>
+      <option name="number" value="00115" />
+      <option name="project" value="LOCAL" />
       <updated>1395112292663</updated>
     </task>
     <task id="LOCAL-00116" summary="bug fixes; smoother session management">
       <created>1395120014474</created>
+      <option name="number" value="00116" />
+      <option name="project" value="LOCAL" />
       <updated>1395120014474</updated>
     </task>
     <task id="LOCAL-00117" summary="consolidated css declarations">
       <created>1395120310986</created>
+      <option name="number" value="00117" />
+      <option name="project" value="LOCAL" />
       <updated>1395120310986</updated>
     </task>
     <task id="LOCAL-00118" summary="cleaned up app.css">
       <created>1395120394345</created>
+      <option name="number" value="00118" />
+      <option name="project" value="LOCAL" />
       <updated>1395120394345</updated>
     </task>
     <task id="LOCAL-00119" summary="cleaned up app.css&#10;">
       <created>1395124056565</created>
+      <option name="number" value="00119" />
+      <option name="project" value="LOCAL" />
       <updated>1395124056566</updated>
     </task>
     <task id="LOCAL-00120" summary="more navigation; better search result spacing">
       <created>1395131257213</created>
+      <option name="number" value="00120" />
+      <option name="project" value="LOCAL" />
       <updated>1395131257213</updated>
     </task>
     <task id="LOCAL-00121" summary="table of contents &amp; other aids in a drawer">
       <created>1395181921729</created>
+      <option name="number" value="00121" />
+      <option name="project" value="LOCAL" />
       <updated>1395181921729</updated>
     </task>
     <task id="LOCAL-00122" summary="write document location for contents and button to open/close TOC">
       <created>1395183718183</created>
+      <option name="number" value="00122" />
+      <option name="project" value="LOCAL" />
       <updated>1395183718183</updated>
     </task>
     <task id="LOCAL-00123" summary="tweaked navigation">
       <created>1395186523689</created>
+      <option name="number" value="00123" />
+      <option name="project" value="LOCAL" />
       <updated>1395186523689</updated>
     </task>
     <task id="LOCAL-00124" summary="simple, easy multilevel TOC navigation; drawers clean-up">
       <created>1395213838632</created>
+      <option name="number" value="00124" />
+      <option name="project" value="LOCAL" />
       <updated>1395213838632</updated>
     </task>
     <task id="LOCAL-00125" summary="simple, easy multilevel TOC navigation; drawers clean-up&#10;">
       <created>1395262883055</created>
+      <option name="number" value="00125" />
+      <option name="project" value="LOCAL" />
       <updated>1395262883055</updated>
     </task>
     <task id="LOCAL-00126" summary="generalized traversal; annotation insertion &amp; highlighting; note creation dialog; more cleanup &amp; generalization">
       <created>1395385360561</created>
+      <option name="number" value="00126" />
+      <option name="project" value="LOCAL" />
       <updated>1395385360561</updated>
     </task>
     <task id="LOCAL-00127" summary="refactored some WorkCtrl methods into EditorEngine service">
       <created>1395386976928</created>
+      <option name="number" value="00127" />
+      <option name="project" value="LOCAL" />
       <updated>1395386976928</updated>
     </task>
     <task id="LOCAL-00128" summary="renamed EditorEngine2 -&gt; EditorEngine">
       <created>1395387239701</created>
+      <option name="number" value="00128" />
+      <option name="project" value="LOCAL" />
       <updated>1395387239701</updated>
     </task>
     <task id="LOCAL-00129" summary="Popup option for notes with arbitrary placement">
       <created>1395468948790</created>
+      <option name="number" value="00129" />
+      <option name="project" value="LOCAL" />
       <updated>1395468948790</updated>
     </task>
     <task id="LOCAL-00130" summary="view menu with checkbox">
       <created>1395520245934</created>
+      <option name="number" value="00130" />
+      <option name="project" value="LOCAL" />
       <updated>1395520245934</updated>
     </task>
     <task id="LOCAL-00131" summary="added directive to handle contents dropdown">
       <created>1395530245848</created>
+      <option name="number" value="00131" />
+      <option name="project" value="LOCAL" />
       <updated>1395530245848</updated>
     </task>
     <task id="LOCAL-00132" summary="added directive to handle contents dropdown&#10;">
       <created>1395542280585</created>
+      <option name="number" value="00132" />
+      <option name="project" value="LOCAL" />
       <updated>1395542280585</updated>
     </task>
     <task id="LOCAL-00133" summary="Creative Commons license; cosmetic fixes to editor page">
       <created>1396555438808</created>
+      <option name="number" value="00133" />
+      <option name="project" value="LOCAL" />
       <updated>1396555438808</updated>
     </task>
     <task id="LOCAL-00134" summary="content/toc alignment">
       <created>1396567124033</created>
+      <option name="number" value="00134" />
+      <option name="project" value="LOCAL" />
       <updated>1396567124033</updated>
     </task>
     <task id="LOCAL-00135" summary="refactored annotation creation codebase">
       <created>1396570852385</created>
+      <option name="number" value="00135" />
+      <option name="project" value="LOCAL" />
       <updated>1396570852385</updated>
     </task>
     <task id="LOCAL-00136" summary="annotation service">
       <created>1396635717621</created>
+      <option name="number" value="00136" />
+      <option name="project" value="LOCAL" />
       <updated>1396635717621</updated>
     </task>
     <task id="LOCAL-00137" summary="adding make note transaction">
       <created>1397078456685</created>
+      <option name="number" value="00137" />
+      <option name="project" value="LOCAL" />
       <updated>1397078456685</updated>
     </task>
     <task id="LOCAL-00138" summary="exporter canonicalizes rendered HTML into chunk content format&#10;">
       <created>1397107112854</created>
+      <option name="number" value="00138" />
+      <option name="project" value="LOCAL" />
       <updated>1397107112854</updated>
     </task>
     <task id="LOCAL-00139" summary="bug fix to canonicalization">
       <created>1397108594976</created>
+      <option name="number" value="00139" />
+      <option name="project" value="LOCAL" />
       <updated>1397108594977</updated>
     </task>
     <task id="LOCAL-00140" summary="tooltip enabling method">
       <created>1397153796597</created>
+      <option name="number" value="00140" />
+      <option name="project" value="LOCAL" />
       <updated>1397153796597</updated>
     </task>
     <task id="LOCAL-00141" summary="'sections' are now 'children'">
       <created>1397160861193</created>
+      <option name="number" value="00141" />
+      <option name="project" value="LOCAL" />
       <updated>1397160861193</updated>
     </task>
     <task id="LOCAL-00142" summary="chunk fetch strictly on demand">
       <created>1397161992837</created>
+      <option name="number" value="00142" />
+      <option name="project" value="LOCAL" />
       <updated>1397161992837</updated>
     </task>
     <task id="LOCAL-00143" summary="factored out cache from work directory">
       <created>1397168994683</created>
+      <option name="number" value="00143" />
+      <option name="project" value="LOCAL" />
       <updated>1397168994683</updated>
     </task>
     <task id="LOCAL-00144" summary="Adding notes to chunks">
       <created>1397429253193</created>
+      <option name="number" value="00144" />
+      <option name="project" value="LOCAL" />
       <updated>1397429253193</updated>
     </task>
     <task id="LOCAL-00145" summary="TODO for note save; fixed bug in canonicalizer">
       <created>1397430793999</created>
+      <option name="number" value="00145" />
+      <option name="project" value="LOCAL" />
       <updated>1397430793999</updated>
     </task>
     <task id="LOCAL-00146" summary="readme edits">
       <created>1397431033068</created>
+      <option name="number" value="00146" />
+      <option name="project" value="LOCAL" />
       <updated>1397431033068</updated>
     </task>
     <task id="LOCAL-00147" summary="update db startup instructions">
       <created>1397431427508</created>
+      <option name="number" value="00147" />
+      <option name="project" value="LOCAL" />
       <updated>1397431427508</updated>
     </task>
     <task id="LOCAL-00148" summary="readme update">
       <created>1397431582043</created>
+      <option name="number" value="00148" />
+      <option name="project" value="LOCAL" />
       <updated>1397431582043</updated>
     </task>
     <task id="LOCAL-00149" summary="note types; drop dbs on db_init">
       <created>1397514719162</created>
+      <option name="number" value="00149" />
+      <option name="project" value="LOCAL" />
       <updated>1397514719162</updated>
     </task>
     <task id="LOCAL-00150" summary="renamed editor and makeNote models; added notes &amp; maxSid to chunkInfo">
       <created>1397525143583</created>
+      <option name="number" value="00150" />
+      <option name="project" value="LOCAL" />
       <updated>1397525143583</updated>
     </task>
     <task id="LOCAL-00151" summary="show note type drop down on editor page">
       <created>1397526965597</created>
+      <option name="number" value="00151" />
+      <option name="project" value="LOCAL" />
       <updated>1397526965597</updated>
     </task>
     <task id="LOCAL-00152" summary="taming ui-multicombo">
       <created>1397671831777</created>
+      <option name="number" value="00152" />
+      <option name="project" value="LOCAL" />
       <updated>1397671831777</updated>
     </task>
     <task id="LOCAL-00153" summary="mongodb 2.6 params">
       <created>1397761409180</created>
+      <option name="number" value="00153" />
+      <option name="project" value="LOCAL" />
       <updated>1397761409180</updated>
     </task>
     <task id="LOCAL-00154" summary="new driver for mongodb 1.6; using find for text search instead of command&#10;">
       <created>1397767464425</created>
+      <option name="number" value="00154" />
+      <option name="project" value="LOCAL" />
       <updated>1397767464425</updated>
     </task>
     <task id="LOCAL-00155" summary="search bug fix">
       <created>1397780290910</created>
+      <option name="number" value="00155" />
+      <option name="project" value="LOCAL" />
       <updated>1397780290910</updated>
     </task>
     <task id="LOCAL-00156" summary="renaming; hide notes">
       <created>1398394527758</created>
+      <option name="number" value="00156" />
+      <option name="project" value="LOCAL" />
       <updated>1398394527758</updated>
     </task>
     <task id="LOCAL-00157" summary="README edits">
       <created>1398715699334</created>
+      <option name="number" value="00157" />
+      <option name="project" value="LOCAL" />
       <updated>1398715699334</updated>
     </task>
     <task id="LOCAL-00158" summary="DFLCondition subsumes all conditions (error, ack, etc.)">
       <created>1398722638724</created>
+      <option name="number" value="00158" />
+      <option name="project" value="LOCAL" />
       <updated>1398722638724</updated>
     </task>
     <task id="LOCAL-00159" summary="add doc">
       <created>1398723979418</created>
+      <option name="number" value="00159" />
+      <option name="project" value="LOCAL" />
       <updated>1398723979418</updated>
     </task>
     <task id="LOCAL-00160" summary="Use makeUUID with base date to improve re-indexing performance">
       <created>1398794716334</created>
+      <option name="number" value="00160" />
+      <option name="project" value="LOCAL" />
       <updated>1398794716334</updated>
     </task>
     <task id="LOCAL-00161" summary="refactored and solidied error handling">
       <created>1398805905348</created>
+      <option name="number" value="00161" />
+      <option name="project" value="LOCAL" />
       <updated>1398805905348</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="ignore eb">
+      <created>1408994555044</created>
+      <option name="number" value="00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1408994555044</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1036,30 +1680,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="616" y="22" width="1717" height="1418" extended-state="0" />
-    <editor active="true" />
+    <frame x="636" y="22" width="1567" height="1380" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872504" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32846153" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24889247" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2600236" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30491552" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24838293" sideWeight="0.600624" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34023285" sideWeight="0.8440208" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34775087" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26615384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32846153" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24923077" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29001585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30537975" sideWeight="0.49929774" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Grunt" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26615384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937598" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3031652" sideWeight="0.600624" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -1085,7 +1730,10 @@
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USERS">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
   </component>
@@ -1098,7 +1746,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="adding make note transaction" />
     <MESSAGE value="exporter canonicalizes rendered HTML into chunk content format&#10;" />
     <MESSAGE value="bug fix to canonicalization" />
     <MESSAGE value="tooltip enabling method" />
@@ -1123,95 +1770,260 @@
     <MESSAGE value="add doc" />
     <MESSAGE value="Use makeUUID with base date to improve re-indexing performance" />
     <MESSAGE value="refactored and solidied error handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored and solidied error handling" />
+    <MESSAGE value="ignore eb" />
+    <option name="LAST_COMMIT_MESSAGE" value="ignore eb" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js</url>
+          <line>110</line>
+          <option name="timeStamp" value="2045" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="2044" />
+      <option name="time" value="2046" />
     </breakpoint-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/test/test-ui-multiple/ui-multiselect.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/sandbox.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test/test-ui-multiple/event.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test/test-ui-multiple/demo.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test/test-ui-multiple/ui-multiselect.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/angular/angular.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test/test-ui-multiple/demo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test/test-ui-multiple/demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test/test-ui-multicombo/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test/test-ui-multicombo/ui-multicombo.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test/test-ui-multiple/ui-multiselect.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/ui-multicombo/ui-multicombo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test/test-ui-multicombo/ui-multicombo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/init-db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2505" max-vertical-offset="5310">
+          <caret line="167" column="52" selection-start-line="167" selection-start-column="52" selection-end-line="167" selection-end-column="52" />
+          <folding>
+            <marker date="1397524827000" expanded="false" signature="14945:14964" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15298:15318" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15356:15376" placeholder="..." />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="813" max-vertical-offset="2025">
+          <caret line="80" column="34" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/index.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3150" max-vertical-offset="21690">
+          <caret line="210" column="6" selection-start-line="141" selection-start-column="0" selection-end-line="210" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/work.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="224" max-vertical-offset="1050">
+          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1695" max-vertical-offset="8025">
+          <caret line="113" column="64" selection-start-line="113" selection-start-column="64" selection-end-line="113" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorSettings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="645">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/workDirectoryService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2715" max-vertical-offset="3315">
+          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="5310">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="31" />
+          <folding>
+            <marker date="1397524827000" expanded="false" signature="14945:14964" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15298:15318" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15356:15376" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="813" max-vertical-offset="2025">
+          <caret line="80" column="34" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3150" max-vertical-offset="21690">
+          <caret line="210" column="6" selection-start-line="141" selection-start-column="0" selection-end-line="210" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/work.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="224" max-vertical-offset="1050">
+          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1995" max-vertical-offset="8025">
+          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorSettings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/workDirectoryService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1953" max-vertical-offset="3210">
+          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2646" max-vertical-offset="5310">
+          <caret line="195" column="27" selection-start-line="195" selection-start-column="8" selection-end-line="195" selection-end-column="27" />
+          <folding>
+            <marker date="1397524827000" expanded="false" signature="14945:14964" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15298:15318" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15356:15376" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3150" max-vertical-offset="21690">
+          <caret line="210" column="6" selection-start-line="141" selection-start-column="0" selection-end-line="210" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/work.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1995" max-vertical-offset="8025">
+          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorSettings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/workDirectoryService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1953" max-vertical-offset="3210">
+          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2646" max-vertical-offset="5310">
+          <caret line="195" column="27" selection-start-line="195" selection-start-column="8" selection-end-line="195" selection-end-column="27" />
+          <folding>
+            <marker date="1397524827000" expanded="false" signature="14945:14964" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15298:15318" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15356:15376" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3150" max-vertical-offset="21690">
+          <caret line="210" column="6" selection-start-line="141" selection-start-column="0" selection-end-line="210" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/work.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1995" max-vertical-offset="8025">
+          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorSettings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/workDirectoryService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2336" max-vertical-offset="3210">
+          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2646" max-vertical-offset="5310">
+          <caret line="195" column="27" selection-start-line="195" selection-start-column="8" selection-end-line="195" selection-end-column="27" />
+          <folding>
+            <marker date="1397524827000" expanded="false" signature="14945:14964" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15298:15318" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15356:15376" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3150" max-vertical-offset="21690">
+          <caret line="210" column="6" selection-start-line="141" selection-start-column="0" selection-end-line="210" selection-end-column="6" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="http://localhost:3000/scripts/vendor/angular/angular.js">
@@ -1219,182 +2031,170 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/directives/dflDirectives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/searchCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/init-db-populate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test/test-ui-multicombo/demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/styles/vendor/ui-multicombo/ui-multicombo.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/styles/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/run-webserver.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/start_db.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/vendor/uuid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/work.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/store/storeManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/server-config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/connect/lib/proto.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/WebStorm7/extLibs/nodejs-v0.10.26-src/core-modules-sources/lib/module.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/index.js">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state vertical-scroll-proportion="0.33261105" vertical-offset="593" max-vertical-offset="14055">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/utilities/generalUtils.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/angular-route/angular-route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state vertical-scroll-proportion="0.33261105" vertical-offset="12833" max-vertical-offset="13905">
+          <caret line="876" column="33" selection-start-line="876" selection-start-column="33" selection-end-line="876" selection-end-column="33" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/mongo_client.js">
+    <entry file="file://$PROJECT_DIR$/public/views/makeNoteDialog.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state vertical-scroll-proportion="0.23359288" vertical-offset="0" max-vertical-offset="900">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/sockets.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/workDirectoryService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1953" max-vertical-offset="3210">
+          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/sys.js">
+    <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="813" max-vertical-offset="2025">
+          <caret line="80" column="34" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/search/searchManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2205">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/services/CatalogService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/services/personService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/services/workService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/session/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/routes/catalog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state vertical-scroll-proportion="-3.5769231" vertical-offset="3255" max-vertical-offset="4665">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/model/schema.js">
+    <entry file="file://$PROJECT_DIR$/lib/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/db/mongoDbManager.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorSettings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="3" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9960">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/appModule.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="0" selection-start="3740" selection-end="3740" vertical-scroll-proportion="0.8289624" vertical-offset="773" max-vertical-offset="1650">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/test/test-jtree/test-jtree.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8811881" vertical-offset="222" max-vertical-offset="1620">
+          <caret line="86" column="9" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/socketsService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="2550">
+          <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/catalogCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4245">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/appCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/styles/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35384616" vertical-offset="1801" max-vertical-offset="6495">
+          <caret line="140" column="17" selection-start-line="140" selection-start-column="17" selection-end-line="140" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/vendor/sizzle/test/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-67.5" vertical-offset="0" max-vertical-offset="3720">
+          <caret line="108" column="25" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/annotationService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="1275">
+          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/work.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1050">
+          <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/controllers/workCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6488" max-vertical-offset="7920">
+          <caret line="455" column="32" selection-start-line="455" selection-start-column="32" selection-end-line="455" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/shared.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="21585">
+          <caret line="81" column="12" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/editorEngine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2142273" vertical-offset="2138" max-vertical-offset="5205">
+          <caret line="167" column="77" selection-start-line="167" selection-start-column="77" selection-end-line="167" selection-end-column="77" />
+          <folding>
+            <marker date="1397524827000" expanded="false" signature="14945:14964" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15298:15318" placeholder="..." />
+            <marker date="1397524827000" expanded="false" signature="15356:15376" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1421,4 +2221,3 @@
     </states>
   </component>
 </project>
-
