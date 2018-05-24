@@ -18,7 +18,7 @@ To contact Ruben Kleiman: <rk@designforliterature.com>
 ##### IMPORTANT: this is an early, pre-release version, so it's not recommended that you install it yet--not to mention to use it. But if you do install it and encounter any problems getting the initial screen/page (not bugs!), please report them to me.
 
 - Install (1) `git`, (2) latest `nodejs`, and (3) `MongoDB 2.4.x`
-- Open a Unix shell and clone this git directory: `git clone https://github.com/design4literature/web`
+- Open a Unix shell and clone this repository
 - To start the DB server, execute the shell script `web/scripts/start_db.sh`. **Read the instructions
 in the latter file before starting the server for the first time.**
 - To run the server, in a Unix shell cd to the cloned web directory and run the script `scripts/run-webserver.sh`
@@ -34,7 +34,7 @@ communicate via HTTP or through the Queue Service
 This is an HTML5/CSS3/JS/ANGULARJS client for browsers.
 
 #### Web Server
-A NODEJS/EXPRESS service. It handles basic client
+A NODEJS service. It handles basic client
 processing (templates, data translation, user authentication, etc.)
 
 #### Exchange Service
@@ -49,7 +49,7 @@ various services delegate work.
 A search and indexing  service for catalogs and for content. It picks
 up requests either through HTTP or from the Queue Service.
 Though in the reference model this is currently implemented via MongoDB Text Search,
-this will probably be a SOLR/Lucene service.
+this will be an elasticsearch service.
 
 #### Content Service
 Stores and retrieves catalog metadata or content.
